@@ -1,3 +1,30 @@
 Command (Tests\Feature\Playground\Make\Model\Console\Commands\About\Command)
  [x] Command about displays package information and succeed with code 0
 
+Command (Tests\Feature\Playground\Make\Model\Console\Commands\ModelMakeCommand\Command)
+ [x] Command without options or arguments
+ [x] Command skeleton
+ [x] Command with invalid file
+
+Configuration (Tests\Feature\Playground\Make\Model\Console\Commands\ModelMakeCommand\Configuration)
+ [x] Command with file skeleton and force
+
+Model (Tests\Feature\Playground\Make\Model\Console\Commands\ModelMakeCommand\Model)
+ [x] Command make model with force
+ [x] Command make playground model api with force
+ [x] Command make playground model resource with force
+ [x] Command make all playground model api with force
+ [x] Command make all playground model resource with force
+
+Options (Tests\Feature\Playground\Make\Model\Console\Commands\ModelMakeCommand\Options)
+ [x] Command make model with all of the option flags except test
+ [x] Command make model with pivot type
+ [x] Command make model with pivot option
+ [x] Command make model with morph pivot type
+ [x] Command make model with morph pivot option
+ [x] Command make model with api type
+ [x] Command make model with abstract type
+ [x] Command make model with model type
+ [x] Command make model with api controller option
+ [x] Command make model with resource controller option
+
