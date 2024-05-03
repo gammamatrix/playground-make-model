@@ -1,6 +1,10 @@
 Command (Tests\Feature\Playground\Make\Model\Console\Commands\About\Command)
  [x] Command about displays package information and succeed with code 0
 
+Command (Tests\Feature\Playground\Make\Model\Console\Commands\FactoryMakeCommand\Command)
+ [x] Command without options or arguments
+ [x] Command skeleton
+
 Command (Tests\Feature\Playground\Make\Model\Console\Commands\ModelMakeCommand\Command)
  [x] Command without options or arguments
  [x] Command skeleton
@@ -8,6 +12,10 @@ Command (Tests\Feature\Playground\Make\Model\Console\Commands\ModelMakeCommand\C
 
 Configuration (Tests\Feature\Playground\Make\Model\Console\Commands\ModelMakeCommand\Configuration)
  [x] Command with file skeleton and force
+
+Model (Tests\Feature\Playground\Make\Model\Console\Commands\FactoryMakeCommand\Model)
+ [x] Command make factory with force and without skeleton
+ [x] Command make factory with force and with skeleton
 
 Model (Tests\Feature\Playground\Make\Model\Console\Commands\ModelMakeCommand\Model)
  [x] Command make model with force
