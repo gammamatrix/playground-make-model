@@ -9,7 +9,6 @@ namespace Playground\Make\Model\Console\Commands;
 use Illuminate\Console\Concerns\CreatesMatchingTest;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
-// use Illuminate\Foundation\Console\ModelMakeCommand as BaseModelMakeCommand;
 use Playground\Make\Building\Concerns;
 use Playground\Make\Configuration\Contracts\PrimaryConfiguration as PrimaryConfigurationContract;
 use Playground\Make\Configuration\Model as Configuration;
