@@ -63,37 +63,6 @@ class ModelMakeCommand extends GeneratorCommand
      */
     protected PrimaryConfigurationContract $c;
 
-    // const CONFIGURATION = [
-    //     'organization' => '',
-    //     'package' => 'app',
-    //     'module' => '',
-    //     'module_slug' => '',
-    //     'fqdn' => '',
-    //     'namespace' => '',
-    //     'model' => '',
-    //     'name' => '',
-    //     'class' => '',
-    //     'type' => '',
-    //     'table' => '',
-    //     'extends' => '',
-    //     'implements' => [],
-    //     'factory' => false,
-    //     'migration' => false,
-    //     'policy' => false,
-    //     'seed' => false,
-    //     'test' => false,
-    //     'HasOne' => [],
-    //     'HasMany' => [],
-    //     'scopes' => [],
-    //     'attributes' => [],
-    //     'casts' => [],
-    //     'fillable' => [],
-    //     'filters' => [],
-    //     'models' => [],
-    //     'sortable' => [],
-    //     'create' => [],
-    // ];
-
     const SEARCH = [
         'class' => '',
         'module' => '',
