@@ -1,9 +1,9 @@
 <?php
-
-declare(strict_types=1);
 /**
  * Playground
  */
+
+declare(strict_types=1);
 namespace Playground\Make\Model\Configuration;
 
 use Playground\Make\Configuration\PrimaryConfiguration;

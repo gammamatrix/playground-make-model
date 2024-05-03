@@ -371,7 +371,7 @@ class MigrationMakeCommand extends GeneratorCommand
      */
     protected function getStub(): string
     {
-        $template = 'laravel/migration.stub';
+        $template = 'model/migration.stub';
 
         if ($this->c->create()) {
             $template = 'model/migration.create.stub';
