@@ -11,7 +11,7 @@ use Playground\Make\Model\Console\Commands\ModelMakeCommand;
 use Tests\Feature\Playground\Make\Model\TestCase;
 
 /**
- * \Tests\Feature\Playground\Make\Model\Console\Commands\ModelMakeCommand
+ * \Tests\Feature\Playground\Make\Model\Console\Commands\ModelMakeCommand\CommandTest
  */
 #[CoversClass(ModelMakeCommand::class)]
 class CommandTest extends TestCase

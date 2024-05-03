@@ -37,6 +37,18 @@ trait FileTrait
             );
 
         //
+        // Factories
+        //
+
+        } elseif (in_array($type, [
+            'factory-model',
+        ])) {
+            $file = sprintf(
+                '%1$s/resources/testing/configurations/test.factory.crm.contact.json',
+                $package_base
+            );
+
+        //
         // Migrations
         //
 
