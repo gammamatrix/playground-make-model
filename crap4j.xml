@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-05-03 04:46:28</timestamp>
+  <timestamp>2024-05-03 17:51:26</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>67</methodCount>
-    <crapMethodCount>4</crapMethodCount>
-    <crapLoad>42</crapLoad>
-    <totalCrap>1035.36</totalCrap>
-    <crapMethodPercent>5.97</crapMethodPercent>
+    <methodCount>97</methodCount>
+    <crapMethodCount>12</crapMethodCount>
+    <crapLoad>133</crapLoad>
+    <totalCrap>2779.36</totalCrap>
+    <crapMethodPercent>12.37</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -419,6 +419,171 @@
       <crapLoad>0</crapLoad>
     </method>
     <method>
+      <package>Playground\Make\Model\Building\Migration</package>
+      <className>Playground\Make\Model\Building\Migration\BuildColumns</className>
+      <methodName>buildClass_column</methodName>
+      <methodSignature>buildClass_column(string $attribute, array $meta, string $group): string</methodSignature>
+      <fullMethod>buildClass_column(string $attribute, array $meta, string $group): string</fullMethod>
+      <crap>702</crap>
+      <complexity>26</complexity>
+      <coverage>0</coverage>
+      <crapLoad>27</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Building\Migration</package>
+      <className>Playground\Make\Model\Building\Migration\BuildColumns</className>
+      <methodName>buildClass_columns</methodName>
+      <methodSignature>buildClass_columns(): void</methodSignature>
+      <fullMethod>buildClass_columns(): void</fullMethod>
+      <crap>42</crap>
+      <complexity>6</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Building\Migration</package>
+      <className>Playground\Make\Model\Building\Migration\BuildDates</className>
+      <methodName>buildClass_dates</methodName>
+      <methodSignature>buildClass_dates(): void</methodSignature>
+      <fullMethod>buildClass_dates(): void</fullMethod>
+      <crap>30</crap>
+      <complexity>5</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Building\Migration</package>
+      <className>Playground\Make\Model\Building\Migration\BuildDates</className>
+      <methodName>buildClass_timestamps</methodName>
+      <methodSignature>buildClass_timestamps(): void</methodSignature>
+      <fullMethod>buildClass_timestamps(): void</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Building\Migration</package>
+      <className>Playground\Make\Model\Building\Migration\BuildDates</className>
+      <methodName>buildClass_softDeletes</methodName>
+      <methodSignature>buildClass_softDeletes(): void</methodSignature>
+      <fullMethod>buildClass_softDeletes(): void</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Building\Migration</package>
+      <className>Playground\Make\Model\Building\Migration\BuildFlags</className>
+      <methodName>buildClass_flags</methodName>
+      <methodSignature>buildClass_flags(): void</methodSignature>
+      <fullMethod>buildClass_flags(): void</fullMethod>
+      <crap>42</crap>
+      <complexity>6</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Building\Migration</package>
+      <className>Playground\Make\Model\Building\Migration\BuildIds</className>
+      <methodName>buildClass_ids</methodName>
+      <methodSignature>buildClass_ids(): void</methodSignature>
+      <fullMethod>buildClass_ids(): void</fullMethod>
+      <crap>42</crap>
+      <complexity>6</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Building\Migration</package>
+      <className>Playground\Make\Model\Building\Migration\BuildIds</className>
+      <methodName>buildClass_column_id</methodName>
+      <methodSignature>buildClass_column_id(Playground\Make\Configuration\Model\CreateId $createId): string</methodSignature>
+      <fullMethod>buildClass_column_id(Playground\Make\Configuration\Model\CreateId $createId): string</fullMethod>
+      <crap>132</crap>
+      <complexity>11</complexity>
+      <coverage>0</coverage>
+      <crapLoad>11</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Building\Migration</package>
+      <className>Playground\Make\Model\Building\Migration\BuildJson</className>
+      <methodName>buildClass_json</methodName>
+      <methodSignature>buildClass_json(): void</methodSignature>
+      <fullMethod>buildClass_json(): void</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Building\Migration</package>
+      <className>Playground\Make\Model\Building\Migration\BuildJson</className>
+      <methodName>buildClass_json_column</methodName>
+      <methodSignature>buildClass_json_column(string $attribute, array $meta, string $group): string</methodSignature>
+      <fullMethod>buildClass_json_column(string $attribute, array $meta, string $group): string</fullMethod>
+      <crap>72</crap>
+      <complexity>8</complexity>
+      <coverage>0</coverage>
+      <crapLoad>8</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Building\Migration</package>
+      <className>Playground\Make\Model\Building\Migration\BuildMatrix</className>
+      <methodName>buildClass_matrix</methodName>
+      <methodSignature>buildClass_matrix(): void</methodSignature>
+      <fullMethod>buildClass_matrix(): void</fullMethod>
+      <crap>56</crap>
+      <complexity>7</complexity>
+      <coverage>0</coverage>
+      <crapLoad>7</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Building\Migration</package>
+      <className>Playground\Make\Model\Building\Migration\BuildPermissions</className>
+      <methodName>buildClass_permissions</methodName>
+      <methodSignature>buildClass_permissions(): void</methodSignature>
+      <fullMethod>buildClass_permissions(): void</fullMethod>
+      <crap>42</crap>
+      <complexity>6</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Building\Migration</package>
+      <className>Playground\Make\Model\Building\Migration\BuildPrimary</className>
+      <methodName>buildClass_primary</methodName>
+      <methodSignature>buildClass_primary(): void</methodSignature>
+      <fullMethod>buildClass_primary(): void</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Building\Migration</package>
+      <className>Playground\Make\Model\Building\Migration\BuildStatus</className>
+      <methodName>buildClass_status</methodName>
+      <methodSignature>buildClass_status(): void</methodSignature>
+      <fullMethod>buildClass_status(): void</fullMethod>
+      <crap>42</crap>
+      <complexity>6</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Building\Migration</package>
+      <className>Playground\Make\Model\Building\Migration\BuildUi</className>
+      <methodName>buildClass_ui</methodName>
+      <methodSignature>buildClass_ui(): void</methodSignature>
+      <fullMethod>buildClass_ui(): void</fullMethod>
+      <crap>56</crap>
+      <complexity>7</complexity>
+      <coverage>0</coverage>
+      <crapLoad>7</crapLoad>
+    </method>
+    <method>
       <package>Playground\Make\Model\Building\Skeleton</package>
       <className>Playground\Make\Model\Building\Skeleton\MakeColumns</className>
       <methodName>buildClass_skeleton_columns</methodName>
@@ -593,6 +758,171 @@
       <complexity>1</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Configuration</package>
+      <className>Playground\Make\Model\Configuration\Migration</className>
+      <methodName>table</methodName>
+      <methodSignature>table(): string</methodSignature>
+      <fullMethod>table(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Configuration</package>
+      <className>Playground\Make\Model\Configuration\Migration</className>
+      <methodName>setOptions</methodName>
+      <methodSignature>setOptions(array $options): self</methodSignature>
+      <fullMethod>setOptions(array $options): self</fullMethod>
+      <crap>56</crap>
+      <complexity>7</complexity>
+      <coverage>0</coverage>
+      <crapLoad>7</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Configuration</package>
+      <className>Playground\Make\Model\Configuration\Migration</className>
+      <methodName>addModels</methodName>
+      <methodSignature>addModels(array $options): self</methodSignature>
+      <fullMethod>addModels(array $options): self</fullMethod>
+      <crap>20</crap>
+      <complexity>4</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Configuration</package>
+      <className>Playground\Make\Model\Configuration\Migration</className>
+      <methodName>model_fqdn</methodName>
+      <methodSignature>model_fqdn(): string</methodSignature>
+      <fullMethod>model_fqdn(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Configuration</package>
+      <className>Playground\Make\Model\Configuration\Migration</className>
+      <methodName>models</methodName>
+      <methodSignature>models(): array</methodSignature>
+      <fullMethod>models(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Configuration</package>
+      <className>Playground\Make\Model\Configuration\Migration</className>
+      <methodName>create</methodName>
+      <methodSignature>create(): bool</methodSignature>
+      <fullMethod>create(): bool</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Configuration</package>
+      <className>Playground\Make\Model\Configuration\Migration</className>
+      <methodName>update</methodName>
+      <methodSignature>update(): bool</methodSignature>
+      <fullMethod>update(): bool</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Console\Commands</package>
+      <className>Playground\Make\Model\Console\Commands\MigrationMakeCommand</className>
+      <methodName>getOptions</methodName>
+      <methodSignature>getOptions(): array</methodSignature>
+      <fullMethod>getOptions(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Console\Commands</package>
+      <className>Playground\Make\Model\Console\Commands\MigrationMakeCommand</className>
+      <methodName>handle</methodName>
+      <methodSignature>handle()</methodSignature>
+      <fullMethod>handle()</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Console\Commands</package>
+      <className>Playground\Make\Model\Console\Commands\MigrationMakeCommand</className>
+      <methodName>prepareOptions</methodName>
+      <methodSignature>prepareOptions(): void</methodSignature>
+      <fullMethod>prepareOptions(): void</fullMethod>
+      <crap>272</crap>
+      <complexity>16</complexity>
+      <coverage>0</coverage>
+      <crapLoad>16</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Console\Commands</package>
+      <className>Playground\Make\Model\Console\Commands\MigrationMakeCommand</className>
+      <methodName>getConfigurationFilename</methodName>
+      <methodSignature>getConfigurationFilename(): string</methodSignature>
+      <fullMethod>getConfigurationFilename(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Console\Commands</package>
+      <className>Playground\Make\Model\Console\Commands\MigrationMakeCommand</className>
+      <methodName>qualifyClass</methodName>
+      <methodSignature>qualifyClass($name): string</methodSignature>
+      <fullMethod>qualifyClass($name): string</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Console\Commands</package>
+      <className>Playground\Make\Model\Console\Commands\MigrationMakeCommand</className>
+      <methodName>buildClass</methodName>
+      <methodSignature>buildClass($name): string</methodSignature>
+      <fullMethod>buildClass($name): string</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Console\Commands</package>
+      <className>Playground\Make\Model\Console\Commands\MigrationMakeCommand</className>
+      <methodName>getStub</methodName>
+      <methodSignature>getStub(): string</methodSignature>
+      <fullMethod>getStub(): string</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Console\Commands</package>
+      <className>Playground\Make\Model\Console\Commands\MigrationMakeCommand</className>
+      <methodName>resolveStubPath</methodName>
+      <methodSignature>resolveStubPath($stub): string</methodSignature>
+      <fullMethod>resolveStubPath($stub): string</fullMethod>
+      <crap>56</crap>
+      <complexity>7</complexity>
+      <coverage>0</coverage>
+      <crapLoad>7</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Model\Console\Commands</package>
