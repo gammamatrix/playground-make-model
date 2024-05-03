@@ -9,7 +9,7 @@
 
 ##teamcity[testStarted name='test_command_about_displays_package_information_and_succeed_with_code_0' locationHint='php_qn:///app/tests/Feature/Console/Commands/About/CommandTest.php::\Tests\Feature\Playground\Make\Model\Console\Commands\About\CommandTest::test_command_about_displays_package_information_and_succeed_with_code_0' flowId='1']
 
-##teamcity[testFinished name='test_command_about_displays_package_information_and_succeed_with_code_0' duration='754' flowId='1']
+##teamcity[testFinished name='test_command_about_displays_package_information_and_succeed_with_code_0' duration='730' flowId='1']
 
 ##teamcity[testSuiteFinished name='Tests\Feature\Playground\Make\Model\Console\Commands\About\CommandTest' flowId='1']
 
@@ -41,11 +41,11 @@
 
 ##teamcity[testStarted name='test_command_make_model_with_force' locationHint='php_qn:///app/tests/Feature/Console/Commands/ModelMakeCommand/ModelTest.php::\Tests\Feature\Playground\Make\Model\Console\Commands\ModelMakeCommand\ModelTest::test_command_make_model_with_force' flowId='1']
 
-##teamcity[testFinished name='test_command_make_model_with_force' duration='33' flowId='1']
+##teamcity[testFinished name='test_command_make_model_with_force' duration='34' flowId='1']
 
 ##teamcity[testStarted name='test_command_make_playground_model_api_with_force' locationHint='php_qn:///app/tests/Feature/Console/Commands/ModelMakeCommand/ModelTest.php::\Tests\Feature\Playground\Make\Model\Console\Commands\ModelMakeCommand\ModelTest::test_command_make_playground_model_api_with_force' flowId='1']
 
-##teamcity[testFinished name='test_command_make_playground_model_api_with_force' duration='32' flowId='1']
+##teamcity[testFinished name='test_command_make_playground_model_api_with_force' duration='34' flowId='1']
 
 ##teamcity[testStarted name='test_command_make_playground_model_resource_with_force' locationHint='php_qn:///app/tests/Feature/Console/Commands/ModelMakeCommand/ModelTest.php::\Tests\Feature\Playground\Make\Model\Console\Commands\ModelMakeCommand\ModelTest::test_command_make_playground_model_resource_with_force' flowId='1']
 
@@ -53,11 +53,11 @@
 
 ##teamcity[testStarted name='test_command_make_all_playground_model_api_with_force' locationHint='php_qn:///app/tests/Feature/Console/Commands/ModelMakeCommand/ModelTest.php::\Tests\Feature\Playground\Make\Model\Console\Commands\ModelMakeCommand\ModelTest::test_command_make_all_playground_model_api_with_force' flowId='1']
 
-##teamcity[testFinished name='test_command_make_all_playground_model_api_with_force' duration='33' flowId='1']
+##teamcity[testFinished name='test_command_make_all_playground_model_api_with_force' duration='34' flowId='1']
 
 ##teamcity[testStarted name='test_command_make_all_playground_model_resource_with_force' locationHint='php_qn:///app/tests/Feature/Console/Commands/ModelMakeCommand/ModelTest.php::\Tests\Feature\Playground\Make\Model\Console\Commands\ModelMakeCommand\ModelTest::test_command_make_all_playground_model_resource_with_force' flowId='1']
 
-##teamcity[testFinished name='test_command_make_all_playground_model_resource_with_force' duration='37' flowId='1']
+##teamcity[testFinished name='test_command_make_all_playground_model_resource_with_force' duration='36' flowId='1']
 
 ##teamcity[testSuiteFinished name='Tests\Feature\Playground\Make\Model\Console\Commands\ModelMakeCommand\ModelTest' flowId='1']
 
@@ -69,7 +69,7 @@
 
 ##teamcity[testStarted name='test_command_make_model_with_pivot_type' locationHint='php_qn:///app/tests/Feature/Console/Commands/ModelMakeCommand/OptionsTest.php::\Tests\Feature\Playground\Make\Model\Console\Commands\ModelMakeCommand\OptionsTest::test_command_make_model_with_pivot_type' flowId='1']
 
-##teamcity[testFinished name='test_command_make_model_with_pivot_type' duration='15' flowId='1']
+##teamcity[testFinished name='test_command_make_model_with_pivot_type' duration='14' flowId='1']
 
 ##teamcity[testStarted name='test_command_make_model_with_pivot_option' locationHint='php_qn:///app/tests/Feature/Console/Commands/ModelMakeCommand/OptionsTest.php::\Tests\Feature\Playground\Make\Model\Console\Commands\ModelMakeCommand\OptionsTest::test_command_make_model_with_pivot_option' flowId='1']
 
@@ -77,7 +77,7 @@
 
 ##teamcity[testStarted name='test_command_make_model_with_morph_pivot_type' locationHint='php_qn:///app/tests/Feature/Console/Commands/ModelMakeCommand/OptionsTest.php::\Tests\Feature\Playground\Make\Model\Console\Commands\ModelMakeCommand\OptionsTest::test_command_make_model_with_morph_pivot_type' flowId='1']
 
-##teamcity[testFinished name='test_command_make_model_with_morph_pivot_type' duration='15' flowId='1']
+##teamcity[testFinished name='test_command_make_model_with_morph_pivot_type' duration='14' flowId='1']
 
 ##teamcity[testStarted name='test_command_make_model_with_morph_pivot_option' locationHint='php_qn:///app/tests/Feature/Console/Commands/ModelMakeCommand/OptionsTest.php::\Tests\Feature\Playground\Make\Model\Console\Commands\ModelMakeCommand\OptionsTest::test_command_make_model_with_morph_pivot_option' flowId='1']
 
