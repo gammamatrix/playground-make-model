@@ -5,17 +5,64 @@ Command (Tests\Feature\Playground\Make\Model\Console\Commands\FactoryMakeCommand
  [x] Command without options or arguments
  [x] Command skeleton
 
+Command (Tests\Feature\Playground\Make\Model\Console\Commands\MigrationMakeCommand\Command)
+ [x] Command without argument and with table option
+ [x] Command with reserved name
+ [x] Command skeleton
+ [x] Command skeleton without force
+ [x] Command skeleton with invalid table parameter
+ [ ] Command skeleton with invalid table in file
+ [x] Command skeleton with empty name in file
+
 Command (Tests\Feature\Playground\Make\Model\Console\Commands\ModelMakeCommand\Command)
  [x] Command without options or arguments
  [x] Command skeleton
  [x] Command with invalid file
 
+Command (Tests\Feature\Playground\Make\Model\Console\Commands\SeederMakeCommand\Command)
+ [x] Command without options or arguments
+ [x] Command skeleton
+
 Configuration (Tests\Feature\Playground\Make\Model\Console\Commands\ModelMakeCommand\Configuration)
  [x] Command with file skeleton and force
+
+Instance (Tests\Unit\Playground\Make\Model\Configuration\Factory\Instance)
+ [x] Instance
+ [x] Instance apply without options
+ [x] Folder is empty by default
+ [x] Factory for model with file and skeleton
+
+Instance (Tests\Unit\Playground\Make\Model\Configuration\Migration\Instance)
+ [x] Instance
+ [x] Instance apply without options
+ [x] Folder is empty by default
+ [x] Migration for model with file and skeleton
+
+Instance (Tests\Unit\Playground\Make\Model\Configuration\Seeder\Instance)
+ [x] Instance
+ [x] Instance apply without options
+ [x] Folder is empty by default
+ [x] Seeder for model with file and skeleton
+
+Interactive (Tests\Feature\Playground\Make\Model\Console\Commands\MigrationMakeCommand\Interactive)
+ [x] Command with interactive option
+ [x] Command with interactive option and cancel
 
 Model (Tests\Feature\Playground\Make\Model\Console\Commands\FactoryMakeCommand\Model)
  [x] Command make factory with force and without skeleton
  [x] Command make factory with force and with skeleton
+
+Model (Tests\Feature\Playground\Make\Model\Console\Commands\MigrationMakeCommand\Model)
+ [x] Command make migration without name with force and without skeleton
+ [x] Command make migration with force and with skeleton
+ [x] Command make create migration with force and without skeleton
+ [x] Command make create migration without name with force and without skeleton
+ [x] Command make create migration with force and with skeleton
+ [x] Command make update migration with force and without skeleton
+ [x] Command make update migration with force and with skeleton
+ [x] Command make create migration and load model from migration configuration
+ [x] Command make create migration with bare model skeleton
+ [x] Command make create migration with sparse model skeleton
 
 Model (Tests\Feature\Playground\Make\Model\Console\Commands\ModelMakeCommand\Model)
  [x] Command make model with force
