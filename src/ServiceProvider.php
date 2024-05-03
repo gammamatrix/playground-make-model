@@ -65,6 +65,8 @@ class ServiceProvider extends AuthServiceProvider
     {
         $commands = [];
 
+        $commands[] = Console\Commands\FactoryMakeCommand::class;
+        $commands[] = Console\Commands\MigrationMakeCommand::class;
         $commands[] = Console\Commands\ModelMakeCommand::class;
 
         $this->commands($commands);

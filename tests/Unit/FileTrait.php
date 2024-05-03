@@ -36,6 +36,47 @@ trait FileTrait
                 $package_base
             );
 
+        //
+        // Factories
+        //
+
+        } elseif (in_array($type, [
+            'factory-model',
+        ])) {
+            $file = sprintf(
+                '%1$s/resources/testing/configurations/test.factory.crm.contact.json',
+                $package_base
+            );
+
+        //
+        // Migrations
+        //
+
+        } elseif (in_array($type, [
+            'migration',
+        ])) {
+            $file = sprintf(
+                '%1$s/resources/testing/configurations/test.migration.crm.contact.json',
+                $package_base
+            );
+
+        } elseif (in_array($type, [
+            'migration-invalid-table',
+        ])) {
+            $file = sprintf(
+                '%1$s/resources/testing/configurations/test.migration.invalid.table.json',
+                $package_base
+            );
+
+        } elseif (in_array($type, [
+            'migration-empty-name',
+        ])) {
+            $file = sprintf(
+                '%1$s/resources/testing/configurations/test.migration.empty.name.json',
+                $package_base
+            );
+
+
         } else {
             $file = sprintf(
                 '%1$s/resources/testing/empty.json',
