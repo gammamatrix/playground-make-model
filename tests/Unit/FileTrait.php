@@ -44,7 +44,7 @@ trait FileTrait
             'factory-model',
         ])) {
             $file = sprintf(
-                '%1$s/resources/testing/configurations/test.factory.crm.contact.json',
+                '%1$s/resources/testing/configurations/factory.crm.contact.json',
                 $package_base
             );
 
@@ -56,7 +56,7 @@ trait FileTrait
             'migration',
         ])) {
             $file = sprintf(
-                '%1$s/resources/testing/configurations/test.migration.crm.contact.json',
+                '%1$s/resources/testing/configurations/migration.crm.contact.json',
                 $package_base
             );
 
@@ -64,7 +64,7 @@ trait FileTrait
             'migration-invalid-table',
         ])) {
             $file = sprintf(
-                '%1$s/resources/testing/configurations/test.migration.invalid.table.json',
+                '%1$s/resources/testing/configurations/migration.invalid.table.json',
                 $package_base
             );
 
@@ -72,12 +72,24 @@ trait FileTrait
             'migration-empty-name',
         ])) {
             $file = sprintf(
-                '%1$s/resources/testing/configurations/test.migration.empty.name.json',
+                '%1$s/resources/testing/configurations/migration.empty.name.json',
                 $package_base
             );
 
 
-        } else {
+        //
+        // Seeder
+        //
+
+        } elseif (in_array($type, [
+            'seeder-model',
+        ])) {
+            $file = sprintf(
+                '%1$s/resources/testing/configurations/seeder.crm.contact.json',
+                $package_base
+            );
+
+    } else {
             $file = sprintf(
                 '%1$s/resources/testing/empty.json',
                 $package_base

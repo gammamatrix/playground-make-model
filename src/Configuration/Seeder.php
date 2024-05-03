@@ -9,10 +9,12 @@ namespace Playground\Make\Model\Configuration;
 use Playground\Make\Configuration\PrimaryConfiguration;
 
 /**
- * \Playground\Make\Model\Configuration\Factory
+ * \Playground\Stub\Configuration\Seeder
  */
-class Factory extends PrimaryConfiguration
+class Seeder extends PrimaryConfiguration
 {
+    // protected string $namespace = 'Database\Seeders';
+
     protected string $model = '';
 
     protected string $model_fqdn = '';
