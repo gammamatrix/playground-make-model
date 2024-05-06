@@ -7,7 +7,6 @@ declare(strict_types=1);
 namespace Playground\Make\Model\Console\Commands;
 
 use Illuminate\Console\Concerns\CreatesMatchingTest;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Playground\Make\Building\Concerns;
 use Playground\Make\Configuration\Contracts\PrimaryConfiguration as PrimaryConfigurationContract;
@@ -501,55 +500,9 @@ class ModelMakeCommand extends GeneratorCommand
     protected function getConfigurationFilename(): string
     {
         return sprintf(
-            '%1$s/%2$s.json',
-            Str::of($this->c->name())->kebab()->toString(),
+            '%1$s.%2$s.json',
             Str::of($this->getType())->kebab()->toString(),
+            Str::of($this->c->name())->kebab()->toString(),
         );
-    }
-
-    /**
-     * Resolve the fully-qualified path to the stub.
-     *
-     * @param  string  $stub
-     */
-    protected function resolveStubPath($stub): string
-    {
-        $path = '';
-        $stub_path = config('playground-make.paths.stubs');
-        if (! empty($stub_path)
-            && is_string($stub_path)
-        ) {
-            if (! is_dir($stub_path)) {
-                Log::error(__('playground-make::generator.path.invalid'), [
-                    '$stub_path' => $stub_path,
-                    '$stub' => $stub,
-                ]);
-            } else {
-                $path = sprintf(
-                    '%1$s/%2$s',
-                    // Str::of($stub_path)->finish('/')->toString(),
-                    Str::of($stub_path)->toString(),
-                    $stub
-                );
-            }
-        }
-
-        if (empty($path)) {
-            $path = sprintf(
-                '%1$s/resources/stubs/%2$s',
-                dirname(dirname(dirname(__DIR__))),
-                $stub
-            );
-        }
-
-        if (! file_exists($path)) {
-            $this->components->error(__('playground-make::generator.stub.missing', [
-                'stub_path' => is_string($stub_path) ? $stub_path : gettype($stub_path),
-                'stub' => $stub,
-                'path' => $path,
-            ]));
-        }
-
-        return $path;
     }
 }
