@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-05-03 19:01:53</timestamp>
+  <timestamp>2024-05-06 19:09:04</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>116</methodCount>
+    <methodCount>112</methodCount>
     <crapMethodCount>7</crapMethodCount>
     <crapLoad>88</crapLoad>
-    <totalCrap>2361.98</totalCrap>
-    <crapMethodPercent>6.03</crapMethodPercent>
+    <totalCrap>2300.38</totalCrap>
+    <crapMethodPercent>6.25</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -971,17 +971,6 @@
     <method>
       <package>Playground\Make\Model\Console\Commands</package>
       <className>Playground\Make\Model\Console\Commands\FactoryMakeCommand</className>
-      <methodName>resolveStubPath</methodName>
-      <methodSignature>resolveStubPath($stub): string</methodSignature>
-      <fullMethod>resolveStubPath($stub): string</fullMethod>
-      <crap>15.4</crap>
-      <complexity>7</complexity>
-      <coverage>44.44</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Make\Model\Console\Commands</package>
-      <className>Playground\Make\Model\Console\Commands\FactoryMakeCommand</className>
       <methodName>getDefaultNamespace</methodName>
       <methodSignature>getDefaultNamespace($rootNamespace): string</methodSignature>
       <fullMethod>getDefaultNamespace($rootNamespace): string</fullMethod>
@@ -1080,17 +1069,6 @@
     </method>
     <method>
       <package>Playground\Make\Model\Console\Commands</package>
-      <className>Playground\Make\Model\Console\Commands\MigrationMakeCommand</className>
-      <methodName>resolveStubPath</methodName>
-      <methodSignature>resolveStubPath($stub): string</methodSignature>
-      <fullMethod>resolveStubPath($stub): string</fullMethod>
-      <crap>15.4</crap>
-      <complexity>7</complexity>
-      <coverage>44.44</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Make\Model\Console\Commands</package>
       <className>Playground\Make\Model\Console\Commands\ModelMakeCommand</className>
       <methodName>prepareOptions</methodName>
       <methodSignature>prepareOptions(): void</methodSignature>
@@ -1179,17 +1157,6 @@
     </method>
     <method>
       <package>Playground\Make\Model\Console\Commands</package>
-      <className>Playground\Make\Model\Console\Commands\ModelMakeCommand</className>
-      <methodName>resolveStubPath</methodName>
-      <methodSignature>resolveStubPath($stub): string</methodSignature>
-      <fullMethod>resolveStubPath($stub): string</fullMethod>
-      <crap>15.4</crap>
-      <complexity>7</complexity>
-      <coverage>44.44</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Make\Model\Console\Commands</package>
       <className>Playground\Make\Model\Console\Commands\SeederMakeCommand</className>
       <methodName>getStub</methodName>
       <methodSignature>getStub(): string</methodSignature>
@@ -1219,17 +1186,6 @@
       <crap>4.59</crap>
       <complexity>4</complexity>
       <coverage>66.67</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Make\Model\Console\Commands</package>
-      <className>Playground\Make\Model\Console\Commands\SeederMakeCommand</className>
-      <methodName>resolveStubPath</methodName>
-      <methodSignature>resolveStubPath($stub): string</methodSignature>
-      <fullMethod>resolveStubPath($stub): string</fullMethod>
-      <crap>15.4</crap>
-      <complexity>7</complexity>
-      <coverage>44.44</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
