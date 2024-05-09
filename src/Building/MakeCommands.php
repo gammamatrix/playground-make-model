@@ -209,7 +209,7 @@ trait MakeCommands
         $this->call('playground:make:seeder', $options);
     }
 
-    protected bool $createTest = false;
+    // protected bool $createTest = false;
 
     protected bool $createTest_appendTest = false;
 
@@ -222,10 +222,10 @@ trait MakeCommands
      */
     protected function createTest()
     {
-        if ($this->createTest) {
-            // Test already created.
-            return;
-        }
+        // if ($this->createTest) {
+        //     // Test already created.
+        //     return;
+        // }
 
         $force = $this->hasOption('force') && $this->option('force');
         $file = $this->option('file') ?: $this->path_to_configuration;
@@ -251,6 +251,10 @@ trait MakeCommands
             '--type' => $this->c->type(),
         ];
 
+        if ($this->c->playground()) {
+            $options['--playground'] = true;
+        }
+
         if ($file) {
             $options['--model-file'] = $file;
         }
@@ -265,6 +269,6 @@ trait MakeCommands
         $options['--suite'] = 'feature';
         $this->call('playground:make:test', $options);
 
-        $this->createTest = true;
+        // $this->createTest = true;
     }
 }
