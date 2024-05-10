@@ -88,11 +88,15 @@ class CommandTest extends TestCase
             'playground:make:migration "   " --skeleton --force --file %1$s',
             $this->getResourceFile('migration-empty-name')
         );
+        // dump($command);
+        // $result = $this->withoutMockingConsoleOutput()->artisan($command);
+        // dd(Artisan::output());
 
         /**
          * @var \Illuminate\Testing\PendingCommand $result
          */
         $result = $this->artisan($command);
-        $result->assertExitCode(0);
+        $result->assertExitCode(1);
+        $result->expectsOutputToContain(' Please provide a valid configuration for [--file');
     }
 }
