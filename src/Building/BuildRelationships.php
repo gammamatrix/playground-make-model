@@ -6,6 +6,7 @@
 declare(strict_types=1);
 namespace Playground\Make\Model\Building;
 
+use Illuminate\Support\Str;
 use Playground\Make\Configuration\Model\HasMany;
 use Playground\Make\Configuration\Model\HasOne;
 
@@ -96,12 +97,27 @@ PHP_CODE;
         $i = 0;
         foreach ($ho as $method => $HasOne) {
             $i++;
-            // dd([
+            $related = $HasOne->related();
+            if ($related) {
+                $related = $this->parseClassConfig(
+                    Str::of($HasOne->related())->trim('\\/')->toString(),
+                );
+            }
+            // dump([
             //     '__METHOD__' => __METHOD__,
             //     '$method' => $method,
-            //     '$HasOne' => $HasOne,
+            //     '$HasOne->related()' => $HasOne->related(),
+            //     '$related' => $related,
             // ]);
-            $this->searches['HasOne'] .= $this->buildClass_HasOne_print($method, $HasOne);
+            if (in_array($related, [
+                'App/Models/User',
+                'Playground/Models/User',
+                'User',
+            ])) {
+                $this->searches['HasOne'] .= $this->buildClass_HasOne_print_user($method, $HasOne);
+            } else {
+                $this->searches['HasOne'] .= $this->buildClass_HasOne_print($method, $HasOne);
+            }
             if ($i < count($ho)) {
                 $this->searches['HasOne'] .= PHP_EOL;
             }
@@ -125,6 +141,35 @@ PHP_CODE;
     {
         return \$this->hasOne(
             {$related}::class,
+            '{$HasOne->foreignKey()}',
+            '{$HasOne->localKey()}'
+        );
+    }
+PHP_CODE;
+    }
+
+    protected function buildClass_HasOne_print_user(string $method, HasOne $HasOne): string
+    {
+        $related = $HasOne->related();
+
+        if ($related !== class_basename($related)) {
+            $related = '\\'.$this->parseClassInput($related);
+        }
+
+        return <<<PHP_CODE
+
+    /**
+     * {$HasOne->comment()}
+     */
+    public function {$method}(): HasOne
+    {
+        /**
+         * @var class-string<\Illuminate\Contracts\Auth\Authenticatable>
+         */
+        \$uc = config('auth.providers.users.model', '\\\\App\\\\Models\\\\User');
+
+        return \$this->hasOne(
+            \$uc,
             '{$HasOne->foreignKey()}',
             '{$HasOne->localKey()}'
         );

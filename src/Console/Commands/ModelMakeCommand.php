@@ -254,11 +254,11 @@ class ModelMakeCommand extends GeneratorCommand
         $this->saveConfiguration();
 
         if ($this->c->factory()) {
-            // $this->createFactory();
+            $this->createFactory();
         }
 
         if ($this->c->migration()) {
-            // $this->createMigration();
+            $this->createMigration();
         }
 
         if ($this->c->seed()) {
@@ -278,7 +278,7 @@ class ModelMakeCommand extends GeneratorCommand
         // }
 
         if ($this->c->test()) {
-            // $this->createTest();
+            $this->createTest();
         }
 
         // if ($this->c->transformers()) {
@@ -286,11 +286,11 @@ class ModelMakeCommand extends GeneratorCommand
         // }
 
         $this->saveConfiguration();
-        // dump([
+        // dd([
         //     '__METHOD__' => __METHOD__,
         //     '$this->c' => $this->c,
         //     // '$this->c' => $this->c->toArray(),
-        //     // '$this->searches' => $this->searches,
+        //     '$this->searches' => $this->searches,
         //     // '$this->analyze' => $this->analyze,
         // ]);
 

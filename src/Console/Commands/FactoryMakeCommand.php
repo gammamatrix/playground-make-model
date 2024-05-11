@@ -97,19 +97,6 @@ class FactoryMakeCommand extends GeneratorCommand
         return $this->resolveStubPath($template);
     }
 
-    // /**
-    //  * Resolve the fully-qualified path to the stub.
-    //  *
-    //  * @param  string  $stub
-    //  * @return string
-    //  */
-    // protected function resolveStubPath($stub)
-    // {
-    //     return file_exists($customPath = $this->laravel->basePath(trim($stub, '/')))
-    //         ? $customPath
-    //         : __DIR__.$stub;
-    // }
-
     /**
      * Get the default namespace for the class.
      *
@@ -127,7 +114,7 @@ class FactoryMakeCommand extends GeneratorCommand
         //     '$rootNamespace' => $rootNamespace,
         //     'test' => $this->parseClassInput($rootNamespace),
         // ]);
-        return sprintf('\\Database\\Factories\\%1$s\\Models', trim($this->parseClassInput($rootNamespace), '\\'));
+        return sprintf('\\Database\\Factories\\%1$s', trim($this->parseClassInput($rootNamespace), '\\'));
         // return $rootNamespace.'\\Models';
         // return is_dir(app_path('Models')) ? $rootNamespace.'\\Models' : $rootNamespace;
     }
@@ -143,7 +130,7 @@ class FactoryMakeCommand extends GeneratorCommand
 
         if (! $model_fqdn) {
             $model_fqdn = sprintf(
-                '%1$s\\Models\\%2$s',
+                '%1$s\\%2$s',
                 $this->rootNamespace(),
                 Str::of($name)->studly()
             );

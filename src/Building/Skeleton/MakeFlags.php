@@ -81,6 +81,11 @@ trait MakeFlags
             'default' => false,
             'icon' => 'fa-solid fa-circle-pause text-success',
         ],
+        'prioritized' => [
+            'type' => 'boolean',
+            'default' => false,
+            'icon' => 'fa-solid fa-triangle-exclamation text-success',
+        ],
         'problem' => [
             'type' => 'boolean',
             'default' => false,
