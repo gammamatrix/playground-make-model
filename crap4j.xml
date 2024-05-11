@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-05-10 20:14:53</timestamp>
+  <timestamp>2024-05-11 07:40:41</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>112</methodCount>
-    <crapMethodCount>7</crapMethodCount>
-    <crapLoad>88</crapLoad>
-    <totalCrap>2299.79</totalCrap>
-    <crapMethodPercent>6.25</crapMethodPercent>
+    <methodCount>113</methodCount>
+    <crapMethodCount>5</crapMethodCount>
+    <crapLoad>73</crapLoad>
+    <totalCrap>2184.8</totalCrap>
+    <crapMethodPercent>4.42</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -303,9 +303,9 @@
       <methodName>buildClass_HasOne</methodName>
       <methodSignature>buildClass_HasOne(): void</methodSignature>
       <fullMethod>buildClass_HasOne(): void</fullMethod>
-      <crap>4</crap>
-      <complexity>4</complexity>
-      <coverage>100</coverage>
+      <crap>6</crap>
+      <complexity>6</complexity>
+      <coverage>95.45</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -317,6 +317,17 @@
       <crap>2</crap>
       <complexity>2</complexity>
       <coverage>90</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Building</package>
+      <className>Playground\Make\Model\Building\BuildRelationships</className>
+      <methodName>buildClass_HasOne_print_user</methodName>
+      <methodSignature>buildClass_HasOne_print_user(string $method, Playground\Make\Configuration\Model\HasOne $HasOne): string</methodSignature>
+      <fullMethod>buildClass_HasOne_print_user(string $method, Playground\Make\Configuration\Model\HasOne $HasOne): string</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -347,10 +358,10 @@
       <methodName>createFactory</methodName>
       <methodSignature>createFactory(): void</methodSignature>
       <fullMethod>createFactory(): void</fullMethod>
-      <crap>56</crap>
+      <crap>7.01</crap>
       <complexity>7</complexity>
-      <coverage>0</coverage>
-      <crapLoad>7</crapLoad>
+      <coverage>94.44</coverage>
+      <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Model\Building</package>
@@ -358,9 +369,9 @@
       <methodName>createMigration</methodName>
       <methodSignature>createMigration(): void</methodSignature>
       <fullMethod>createMigration(): void</fullMethod>
-      <crap>30</crap>
+      <crap>5</crap>
       <complexity>5</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -402,10 +413,10 @@
       <methodName>createTest</methodName>
       <methodSignature>createTest()</methodSignature>
       <fullMethod>createTest()</fullMethod>
-      <crap>56</crap>
+      <crap>7</crap>
       <complexity>7</complexity>
-      <coverage>0</coverage>
-      <crapLoad>7</crapLoad>
+      <coverage>96</coverage>
+      <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Model\Building</package>
