@@ -407,9 +407,9 @@ class ModelMakeCommand extends GeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $this->parseClassInput($rootNamespace).'\\Models';
-        // return $rootNamespace.'\\Models';
-        // return is_dir(app_path('Models')) ? $rootNamespace.'\\Models' : $rootNamespace;
+        return Str::of(
+            $this->parseClassInput($rootNamespace)
+        )->finish('\\')->finish('Models')->toString();
     }
 
     /**
