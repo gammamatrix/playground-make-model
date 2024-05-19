@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage line-rate="0.67683508102955" branch-rate="0" lines-covered="1420" lines-valid="2098" branches-covered="0" branches-valid="0" complexity="611" version="0.4" timestamp="1715413241">
+<coverage line-rate="0.67714285714286" branch-rate="0" lines-covered="1422" lines-valid="2100" branches-covered="0" branches-valid="0" complexity="611" version="0.4" timestamp="1716159365">
   <sources>
     <source>/app/src</source>
   </sources>
@@ -4499,9 +4499,9 @@
         </class>
       </classes>
     </package>
-    <package name="Console/Commands/ModelMakeCommand.php" line-rate="0.92941176470588" branch-rate="0" complexity="57">
+    <package name="Console/Commands/ModelMakeCommand.php" line-rate="0.93023255813953" branch-rate="0" complexity="57">
       <classes>
-        <class name="Playground\Make\Model\Console\Commands\ModelMakeCommand" filename="Console/Commands/ModelMakeCommand.php" line-rate="0.92941176470588" branch-rate="0" complexity="57">
+        <class name="Playground\Make\Model\Console\Commands\ModelMakeCommand" filename="Console/Commands/ModelMakeCommand.php" line-rate="0.93023255813953" branch-rate="0" complexity="57">
           <methods>
             <method name="prepareOptions" signature="" line-rate="0.88636363636364" branch-rate="0" complexity="35">
               <lines>
@@ -4656,6 +4656,8 @@
             <method name="getDefaultNamespace" signature="$rootNamespace" line-rate="1" branch-rate="0" complexity="1">
               <lines>
                 <line number="410" hits="19"/>
+                <line number="411" hits="19"/>
+                <line number="412" hits="19"/>
               </lines>
             </method>
             <method name="getOptions" signature="" line-rate="1" branch-rate="0" complexity="1">
@@ -4842,6 +4844,8 @@
             <line number="383" hits="2"/>
             <line number="386" hits="15"/>
             <line number="410" hits="19"/>
+            <line number="411" hits="19"/>
+            <line number="412" hits="19"/>
             <line number="433" hits="19"/>
             <line number="434" hits="19"/>
             <line number="435" hits="19"/>
