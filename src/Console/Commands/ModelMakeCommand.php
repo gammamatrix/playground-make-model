@@ -500,7 +500,7 @@ class ModelMakeCommand extends GeneratorCommand
     protected function getConfigurationFilename(): string
     {
         return sprintf(
-            '%1$s.%2$s.json',
+            '%2$s/%1$s.json',
             Str::of($this->getType())->kebab()->toString(),
             Str::of($this->c->name())->kebab()->toString(),
         );

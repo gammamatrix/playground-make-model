@@ -27,7 +27,7 @@ trait BuildRelationships
             $this->searches['HasMany'] .= PHP_EOL;
         }
 
-        $this->buildClass_uses_add('Illuminate\Database\Eloquent\Relations\HasMany');
+        $this->buildClass_uses_add('Illuminate/Database/Eloquent/Relations/HasMany');
 
         // $add_new_line = ! empty($this->searches['use_class'])
         //     || ! empty($this->searches['table'])
@@ -57,6 +57,8 @@ trait BuildRelationships
 
     /**
      * {$HasMany->comment()}
+     *
+     * @return HasMany<$related>
      */
     public function {$method}(): HasMany
     {
@@ -76,7 +78,7 @@ PHP_CODE;
             return;
         }
 
-        $this->buildClass_uses_add('Illuminate\Database\Eloquent\Relations\HasOne');
+        $this->buildClass_uses_add('Illuminate/Database/Eloquent/Relations/HasOne');
 
         $this->searches['HasOne'] = '';
 
@@ -136,6 +138,8 @@ PHP_CODE;
 
     /**
      * {$HasOne->comment()}
+     *
+     * @return HasOne<$related>
      */
     public function {$method}(): HasOne
     {
@@ -155,16 +159,19 @@ PHP_CODE;
         if ($related !== class_basename($related)) {
             $related = '\\'.$this->parseClassInput($related);
         }
+        $this->buildClass_uses_add('Illuminate/Database/Eloquent/Model as EloquentModel');
 
         return <<<PHP_CODE
 
     /**
      * {$HasOne->comment()}
+     *
+     * @return HasOne<EloquentModel&\Illuminate\Contracts\Auth\Authenticatable>
      */
     public function {$method}(): HasOne
     {
         /**
-         * @var class-string<\Illuminate\Contracts\Auth\Authenticatable>
+         * @var class-string<EloquentModel&\Illuminate\Contracts\Auth\Authenticatable>
          */
         \$uc = config('auth.providers.users.model', '\\\\App\\\\Models\\\\User');
 
