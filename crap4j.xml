@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-05-19 22:56:05</timestamp>
+  <timestamp>2024-05-21 06:15:58</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>113</methodCount>
@@ -294,7 +294,7 @@
       <fullMethod>buildClass_HasMany_print(string $method, Playground\Make\Configuration\Model\HasMany $HasMany): string</fullMethod>
       <crap>2</crap>
       <complexity>2</complexity>
-      <coverage>90</coverage>
+      <coverage>90.91</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -316,7 +316,7 @@
       <fullMethod>buildClass_HasOne_print(string $method, Playground\Make\Configuration\Model\HasOne $HasOne): string</fullMethod>
       <crap>2</crap>
       <complexity>2</complexity>
-      <coverage>90</coverage>
+      <coverage>90.91</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
