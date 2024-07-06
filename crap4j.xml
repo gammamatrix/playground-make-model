@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-05-21 06:15:58</timestamp>
+  <timestamp>2024-07-06 02:00:08</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>113</methodCount>
+    <methodCount>112</methodCount>
     <crapMethodCount>5</crapMethodCount>
     <crapLoad>73</crapLoad>
-    <totalCrap>2184.8</totalCrap>
-    <crapMethodPercent>4.42</crapMethodPercent>
+    <totalCrap>2181.05</totalCrap>
+    <crapMethodPercent>4.46</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -1015,23 +1015,12 @@
     <method>
       <package>Playground\Make\Model\Console\Commands</package>
       <className>Playground\Make\Model\Console\Commands\MigrationMakeCommand</className>
-      <methodName>handle</methodName>
-      <methodSignature>handle()</methodSignature>
-      <fullMethod>handle()</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Make\Model\Console\Commands</package>
-      <className>Playground\Make\Model\Console\Commands\MigrationMakeCommand</className>
       <methodName>prepareOptions</methodName>
       <methodSignature>prepareOptions(): void</methodSignature>
       <fullMethod>prepareOptions(): void</fullMethod>
-      <crap>18.47</crap>
+      <crap>18.31</crap>
       <complexity>16</complexity>
-      <coverage>78.72</coverage>
+      <coverage>79.17</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1084,9 +1073,9 @@
       <methodName>prepareOptions</methodName>
       <methodSignature>prepareOptions(): void</methodSignature>
       <fullMethod>prepareOptions(): void</fullMethod>
-      <crap>36.8</crap>
+      <crap>35.62</crap>
       <complexity>35</complexity>
-      <coverage>88.64</coverage>
+      <coverage>92.05</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1150,9 +1139,9 @@
       <methodName>handleTestCreation</methodName>
       <methodSignature>handleTestCreation($path)</methodSignature>
       <fullMethod>handleTestCreation($path)</fullMethod>
-      <crap>6</crap>
+      <crap>4</crap>
       <complexity>4</complexity>
-      <coverage>50</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1194,9 +1183,9 @@
       <methodName>getDefaultNamespace</methodName>
       <methodSignature>getDefaultNamespace($rootNamespace): string</methodSignature>
       <fullMethod>getDefaultNamespace($rootNamespace): string</fullMethod>
-      <crap>4</crap>
+      <crap>4.59</crap>
       <complexity>4</complexity>
-      <coverage>100</coverage>
+      <coverage>66.67</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>

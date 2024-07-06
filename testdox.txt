@@ -12,7 +12,6 @@ Command (Tests\Feature\Playground\Make\Model\Console\Commands\MigrationMakeComma
  [x] Command skeleton without force
  [x] Command skeleton with invalid table parameter
  [ ] Command skeleton with invalid table in file
- [x] Command skeleton with empty name in file
 
 Command (Tests\Feature\Playground\Make\Model\Console\Commands\ModelMakeCommand\Command)
  [x] Command without options or arguments
@@ -70,6 +69,7 @@ Model (Tests\Feature\Playground\Make\Model\Console\Commands\ModelMakeCommand\Mod
  [x] Command make playground model resource with force
  [x] Command make all playground model api with force
  [x] Command make all playground model resource with force
+ [x] Command make test playground model resource with force
 
 Options (Tests\Feature\Playground\Make\Model\Console\Commands\ModelMakeCommand\Options)
  [x] Command make model with all of the option flags except test
