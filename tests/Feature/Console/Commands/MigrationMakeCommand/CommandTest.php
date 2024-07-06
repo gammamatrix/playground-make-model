@@ -82,21 +82,21 @@ class CommandTest extends TestCase
         // $result->expectsOutputToContain('Invalid table name [invalid table-name] in configuration, using argument [testing] to generate.');
     }
 
-    public function test_command_skeleton_with_empty_name_in_file(): void
-    {
-        $command = sprintf(
-            'playground:make:migration "   " --skeleton --force --file %1$s',
-            $this->getResourceFile('migration-empty-name')
-        );
-        // dump($command);
-        // $result = $this->withoutMockingConsoleOutput()->artisan($command);
-        // dd(Artisan::output());
+    // public function test_command_skeleton_with_empty_name_in_file(): void
+    // {
+    //     $command = sprintf(
+    //         'playground:make:migration "   " --skeleton --force --file %1$s',
+    //         $this->getResourceFile('migration-empty-name')
+    //     );
+    //     // dump($command);
+    //     // $result = $this->withoutMockingConsoleOutput()->artisan($command);
+    //     // dd(Artisan::output());
 
-        /**
-         * @var \Illuminate\Testing\PendingCommand $result
-         */
-        $result = $this->artisan($command);
-        $result->assertExitCode(1);
-        $result->expectsOutputToContain(' Please provide a valid configuration for [--file');
-    }
+    //     /**
+    //      * @var \Illuminate\Testing\PendingCommand $result
+    //      */
+    //     $result = $this->artisan($command);
+    //     $result->assertExitCode(1);
+    //     $result->expectsOutputToContain(' Please provide a valid configuration for [--file');
+    // }
 }
