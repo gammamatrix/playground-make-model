@@ -6,6 +6,7 @@
 declare(strict_types=1);
 namespace Tests\Feature\Playground\Make\Model\Console\Commands\ModelMakeCommand;
 
+use Illuminate\Support\Facades\Artisan;
 use PHPUnit\Framework\Attributes\CoversClass;
 use Playground\Make\Model\Console\Commands\ModelMakeCommand;
 use Tests\Feature\Playground\Make\Model\TestCase;
@@ -84,5 +85,23 @@ class ModelTest extends TestCase
          */
         $result = $this->artisan($command);
         $result->assertExitCode(0);
+    }
+
+    public function test_command_make_test_playground_model_resource_with_force(): void
+    {
+        $command = sprintf(
+            'playground:make:model --test --force --playground --resource --file %1$s',
+            $this->getResourceFile('playground-model')
+        );
+        // $this->withoutMockingConsoleOutput()->artisan($command);
+        // dd(Artisan::output());
+
+        /**
+         * @var \Illuminate\Testing\PendingCommand $result
+         */
+        $result = $this->artisan($command);
+        $result->assertExitCode(0);
+
+        $result->expectsOutputToContain('Model and test [storage/app/stub/playground-matrix/src/Models/Backlog.php] created successfully.');
     }
 }

@@ -82,6 +82,10 @@ class Migration extends PrimaryConfiguration
         if (array_key_exists('update', $options)) {
             $this->update = ! empty($options['update']);
         }
+        // dump([
+        //     '__METHOD__' => __METHOD__,
+        //     '$options' => $options,
+        // ]);
 
         $this->addModels($options);
 

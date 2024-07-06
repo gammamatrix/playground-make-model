@@ -18,8 +18,5 @@
     "implements": [],
     "properties": [],
     "setup": [],
-    "tests": [],
-    "models": {
-        "Contact": "resources/testing/configurations/test.model.crm.contact.json"
-    }
+    "tests": []
 }

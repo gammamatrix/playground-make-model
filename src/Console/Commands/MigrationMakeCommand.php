@@ -165,21 +165,13 @@ class MigrationMakeCommand extends GeneratorCommand
         // 'HasOne' => '',
     ];
 
-    /**
-     * Execute the console command.
-     */
-    public function handle()
+    public function prepareOptions(): void
     {
         $this->columns = [];
 
-        return parent::handle();
-    }
-
-    public function prepareOptions(): void
-    {
         $options = $this->options();
 
-        $type = $this->getConfigurationType();
+        $type = $this->c->type();
 
         if ($this->hasOption('create') && $this->option('create')) {
             $this->c->setOptions([
@@ -241,6 +233,18 @@ class MigrationMakeCommand extends GeneratorCommand
         $this->c->setOptions([
             'table' => $table,
         ]);
+        // dump([
+        //     '__METHOD__' => __METHOD__,
+        //     // '$options' => $options,
+        //     '$type' => $type,
+        //     '$table' => $table,
+        //     // '$this->model' => $this->model,
+        //     '!empty($this->model)' => !empty($this->model),
+        //     '$this->c' => $this->c,
+        //     '$this->c->class()' => $this->c->class(),
+        //     '$this->c->table()' => $this->c->table(),
+        //     '$this->c->model_fqdn()' => $this->c->model_fqdn(),
+        // ]);
 
         if (! $this->option('interactive') && ! $this->c->table()) {
             throw new \RuntimeException('A table is required.');
