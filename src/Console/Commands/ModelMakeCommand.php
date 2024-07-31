@@ -247,6 +247,12 @@ class ModelMakeCommand extends GeneratorCommand
         if ($this->hasOption('replace') && $this->option('replace')) {
             $this->replace = true;
         }
+        // dd([
+        //     '__METHOD__' => __METHOD__,
+        //     '$this->c' => $this->c,
+        //     // '$this->c' => $this->c->toArray(),
+        //     '$this->searches' => $this->searches,
+        // ]);
     }
 
     public function finish(): ?bool
@@ -321,6 +327,9 @@ class ModelMakeCommand extends GeneratorCommand
             $this->buildClass_skeleton();
         }
 
+        $this->buildClass_model_table();
+
+        $this->buildClass_docblock();
         // dd([
         //     '__METHOD__' => __METHOD__,
         //     // '$this->c' => $this->c,
@@ -328,10 +337,10 @@ class ModelMakeCommand extends GeneratorCommand
         //     '$this->searches' => $this->searches,
         //     '$this->analyze' => $this->analyze,
         // ]);
-        $this->buildClass_docblock();
         $this->buildClass_implements();
         $this->buildClass_table_property();
         $this->buildClass_perPage();
+        $this->c->apply();
 
         $this->buildClass_attributes();
         $this->buildClass_fillable();
@@ -344,12 +353,13 @@ class ModelMakeCommand extends GeneratorCommand
         $this->buildClass_uses($name);
 
         // $this->c->apply();
-        $this->applyConfigurationToSearch();
+        $this->applyConfigurationToSearch(true);
 
-        // dump([
+        // dd([
         //     '__METHOD__' => __METHOD__,
         //     // '$this->c' => $this->c,
         //     '$this->searches' => $this->searches,
+        //     '$this->c->skeleton()' => $this->c->skeleton(),
         // ]);
 
         return parent::buildClass($name);
@@ -371,6 +381,8 @@ class ModelMakeCommand extends GeneratorCommand
         } elseif (in_array($this->c->type(), [
             'api',
             'resource',
+            'playground',
+            'playground-model',
             'playground-api',
             'playground-resource',
         ])) {
@@ -382,6 +394,11 @@ class ModelMakeCommand extends GeneratorCommand
         } elseif ($this->c->type() === 'morph-pivot') {
             $template = 'laravel/model.morph-pivot.stub';
         }
+        // dd([
+        //     '__METHOD__' => __METHOD__,
+        //     // '$this->c' => $this->c,
+        //     '$template' => $template,
+        // ]);
 
         return $this->resolveStubPath($template);
     }
@@ -421,6 +438,7 @@ class ModelMakeCommand extends GeneratorCommand
         'morph-pivot',
         'pivot',
         'playground',
+        'playground-model',
     ];
 
     /**

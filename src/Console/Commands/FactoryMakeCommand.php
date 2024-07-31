@@ -144,7 +144,7 @@ class FactoryMakeCommand extends GeneratorCommand
 
         // dd([
         //     '__METHOD__' => __METHOD__,
-        //     '$this->configuration' => $this->configuration,
+        //     '$this->c' => $this->c,
         //     '$this->options()' => $this->options(),
         //     '$this->searches' => $this->searches,
         //     '$this->qualifiedName' => $this->qualifiedName,

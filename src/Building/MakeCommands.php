@@ -23,10 +23,15 @@ trait MakeCommands
         $force = $this->hasOption('force') && $this->option('force');
         $file = $this->option('file') ?: $this->path_to_configuration;
 
+        $namespace = sprintf(
+            'Database/Factories/%1$s/Models',
+            $this->c->namespace()
+        );
+
         $options = [
             'name' => Str::of(class_basename($this->qualifiedName))
                 ->studly()->finish('Factory')->toString(),
-            '--namespace' => $this->c->namespace(),
+            '--namespace' => $namespace,
             '--force' => $force,
             '--package' => $this->c->package(),
             '--organization' => $this->c->organization(),
@@ -240,15 +245,24 @@ trait MakeCommands
             $name->finish('Test');
         }
 
+        $namespace = sprintf(
+            'Tests/Feature/%1$s/Models/%2$s',
+            $this->c->namespace(),
+            $name,
+        );
+
+        // $this->c->type()
+        $type = 'model';
+
         $options = [
             'name' => $name->toString(),
-            '--namespace' => $this->c->namespace(),
+            '--namespace' => $namespace,
             '--force' => $force,
             '--package' => $this->c->package(),
             '--organization' => $this->c->organization(),
             '--model' => $this->c->model(),
             '--module' => $this->c->module(),
-            '--type' => $this->c->type(),
+            '--type' => $type,
         ];
 
         if ($this->c->playground()) {
@@ -258,7 +272,7 @@ trait MakeCommands
         if ($file) {
             $options['--model-file'] = $file;
         }
-        // dump([
+        // dd([
         //     '__METHOD__' => __METHOD__,
         //     '$options' => $options,
         // ]);

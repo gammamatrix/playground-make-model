@@ -13,69 +13,82 @@ use Illuminate\Support\Str;
  */
 trait BuildTable
 {
-    protected function buildClass_model_table(
-        string $name,
-        string $type,
-        string $module_slug
-    ): void {
+    protected function buildClass_model_table(): void
+    {
 
+        // dd([
+        //     '__METHOD__' => __METHOD__,
+        //     '$this->c' => $this->c,
+        // ]);
         $options = [];
 
-        if (! $this->c->model()) {
-            $options['model'] = $name;
+        $type = $this->c->type() ?: 'model';
+        $name = $this->c->name() ?: '';
+
+        if (! $this->c->model_attribute()) {
+            $options['model_attribute'] = 'title';
+            // $this->searches['model_attribute'] = $options['model_attribute'];
         }
 
-        if (! $this->c->table()) {
-            $table = '';
+        if (! $this->c->model_fqdn()) {
+            $this->searches['model_fqdn'] = $this->c->fqdn() ?: '';
+        }
 
-            if (! empty($module_slug)) {
-                $table .= Str::of($module_slug)->snake()->finish('_')->toString();
-            }
+        if (! $this->c->model() && $name) {
+            $options['model'] = $name;
+            // $this->searches['model'] = $options['model'];
+        }
 
-            $table .= Str::of($name)->plural()->snake()->toString();
+        if (! $this->c->model_slug() && $name) {
+            $options['model_slug'] = Str::slug($name);
+            // $this->searches['model_slug'] = $options['model_slug'];
+        }
 
-            $options['table'] = $table;
+        // TODO model_slug_plural does not exist right now.
+        // if (!$this->c->model_slug_plural() && $name) {
+        //     $options['model_slug_plural'] = Str::of($name)->plural()->slug()->toString();
+        //     $this->searches['model_slug_plural'] = $options['model_slug_plural'];
+        // }
+
+        if (! $this->c->model_singular() && $name) {
+            $options['model_singular'] = $name;
+        }
+
+        if (! $this->c->model_plural() && $name) {
+            $options['model_plural'] = Str::of($name)->plural()->toString();
+            // $this->searches['model_plural'] = $options['model_plural'];
         }
 
         if (! $this->c->extends()) {
             if (in_array($type, [
+                'playground',
                 'playground-abstract',
+                'playground-model',
             ])) {
-                $options['extends'] = 'Playground/Models/Model';
+                $options['extends_use'] = 'Playground/Models/Model';
+                $options['extends'] = 'Model';
+                // $this->searches['extends'] = 'Model';
             } elseif (in_array($type, [
                 'playground-resource',
                 'playground-api',
             ])) {
-                $options['extends'] = 'AbstractModel';
+                $options['extends_use'] = 'AbstractModel';
             } else {
-                $options['extends'] = 'Illuminate/Database/Eloquent/Model';
+                $options['extends_use'] = 'Illuminate/Database/Eloquent/Model';
+                $options['extends'] = 'Model';
+                // $this->searches['extends'] = 'Model';
             }
-        }
-
-        if (! $this->c->fqdn()) {
-            $options['fqdn'] = sprintf(
-                '%1$s/Models/%2$s',
-                $this->c->namespace(),
-                Str::of($name)->studly()->toString()
-            );
-        }
-
-        if (in_array($type, [
-            'model',
-            'resource',
-            'api',
-            'playground-resource',
-            'playground-api',
-        ])) {
-            $this->c->create()?->setOptions([
-                'factory' => true,
-                'migration' => true,
-            ]);
         }
 
         if ($options) {
             $this->c->setOptions($options);
+            $this->c->apply();
         }
+        // dd([
+        //     '__METHOD__' => __METHOD__,
+        //     '$options' => $options,
+        //     '$this->c' => $this->c,
+        // ]);
     }
 
     protected function buildClass_table_property(): void

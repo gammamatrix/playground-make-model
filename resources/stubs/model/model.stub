@@ -4,11 +4,11 @@
  */
 
 declare(strict_types=1);
-namespace {{ namespace }};
+namespace {{ namespace }}\Models;
 
 {{ use }}
 /**
- * \{{ namespace }}\{{ class }}{{ docblock }}
+ * \{{ namespace }}\Models\{{ class }}{{ docblock }}
  */
 class {{ class }} extends {{ extends }}{{ implements }}
 {

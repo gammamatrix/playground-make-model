@@ -18,7 +18,17 @@ trait MakeJson
      * @var array<string, array<string, mixed>>
      */
     protected array $skeleton_json = [
+        'address' => [
+            'default' => '{}',
+            'nullable' => true,
+            'type' => 'JSON_OBJECT',
+        ],
         'assets' => [
+            'default' => '{}',
+            'nullable' => true,
+            'type' => 'JSON_OBJECT',
+        ],
+        'contact' => [
             'default' => '{}',
             'nullable' => true,
             'type' => 'JSON_OBJECT',
