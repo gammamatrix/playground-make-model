@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-07-06 02:00:08</timestamp>
+  <timestamp>2024-07-31 20:00:38</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>112</methodCount>
-    <crapMethodCount>5</crapMethodCount>
-    <crapLoad>73</crapLoad>
-    <totalCrap>2181.05</totalCrap>
-    <crapMethodPercent>4.46</crapMethodPercent>
+    <crapMethodCount>4</crapMethodCount>
+    <crapLoad>63</crapLoad>
+    <totalCrap>2089.28</totalCrap>
+    <crapMethodPercent>3.57</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -334,12 +334,12 @@
       <package>Playground\Make\Model\Building</package>
       <className>Playground\Make\Model\Building\BuildTable</className>
       <methodName>buildClass_model_table</methodName>
-      <methodSignature>buildClass_model_table(string $name, string $type, string $module_slug): void</methodSignature>
-      <fullMethod>buildClass_model_table(string $name, string $type, string $module_slug): void</fullMethod>
-      <crap>110</crap>
-      <complexity>10</complexity>
-      <coverage>0</coverage>
-      <crapLoad>10</crapLoad>
+      <methodSignature>buildClass_model_table(): void</methodSignature>
+      <fullMethod>buildClass_model_table(): void</fullMethod>
+      <crap>18.24</crap>
+      <complexity>18</complexity>
+      <coverage>90.91</coverage>
+      <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Model\Building</package>
@@ -358,9 +358,9 @@
       <methodName>createFactory</methodName>
       <methodSignature>createFactory(): void</methodSignature>
       <fullMethod>createFactory(): void</fullMethod>
-      <crap>7.01</crap>
+      <crap>7</crap>
       <complexity>7</complexity>
-      <coverage>94.44</coverage>
+      <coverage>95.45</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -415,7 +415,7 @@
       <fullMethod>createTest()</fullMethod>
       <crap>7</crap>
       <complexity>7</complexity>
-      <coverage>96</coverage>
+      <coverage>96.77</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
