@@ -17,23 +17,7 @@ trait MakeStatus
     /**
      * @var array<string, array<string, mixed>>
      */
-    protected array $skeleton_status = [
-        'status' => [
-            'type' => 'bigInteger',
-            'default' => 0,
-            'unsigned' => true,
-        ],
-        'rank' => [
-            'type' => 'bigInteger',
-            'default' => 0,
-            'unsigned' => false,
-        ],
-        'size' => [
-            'type' => 'bigInteger',
-            'default' => 0,
-            'unsigned' => false,
-        ],
-    ];
+    protected array $filters_status = [];
 
     protected function buildClass_skeleton_status(Create $create): void
     {
@@ -46,16 +30,11 @@ trait MakeStatus
         //     '$status' => $status,
         // ]);
 
-        /**
-         * @var array<string, array<int, mixed>>
-         */
-        $addFilters = [
-            'status' => [],
-        ];
+        foreach ($this->recipe->status() as $column => $meta) {
 
-        foreach ($this->skeleton_status as $column => $meta) {
-
-            $label = Str::of($column)->replace('_', ' ')->ucfirst()->toString();
+            $label = ! empty($meta['label'])
+                ? empty($meta['label'])
+                : Str::of($column)->replace('_', ' ')->ucfirst()->toString();
             // dump([
             //     '__METHOD__' => __METHOD__,
             //     '$column' => $column,
@@ -81,10 +60,11 @@ trait MakeStatus
             }
 
             if (! in_array($column, $this->analyze_filters['status'])) {
-                $addFilters['status'][] = [
+                $this->filters_status[$column] = [
                     'label' => $label,
                     'column' => $column,
                     'type' => $type,
+                    'icon' => $meta['icon'] ?? '',
                     'nullable' => true,
                 ];
             }
@@ -93,22 +73,18 @@ trait MakeStatus
                 $this->c->addSortable([
                     'label' => $label,
                     'type' => $type,
+                    'icon' => $meta['icon'] ?? '',
                     'column' => $column,
                 ]);
-            }
-
-            $meta = [];
-            if (is_array($this->skeleton_status[$column])) {
-                $meta = $this->skeleton_status[$column];
             }
 
             $meta['label'] = $label;
 
             $create->addStatus($column, $meta);
-
-            if ($addFilters) {
-                $this->c->addFilter($addFilters);
-            }
         }
+
+        $this->c->addFilter([
+            'status' => array_values($this->filters_status),
+        ], true);
     }
 }

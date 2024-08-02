@@ -17,60 +17,6 @@ trait MakeIds
     /**
      * @var array<string, array<string, mixed>>
      */
-    protected array $skeleton_ids_users = [
-        'created_by_id' => [
-            'type' => 'uuid',
-            'readOnly' => true,
-            'nullable' => true,
-            'index' => true,
-            'foreign' => [
-                'references' => 'id',
-                'on' => 'users',
-            ],
-            'trait' => 'WithCreator',
-        ],
-        'modified_by_id' => [
-            'type' => 'uuid',
-            'readOnly' => true,
-            'nullable' => true,
-            'index' => true,
-            'foreign' => [
-                'references' => 'id',
-                'on' => 'users',
-            ],
-            'trait' => 'WithModifier',
-        ],
-        'owned_by_id' => [
-            'type' => 'uuid',
-            'nullable' => true,
-            'index' => true,
-            'foreign' => [
-                'references' => 'id',
-                'on' => 'users',
-            ],
-            'trait' => 'WithOwner',
-        ],
-    ];
-
-    /**
-     * @var array<string, array<string, mixed>>
-     */
-    protected array $skeleton_ids_model = [
-        'parent_id' => [
-            'type' => 'uuid',
-            'nullable' => true,
-            'index' => true,
-            'foreign' => [
-                'references' => 'id',
-                'on' => null,
-            ],
-            'trait' => 'WithParent',
-        ],
-    ];
-
-    /**
-     * @var array<string, array<string, mixed>>
-     */
     protected array $skeleton_ids_package = [
         // 'backlog_id' => [
         //     'type' => 'uuid',
@@ -269,11 +215,65 @@ trait MakeIds
     protected array $skeleton_ids = [
     ];
 
+    /**
+     * @var array<string, array<string, mixed>>
+     */
+    protected array $filters_ids = [];
+
     protected function buildClass_skeleton_ids(Create $create): void
     {
+        $this->buildClass_skeleton_ids_primary($create);
+        $this->buildClass_skeleton_ids_type($create);
         $this->buildClass_skeleton_ids_users($create);
         $this->buildClass_skeleton_ids_model($create);
         $this->buildClass_skeleton_ids_package($create);
+
+        $this->c->addFilter([
+            'ids' => array_values($this->filters_ids),
+        ], true);
+    }
+
+    protected function buildClass_skeleton_ids_primary(Create $create): void
+    {
+        // dd([
+        //     '__METHOD__' => __METHOD__,
+        //     '__CLASS__' => __CLASS__,
+        //     'static::class' => static::class,
+        //     '$this' => $this,
+        // ]);
+        $primary = $create->primary() ?: $this->recipe->primary();
+
+        if ($primary) {
+            $create->setOptions([
+                'primary' => $primary,
+            ]);
+
+            $label = 'ID';
+            $column = 'id';
+            $type = in_array($primary, ['increments']) ? 'integer' : 'string';
+
+            $this->c->addSortable([
+                'label' => $label,
+                'type' => $type,
+                'column' => $column,
+            ]);
+
+            $this->filters_ids[$column] = [
+                'label' => $label,
+                'column' => $column,
+                'type' => $type,
+                'nullable' => true,
+            ];
+        }
+
+        // dump([
+        //     '__METHOD__' => __METHOD__,
+        //     '$this->c->filters' => $this->c->filters(),
+        //     // '$this->c' => $this->c->toArray(),
+        //     '$primary' => $primary,
+        //     // '$this->recipe->primary()' => $this->recipe->primary(),
+        //     // '$create->primary()' => $create->primary(),
+        // ]);
     }
 
     protected function buildClass_skeleton_ids_users(Create $create): void
@@ -287,16 +287,11 @@ trait MakeIds
         //     '$ids' => $ids,
         // ]);
 
-        /**
-         * @var array<string, array<int, mixed>>
-         */
-        $addFilters = [
-            'ids' => [],
-        ];
+        foreach ($this->recipe->userIds() as $column => $meta) {
 
-        foreach ($this->skeleton_ids_users as $column => $meta) {
-
-            $label = Str::of($column)->replace('_', ' ')->ucfirst()->toString();
+            $label = ! empty($meta['label'])
+                ? empty($meta['label'])
+                : Str::of($column)->replace('_', ' ')->ucfirst()->toString();
             // dump([
             //     '__METHOD__' => __METHOD__,
             //     '$column' => $column,
@@ -330,7 +325,7 @@ trait MakeIds
             }
 
             if (! in_array($column, $this->analyze_filters['ids'])) {
-                $addFilters['ids'][] = [
+                $this->filters_ids[$column] = [
                     'label' => $label,
                     'column' => $column,
                     'type' => $type,
@@ -346,46 +341,99 @@ trait MakeIds
                 ]);
             }
 
-            $meta = [];
-            if (is_array($this->skeleton_ids_users[$column])) {
-                $meta = $this->skeleton_ids_users[$column];
-            }
-
             $meta['label'] = $label;
 
             $create->addId($column, $meta);
+            // dump([
+            //     '__METHOD__' => __METHOD__,
+            //     '$column' => $column,
+            //     '$this->c->filters()' => $this->c->filters(),
+            //     // '$this->c' => $this->c->toArray(),
+            // ]);
 
-            if ($addFilters) {
-                $this->c->addFilter($addFilters);
-            }
+            // dd([
+            //     '__METHOD__' => __METHOD__,
+            //     '$column' => $column,
+            //     '$this->c->filters()' => $this->c->filters(),
+            //     // '$this->c' => $this->c->toArray(),
+            // ]);
 
-            $foreign = ! empty($meta['foreign']) && is_array($meta['foreign']) ? $meta['foreign'] : [];
+            // $foreign = ! empty($meta['foreign']) && is_array($meta['foreign']) ? $meta['foreign'] : [];
 
-            if ($this->no_user_hasOne || empty($foreign)) {
-                continue;
-            }
+            // if ($this->no_user_hasOne || empty($foreign)) {
+            //     continue;
+            // }
 
-            $accessor = Str::of($column)->before('_id')->studly()->lcfirst()->toString();
+            // $accessor = Str::of($column)->before('_id')->studly()->lcfirst()->toString();
 
-            $related = Str::of($column)->before('_id')->studly()->toString();
+            // $related = Str::of($column)->before('_id')->studly()->toString();
 
-            $foreignKey = $foreign['references'] ?? 'id';
+            // $foreignKey = $foreign['references'] ?? 'id';
 
-            $addOne = [
-                // 'comment' => '',
-                // 'accessor' => '',
-                'related' => $related,
-                'foreignKey' => $foreignKey,
-                'localKey' => $column,
-            ];
+            // $addOne = [
+            //     // 'comment' => '',
+            //     // 'accessor' => '',
+            //     'related' => $related,
+            //     'foreignKey' => $foreignKey,
+            //     'localKey' => $column,
+            // ];
 
-            $this->c->addHasOne($accessor, $addOne);
+            // $this->c->addHasOne($accessor, $addOne);
         }
     }
 
-    protected bool $no_user_hasOne = true;
+    // protected bool $no_user_hasOne = true;
 
-    protected bool $model_has_type = true;
+    protected function buildClass_skeleton_ids_type(Create $create): void
+    {
+        if (! in_array($this->c->type(), [
+            'playground-model',
+        ])) {
+            return;
+        }
+
+        $this->components->info(sprintf('Skeleton model type for [%s]', $this->c->name()));
+
+        $column = Str::of($this->c->name())->snake()->finish('_type')->toString();
+        $label = Str::of($this->c->model_singular())->finish(' Type')->toString();
+
+        $meta = [
+            'type' => 'string',
+            'column' => $column,
+            'label' => $label,
+            'nullable' => true,
+            'index' => true,
+        ];
+        // dump([
+        //     '__METHOD__' => __METHOD__,
+        //     '$column' => $column,
+        //     '$label' => $label,
+        //     '$meta' => $meta,
+        // ]);
+
+        $create->addId($column, $meta);
+
+        $this->c->addAttribute($column, null);
+        $this->c->addCast($column, 'string');
+        $this->c->addFillable($column);
+
+        if (! in_array($column, $this->analyze_filters['ids'])) {
+            $this->filters_dates[$column] = [
+                'column' => $column,
+                'label' => $label,
+                'type' => 'string',
+                'nullable' => true,
+            ];
+        }
+
+        if (! in_array($column, $this->analyze['sortable'])) {
+            $this->c->addSortable([
+                'type' => 'string',
+                'column' => $column,
+                'label' => $label,
+            ]);
+        }
+    }
 
     protected function buildClass_skeleton_ids_model(Create $create): void
     {
@@ -393,28 +441,12 @@ trait MakeIds
 
         $this->components->info(sprintf('Skeleton ids for [%s]', $this->c->name()));
 
-        if ($this->model_has_type) {
-            $type_column = Str::of($this->c->name())->snake()->finish('_type')->toString();
-            $this->skeleton_ids_model[$type_column] = [
-                'type' => 'string',
-                'nullable' => true,
-                'index' => true,
-            ];
-        }
-
         // dump([
         //     '__METHOD__' => __METHOD__,
         //     '$ids' => $ids,
         // ]);
 
-        /**
-         * @var array<string, array<int, mixed>>
-         */
-        $addFilters = [
-            'ids' => [],
-        ];
-
-        foreach ($this->skeleton_ids_model as $column => $meta) {
+        foreach ($this->recipe->ids() as $column => $meta) {
 
             $label = Str::of($column)->replace('_', ' ')->ucfirst()->toString();
             // dump([
@@ -446,7 +478,7 @@ trait MakeIds
             }
 
             if (! in_array($column, $this->analyze_filters['ids'])) {
-                $addFilters['ids'][] = [
+                $this->filters_ids[$column] = [
                     'label' => $label,
                     'column' => $column,
                     'type' => $type,
@@ -462,18 +494,9 @@ trait MakeIds
                 ]);
             }
 
-            $meta = [];
-            if (is_array($this->skeleton_ids_model[$column])) {
-                $meta = $this->skeleton_ids_model[$column];
-            }
-
             $meta['label'] = $label;
 
             $create->addId($column, $meta);
-
-            if ($addFilters) {
-                $this->c->addFilter($addFilters);
-            }
         }
     }
 
@@ -489,13 +512,6 @@ trait MakeIds
         //     '__METHOD__' => __METHOD__,
         //     '$ids' => $ids,
         // ]);
-
-        /**
-         * @var array<string, array<int, mixed>>
-         */
-        $addFilters = [
-            'ids' => [],
-        ];
 
         foreach ($this->skeleton_ids_package as $column => $meta) {
 
@@ -529,7 +545,7 @@ trait MakeIds
             }
 
             if (! in_array($column, $this->analyze_filters['ids'])) {
-                $addFilters['ids'][] = [
+                $this->filters_ids[$column] = [
                     'label' => $label,
                     'column' => $column,
                     'type' => $type,
@@ -545,18 +561,9 @@ trait MakeIds
                 ]);
             }
 
-            $meta = [];
-            if (is_array($this->skeleton_ids_package[$column])) {
-                $meta = $this->skeleton_ids_package[$column];
-            }
-
             $meta['label'] = $label;
 
             $create->addId($column, $meta);
-
-            if ($addFilters) {
-                $this->c->addFilter($addFilters);
-            }
         }
     }
 }

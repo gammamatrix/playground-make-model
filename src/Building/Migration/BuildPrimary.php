@@ -14,6 +14,10 @@ trait BuildPrimary
     protected function buildClass_primary(): void
     {
         $primary = $this->model?->create()?->primary();
+        // dd([
+        //     '__METHOD__' => __METHOD__,
+        //     '$primary' => $primary,
+        // ]);
 
         $this->searches['table_primary'] = PHP_EOL;
 

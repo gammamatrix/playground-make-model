@@ -17,146 +17,7 @@ trait MakeMatrix
     /**
      * @var array<string, array<string, mixed>>
      */
-    protected array $skeleton_matrix = [
-        'matrix' => [
-            'column' => 'matrix',
-            'label' => '',
-            'description' => '',
-            'icon' => '',
-            'default' => '{}',
-            'index' => false,
-            'nullable' => true,
-            'readOnly' => false,
-            'type' => 'JSON_OBJECT',
-        ],
-        'x' => [
-            'column' => 'x',
-            'label' => '',
-            'description' => '',
-            'icon' => '',
-            'default' => null,
-            'index' => false,
-            'nullable' => true,
-            'readOnly' => false,
-            'type' => 'bigInteger',
-            'unsigned' => false,
-        ],
-        'y' => [
-            'column' => 'y',
-            'label' => '',
-            'description' => '',
-            'icon' => '',
-            'default' => null,
-            'index' => false,
-            'nullable' => true,
-            'readOnly' => false,
-            'type' => 'bigInteger',
-            'unsigned' => false,
-        ],
-        'z' => [
-            'column' => 'z',
-            'label' => '',
-            'description' => '',
-            'icon' => '',
-            'default' => null,
-            'index' => false,
-            'nullable' => true,
-            'readOnly' => false,
-            'type' => 'bigInteger',
-            'unsigned' => false,
-        ],
-        'r' => [
-            'column' => 'r',
-            'label' => '',
-            'description' => '',
-            'icon' => '',
-            'default' => null,
-            'index' => false,
-            'nullable' => true,
-            'readOnly' => false,
-            'type' => 'decimal',
-            'precision' => 65,
-            'scale' => 10,
-        ],
-        'theta' => [
-            'column' => 'theta',
-            'label' => '',
-            'description' => '',
-            'icon' => '',
-            'default' => null,
-            'index' => false,
-            'nullable' => true,
-            'readOnly' => false,
-            'type' => 'decimal',
-            'precision' => 10,
-            'scale' => 6,
-        ],
-        'rho' => [
-            'column' => 'rho',
-            'label' => '',
-            'description' => '',
-            'icon' => '',
-            'default' => null,
-            'index' => false,
-            'nullable' => true,
-            'readOnly' => false,
-            'type' => 'decimal',
-            'precision' => 10,
-            'scale' => 6,
-        ],
-        'phi' => [
-            'column' => 'phi',
-            'label' => '',
-            'description' => '',
-            'icon' => '',
-            'default' => null,
-            'index' => false,
-            'nullable' => true,
-            'readOnly' => false,
-            'type' => 'decimal',
-            'precision' => 10,
-            'scale' => 6,
-        ],
-        'elevation' => [
-            'column' => 'elevation',
-            'label' => '',
-            'description' => '',
-            'icon' => '',
-            'default' => null,
-            'index' => false,
-            'nullable' => true,
-            'readOnly' => false,
-            'type' => 'decimal',
-            'precision' => 65,
-            'scale' => 10,
-        ],
-        'latitude' => [
-            'column' => 'latitude',
-            'label' => '',
-            'description' => '',
-            'icon' => '',
-            'default' => null,
-            'index' => false,
-            'nullable' => true,
-            'readOnly' => false,
-            'type' => 'decimal',
-            'precision' => 8,
-            'scale' => 6,
-        ],
-        'longitude' => [
-            'column' => 'longitude',
-            'label' => '',
-            'description' => '',
-            'icon' => '',
-            'default' => null,
-            'index' => false,
-            'nullable' => true,
-            'readOnly' => false,
-            'type' => 'decimal',
-            'precision' => 9,
-            'scale' => 6,
-        ],
-    ];
+    protected array $filters_matrix = [];
 
     protected function buildClass_skeleton_matrix(Create $create): void
     {
@@ -169,16 +30,11 @@ trait MakeMatrix
         //     '$matrix' => $matrix,
         // ]);
 
-        /**
-         * @var array<string, array<int, mixed>>
-         */
-        $addFilters = [
-            'matrix' => [],
-        ];
+        foreach ($this->recipe->matrix() as $column => $meta) {
 
-        foreach ($this->skeleton_matrix as $column => $meta) {
-
-            $label = Str::of($column)->replace('_', ' ')->ucfirst()->toString();
+            $label = ! empty($meta['label'])
+                ? empty($meta['label'])
+                : Str::of($column)->replace('_', ' ')->ucfirst()->toString();
             // dump([
             //     '__METHOD__' => __METHOD__,
             //     '$column' => $column,
@@ -207,10 +63,11 @@ trait MakeMatrix
             }
 
             if (! in_array($column, $this->analyze_filters['matrix'])) {
-                $addFilters['matrix'][] = [
+                $this->filters_matrix[$column] = [
                     'label' => $label,
                     'column' => $column,
                     'type' => $type,
+                    'icon' => $meta['icon'] ?? '',
                     'nullable' => true,
                 ];
             }
@@ -219,22 +76,18 @@ trait MakeMatrix
                 $this->c->addSortable([
                     'label' => $label,
                     'type' => $type === 'decimal' ? 'float' : $type,
+                    'icon' => $meta['icon'] ?? '',
                     'column' => $column,
                 ]);
-            }
-
-            $meta = [];
-            if (is_array($this->skeleton_matrix[$column])) {
-                $meta = $this->skeleton_matrix[$column];
             }
 
             $meta['label'] = $label;
 
             $create->addMatrix($column, $meta);
-
-            if ($addFilters) {
-                $this->c->addFilter($addFilters);
-            }
         }
+
+        $this->c->addFilter([
+            'matrix' => array_values($this->filters_matrix),
+        ], true);
     }
 }

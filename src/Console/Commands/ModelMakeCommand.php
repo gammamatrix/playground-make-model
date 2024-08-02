@@ -13,6 +13,7 @@ use Playground\Make\Configuration\Contracts\PrimaryConfiguration as PrimaryConfi
 use Playground\Make\Configuration\Model as Configuration;
 use Playground\Make\Console\Commands\GeneratorCommand;
 use Playground\Make\Model\Building;
+use Playground\Make\Model\Recipe;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -44,6 +45,7 @@ class ModelMakeCommand extends GeneratorCommand
     use Building\Skeleton\MakeJson;
     use Building\Skeleton\MakeMatrix;
     use Building\Skeleton\MakePermissions;
+    use Building\Skeleton\MakeRelationships;
     use Building\Skeleton\MakeStatus;
     use Building\Skeleton\MakeUi;
     use Building\Skeleton\MakeUnique;
@@ -118,6 +120,20 @@ class ModelMakeCommand extends GeneratorCommand
 
     protected bool $isResource = false;
 
+    protected Recipe\Model $recipe;
+
+    /**
+     * @var array<string, class-string<Recipe\Model>>
+     */
+    protected array $recipes = [
+        'cms' => Recipe\Cms::class,
+        'crm' => Recipe\Crm::class,
+        'directory' => Recipe\Directory::class,
+        'laravel' => Recipe\Laravel::class,
+        'matrix' => Recipe\Matrix::class,
+        'playground' => Recipe\Playground::class,
+    ];
+
     protected bool $replace = false;
 
     public function prepareOptions(): void
@@ -130,6 +146,8 @@ class ModelMakeCommand extends GeneratorCommand
                 'type' => 'model',
             ]);
         }
+
+        $this->handleRecipe($this->c->name(), $type);
 
         if ($this->hasOption('all') && $this->option('all')) {
 
@@ -247,11 +265,62 @@ class ModelMakeCommand extends GeneratorCommand
         if ($this->hasOption('replace') && $this->option('replace')) {
             $this->replace = true;
         }
+
         // dd([
         //     '__METHOD__' => __METHOD__,
         //     '$this->c' => $this->c,
         //     // '$this->c' => $this->c->toArray(),
         //     '$this->searches' => $this->searches,
+        // ]);
+    }
+
+    public function handleRecipe(string $name, string $type): void
+    {
+        $recipe = ! empty($this->recipes[$this->c->recipe()]) ? $this->c->recipe() : '';
+        $class = $this->recipes['playground'];
+
+        if ($this->hasOption('recipe')
+            && $this->option('recipe')
+            && is_string($this->option('recipe'))
+            && ! empty($this->recipes[$this->option('recipe')])
+        ) {
+            $recipe = $this->option('recipe');
+            $class = $this->recipes[$recipe];
+        }
+
+        if (! $recipe && $type) {
+            if (in_array($type, [
+                'abstract',
+                'morph-pivot',
+                'pivot',
+            ])) {
+                $recipe = 'abstract';
+                $class = Recipe\AbstractModel::class;
+            } elseif (in_array($type, [
+                'model',
+            ])) {
+                $recipe = 'laravel';
+                $class = Recipe\Laravel::class;
+            }
+        }
+
+        if (empty($this->recipe)) {
+            $this->recipe = new $class($name, $type);
+        }
+
+        if ($recipe && $this->c->recipe() !== $recipe) {
+            $this->c->setOptions([
+                'recipe' => $recipe,
+            ]);
+        }
+
+        // dump([
+        //     '__METHOD__' => __METHOD__,
+        //     '$name' => $name,
+        //     '$type' => $type,
+        //     '$recipe' => $recipe,
+        //     '$class' => $class,
+        //     '$this->recipe' => $this->recipe,
         // ]);
     }
 
@@ -323,11 +392,11 @@ class ModelMakeCommand extends GeneratorCommand
         $this->searches['use'] = '';
         $this->searches['use_class'] = '';
 
+        $this->buildClass_model_table();
+
         if ($this->c->skeleton()) {
             $this->buildClass_skeleton();
         }
-
-        $this->buildClass_model_table();
 
         $this->buildClass_docblock();
         // dd([
@@ -467,6 +536,7 @@ class ModelMakeCommand extends GeneratorCommand
             ['requests',        'R',  InputOption::VALUE_NONE, 'Create new form request classes and use them in the resource controller'],
             ['module',          null, InputOption::VALUE_OPTIONAL, 'The module that the '.strtolower($this->type).' belongs to'],
             ['namespace',       null, InputOption::VALUE_OPTIONAL, 'The namespace of the '.strtolower($this->type)],
+            ['recipe',          null, InputOption::VALUE_OPTIONAL, 'The configuration recipe of the '.strtolower($this->type)],
             ['type',            null, InputOption::VALUE_OPTIONAL, 'The configuration type of the '.strtolower($this->type)],
             ['organization',    null, InputOption::VALUE_OPTIONAL, 'The organization of the '.strtolower($this->type)],
             ['package',         null, InputOption::VALUE_OPTIONAL, 'The package of the '.strtolower($this->type)],
@@ -509,6 +579,9 @@ class ModelMakeCommand extends GeneratorCommand
         if (! $this->option('test') && ! $this->option('pest') && ! $this->option('phpunit')) {
             return false;
         }
+        // dd([
+        //     '__METHOD__' => __METHOD__,
+        // ]);
 
         $this->createTest();
 

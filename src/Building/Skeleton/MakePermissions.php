@@ -17,52 +17,7 @@ trait MakePermissions
     /**
      * @var array<string, array<string, mixed>>
      */
-    protected array $skeleton_permissions = [
-        'gids' => [
-            'type' => 'bigInteger',
-            'default' => 0,
-            'unsigned' => true,
-            'icon' => 'fa-solid fa-people-group',
-        ],
-        'po' => [
-            'type' => 'tinyInteger',
-            'default' => 0,
-            'unsigned' => true,
-            'icon' => 'fa-solid fa-house-user',
-        ],
-        'pg' => [
-            'type' => 'tinyInteger',
-            'default' => 0,
-            'unsigned' => true,
-            'icon' => 'fa-solid fa-people-roof',
-        ],
-        'pw' => [
-            'type' => 'tinyInteger',
-            'default' => 0,
-            'unsigned' => true,
-            'icon' => 'fa-solid fa-globe',
-        ],
-        'only_admin' => [
-            'type' => 'boolean',
-            'default' => false,
-            'icon' => 'fa-solid fa-user-gear',
-        ],
-        'only_user' => [
-            'type' => 'boolean',
-            'default' => false,
-            'icon' => 'fa-solid fa-user',
-        ],
-        'only_guest' => [
-            'type' => 'boolean',
-            'default' => false,
-            'icon' => 'fa-solid fa-person-rays',
-        ],
-        'allow_public' => [
-            'type' => 'boolean',
-            'default' => false,
-            'icon' => 'fa-solid fa-users-line',
-        ],
-    ];
+    protected array $filters_permissions = [];
 
     protected function buildClass_skeleton_permissions(Create $create): void
     {
@@ -75,16 +30,11 @@ trait MakePermissions
         //     '$permissions' => $permissions,
         // ]);
 
-        /**
-         * @var array<string, array<int, mixed>>
-         */
-        $addFilters = [
-            'permissions' => [],
-        ];
+        foreach ($this->recipe->permissions() as $column => $meta) {
 
-        foreach ($this->skeleton_permissions as $column => $meta) {
-
-            $label = Str::of($column)->replace('_', ' ')->ucfirst()->toString();
+            $label = ! empty($meta['label'])
+                ? empty($meta['label'])
+                : Str::of($column)->replace('_', ' ')->ucfirst()->toString();
             // dump([
             //     '__METHOD__' => __METHOD__,
             //     '$column' => $column,
@@ -109,10 +59,11 @@ trait MakePermissions
             }
 
             if (! in_array($column, $this->analyze_filters['permissions'])) {
-                $addFilters['permissions'][] = [
+                $this->filters_permissions[$column] = [
                     'label' => $label,
                     'column' => $column,
                     'type' => $type,
+                    'icon' => $meta['icon'] ?? '',
                     'nullable' => true,
                 ];
             }
@@ -121,22 +72,18 @@ trait MakePermissions
                 $this->c->addSortable([
                     'label' => $label,
                     'type' => $type,
+                    'icon' => $meta['icon'] ?? '',
                     'column' => $column,
                 ]);
-            }
-
-            $meta = [];
-            if (is_array($this->skeleton_permissions[$column])) {
-                $meta = $this->skeleton_permissions[$column];
             }
 
             $meta['label'] = $label;
 
             $create->addPermission($column, $meta);
-
-            if ($addFilters) {
-                $this->c->addFilter($addFilters);
-            }
         }
+
+        $this->c->addFilter([
+            'permissions' => array_values($this->filters_permissions),
+        ], true);
     }
 }

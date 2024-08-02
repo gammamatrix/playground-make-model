@@ -17,28 +17,7 @@ trait MakeUi
     /**
      * @var array<string, array<string, mixed>>
      */
-    protected array $skeleton_ui = [
-        'icon' => [
-            'type' => 'string',
-            'size' => 128,
-            'default' => '',
-        ],
-        'image' => [
-            'type' => 'string',
-            'default' => '',
-            'size' => 512,
-        ],
-        'avatar' => [
-            'type' => 'string',
-            'default' => '',
-            'size' => 512,
-        ],
-        'ui' => [
-            'default' => '{}',
-            'type' => 'JSON_OBJECT',
-            'nullable' => true,
-        ],
-    ];
+    protected array $filters_ui = [];
 
     protected function buildClass_skeleton_ui(Create $create): void
     {
@@ -51,16 +30,11 @@ trait MakeUi
         //     '$ui' => $ui,
         // ]);
 
-        /**
-         * @var array<string, array<int, mixed>>
-         */
-        $addFilters = [
-            'ui' => [],
-        ];
+        foreach ($this->recipe->ui() as $column => $meta) {
 
-        foreach ($this->skeleton_ui as $column => $meta) {
-
-            $label = Str::of($column)->replace('_', ' ')->ucfirst()->toString();
+            $label = ! empty($meta['label'])
+                ? empty($meta['label'])
+                : Str::of($column)->replace('_', ' ')->ucfirst()->toString();
             // dump([
             //     '__METHOD__' => __METHOD__,
             //     '$column' => $column,
@@ -86,7 +60,7 @@ trait MakeUi
             }
 
             if (! in_array($column, $this->analyze_filters['ui'])) {
-                $addFilters['ui'][] = [
+                $this->filters_ui[$column] = [
                     'label' => $label,
                     'column' => $column,
                     'type' => $type,
@@ -102,18 +76,13 @@ trait MakeUi
                 ]);
             }
 
-            $meta = [];
-            if (is_array($this->skeleton_ui[$column])) {
-                $meta = $this->skeleton_ui[$column];
-            }
-
             $meta['label'] = $label;
 
             $create->addUi($column, $meta);
-
-            if ($addFilters) {
-                $this->c->addFilter($addFilters);
-            }
         }
+
+        $this->c->addFilter([
+            'ui' => array_values($this->filters_ui),
+        ], true);
     }
 }

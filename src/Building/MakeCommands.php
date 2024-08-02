@@ -245,18 +245,12 @@ trait MakeCommands
             $name->finish('Test');
         }
 
-        $namespace = sprintf(
-            'Tests/Feature/%1$s/Models/%2$s',
-            $this->c->namespace(),
-            $name,
-        );
-
         // $this->c->type()
         $type = 'model';
 
         $options = [
             'name' => $name->toString(),
-            '--namespace' => $namespace,
+            '--namespace' => '',
             '--force' => $force,
             '--package' => $this->c->package(),
             '--organization' => $this->c->organization(),
@@ -278,9 +272,25 @@ trait MakeCommands
         // ]);
 
         $options['--suite'] = 'unit';
+
+        $options['--namespace'] = sprintf(
+            'Tests/%1$s/%2$s/Models/%3$s',
+            'Unit',
+            $this->c->namespace(),
+            $name,
+        );
+
         $this->call('playground:make:test', $options);
 
         $options['--suite'] = 'feature';
+
+        $options['--namespace'] = sprintf(
+            'Tests/%1$s/%2$s/Models/%3$s',
+            'Feature',
+            $this->c->namespace(),
+            $name,
+        );
+
         $this->call('playground:make:test', $options);
 
         // $this->createTest = true;

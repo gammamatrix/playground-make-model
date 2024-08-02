@@ -17,70 +17,7 @@ trait MakeJson
     /**
      * @var array<string, array<string, mixed>>
      */
-    protected array $skeleton_json = [
-        'address' => [
-            'default' => '{}',
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
-        ],
-        'assets' => [
-            'default' => '{}',
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
-        ],
-        'contact' => [
-            'default' => '{}',
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
-        ],
-        // 'backlog' => [
-        //     'default' => '{}',
-        //     'nullable' => true,
-        //     'type' => 'JSON_OBJECT',
-        // ],
-        // 'board' => [
-        //     'default' => '{}',
-        //     'nullable' => true,
-        //     'type' => 'JSON_OBJECT',
-        // ],
-        // 'flow' => [
-        //     'default' => '{}',
-        //     'nullable' => true,
-        //     'type' => 'JSON_OBJECT',
-        // ],
-        // 'history' => [
-        //     'default' => '{}',
-        //     'nullable' => true,
-        //     'type' => 'JSON_OBJECT',
-        // ],
-        'meta' => [
-            'default' => '{}',
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
-        ],
-        'notes' => [
-            'default' => '[]',
-            'readOnly' => true,
-            'nullable' => true,
-            'type' => 'JSON_ARRAY',
-            'comment' => 'Array of note objects',
-        ],
-        'options' => [
-            'default' => '{}',
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
-        ],
-        // 'roadmap' => [
-        //     'default' => '{}',
-        //     'nullable' => true,
-        //     'type' => 'JSON_OBJECT',
-        // ],
-        'sources' => [
-            'default' => '{}',
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
-        ],
-    ];
+    protected array $filters_json = [];
 
     protected function buildClass_skeleton_json(Create $create): void
     {
@@ -93,16 +30,11 @@ trait MakeJson
         //     '$json' => $json,
         // ]);
 
-        /**
-         * @var array<string, array<int, mixed>>
-         */
-        $addFilters = [
-            'json' => [],
-        ];
+        foreach ($this->recipe->json() as $column => $meta) {
 
-        foreach ($this->skeleton_json as $column => $meta) {
-
-            $label = Str::of($column)->replace('_', ' ')->ucfirst()->toString();
+            $label = ! empty($meta['label'])
+                ? empty($meta['label'])
+                : Str::of($column)->replace('_', ' ')->ucfirst()->toString();
             // dump([
             //     '__METHOD__' => __METHOD__,
             //     '$column' => $column,
@@ -128,10 +60,11 @@ trait MakeJson
             }
 
             if (! in_array($column, $this->analyze_filters['json'])) {
-                $addFilters['json'][] = [
+                $this->filters_json[$column] = [
                     'label' => $label,
                     'column' => $column,
                     'type' => $type,
+                    'icon' => $meta['icon'] ?? '',
                     'nullable' => true,
                 ];
             }
@@ -140,22 +73,18 @@ trait MakeJson
                 $this->c->addSortable([
                     'label' => $label,
                     'type' => $type,
+                    'icon' => $meta['icon'] ?? '',
                     'column' => $column,
                 ]);
-            }
-
-            $meta = [];
-            if (is_array($this->skeleton_json[$column])) {
-                $meta = $this->skeleton_json[$column];
             }
 
             $meta['label'] = $label;
 
             $create->addJson($column, $meta);
-
-            if ($addFilters) {
-                $this->c->addFilter($addFilters);
-            }
         }
+
+        $this->c->addFilter([
+            'json' => array_values($this->filters_json),
+        ], true);
     }
 }

@@ -17,111 +17,7 @@ trait MakeFlags
     /**
      * @var array<string, array<string, mixed>>
      */
-    protected array $skeleton_flags = [
-        'active' => [
-            'type' => 'boolean',
-            'default' => true,
-            'index' => true,
-            'icon' => 'fa-solid fa-person-running',
-        ],
-        'canceled' => [
-            'type' => 'boolean',
-            'default' => false,
-            'icon' => 'fa-solid fa-ban text-warning',
-        ],
-        'closed' => [
-            'type' => 'boolean',
-            'default' => false,
-            'icon' => 'fa-solid fa-xmark',
-        ],
-        'completed' => [
-            'type' => 'boolean',
-            'default' => false,
-            'icon' => 'fa-solid fa-check',
-        ],
-        'cron' => [
-            'type' => 'boolean',
-            'default' => false,
-            'index' => true,
-            'icon' => 'fa-regular fa-clock',
-        ],
-        // 'duplicate' => [
-        //     'type' => 'boolean',
-        //     'default' => false,
-        //     'icon' => 'fa-solid fa-clone',
-        // ],
-        // 'fixed' => [
-        //     'type' => 'boolean',
-        //     'default' => false,
-        //     'icon' => 'fa-solid fa-wrench',
-        // ],
-        'flagged' => [
-            'type' => 'boolean',
-            'default' => false,
-            'icon' => 'fa-solid fa-flag',
-        ],
-        'internal' => [
-            'type' => 'boolean',
-            'readOnly' => false,
-            'default' => false,
-            'icon' => 'fa-solid fa-server',
-        ],
-        'locked' => [
-            'type' => 'boolean',
-            'default' => false,
-            'icon' => 'fa-solid fa-lock text-warning',
-        ],
-        'pending' => [
-            'type' => 'boolean',
-            'default' => false,
-            'icon' => 'fa-solid fa-circle-pause text-warning',
-        ],
-        'planned' => [
-            'type' => 'boolean',
-            'default' => false,
-            'icon' => 'fa-solid fa-circle-pause text-success',
-        ],
-        'prioritized' => [
-            'type' => 'boolean',
-            'default' => false,
-            'icon' => 'fa-solid fa-triangle-exclamation text-success',
-        ],
-        'problem' => [
-            'type' => 'boolean',
-            'default' => false,
-            'icon' => 'fa-solid fa-triangle-exclamation text-danger',
-        ],
-        // 'published' => [
-        //     'type' => 'boolean',
-        //     'default' => false,
-        //     'icon' => 'fa-solid fa-book',
-        // ],
-        // 'released' => [
-        //     'type' => 'boolean',
-        //     'default' => false,
-        //     'icon' => 'fa-solid fa-dove',
-        // ],
-        'retired' => [
-            'type' => 'boolean',
-            'default' => false,
-            'icon' => 'fa-solid fa-chair text-success',
-        ],
-        // 'resolved' => [
-        //     'type' => 'boolean',
-        //     'default' => false,
-        //     'icon' => 'fa-solid fa-check-double text-success',
-        // ],
-        'suspended' => [
-            'type' => 'boolean',
-            'default' => false,
-            'icon' => 'fa-solid fa-hand text-danger',
-        ],
-        'unknown' => [
-            'type' => 'boolean',
-            'default' => false,
-            'icon' => 'fa-solid fa-question text-warning',
-        ],
-    ];
+    protected array $filters_flags = [];
 
     protected function buildClass_skeleton_flags(Create $create): void
     {
@@ -134,16 +30,11 @@ trait MakeFlags
         //     '$flags' => $flags,
         // ]);
 
-        /**
-         * @var array<string, array<int, mixed>>
-         */
-        $addFilters = [
-            'flags' => [],
-        ];
+        foreach ($this->recipe->flags() as $column => $meta) {
 
-        foreach ($this->skeleton_flags as $column => $meta) {
-
-            $label = Str::of($column)->replace('_', ' ')->ucfirst()->toString();
+            $label = ! empty($meta['label'])
+                ? empty($meta['label'])
+                : Str::of($column)->replace('_', ' ')->ucfirst()->toString();
             // dump([
             //     '__METHOD__' => __METHOD__,
             //     '$column' => $column,
@@ -168,10 +59,11 @@ trait MakeFlags
             }
 
             if (! in_array($column, $this->analyze_filters['flags'])) {
-                $addFilters['flags'][] = [
+                $this->filters_flags[$column] = [
                     'label' => $label,
                     'column' => $column,
                     'type' => $type,
+                    'icon' => $meta['icon'] ?? '',
                     'nullable' => true,
                 ];
             }
@@ -180,22 +72,19 @@ trait MakeFlags
                 $this->c->addSortable([
                     'label' => $label,
                     'type' => $type,
+                    'icon' => $meta['icon'] ?? '',
                     'column' => $column,
                 ]);
-            }
-
-            $meta = [];
-            if (is_array($this->skeleton_flags[$column])) {
-                $meta = $this->skeleton_flags[$column];
             }
 
             $meta['label'] = $label;
 
             $create->addFlag($column, $meta);
 
-            if ($addFilters) {
-                $this->c->addFilter($addFilters);
-            }
         }
+
+        $this->c->addFilter([
+            'flags' => array_values($this->filters_flags),
+        ], true);
     }
 }

@@ -6,6 +6,8 @@
 declare(strict_types=1);
 namespace Playground\Make\Model\Building;
 
+use Playground\Make\Configuration\Model\Create;
+
 /**
  * \Playground\Make\Model\Building\MakeSkeleton
  */
@@ -41,15 +43,13 @@ trait MakeSkeleton
             $this->c->resetOption('sortable');
         }
 
+        $this->buildClass_skeleton_prepare($create);
+
         $this->buildClass_skeleton_ids($create);
 
         $this->buildClass_skeleton_uniques($create);
 
-        $this->buildClass_skeleton_timestamps($create);
-
-        $this->buildClass_skeleton_softDeletes($create);
-
-        $this->buildClass_skeleton_dates($create);
+        $this->buildClass_skeleton_date($create);
 
         $this->buildClass_skeleton_permissions($create);
 
@@ -61,10 +61,84 @@ trait MakeSkeleton
 
         $this->buildClass_skeleton_columns($create);
 
-        $this->buildClass_skeleton_defined_columns($create);
+        // $this->buildClass_skeleton_defined_columns($create);
 
         $this->buildClass_skeleton_ui($create);
 
         $this->buildClass_skeleton_json($create);
+
+        $this->buildClass_skeleton_relationships($create);
+
+        $this->c->apply();
+        // dd([
+        //     '__METHOD__' => __METHOD__,
+        //     '$this->c' => $this->c,
+        //     // '$this->c' => $this->c->toArray(),
+        // ]);
+    }
+
+    protected function buildClass_skeleton_prepare(Create $create): void
+    {
+        $options = [];
+        $options_create = [];
+        $table = $this->c->table();
+
+        if (in_array($this->c->type(), [
+            'model',
+            'playground-model',
+        ])) {
+            $options_create['timestamps'] = true;
+            $options_create['softDeletes'] = true;
+
+            if (! $table && $this->c->model_slug_plural()) {
+                $table = sprintf(
+                    '%1$s_%2$s',
+                    $this->c->module_slug(),
+                    $this->c->model_slug_plural()
+                );
+            }
+
+            if (! $this->c->table() && $table) {
+                $options['table'] = $table;
+            }
+
+            if (! $create->migration() && $table) {
+                $options_create['migration'] = sprintf(
+                    '%1$s_%2$s_%3$s_%4$s_table',
+                    date('Y_m_d'),
+                    '000000',
+                    'create',
+                    $table
+                );
+            }
+        }
+
+        if (in_array($this->c->type(), [
+            'playground-model',
+        ])) {
+            $options['model_attribute'] = 'title';
+            $options['model_attribute_required'] = true;
+            $options['scopes'] = [
+                'sort' => [
+                    'include' => 'minus',
+                    // 'builder' => null,
+                ],
+            ];
+        }
+
+        if ($options_create) {
+            $create->setOptions($options_create);
+        }
+
+        if ($options) {
+            $this->c->setOptions($options);
+        }
+
+        // dd([
+        //     '__METHOD__' => __METHOD__,
+        //     '$options_create' => $options_create,
+        //     '$options' => $options,
+        //     '$this->c' => $this->c,
+        // ]);
     }
 }

@@ -14,6 +14,26 @@ use Playground\Make\Configuration\Model\Create;
  */
 trait MakeDates
 {
+    /**
+     * @var array<string, array<string, mixed>>
+     */
+    protected array $filters_dates = [];
+
+    protected function buildClass_skeleton_date(Create $create): void
+    {
+        $this->buildClass_skeleton_timestamps($create);
+        $this->buildClass_skeleton_softDeletes($create);
+        $this->buildClass_skeleton_dates($create);
+        // dd([
+        //     '__METHOD__' => __METHOD__,
+        //     '$this->filters_dates' => $this->filters_dates,
+        // ]);
+
+        $this->c->addFilter([
+            'dates' => array_values($this->filters_dates),
+        ], true);
+    }
+
     protected function buildClass_skeleton_timestamps(Create $create): void
     {
         if (! $create->timestamps()) {
@@ -21,13 +41,6 @@ trait MakeDates
         }
 
         $this->components->info(sprintf('Adding timestamps to [%s]', $this->c->name()));
-
-        /**
-         * @var array<string, array<int, mixed>>
-         */
-        $addFilters = [
-            'dates' => [],
-        ];
 
         $this->c->addAttribute('created_at', null);
         $this->c->addCast('created_at', 'datetime');
@@ -41,7 +54,7 @@ trait MakeDates
         }
 
         if (! in_array('created_at', $this->analyze_filters['dates'])) {
-            $addFilters['dates'][] = [
+            $this->filters_dates['created_at'] = [
                 'label' => 'Created at',
                 'column' => 'created_at',
                 'type' => 'datetime',
@@ -61,7 +74,7 @@ trait MakeDates
         }
 
         if (! in_array('updated_at', $this->analyze_filters['dates'])) {
-            $addFilters['dates'][] = [
+            $this->filters_dates['updated_at'] = [
                 'label' => 'Updated at',
                 'column' => 'updated_at',
                 'type' => 'datetime',
@@ -69,12 +82,8 @@ trait MakeDates
             ];
         }
 
-        if ($addFilters) {
-            $this->c->addFilter($addFilters);
-        }
         // dd([
         //     '__METHOD__' => __METHOD__,
-        //     '$addFilters' => $addFilters,
         //     '$this->c->filters()' => $this->c->filters(),
         // ]);
     }
@@ -87,27 +96,16 @@ trait MakeDates
 
         $this->components->info(sprintf('Adding soft deletes to [%s]', $this->c->name()));
 
-        /**
-         * @var array<string, array<int, mixed>>
-         */
-        $addFilters = [
-            'dates' => [],
-        ];
-
         $this->c->addAttribute('deleted_at', null);
         $this->c->addCast('deleted_at', 'datetime');
 
         if (! in_array('deleted_at', $this->analyze_filters['dates'])) {
-            $addFilters['dates'][] = [
+            $this->filters_dates['deleted_at'] = [
                 'label' => 'Deleted at',
                 'column' => 'deleted_at',
                 'type' => 'datetime',
                 'nullable' => true,
             ];
-        }
-
-        if ($addFilters) {
-            $this->c->addFilter($addFilters);
         }
 
         if (! in_array('deleted_at', $this->analyze['sortable'])) {
@@ -117,74 +115,7 @@ trait MakeDates
                 'label' => 'Deleted At',
             ]);
         }
-
     }
-
-    /**
-     * @var array<string, array<string, mixed>>
-     */
-    protected array $skeleton_dates = [
-        'start_at' => [
-            'nullable' => true,
-            'index' => true,
-        ],
-        'planned_start_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'end_at' => [
-            'nullable' => true,
-            'index' => true,
-        ],
-        'planned_end_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'canceled_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'closed_at' => [
-            'nullable' => true,
-            'index' => true,
-        ],
-        'embargo_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        // 'fixed_at' => [
-        //     'nullable' => true,
-        //     'index' => false,
-        // ],
-        'postponed_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        // 'published_at' => [
-        //     'nullable' => true,
-        //     'index' => false,
-        // ],
-        // 'released_at' => [
-        //     'nullable' => true,
-        //     'index' => false,
-        // ],
-        'resumed_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        // 'resolved_at' => [
-        //     'nullable' => true,
-        //     'index' => true,
-        // ],
-        'suspended_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        // 'stop_at' => [
-        //     'nullable' => true,
-        //     'index' => false,
-        // ],
-    ];
 
     protected function buildClass_skeleton_dates(Create $create): void
     {
@@ -192,41 +123,12 @@ trait MakeDates
 
         $this->components->info(sprintf('Skeleton dates for [%s]', $this->c->name()));
 
-        // $this->components->info(sprintf('Adding dates to [%s]', $this->configuration['name']));
-        // $current = array_keys($dates);
-        // $skeleton = array_keys($this->skeleton_dates);
+        foreach ($this->recipe->dates() as $column => $meta) {
 
-        // /**
-        //  * @var array<int, string> $add
-        //  */
-        // $add = [];
-
-        // if ($this->replace) {
-        //     $add = array_keys($this->skeleton_dates);
-        // } else {
-        //     $add = array_diff(array_keys($this->skeleton_dates), $current);
-        // }
-
-        // $added = [];
-        // dump([
-        //     '__METHOD__' => __METHOD__,
-        //     // '$dates' => $dates,
-        //     '$current' => $current,
-        //     // '$add' => $add,
-        //     // '$skeleton' => $skeleton,
-        // ]);
-
-        /**
-         * @var array<string, array<int, mixed>>
-         */
-        $addFilters = [
-            'dates' => [],
-        ];
-
-        foreach ($this->skeleton_dates as $column => $meta) {
-
-            $label = Str::of($column)->replace('_', ' ')->ucfirst()->toString();
-            // dump([
+            $label = ! empty($meta['label'])
+                ? empty($meta['label'])
+                : Str::of($column)->replace('_', ' ')->ucfirst()->toString();
+            // dd([
             //     '__METHOD__' => __METHOD__,
             //     '$column' => $column,
             //     '$label' => $label,
@@ -240,8 +142,9 @@ trait MakeDates
             }
 
             if (! in_array($column, $this->analyze_filters['dates'])) {
-                $addFilters['dates'][] = [
+                $this->filters_dates[$column] = [
                     'column' => $column,
+                    'label' => $label,
                     'type' => 'datetime',
                     'nullable' => true,
                 ];
@@ -255,18 +158,9 @@ trait MakeDates
                 ]);
             }
 
-            $meta = [];
-            if (is_array($this->skeleton_dates[$column])) {
-                $meta = $this->skeleton_dates[$column];
-            }
-
             $meta['label'] = $label;
 
             $create->addDate($column, $meta);
-
-            if ($addFilters) {
-                $this->c->addFilter($addFilters);
-            }
         }
     }
 }
