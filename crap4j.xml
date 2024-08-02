@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-07-31 20:00:38</timestamp>
+  <timestamp>2024-08-02 21:57:16</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>112</methodCount>
+    <methodCount>141</methodCount>
     <crapMethodCount>4</crapMethodCount>
     <crapLoad>63</crapLoad>
-    <totalCrap>2089.28</totalCrap>
-    <crapMethodPercent>3.57</crapMethodPercent>
+    <totalCrap>2151.96</totalCrap>
+    <crapMethodPercent>2.84</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -72,9 +72,9 @@
       <methodName>analyze_filters</methodName>
       <methodSignature>analyze_filters(Playground\Make\Configuration\Model\Create $create, string $name): void</methodSignature>
       <fullMethod>analyze_filters(Playground\Make\Configuration\Model\Create $create, string $name): void</fullMethod>
-      <crap>29.84</crap>
+      <crap>29.35</crap>
       <complexity>29</complexity>
-      <coverage>90</coverage>
+      <coverage>92.5</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -105,9 +105,9 @@
       <methodName>buildClass_attributes</methodName>
       <methodSignature>buildClass_attributes(): void</methodSignature>
       <fullMethod>buildClass_attributes(): void</fullMethod>
-      <crap>11</crap>
+      <crap>11.06</crap>
       <complexity>11</complexity>
-      <coverage>96</coverage>
+      <coverage>92</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -336,8 +336,8 @@
       <methodName>buildClass_model_table</methodName>
       <methodSignature>buildClass_model_table(): void</methodSignature>
       <fullMethod>buildClass_model_table(): void</fullMethod>
-      <crap>18.24</crap>
-      <complexity>18</complexity>
+      <crap>19.27</crap>
+      <complexity>19</complexity>
       <coverage>90.91</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -415,7 +415,7 @@
       <fullMethod>createTest()</fullMethod>
       <crap>7</crap>
       <complexity>7</complexity>
-      <coverage>96.77</coverage>
+      <coverage>97.37</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -427,6 +427,17 @@
       <crap>3.06</crap>
       <complexity>3</complexity>
       <coverage>80.77</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Building</package>
+      <className>Playground\Make\Model\Building\MakeSkeleton</className>
+      <methodName>buildClass_skeleton_prepare</methodName>
+      <methodSignature>buildClass_skeleton_prepare(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
+      <fullMethod>buildClass_skeleton_prepare(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
+      <crap>11</crap>
+      <complexity>11</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -600,19 +611,19 @@
       <methodName>buildClass_skeleton_columns</methodName>
       <methodSignature>buildClass_skeleton_columns(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
       <fullMethod>buildClass_skeleton_columns(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
-      <crap>10</crap>
-      <complexity>10</complexity>
-      <coverage>100</coverage>
+      <crap>9</crap>
+      <complexity>9</complexity>
+      <coverage>97.22</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Model\Building\Skeleton</package>
-      <className>Playground\Make\Model\Building\Skeleton\MakeColumns</className>
-      <methodName>buildClass_skeleton_defined_columns</methodName>
-      <methodSignature>buildClass_skeleton_defined_columns(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
-      <fullMethod>buildClass_skeleton_defined_columns(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
-      <crap>7</crap>
-      <complexity>7</complexity>
+      <className>Playground\Make\Model\Building\Skeleton\MakeDates</className>
+      <methodName>buildClass_skeleton_date</methodName>
+      <methodSignature>buildClass_skeleton_date(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
+      <fullMethod>buildClass_skeleton_date(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -622,9 +633,9 @@
       <methodName>buildClass_skeleton_timestamps</methodName>
       <methodSignature>buildClass_skeleton_timestamps(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
       <fullMethod>buildClass_skeleton_timestamps(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
-      <crap>16.51</crap>
-      <complexity>7</complexity>
-      <coverage>42.11</coverage>
+      <crap>6</crap>
+      <complexity>6</complexity>
+      <coverage>96.97</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -633,9 +644,9 @@
       <methodName>buildClass_skeleton_softDeletes</methodName>
       <methodSignature>buildClass_skeleton_softDeletes(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
       <fullMethod>buildClass_skeleton_softDeletes(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
-      <crap>7.73</crap>
-      <complexity>5</complexity>
-      <coverage>52.17</coverage>
+      <crap>4</crap>
+      <complexity>4</complexity>
+      <coverage>94.44</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -644,9 +655,9 @@
       <methodName>buildClass_skeleton_dates</methodName>
       <methodSignature>buildClass_skeleton_dates(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
       <fullMethod>buildClass_skeleton_dates(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
-      <crap>7</crap>
-      <complexity>7</complexity>
-      <coverage>100</coverage>
+      <crap>6</crap>
+      <complexity>6</complexity>
+      <coverage>96</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -655,9 +666,9 @@
       <methodName>buildClass_skeleton_flags</methodName>
       <methodSignature>buildClass_skeleton_flags(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
       <fullMethod>buildClass_skeleton_flags(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
-      <crap>10</crap>
-      <complexity>10</complexity>
-      <coverage>100</coverage>
+      <crap>9</crap>
+      <complexity>9</complexity>
+      <coverage>97.22</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -674,12 +685,34 @@
     <method>
       <package>Playground\Make\Model\Building\Skeleton</package>
       <className>Playground\Make\Model\Building\Skeleton\MakeIds</className>
+      <methodName>buildClass_skeleton_ids_primary</methodName>
+      <methodSignature>buildClass_skeleton_ids_primary(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
+      <fullMethod>buildClass_skeleton_ids_primary(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
+      <crap>4</crap>
+      <complexity>4</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Building\Skeleton</package>
+      <className>Playground\Make\Model\Building\Skeleton\MakeIds</className>
       <methodName>buildClass_skeleton_ids_users</methodName>
       <methodSignature>buildClass_skeleton_ids_users(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
       <fullMethod>buildClass_skeleton_ids_users(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
-      <crap>17.13</crap>
-      <complexity>15</complexity>
-      <coverage>78.85</coverage>
+      <crap>10.07</crap>
+      <complexity>10</complexity>
+      <coverage>91.18</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Building\Skeleton</package>
+      <className>Playground\Make\Model\Building\Skeleton\MakeIds</className>
+      <methodName>buildClass_skeleton_ids_type</methodName>
+      <methodSignature>buildClass_skeleton_ids_type(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
+      <fullMethod>buildClass_skeleton_ids_type(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
+      <crap>4.71</crap>
+      <complexity>4</complexity>
+      <coverage>64.52</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -688,9 +721,9 @@
       <methodName>buildClass_skeleton_ids_model</methodName>
       <methodSignature>buildClass_skeleton_ids_model(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
       <fullMethod>buildClass_skeleton_ids_model(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
-      <crap>12</crap>
-      <complexity>12</complexity>
-      <coverage>97.87</coverage>
+      <crap>9.02</crap>
+      <complexity>9</complexity>
+      <coverage>93.75</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -699,9 +732,9 @@
       <methodName>buildClass_skeleton_ids_package</methodName>
       <methodSignature>buildClass_skeleton_ids_package(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
       <fullMethod>buildClass_skeleton_ids_package(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
-      <crap>11</crap>
-      <complexity>11</complexity>
-      <coverage>95</coverage>
+      <crap>9.02</crap>
+      <complexity>9</complexity>
+      <coverage>93.75</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -710,9 +743,9 @@
       <methodName>buildClass_skeleton_json</methodName>
       <methodSignature>buildClass_skeleton_json(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
       <fullMethod>buildClass_skeleton_json(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
-      <crap>10</crap>
-      <complexity>10</complexity>
-      <coverage>100</coverage>
+      <crap>9</crap>
+      <complexity>9</complexity>
+      <coverage>97.22</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -721,9 +754,9 @@
       <methodName>buildClass_skeleton_matrix</methodName>
       <methodSignature>buildClass_skeleton_matrix(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
       <fullMethod>buildClass_skeleton_matrix(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
-      <crap>12</crap>
-      <complexity>12</complexity>
-      <coverage>100</coverage>
+      <crap>11</crap>
+      <complexity>11</complexity>
+      <coverage>97.44</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -732,9 +765,42 @@
       <methodName>buildClass_skeleton_permissions</methodName>
       <methodSignature>buildClass_skeleton_permissions(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
       <fullMethod>buildClass_skeleton_permissions(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
-      <crap>10</crap>
-      <complexity>10</complexity>
-      <coverage>100</coverage>
+      <crap>9</crap>
+      <complexity>9</complexity>
+      <coverage>97.22</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Building\Skeleton</package>
+      <className>Playground\Make\Model\Building\Skeleton\MakeRelationships</className>
+      <methodName>buildClass_skeleton_relationships</methodName>
+      <methodSignature>buildClass_skeleton_relationships(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
+      <fullMethod>buildClass_skeleton_relationships(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
+      <crap>3.58</crap>
+      <complexity>3</complexity>
+      <coverage>60</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Building\Skeleton</package>
+      <className>Playground\Make\Model\Building\Skeleton\MakeRelationships</className>
+      <methodName>buildClass_skeleton_relationships_hasMany</methodName>
+      <methodSignature>buildClass_skeleton_relationships_hasMany(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
+      <fullMethod>buildClass_skeleton_relationships_hasMany(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Building\Skeleton</package>
+      <className>Playground\Make\Model\Building\Skeleton\MakeRelationships</className>
+      <methodName>buildClass_skeleton_relationships_hasOne</methodName>
+      <methodSignature>buildClass_skeleton_relationships_hasOne(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
+      <fullMethod>buildClass_skeleton_relationships_hasOne(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -743,9 +809,9 @@
       <methodName>buildClass_skeleton_status</methodName>
       <methodSignature>buildClass_skeleton_status(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
       <fullMethod>buildClass_skeleton_status(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
-      <crap>10</crap>
-      <complexity>10</complexity>
-      <coverage>100</coverage>
+      <crap>9</crap>
+      <complexity>9</complexity>
+      <coverage>97.22</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -754,9 +820,9 @@
       <methodName>buildClass_skeleton_ui</methodName>
       <methodSignature>buildClass_skeleton_ui(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
       <fullMethod>buildClass_skeleton_ui(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
-      <crap>10</crap>
-      <complexity>10</complexity>
-      <coverage>100</coverage>
+      <crap>9</crap>
+      <complexity>9</complexity>
+      <coverage>97.06</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1073,9 +1139,20 @@
       <methodName>prepareOptions</methodName>
       <methodSignature>prepareOptions(): void</methodSignature>
       <fullMethod>prepareOptions(): void</fullMethod>
-      <crap>35.62</crap>
+      <crap>35.6</crap>
       <complexity>35</complexity>
-      <coverage>92.05</coverage>
+      <coverage>92.13</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Console\Commands</package>
+      <className>Playground\Make\Model\Console\Commands\ModelMakeCommand</className>
+      <methodName>handleRecipe</methodName>
+      <methodSignature>handleRecipe(string $name, string $type): void</methodSignature>
+      <fullMethod>handleRecipe(string $name, string $type): void</fullMethod>
+      <crap>13.07</crap>
+      <complexity>13</complexity>
+      <coverage>92.59</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1186,6 +1263,248 @@
       <crap>4.59</crap>
       <complexity>4</complexity>
       <coverage>66.67</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe\Concerns</package>
+      <className>Playground\Make\Model\Recipe\Concerns\Columns</className>
+      <methodName>columns</methodName>
+      <methodSignature>columns(): array</methodSignature>
+      <fullMethod>columns(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe\Concerns</package>
+      <className>Playground\Make\Model\Recipe\Concerns\Dates</className>
+      <methodName>dates</methodName>
+      <methodSignature>dates(): array</methodSignature>
+      <fullMethod>dates(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe\Concerns</package>
+      <className>Playground\Make\Model\Recipe\Concerns\Flags</className>
+      <methodName>flags</methodName>
+      <methodSignature>flags(): array</methodSignature>
+      <fullMethod>flags(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe\Concerns</package>
+      <className>Playground\Make\Model\Recipe\Concerns\HasMany</className>
+      <methodName>hasMany</methodName>
+      <methodSignature>hasMany(): array</methodSignature>
+      <fullMethod>hasMany(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe\Concerns</package>
+      <className>Playground\Make\Model\Recipe\Concerns\HasOne</className>
+      <methodName>hasOne</methodName>
+      <methodSignature>hasOne(): array</methodSignature>
+      <fullMethod>hasOne(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe\Concerns</package>
+      <className>Playground\Make\Model\Recipe\Concerns\Ids</className>
+      <methodName>ids</methodName>
+      <methodSignature>ids(): array</methodSignature>
+      <fullMethod>ids(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe\Concerns</package>
+      <className>Playground\Make\Model\Recipe\Concerns\Ids</className>
+      <methodName>primary</methodName>
+      <methodSignature>primary(): string</methodSignature>
+      <fullMethod>primary(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe\Concerns</package>
+      <className>Playground\Make\Model\Recipe\Concerns\Ids</className>
+      <methodName>userIds</methodName>
+      <methodSignature>userIds(): array</methodSignature>
+      <fullMethod>userIds(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe\Concerns</package>
+      <className>Playground\Make\Model\Recipe\Concerns\Json</className>
+      <methodName>json</methodName>
+      <methodSignature>json(): array</methodSignature>
+      <fullMethod>json(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe\Concerns</package>
+      <className>Playground\Make\Model\Recipe\Concerns\Matrix</className>
+      <methodName>matrix</methodName>
+      <methodSignature>matrix(): array</methodSignature>
+      <fullMethod>matrix(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe\Concerns</package>
+      <className>Playground\Make\Model\Recipe\Concerns\Permissions</className>
+      <methodName>permissions</methodName>
+      <methodSignature>permissions(): array</methodSignature>
+      <fullMethod>permissions(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe\Concerns</package>
+      <className>Playground\Make\Model\Recipe\Concerns\Status</className>
+      <methodName>status</methodName>
+      <methodSignature>status(): array</methodSignature>
+      <fullMethod>status(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe\Concerns</package>
+      <className>Playground\Make\Model\Recipe\Concerns\Ui</className>
+      <methodName>ui</methodName>
+      <methodSignature>ui(): array</methodSignature>
+      <fullMethod>ui(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe\Concerns</package>
+      <className>Playground\Make\Model\Recipe\Concerns\Unique</className>
+      <methodName>unique</methodName>
+      <methodSignature>unique(): array</methodSignature>
+      <fullMethod>unique(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Directory</className>
+      <methodName>init</methodName>
+      <methodSignature>init(): void</methodSignature>
+      <fullMethod>init(): void</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Directory</className>
+      <methodName>ids</methodName>
+      <methodSignature>ids(): array</methodSignature>
+      <fullMethod>ids(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Directory</className>
+      <methodName>hasMany</methodName>
+      <methodSignature>hasMany(): array</methodSignature>
+      <fullMethod>hasMany(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Directory</className>
+      <methodName>hasOne</methodName>
+      <methodSignature>hasOne(): array</methodSignature>
+      <fullMethod>hasOne(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Model</className>
+      <methodName>__construct</methodName>
+      <methodSignature>__construct(string $name, string $type)</methodSignature>
+      <fullMethod>__construct(string $name, string $type)</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Model</className>
+      <methodName>init</methodName>
+      <methodSignature>init(): void</methodSignature>
+      <fullMethod>init(): void</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Model</className>
+      <methodName>name</methodName>
+      <methodSignature>name(): string</methodSignature>
+      <fullMethod>name(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Model</className>
+      <methodName>type</methodName>
+      <methodSignature>type(): string</methodSignature>
+      <fullMethod>type(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
