@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-08-02 21:57:16</timestamp>
+  <timestamp>2024-08-03 21:35:55</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>141</methodCount>
-    <crapMethodCount>4</crapMethodCount>
-    <crapLoad>63</crapLoad>
-    <totalCrap>2151.96</totalCrap>
-    <crapMethodPercent>2.84</crapMethodPercent>
+    <methodCount>145</methodCount>
+    <crapMethodCount>5</crapMethodCount>
+    <crapLoad>70</crapLoad>
+    <totalCrap>2247.81</totalCrap>
+    <crapMethodPercent>3.45</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -353,14 +353,36 @@
       <crapLoad>0</crapLoad>
     </method>
     <method>
+      <package>Playground\Make\Model\Building\Factory</package>
+      <className>Playground\Make\Model\Building\Factory\BuildStates</className>
+      <methodName>buildClass_states</methodName>
+      <methodSignature>buildClass_states(): void</methodSignature>
+      <fullMethod>buildClass_states(): void</fullMethod>
+      <crap>12.19</crap>
+      <complexity>4</complexity>
+      <coverage>20</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Building\Factory</package>
+      <className>Playground\Make\Model\Building\Factory\BuildStates</className>
+      <methodName>buildClass_states_print_flag</methodName>
+      <methodSignature>buildClass_states_print_flag(string $method, array $meta): string</methodSignature>
+      <fullMethod>buildClass_states_print_flag(string $method, array $meta): string</fullMethod>
+      <crap>20</crap>
+      <complexity>4</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
       <package>Playground\Make\Model\Building</package>
       <className>Playground\Make\Model\Building\MakeCommands</className>
       <methodName>createFactory</methodName>
       <methodSignature>createFactory(): void</methodSignature>
       <fullMethod>createFactory(): void</fullMethod>
-      <crap>7</crap>
-      <complexity>7</complexity>
-      <coverage>95.45</coverage>
+      <crap>8.04</crap>
+      <complexity>8</complexity>
+      <coverage>91.67</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -710,9 +732,9 @@
       <methodName>buildClass_skeleton_ids_type</methodName>
       <methodSignature>buildClass_skeleton_ids_type(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
       <fullMethod>buildClass_skeleton_ids_type(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
-      <crap>4.71</crap>
-      <complexity>4</complexity>
-      <coverage>64.52</coverage>
+      <crap>6.2</crap>
+      <complexity>5</complexity>
+      <coverage>63.64</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -842,9 +864,9 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>3</crap>
-      <complexity>3</complexity>
-      <coverage>100</coverage>
+      <crap>5.03</crap>
+      <complexity>5</complexity>
+      <coverage>88.89</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -886,6 +908,17 @@
       <methodName>models</methodName>
       <methodSignature>models(): array</methodSignature>
       <fullMethod>models(): array</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Configuration</package>
+      <className>Playground\Make\Model\Configuration\Factory</className>
+      <methodName>recipe</methodName>
+      <methodSignature>recipe(): string</methodSignature>
+      <fullMethod>recipe(): string</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
@@ -1024,6 +1057,17 @@
       <crapLoad>0</crapLoad>
     </method>
     <method>
+      <package>Playground\Make\Model\Console\Commands\Concerns</package>
+      <className>Playground\Make\Model\Console\Commands\Concerns\Recipes</className>
+      <methodName>handleRecipe</methodName>
+      <methodSignature>handleRecipe(string $name, string $type): void</methodSignature>
+      <fullMethod>handleRecipe(string $name, string $type): void</fullMethod>
+      <crap>13.07</crap>
+      <complexity>13</complexity>
+      <coverage>92.59</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
       <package>Playground\Make\Model\Console\Commands</package>
       <className>Playground\Make\Model\Console\Commands\FactoryMakeCommand</className>
       <methodName>getConfigurationFilename</methodName>
@@ -1059,11 +1103,33 @@
     <method>
       <package>Playground\Make\Model\Console\Commands</package>
       <className>Playground\Make\Model\Console\Commands\FactoryMakeCommand</className>
+      <methodName>prepareOptions</methodName>
+      <methodSignature>prepareOptions(): void</methodSignature>
+      <fullMethod>prepareOptions(): void</fullMethod>
+      <crap>2</crap>
+      <complexity>2</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Console\Commands</package>
+      <className>Playground\Make\Model\Console\Commands\FactoryMakeCommand</className>
       <methodName>buildClass</methodName>
       <methodSignature>buildClass($name): string</methodSignature>
       <fullMethod>buildClass($name): string</fullMethod>
       <crap>2</crap>
       <complexity>2</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Console\Commands</package>
+      <className>Playground\Make\Model\Console\Commands\FactoryMakeCommand</className>
+      <methodName>getOptions</methodName>
+      <methodSignature>getOptions(): array</methodSignature>
+      <fullMethod>getOptions(): array</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -1139,20 +1205,9 @@
       <methodName>prepareOptions</methodName>
       <methodSignature>prepareOptions(): void</methodSignature>
       <fullMethod>prepareOptions(): void</fullMethod>
-      <crap>35.6</crap>
-      <complexity>35</complexity>
-      <coverage>92.13</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Make\Model\Console\Commands</package>
-      <className>Playground\Make\Model\Console\Commands\ModelMakeCommand</className>
-      <methodName>handleRecipe</methodName>
-      <methodSignature>handleRecipe(string $name, string $type): void</methodSignature>
-      <fullMethod>handleRecipe(string $name, string $type): void</fullMethod>
-      <crap>13.07</crap>
-      <complexity>13</complexity>
-      <coverage>92.59</coverage>
+      <crap>38.7</crap>
+      <complexity>37</complexity>
+      <coverage>89.25</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1266,6 +1321,17 @@
       <crapLoad>0</crapLoad>
     </method>
     <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Cms</className>
+      <methodName>init</methodName>
+      <methodSignature>init(): void</methodSignature>
+      <fullMethod>init(): void</fullMethod>
+      <crap>56</crap>
+      <complexity>7</complexity>
+      <coverage>0</coverage>
+      <crapLoad>7</crapLoad>
+    </method>
+    <method>
       <package>Playground\Make\Model\Recipe\Concerns</package>
       <className>Playground\Make\Model\Recipe\Concerns\Columns</className>
       <methodName>columns</methodName>
@@ -1282,6 +1348,17 @@
       <methodName>dates</methodName>
       <methodSignature>dates(): array</methodSignature>
       <fullMethod>dates(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe\Concerns</package>
+      <className>Playground\Make\Model\Recipe\Concerns\FactoryStates</className>
+      <methodName>factoryStates</methodName>
+      <methodSignature>factoryStates(): array</methodSignature>
+      <fullMethod>factoryStates(): array</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
@@ -1427,39 +1504,6 @@
       <fullMethod>init(): void</fullMethod>
       <crap>12</crap>
       <complexity>3</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Make\Model\Recipe</package>
-      <className>Playground\Make\Model\Recipe\Directory</className>
-      <methodName>ids</methodName>
-      <methodSignature>ids(): array</methodSignature>
-      <fullMethod>ids(): array</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Make\Model\Recipe</package>
-      <className>Playground\Make\Model\Recipe\Directory</className>
-      <methodName>hasMany</methodName>
-      <methodSignature>hasMany(): array</methodSignature>
-      <fullMethod>hasMany(): array</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Make\Model\Recipe</package>
-      <className>Playground\Make\Model\Recipe\Directory</className>
-      <methodName>hasOne</methodName>
-      <methodSignature>hasOne(): array</methodSignature>
-      <fullMethod>hasOne(): array</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
