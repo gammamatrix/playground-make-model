@@ -44,6 +44,10 @@ trait MakeCommands
             $options['--model-file'] = $file;
         }
 
+        if ($this->c->recipe()) {
+            $options['--recipe'] = $this->c->recipe();
+        }
+
         if (! $this->hasOption('skeleton') && $this->option('skeleton')) {
             $options['--skeleton'] = true;
         }
@@ -250,7 +254,7 @@ trait MakeCommands
 
         $options = [
             'name' => $name->toString(),
-            '--namespace' => '',
+            '--namespace' => $this->c->namespace(),
             '--force' => $force,
             '--package' => $this->c->package(),
             '--organization' => $this->c->organization(),
@@ -266,7 +270,7 @@ trait MakeCommands
         if ($file) {
             $options['--model-file'] = $file;
         }
-        // dd([
+        // dump([
         //     '__METHOD__' => __METHOD__,
         //     '$options' => $options,
         // ]);

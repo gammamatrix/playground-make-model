@@ -34,7 +34,7 @@ trait BuildTable
         }
 
         if (! $this->c->model_slug() && $name) {
-            $options['model_slug'] = Str::slug($name);
+            $options['model_slug'] = Str::of($name)->kebab()->slug()->toString();
             // $this->searches['model_slug'] = $options['model_slug'];
         }
 
@@ -48,9 +48,13 @@ trait BuildTable
         }
 
         if (! $this->c->model_slug_plural() && $name) {
-            $options['model_slug_plural'] = Str::of($name)->plural()->slug()->toString();
+            $options['model_slug_plural'] = Str::of($name)->plural()->kebab()->slug()->toString();
             // $this->searches['model_slug_plural'] = $options['model_slug_plural'];
         }
+        // dump([
+        //     '__METHOD__' => __METHOD__,
+        //     '$options[model_slug_plural]' => $options['model_slug_plural'],
+        // ]);
 
         if (! $this->c->extends()) {
             if (in_array($type, [

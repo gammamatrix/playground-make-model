@@ -49,6 +49,8 @@ trait Json
      */
     public function json(): array
     {
+        ksort($this->json);
+
         return $this->json;
     }
 }

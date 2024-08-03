@@ -15,6 +15,11 @@ trait Columns
      * @var array<string, array<string, mixed>>
      */
     protected array $columns = [
+        'locale' => [
+            'type' => 'string',
+            'default' => '',
+            'size' => 255,
+        ],
         'label' => [
             'type' => 'string',
             'default' => '',

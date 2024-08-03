@@ -125,6 +125,8 @@ trait Flags
      */
     public function flags(): array
     {
+        ksort($this->flags);
+
         return $this->flags;
     }
 }

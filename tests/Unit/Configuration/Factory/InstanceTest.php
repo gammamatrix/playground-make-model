@@ -39,6 +39,7 @@ class InstanceTest extends TestCase
         // properties
         'model' => '',
         'model_fqdn' => '',
+        'recipe' => '',
         'type' => '',
         'models' => [],
     ];

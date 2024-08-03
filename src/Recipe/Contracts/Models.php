@@ -24,6 +24,11 @@ interface Models
     /**
      * @return array<string, array<string, mixed>>
      */
+    public function factoryStates(): array;
+
+    /**
+     * @return array<string, array<string, mixed>>
+     */
     public function flags(): array;
 
     /**

@@ -17,6 +17,8 @@ class Factory extends PrimaryConfiguration
 
     protected string $model_fqdn = '';
 
+    protected string $recipe = '';
+
     /**
      * @var array<string, string>
      */
@@ -38,6 +40,7 @@ class Factory extends PrimaryConfiguration
         // properties
         'model' => '',
         'model_fqdn' => '',
+        'recipe' => '',
         'type' => '',
         'models' => [],
     ];
@@ -53,6 +56,12 @@ class Factory extends PrimaryConfiguration
             && is_string($options['model_fqdn'])
         ) {
             $this->model_fqdn = $options['model_fqdn'];
+        }
+
+        if (! empty($options['recipe'])
+            && is_string($options['recipe'])
+        ) {
+            $this->recipe = $options['recipe'];
         }
 
         $this->addModels($options);
@@ -92,5 +101,10 @@ class Factory extends PrimaryConfiguration
     public function models(): array
     {
         return $this->models;
+    }
+
+    public function recipe(): string
+    {
+        return $this->recipe;
     }
 }

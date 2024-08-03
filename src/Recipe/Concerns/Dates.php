@@ -74,6 +74,8 @@ trait Dates
      */
     public function dates(): array
     {
+        ksort($this->json);
+
         return $this->dates;
     }
 }

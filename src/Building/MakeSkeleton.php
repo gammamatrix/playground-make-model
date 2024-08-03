@@ -6,6 +6,7 @@
 declare(strict_types=1);
 namespace Playground\Make\Model\Building;
 
+use Illuminate\Support\Str;
 use Playground\Make\Configuration\Model\Create;
 
 /**
@@ -94,7 +95,7 @@ trait MakeSkeleton
                 $table = sprintf(
                     '%1$s_%2$s',
                     $this->c->module_slug(),
-                    $this->c->model_slug_plural()
+                    Str::of($this->c->model_slug_plural())->slug('_')->toString()
                 );
             }
 

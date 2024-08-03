@@ -13,6 +13,7 @@ abstract class Model implements Contracts\Models
 {
     use Concerns\Columns;
     use Concerns\Dates;
+    use Concerns\FactoryStates;
     use Concerns\Flags;
     use Concerns\HasMany;
     use Concerns\HasOne;

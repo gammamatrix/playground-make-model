@@ -394,7 +394,12 @@ trait MakeIds
 
         $this->components->info(sprintf('Skeleton model type for [%s]', $this->c->name()));
 
-        $column = Str::of($this->c->name())->snake()->finish('_type')->toString();
+        if ($this->c->revision()) {
+            $column = Str::of($this->c->name())->before('Revision')->snake()->finish('_type')->toString();
+        } else {
+            $column = Str::of($this->c->name())->snake()->finish('_type')->toString();
+        }
+
         $label = Str::of($this->c->model_singular())->finish(' Type')->toString();
 
         $meta = [

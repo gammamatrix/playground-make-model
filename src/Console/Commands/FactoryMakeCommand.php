@@ -9,7 +9,9 @@ namespace Playground\Make\Model\Console\Commands;
 use Illuminate\Support\Str;
 use Playground\Make\Configuration\Contracts\PrimaryConfiguration as PrimaryConfigurationContract;
 use Playground\Make\Console\Commands\GeneratorCommand;
+use Playground\Make\Model\Building;
 use Playground\Make\Model\Configuration\Factory as Configuration;
+use Playground\Make\Model\Console\Commands\Concerns\Recipes as ConcernsRecipes;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Input\InputOption;
 
@@ -19,6 +21,9 @@ use Symfony\Component\Console\Input\InputOption;
 #[AsCommand(name: 'playground:make:factory')]
 class FactoryMakeCommand extends GeneratorCommand
 {
+    use Building\Factory\BuildStates;
+    use ConcernsRecipes;
+
     /**
      * @var class-string<Configuration>
      */
@@ -42,6 +47,7 @@ class FactoryMakeCommand extends GeneratorCommand
         'use' => '',
         // 'use_class' => '    use HasFactory;',
         'use_class' => '',
+        'states' => '',
         // 'table' => '',
         // 'property_table' => '',
         // 'perPage' => PHP_EOL.PHP_EOL.'    protected $perPage = 25;',
@@ -104,19 +110,29 @@ class FactoryMakeCommand extends GeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace): string
     {
+        return sprintf('\\Database\\Factories\\%1$s', trim($this->parseClassInput($rootNamespace), '\\'));
+    }
+
+    public function prepareOptions(): void
+    {
+        $options = $this->options();
+
+        $type = $this->getConfigurationType();
+        if (! $type) {
+            $this->c->setOptions([
+                'type' => 'model',
+            ]);
+        }
+
+        $this->handleRecipe($this->c->name(), $type);
         // dd([
         //     '__METHOD__' => __METHOD__,
-        //     '$this->configuration' => $this->configuration,
+        //     '$type' => $type,
+        //     '$this->c->name()' => $this->c->name(),
+        //     '$this->c' => $this->c,
         //     '$this->options()' => $this->options(),
-        //     // '$this->searches' => $this->searches,
-        //     '$this->qualifiedName' => $this->qualifiedName,
-        //     // '$table' => $table,
-        //     '$rootNamespace' => $rootNamespace,
-        //     'test' => $this->parseClassInput($rootNamespace),
+        //     '$this->searches' => $this->searches,
         // ]);
-        return sprintf('\\Database\\Factories\\%1$s', trim($this->parseClassInput($rootNamespace), '\\'));
-        // return $rootNamespace.'\\Models';
-        // return is_dir(app_path('Models')) ? $rootNamespace.'\\Models' : $rootNamespace;
     }
 
     /**
@@ -140,6 +156,8 @@ class FactoryMakeCommand extends GeneratorCommand
             'model_fqdn' => $model_fqdn,
         ]);
 
+        $this->buildClass_states();
+
         $this->applyConfigurationToSearch();
 
         // dd([
@@ -150,87 +168,19 @@ class FactoryMakeCommand extends GeneratorCommand
         //     '$this->qualifiedName' => $this->qualifiedName,
         // ]);
         return parent::buildClass($name);
-
-        // $factory = class_basename(Str::ucfirst(str_replace('Factory', '', $name)));
-
-        // $namespaceModel = $this->option('model')
-        //                 ? $this->qualifyModel($this->option('model'))
-        //                 : $this->qualifyModel($this->guessModelName($name));
-
-        // $model = class_basename($namespaceModel);
-
-        // $namespace = $this->getNamespace(
-        //     Str::replaceFirst($this->rootNamespace(), 'Database\\Factories\\', $this->qualifyClass($this->getNameInput()))
-        // );
-
-        // $replace = [
-        //     '{{ factoryNamespace }}' => $namespace,
-        //     'NamespacedDummyModel' => $namespaceModel,
-        //     '{{ namespacedModel }}' => $namespaceModel,
-        //     '{{namespacedModel}}' => $namespaceModel,
-        //     'DummyModel' => $model,
-        //     '{{ model }}' => $model,
-        //     '{{model}}' => $model,
-        //     '{{ factory }}' => $factory,
-        //     '{{factory}}' => $factory,
-        // ];
-
-        // return str_replace(
-        //     array_keys($replace),
-        //     array_values($replace),
-        //     parent::buildClass($name)
-        // );
     }
 
-    // /**
-    //  * Get the destination class path.
-    //  *
-    //  * @param  string  $name
-    //  */
-    // protected function getPath($name): string
-    // {
-    //     $path = sprintf(
-    //         '%1$s/%2$s.php',
-    //         $this->folder(),
-    //         $this->c->class()
-    //     );
+    /**
+     * Get the console command arguments.
+     *
+     * @return array<int, mixed>
+     */
+    protected function getOptions(): array
+    {
+        $options = parent::getOptions();
 
-    //     return $this->laravel->storagePath().$path;
-    // }
+        $options[] = ['recipe', null, InputOption::VALUE_OPTIONAL, 'The configuration recipe of the '.strtolower($this->type)];
 
-    // /**
-    //  * Guess the model name from the Factory name or return a default model name.
-    //  *
-    //  * @param  string  $name
-    //  */
-    // protected function guessModelName($name): string
-    // {
-    //     if (str_ends_with($name, 'Factory')) {
-    //         $name = substr($name, 0, -7);
-    //     }
-
-    //     $modelName = $this->qualifyModel(Str::after($name, $this->rootNamespace()));
-
-    //     if (class_exists($modelName)) {
-    //         return $modelName;
-    //     }
-
-    //     if (is_dir(app_path('Models/'))) {
-    //         return $this->rootNamespace().'Models\Model';
-    //     }
-
-    //     return $this->rootNamespace().'Model';
-    // }
-
-    // /**
-    //  * Get the console command options.
-    //  *
-    //  * @return array
-    //  */
-    // protected function getOptions()
-    // {
-    //     return [
-    //         ['model', 'm', InputOption::VALUE_OPTIONAL, 'The name of the model'],
-    //     ];
-    // }
+        return $options;
+    }
 }

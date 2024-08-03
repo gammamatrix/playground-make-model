@@ -7,7 +7,7 @@ declare(strict_types=1);
 namespace Playground\Make\Model\Building\Migration;
 
 /**
- * \Playground\Make\Model\Building\Migration\trait BuildFlags
+ * \Playground\Make\Model\Building\Migration\BuildFlags
  */
 trait BuildFlags
 {
