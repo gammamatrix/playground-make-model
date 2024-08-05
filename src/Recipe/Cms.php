@@ -167,6 +167,7 @@ class Cms extends Playground
             'type' => 'bigInteger',
             'default' => false,
             'unsigned' => true,
+            'readOnly' => true,
             'icon' => '',
         ];
 
@@ -248,7 +249,7 @@ class Cms extends Playground
             ];
             $this->status['route'] = [
                 'type' => 'string',
-                'default' => '',
+                'nullable' => true,
                 'size' => 255,
                 'icon' => '',
             ];

@@ -396,11 +396,11 @@ trait MakeIds
 
         if ($this->c->revision()) {
             $column = Str::of($this->c->name())->before('Revision')->snake()->finish('_type')->toString();
+            $label = Str::of($this->c->model_singular())->before('Revision')->finish(' Type')->toString();
         } else {
             $column = Str::of($this->c->name())->snake()->finish('_type')->toString();
+            $label = Str::of($this->c->model_singular())->finish(' Type')->toString();
         }
-
-        $label = Str::of($this->c->model_singular())->finish(' Type')->toString();
 
         $meta = [
             'type' => 'string',
@@ -423,7 +423,7 @@ trait MakeIds
         $this->c->addFillable($column);
 
         if (! in_array($column, $this->analyze_filters['ids'])) {
-            $this->filters_dates[$column] = [
+            $this->filters_ids[$column] = [
                 'column' => $column,
                 'label' => $label,
                 'type' => 'string',
