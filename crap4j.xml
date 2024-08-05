@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-08-03 21:35:55</timestamp>
+  <timestamp>2024-08-05 20:23:58</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>145</methodCount>
     <crapMethodCount>5</crapMethodCount>
     <crapLoad>70</crapLoad>
-    <totalCrap>2247.81</totalCrap>
+    <totalCrap>2248.01</totalCrap>
     <crapMethodPercent>3.45</crapMethodPercent>
   </stats>
   <methods>
@@ -732,9 +732,9 @@
       <methodName>buildClass_skeleton_ids_type</methodName>
       <methodSignature>buildClass_skeleton_ids_type(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
       <fullMethod>buildClass_skeleton_ids_type(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
-      <crap>6.2</crap>
+      <crap>6.4</crap>
       <complexity>5</complexity>
-      <coverage>63.64</coverage>
+      <coverage>61.76</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
