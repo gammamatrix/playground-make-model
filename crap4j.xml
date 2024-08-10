@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-08-05 20:23:58</timestamp>
+  <timestamp>2024-08-10 19:11:44</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>145</methodCount>
+    <methodCount>150</methodCount>
     <crapMethodCount>5</crapMethodCount>
     <crapLoad>70</crapLoad>
-    <totalCrap>2248.01</totalCrap>
-    <crapMethodPercent>3.45</crapMethodPercent>
+    <totalCrap>2276.01</totalCrap>
+    <crapMethodPercent>3.33</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -1499,11 +1499,66 @@
     <method>
       <package>Playground\Make\Model\Recipe</package>
       <className>Playground\Make\Model\Recipe\Directory</className>
+      <methodName>reset</methodName>
+      <methodSignature>reset(): void</methodSignature>
+      <fullMethod>reset(): void</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Directory</className>
       <methodName>init</methodName>
       <methodSignature>init(): void</methodSignature>
       <fullMethod>init(): void</fullMethod>
-      <crap>12</crap>
-      <complexity>3</complexity>
+      <crap>30</crap>
+      <complexity>5</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Directory</className>
+      <methodName>init_Location</methodName>
+      <methodSignature>init_Location(): void</methodSignature>
+      <fullMethod>init_Location(): void</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Directory</className>
+      <methodName>init_LocationRevision</methodName>
+      <methodSignature>init_LocationRevision(): void</methodSignature>
+      <fullMethod>init_LocationRevision(): void</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Directory</className>
+      <methodName>init_Sublocation</methodName>
+      <methodSignature>init_Sublocation(): void</methodSignature>
+      <fullMethod>init_Sublocation(): void</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Directory</className>
+      <methodName>init_SublocationRevision</methodName>
+      <methodSignature>init_SublocationRevision(): void</methodSignature>
+      <fullMethod>init_SublocationRevision(): void</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
