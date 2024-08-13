@@ -36,4 +36,20 @@ return [
         'commands' => (bool) env('PLAYGROUND_MAKE_MODEL_LOAD_COMMANDS', true),
         'translations' => (bool) env('PLAYGROUND_MAKE_MODEL_LOAD_TRANSLATIONS', true),
     ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Recipes
+    |--------------------------------------------------------------------------
+    |
+    | The recipes must extend: Playground\Make\Model\Recipe\Model
+    */
+
+    'recipes' => [
+        'cms' => Playground\Make\Model\Recipe\Cms::class,
+        'crm' => Playground\Make\Model\Recipe\Crm::class,
+        'directory' => Playground\Make\Model\Recipe\Directory::class,
+        'matrix' => Playground\Make\Model\Recipe\Matrix::class,
+        'playground' => Playground\Make\Model\Recipe\Playground::class,
+    ],
 ];
