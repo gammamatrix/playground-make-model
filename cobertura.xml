@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage line-rate="0.63435582822086" branch-rate="0" lines-covered="1551" lines-valid="2445" branches-covered="0" branches-valid="0" complexity="686" version="0.4" timestamp="1723317104">
+<coverage line-rate="0.62540322580645" branch-rate="0" lines-covered="1551" lines-valid="2480" branches-covered="0" branches-valid="0" complexity="713" version="0.4" timestamp="1723589216">
   <sources>
     <source>/app/src</source>
   </sources>
@@ -5642,6 +5642,9 @@
     <package name="Recipe/Contracts/Models.php" line-rate="0" branch-rate="0" complexity="0">
       <classes/>
     </package>
+    <package name="Recipe/Contracts/Views.php" line-rate="0" branch-rate="0" complexity="0">
+      <classes/>
+    </package>
     <package name="Recipe/Crm.php" line-rate="0" branch-rate="0" complexity="0">
       <classes>
         <class name="Playground\Make\Model\Recipe\Crm" filename="Recipe/Crm.php" line-rate="0" branch-rate="0" complexity="0">
@@ -5968,40 +5971,50 @@
         </class>
       </classes>
     </package>
-    <package name="Recipe/Model.php" line-rate="0" branch-rate="0" complexity="4">
+    <package name="Recipe/Model.php" line-rate="0" branch-rate="0" complexity="6">
       <classes>
-        <class name="Playground\Make\Model\Recipe\Model" filename="Recipe/Model.php" line-rate="0" branch-rate="0" complexity="4">
+        <class name="Playground\Make\Model\Recipe\Model" filename="Recipe/Model.php" line-rate="0" branch-rate="0" complexity="6">
           <methods>
             <method name="__construct" signature="string $name, string $type" line-rate="0" branch-rate="0" complexity="1">
               <lines>
-                <line number="34" hits="0"/>
-                <line number="35" hits="0"/>
-                <line number="37" hits="0"/>
+                <line number="45" hits="0"/>
+                <line number="46" hits="0"/>
+                <line number="48" hits="0"/>
               </lines>
             </method>
             <method name="init" signature="" line-rate="0" branch-rate="0" complexity="1">
               <lines>
-                <line number="42" hits="0"/>
+                <line number="53" hits="0"/>
               </lines>
             </method>
             <method name="name" signature="" line-rate="0" branch-rate="0" complexity="1">
               <lines>
-                <line number="46" hits="0"/>
+                <line number="57" hits="0"/>
               </lines>
             </method>
             <method name="type" signature="" line-rate="0" branch-rate="0" complexity="1">
               <lines>
-                <line number="51" hits="0"/>
+                <line number="62" hits="0"/>
+              </lines>
+            </method>
+            <method name="index" signature="" line-rate="0" branch-rate="0" complexity="2">
+              <lines>
+                <line number="67" hits="0"/>
+                <line number="68" hits="0"/>
+                <line number="71" hits="0"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="34" hits="0"/>
-            <line number="35" hits="0"/>
-            <line number="37" hits="0"/>
-            <line number="42" hits="0"/>
+            <line number="45" hits="0"/>
             <line number="46" hits="0"/>
-            <line number="51" hits="0"/>
+            <line number="48" hits="0"/>
+            <line number="53" hits="0"/>
+            <line number="57" hits="0"/>
+            <line number="62" hits="0"/>
+            <line number="67" hits="0"/>
+            <line number="68" hits="0"/>
+            <line number="71" hits="0"/>
           </lines>
         </class>
       </classes>
@@ -6011,6 +6024,104 @@
         <class name="Playground\Make\Model\Recipe\Playground" filename="Recipe/Playground.php" line-rate="0" branch-rate="0" complexity="0">
           <methods/>
           <lines/>
+        </class>
+      </classes>
+    </package>
+    <package name="Recipe/Views/Index.php" line-rate="0" branch-rate="0" complexity="25">
+      <classes>
+        <class name="Playground\Make\Model\Recipe\Views\Index" filename="Recipe/Views/Index.php" line-rate="0" branch-rate="0" complexity="25">
+          <methods>
+            <method name="__construct" signature="array $options" line-rate="0" branch-rate="0" complexity="20">
+              <lines>
+                <line number="54" hits="0"/>
+                <line number="56" hits="0"/>
+                <line number="58" hits="0"/>
+                <line number="61" hits="0"/>
+                <line number="62" hits="0"/>
+                <line number="64" hits="0"/>
+                <line number="65" hits="0"/>
+                <line number="66" hits="0"/>
+                <line number="67" hits="0"/>
+                <line number="68" hits="0"/>
+                <line number="70" hits="0"/>
+                <line number="75" hits="0"/>
+                <line number="76" hits="0"/>
+                <line number="78" hits="0"/>
+                <line number="79" hits="0"/>
+                <line number="80" hits="0"/>
+                <line number="81" hits="0"/>
+                <line number="82" hits="0"/>
+                <line number="84" hits="0"/>
+                <line number="89" hits="0"/>
+                <line number="90" hits="0"/>
+                <line number="92" hits="0"/>
+                <line number="93" hits="0"/>
+                <line number="94" hits="0"/>
+                <line number="95" hits="0"/>
+                <line number="96" hits="0"/>
+                <line number="98" hits="0"/>
+              </lines>
+            </method>
+            <method name="columnsMobile" signature="" line-rate="0" branch-rate="0" complexity="1">
+              <lines>
+                <line number="109" hits="0"/>
+              </lines>
+            </method>
+            <method name="columnsStandard" signature="" line-rate="0" branch-rate="0" complexity="1">
+              <lines>
+                <line number="117" hits="0"/>
+              </lines>
+            </method>
+            <method name="columnsViewable" signature="" line-rate="0" branch-rate="0" complexity="1">
+              <lines>
+                <line number="125" hits="0"/>
+              </lines>
+            </method>
+            <method name="addModelType" signature="" line-rate="0" branch-rate="0" complexity="1">
+              <lines>
+                <line number="130" hits="0"/>
+              </lines>
+            </method>
+            <method name="addMatrix" signature="" line-rate="0" branch-rate="0" complexity="1">
+              <lines>
+                <line number="135" hits="0"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="54" hits="0"/>
+            <line number="56" hits="0"/>
+            <line number="58" hits="0"/>
+            <line number="61" hits="0"/>
+            <line number="62" hits="0"/>
+            <line number="64" hits="0"/>
+            <line number="65" hits="0"/>
+            <line number="66" hits="0"/>
+            <line number="67" hits="0"/>
+            <line number="68" hits="0"/>
+            <line number="70" hits="0"/>
+            <line number="75" hits="0"/>
+            <line number="76" hits="0"/>
+            <line number="78" hits="0"/>
+            <line number="79" hits="0"/>
+            <line number="80" hits="0"/>
+            <line number="81" hits="0"/>
+            <line number="82" hits="0"/>
+            <line number="84" hits="0"/>
+            <line number="89" hits="0"/>
+            <line number="90" hits="0"/>
+            <line number="92" hits="0"/>
+            <line number="93" hits="0"/>
+            <line number="94" hits="0"/>
+            <line number="95" hits="0"/>
+            <line number="96" hits="0"/>
+            <line number="98" hits="0"/>
+            <line number="109" hits="0"/>
+            <line number="117" hits="0"/>
+            <line number="125" hits="0"/>
+            <line number="130" hits="0"/>
+            <line number="135" hits="0"/>
+          </lines>
         </class>
       </classes>
     </package>

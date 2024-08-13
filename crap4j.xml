@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-08-10 19:11:44</timestamp>
+  <timestamp>2024-08-13 22:46:56</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>150</methodCount>
-    <crapMethodCount>5</crapMethodCount>
-    <crapLoad>70</crapLoad>
-    <totalCrap>2276.01</totalCrap>
-    <crapMethodPercent>3.33</crapMethodPercent>
+    <methodCount>157</methodCount>
+    <crapMethodCount>6</crapMethodCount>
+    <crapLoad>91</crapLoad>
+    <totalCrap>2712.01</totalCrap>
+    <crapMethodPercent>3.82</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -1601,6 +1601,83 @@
       <methodName>type</methodName>
       <methodSignature>type(): string</methodSignature>
       <fullMethod>type(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Model</className>
+      <methodName>index</methodName>
+      <methodSignature>index(): Playground\Make\Model\Recipe\Views\Index</methodSignature>
+      <fullMethod>index(): Playground\Make\Model\Recipe\Views\Index</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe\Views</package>
+      <className>Playground\Make\Model\Recipe\Views\Index</className>
+      <methodName>__construct</methodName>
+      <methodSignature>__construct(array $options)</methodSignature>
+      <fullMethod>__construct(array $options)</fullMethod>
+      <crap>420</crap>
+      <complexity>20</complexity>
+      <coverage>0</coverage>
+      <crapLoad>20</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe\Views</package>
+      <className>Playground\Make\Model\Recipe\Views\Index</className>
+      <methodName>columnsMobile</methodName>
+      <methodSignature>columnsMobile(): array</methodSignature>
+      <fullMethod>columnsMobile(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe\Views</package>
+      <className>Playground\Make\Model\Recipe\Views\Index</className>
+      <methodName>columnsStandard</methodName>
+      <methodSignature>columnsStandard(): array</methodSignature>
+      <fullMethod>columnsStandard(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe\Views</package>
+      <className>Playground\Make\Model\Recipe\Views\Index</className>
+      <methodName>columnsViewable</methodName>
+      <methodSignature>columnsViewable(): array</methodSignature>
+      <fullMethod>columnsViewable(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe\Views</package>
+      <className>Playground\Make\Model\Recipe\Views\Index</className>
+      <methodName>addModelType</methodName>
+      <methodSignature>addModelType(): bool</methodSignature>
+      <fullMethod>addModelType(): bool</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe\Views</package>
+      <className>Playground\Make\Model\Recipe\Views\Index</className>
+      <methodName>addMatrix</methodName>
+      <methodSignature>addMatrix(): bool</methodSignature>
+      <fullMethod>addMatrix(): bool</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
