@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-08-13 23:03:57</timestamp>
+  <timestamp>2024-08-16 17:00:41</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>157</methodCount>
+    <methodCount>158</methodCount>
     <crapMethodCount>6</crapMethodCount>
     <crapLoad>91</crapLoad>
-    <totalCrap>2712.01</totalCrap>
-    <crapMethodPercent>3.82</crapMethodPercent>
+    <totalCrap>2714.01</totalCrap>
+    <crapMethodPercent>3.8</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -1491,6 +1491,17 @@
       <methodName>unique</methodName>
       <methodSignature>unique(): array</methodSignature>
       <fullMethod>unique(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Crm</className>
+      <methodName>init</methodName>
+      <methodSignature>init(): void</methodSignature>
+      <fullMethod>init(): void</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
