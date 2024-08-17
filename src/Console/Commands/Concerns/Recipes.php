@@ -23,6 +23,7 @@ trait Recipes
         'crm' => Recipe\Crm::class,
         'directory' => Recipe\Directory::class,
         'laravel' => Recipe\Laravel::class,
+        'lead' => Recipe\Lead::class,
         'matrix' => Recipe\Matrix::class,
         'playground' => Recipe\Playground::class,
     ];
@@ -67,7 +68,7 @@ trait Recipes
             ]);
         }
 
-        // dump([
+        // dd([
         //     '__METHOD__' => __METHOD__,
         //     '$name' => $name,
         //     '$type' => $type,

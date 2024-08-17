@@ -144,6 +144,11 @@ class Crm extends Playground
             'icon' => 'fa-solid fa-comment-sms',
         ];
 
+        $this->columns['email'] = [
+            'type' => 'string',
+            'nullable' => true,
+        ];
+
         $this->columns['phone'] = [
             'type' => 'string',
             'nullable' => true,

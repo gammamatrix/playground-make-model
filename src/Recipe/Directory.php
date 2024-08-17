@@ -216,6 +216,11 @@ class Directory extends Playground
             ],
         ];
 
+        $this->columns['email'] = [
+            'type' => 'string',
+            'nullable' => true,
+        ];
+
         $this->columns['phone'] = [
             'type' => 'string',
             'nullable' => true,
