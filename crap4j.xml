@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-08-16 17:00:41</timestamp>
+  <timestamp>2024-08-17 20:11:34</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>158</methodCount>
+    <methodCount>159</methodCount>
     <crapMethodCount>6</crapMethodCount>
     <crapLoad>91</crapLoad>
-    <totalCrap>2714.01</totalCrap>
-    <crapMethodPercent>3.8</crapMethodPercent>
+    <totalCrap>2716.01</totalCrap>
+    <crapMethodPercent>3.77</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -1568,6 +1568,17 @@
       <methodName>init_SublocationRevision</methodName>
       <methodSignature>init_SublocationRevision(): void</methodSignature>
       <fullMethod>init_SublocationRevision(): void</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Lead</className>
+      <methodName>init</methodName>
+      <methodSignature>init(): void</methodSignature>
+      <fullMethod>init(): void</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
