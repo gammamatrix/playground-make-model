@@ -81,15 +81,15 @@ trait MakeIds
         //         'on' => 'matrix_flows',
         //     ],
         // ],
-        'matrix_id' => [
-            'type' => 'uuid',
-            'nullable' => true,
-            'index' => true,
-            'foreign' => [
-                'references' => 'id',
-                'on' => 'matrix_matrices',
-            ],
-        ],
+        // 'matrix_id' => [
+        //     'type' => 'uuid',
+        //     'nullable' => true,
+        //     'index' => true,
+        //     'foreign' => [
+        //         'references' => 'id',
+        //         'on' => 'matrix_matrices',
+        //     ],
+        // ],
         // 'milestone_id' => [
         //     'type' => 'uuid',
         //     'nullable' => true,

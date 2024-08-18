@@ -124,7 +124,10 @@ class FactoryMakeCommand extends GeneratorCommand
             ]);
         }
 
-        $this->handleRecipe($this->c->name(), $type);
+        $this->handleRecipe(
+            Str::of($this->c->name())->before('Factory')->toString(),
+            $type
+        );
         // dd([
         //     '__METHOD__' => __METHOD__,
         //     '$type' => $type,

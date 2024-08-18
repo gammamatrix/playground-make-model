@@ -15,22 +15,6 @@ trait Dates
      * @var array<string, array<string, mixed>>
      */
     protected array $dates = [
-        'start_at' => [
-            'nullable' => true,
-            'index' => true,
-        ],
-        'planned_start_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'end_at' => [
-            'nullable' => true,
-            'index' => true,
-        ],
-        'planned_end_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
         'canceled_at' => [
             'nullable' => true,
             'index' => false,
@@ -43,6 +27,14 @@ trait Dates
             'nullable' => true,
             'index' => false,
         ],
+        'planned_end_at' => [
+            'nullable' => true,
+            'index' => false,
+        ],
+        'planned_start_at' => [
+            'nullable' => true,
+            'index' => false,
+        ],
         'postponed_at' => [
             'nullable' => true,
             'index' => false,
@@ -51,21 +43,25 @@ trait Dates
             'nullable' => true,
             'index' => false,
         ],
-        'released_at' => [
+        'resolved_at' => [
             'nullable' => true,
-            'index' => false,
+            'index' => true,
         ],
         'resumed_at' => [
             'nullable' => true,
             'index' => false,
         ],
-        'resolved_at' => [
-            'nullable' => true,
-            'index' => true,
-        ],
         'suspended_at' => [
             'nullable' => true,
             'index' => false,
+        ],
+        'timer_end_at' => [
+            'nullable' => true,
+            'index' => true,
+        ],
+        'timer_start_at' => [
+            'nullable' => true,
+            'index' => true,
         ],
     ];
 

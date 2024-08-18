@@ -268,77 +268,77 @@ class Lead extends Playground
      */
     protected array $hasOne_all = [
         'campaign' => [
-            'comment' => 'The campaign of the model.',
+            'comment' => 'The campaign of the %1$s.',
             'accessor' => 'campaign',
             'related' => 'Campaign',
             'foreignKey' => 'id',
             'localKey' => 'campaign_id',
         ],
         'goal' => [
-            'comment' => 'The goal of the model.',
+            'comment' => 'The goal of the %1$s.',
             'accessor' => 'goal',
             'related' => 'Goal',
             'foreignKey' => 'id',
             'localKey' => 'goal_id',
         ],
         'lead' => [
-            'comment' => 'The lead of the model.',
+            'comment' => 'The lead of the %1$s.',
             'accessor' => 'lead',
             'related' => 'Lead',
             'foreignKey' => 'id',
             'localKey' => 'lead_id',
         ],
         'opportunity' => [
-            'comment' => 'The opportunity of the model.',
+            'comment' => 'The opportunity of the %1$s.',
             'accessor' => 'opportunity',
             'related' => 'Opportunity',
             'foreignKey' => 'id',
             'localKey' => 'opportunity_id',
         ],
         'plan' => [
-            'comment' => 'The plan of the model.',
+            'comment' => 'The plan of the %1$s.',
             'accessor' => 'plan',
             'related' => 'Plan',
             'foreignKey' => 'id',
             'localKey' => 'plan_id',
         ],
         'region' => [
-            'comment' => 'The region of the model.',
+            'comment' => 'The region of the %1$s.',
             'accessor' => 'region',
             'related' => 'Region',
             'foreignKey' => 'id',
             'localKey' => 'region_id',
         ],
         'report' => [
-            'comment' => 'The report of the model.',
+            'comment' => 'The report of the %1$s.',
             'accessor' => 'report',
             'related' => 'Report',
             'foreignKey' => 'id',
             'localKey' => 'report_id',
         ],
         'source' => [
-            'comment' => 'The source of the model.',
+            'comment' => 'The source of the %1$s.',
             'accessor' => 'source',
             'related' => 'Source',
             'foreignKey' => 'id',
             'localKey' => 'source_id',
         ],
         'task' => [
-            'comment' => 'The task of the model.',
+            'comment' => 'The task of the %1$s.',
             'accessor' => 'task',
             'related' => 'Task',
             'foreignKey' => 'id',
             'localKey' => 'task_id',
         ],
         'team' => [
-            'comment' => 'The team of the model.',
+            'comment' => 'The team of the %1$s.',
             'accessor' => 'team',
             'related' => 'Team',
             'foreignKey' => 'id',
             'localKey' => 'team_id',
         ],
         'teammate' => [
-            'comment' => 'The teammate of the model.',
+            'comment' => 'The teammate of the %1$s.',
             'accessor' => 'teammate',
             'related' => 'Teammate',
             'foreignKey' => 'id',
@@ -348,7 +348,9 @@ class Lead extends Playground
 
     public function init(): void
     {
-        $has_one_accessor = Str::of($this->name())->snake()->toString();
+        $name_lower = Str::of($this->name())->kebab()->replace('-', ' ')->lower()->toString();
+        // $has_many_accessor = Str::of($this->name())->plural()->camel()->toString();
+        $has_one_accessor = Str::of($this->name())->camel()->toString();
         $table_id = Str::of($has_one_accessor)->finish('_id')->toString();
 
         $this->hasOne = Arr::except($this->hasOne_all, $has_one_accessor);
@@ -418,6 +420,10 @@ class Lead extends Playground
             'nullable' => true,
             'precision' => 8,
             'scale' => 4,
+            'description' => sprintf(
+                'The bonus rate of the %1$s. Percent value is stored as decimal: 99% => 0.99',
+                $name_lower
+            ),
         ];
 
         $this->columns['commission'] = [
@@ -432,6 +438,11 @@ class Lead extends Playground
             'nullable' => true,
             'precision' => 8,
             'scale' => 4,
+            // TODO verify this sets in the docs.
+            'description' => sprintf(
+                'The commission rate of the %1$s. Percent value is stored as decimal: 99% => 0.99',
+                $name_lower
+            ),
         ];
 
         $this->columns['estimate'] = [
@@ -503,6 +514,18 @@ class Lead extends Playground
             'precision' => 19,
             'scale' => 4,
         ];
+
+        foreach ($this->hasOne as $accessor => $meta) {
+            if (! empty($meta['comment']) && is_string($meta['comment'])) {
+                $this->hasOne[$accessor]['comment'] = sprintf(
+                    $meta['comment'],
+                    $name_lower
+                );
+            }
+        }
+
+        ksort($this->dates);
+        ksort($this->flags);
 
         // dd([
         //     '__METHOD__' => __METHOD__,

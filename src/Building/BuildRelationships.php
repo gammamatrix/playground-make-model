@@ -116,7 +116,8 @@ PHP_CODE;
                 'Playground/Models/User',
                 'User',
             ])) {
-                $this->searches['HasOne'] .= $this->buildClass_HasOne_print_user($method, $HasOne);
+                // $this->searches['HasOne'] .= $this->buildClass_HasOne_print_user($method, $HasOne);
+                $this->searches['HasOne'] .= $this->buildClass_HasOne_print($method, $HasOne);
             } else {
                 $this->searches['HasOne'] .= $this->buildClass_HasOne_print($method, $HasOne);
             }
