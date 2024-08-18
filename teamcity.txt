@@ -9,7 +9,7 @@
 
 ##teamcity[testStarted name='test_instance' locationHint='php_qn:///app/tests/Unit/Configuration/Factory/InstanceTest.php::\Tests\Unit\Playground\Make\Model\Configuration\Factory\InstanceTest::test_instance' flowId='1']
 
-##teamcity[testFinished name='test_instance' duration='151' flowId='1']
+##teamcity[testFinished name='test_instance' duration='149' flowId='1']
 
 ##teamcity[testStarted name='test_instance_apply_without_options' locationHint='php_qn:///app/tests/Unit/Configuration/Factory/InstanceTest.php::\Tests\Unit\Playground\Make\Model\Configuration\Factory\InstanceTest::test_instance_apply_without_options' flowId='1']
 
@@ -29,7 +29,7 @@
 
 ##teamcity[testStarted name='test_instance' locationHint='php_qn:///app/tests/Unit/Configuration/Migration/InstanceTest.php::\Tests\Unit\Playground\Make\Model\Configuration\Migration\InstanceTest::test_instance' flowId='1']
 
-##teamcity[testFinished name='test_instance' duration='17' flowId='1']
+##teamcity[testFinished name='test_instance' duration='16' flowId='1']
 
 ##teamcity[testStarted name='test_instance_apply_without_options' locationHint='php_qn:///app/tests/Unit/Configuration/Migration/InstanceTest.php::\Tests\Unit\Playground\Make\Model\Configuration\Migration\InstanceTest::test_instance_apply_without_options' flowId='1']
 
@@ -73,7 +73,7 @@
 
 ##teamcity[testStarted name='test_command_about_displays_package_information_and_succeed_with_code_0' locationHint='php_qn:///app/tests/Feature/Console/Commands/About/CommandTest.php::\Tests\Feature\Playground\Make\Model\Console\Commands\About\CommandTest::test_command_about_displays_package_information_and_succeed_with_code_0' flowId='1']
 
-##teamcity[testFinished name='test_command_about_displays_package_information_and_succeed_with_code_0' duration='717' flowId='1']
+##teamcity[testFinished name='test_command_about_displays_package_information_and_succeed_with_code_0' duration='712' flowId='1']
 
 ##teamcity[testSuiteFinished name='Tests\Feature\Playground\Make\Model\Console\Commands\About\CommandTest' flowId='1']
 
@@ -81,11 +81,11 @@
 
 ##teamcity[testStarted name='test_command_without_options_or_arguments' locationHint='php_qn:///app/tests/Feature/Console/Commands/FactoryMakeCommand/CommandTest.php::\Tests\Feature\Playground\Make\Model\Console\Commands\FactoryMakeCommand\CommandTest::test_command_without_options_or_arguments' flowId='1']
 
-##teamcity[testFinished name='test_command_without_options_or_arguments' duration='102' flowId='1']
+##teamcity[testFinished name='test_command_without_options_or_arguments' duration='100' flowId='1']
 
 ##teamcity[testStarted name='test_command_skeleton' locationHint='php_qn:///app/tests/Feature/Console/Commands/FactoryMakeCommand/CommandTest.php::\Tests\Feature\Playground\Make\Model\Console\Commands\FactoryMakeCommand\CommandTest::test_command_skeleton' flowId='1']
 
-##teamcity[testFinished name='test_command_skeleton' duration='11' flowId='1']
+##teamcity[testFinished name='test_command_skeleton' duration='12' flowId='1']
 
 ##teamcity[testSuiteFinished name='Tests\Feature\Playground\Make\Model\Console\Commands\FactoryMakeCommand\CommandTest' flowId='1']
 
@@ -93,7 +93,7 @@
 
 ##teamcity[testStarted name='test_command_make_factory_with_force_and_without_skeleton' locationHint='php_qn:///app/tests/Feature/Console/Commands/FactoryMakeCommand/ModelTest.php::\Tests\Feature\Playground\Make\Model\Console\Commands\FactoryMakeCommand\ModelTest::test_command_make_factory_with_force_and_without_skeleton' flowId='1']
 
-##teamcity[testFinished name='test_command_make_factory_with_force_and_without_skeleton' duration='14' flowId='1']
+##teamcity[testFinished name='test_command_make_factory_with_force_and_without_skeleton' duration='15' flowId='1']
 
 ##teamcity[testStarted name='test_command_make_factory_with_force_and_with_skeleton' locationHint='php_qn:///app/tests/Feature/Console/Commands/FactoryMakeCommand/ModelTest.php::\Tests\Feature\Playground\Make\Model\Console\Commands\FactoryMakeCommand\ModelTest::test_command_make_factory_with_force_and_with_skeleton' flowId='1']
 
@@ -117,11 +117,11 @@
 
 ##teamcity[testStarted name='test_command_skeleton_without_force' locationHint='php_qn:///app/tests/Feature/Console/Commands/MigrationMakeCommand/CommandTest.php::\Tests\Feature\Playground\Make\Model\Console\Commands\MigrationMakeCommand\CommandTest::test_command_skeleton_without_force' flowId='1']
 
-##teamcity[testFinished name='test_command_skeleton_without_force' duration='8' flowId='1']
+##teamcity[testFinished name='test_command_skeleton_without_force' duration='9' flowId='1']
 
 ##teamcity[testStarted name='test_command_skeleton_with_invalid_table_parameter' locationHint='php_qn:///app/tests/Feature/Console/Commands/MigrationMakeCommand/CommandTest.php::\Tests\Feature\Playground\Make\Model\Console\Commands\MigrationMakeCommand\CommandTest::test_command_skeleton_with_invalid_table_parameter' flowId='1']
 
-##teamcity[testFinished name='test_command_skeleton_with_invalid_table_parameter' duration='11' flowId='1']
+##teamcity[testFinished name='test_command_skeleton_with_invalid_table_parameter' duration='12' flowId='1']
 
 ##teamcity[testStarted name='test_command_skeleton_with_invalid_table_in_file' locationHint='php_qn:///app/tests/Feature/Console/Commands/MigrationMakeCommand/CommandTest.php::\Tests\Feature\Playground\Make\Model\Console\Commands\MigrationMakeCommand\CommandTest::test_command_skeleton_with_invalid_table_in_file' flowId='1']
 
@@ -135,11 +135,11 @@
 
 ##teamcity[testStarted name='test_command_with_interactive_option' locationHint='php_qn:///app/tests/Feature/Console/Commands/MigrationMakeCommand/InteractiveTest.php::\Tests\Feature\Playground\Make\Model\Console\Commands\MigrationMakeCommand\InteractiveTest::test_command_with_interactive_option' flowId='1']
 
-##teamcity[testFinished name='test_command_with_interactive_option' duration='14' flowId='1']
+##teamcity[testFinished name='test_command_with_interactive_option' duration='16' flowId='1']
 
 ##teamcity[testStarted name='test_command_with_interactive_option_and_cancel' locationHint='php_qn:///app/tests/Feature/Console/Commands/MigrationMakeCommand/InteractiveTest.php::\Tests\Feature\Playground\Make\Model\Console\Commands\MigrationMakeCommand\InteractiveTest::test_command_with_interactive_option_and_cancel' flowId='1']
 
-##teamcity[testFinished name='test_command_with_interactive_option_and_cancel' duration='11' flowId='1']
+##teamcity[testFinished name='test_command_with_interactive_option_and_cancel' duration='9' flowId='1']
 
 ##teamcity[testSuiteFinished name='Tests\Feature\Playground\Make\Model\Console\Commands\MigrationMakeCommand\InteractiveTest' flowId='1']
 
@@ -147,15 +147,15 @@
 
 ##teamcity[testStarted name='test_command_make_migration_without_name_with_force_and_without_skeleton' locationHint='php_qn:///app/tests/Feature/Console/Commands/MigrationMakeCommand/ModelTest.php::\Tests\Feature\Playground\Make\Model\Console\Commands\MigrationMakeCommand\ModelTest::test_command_make_migration_without_name_with_force_and_without_skeleton' flowId='1']
 
-##teamcity[testFinished name='test_command_make_migration_without_name_with_force_and_without_skeleton' duration='10' flowId='1']
+##teamcity[testFinished name='test_command_make_migration_without_name_with_force_and_without_skeleton' duration='11' flowId='1']
 
 ##teamcity[testStarted name='test_command_make_migration_with_force_and_with_skeleton' locationHint='php_qn:///app/tests/Feature/Console/Commands/MigrationMakeCommand/ModelTest.php::\Tests\Feature\Playground\Make\Model\Console\Commands\MigrationMakeCommand\ModelTest::test_command_make_migration_with_force_and_with_skeleton' flowId='1']
 
-##teamcity[testFinished name='test_command_make_migration_with_force_and_with_skeleton' duration='14' flowId='1']
+##teamcity[testFinished name='test_command_make_migration_with_force_and_with_skeleton' duration='15' flowId='1']
 
 ##teamcity[testStarted name='test_command_make_create_migration_with_force_and_without_skeleton' locationHint='php_qn:///app/tests/Feature/Console/Commands/MigrationMakeCommand/ModelTest.php::\Tests\Feature\Playground\Make\Model\Console\Commands\MigrationMakeCommand\ModelTest::test_command_make_create_migration_with_force_and_without_skeleton' flowId='1']
 
-##teamcity[testFinished name='test_command_make_create_migration_with_force_and_without_skeleton' duration='11' flowId='1']
+##teamcity[testFinished name='test_command_make_create_migration_with_force_and_without_skeleton' duration='12' flowId='1']
 
 ##teamcity[testStarted name='test_command_make_create_migration_without_name_with_force_and_without_skeleton' locationHint='php_qn:///app/tests/Feature/Console/Commands/MigrationMakeCommand/ModelTest.php::\Tests\Feature\Playground\Make\Model\Console\Commands\MigrationMakeCommand\ModelTest::test_command_make_create_migration_without_name_with_force_and_without_skeleton' flowId='1']
 
@@ -163,7 +163,7 @@
 
 ##teamcity[testStarted name='test_command_make_create_migration_with_force_and_with_skeleton' locationHint='php_qn:///app/tests/Feature/Console/Commands/MigrationMakeCommand/ModelTest.php::\Tests\Feature\Playground\Make\Model\Console\Commands\MigrationMakeCommand\ModelTest::test_command_make_create_migration_with_force_and_with_skeleton' flowId='1']
 
-##teamcity[testFinished name='test_command_make_create_migration_with_force_and_with_skeleton' duration='15' flowId='1']
+##teamcity[testFinished name='test_command_make_create_migration_with_force_and_with_skeleton' duration='16' flowId='1']
 
 ##teamcity[testStarted name='test_command_make_update_migration_with_force_and_without_skeleton' locationHint='php_qn:///app/tests/Feature/Console/Commands/MigrationMakeCommand/ModelTest.php::\Tests\Feature\Playground\Make\Model\Console\Commands\MigrationMakeCommand\ModelTest::test_command_make_update_migration_with_force_and_without_skeleton' flowId='1']
 
@@ -175,15 +175,15 @@
 
 ##teamcity[testStarted name='test_command_make_create_migration_and_load_model_from_migration_configuration' locationHint='php_qn:///app/tests/Feature/Console/Commands/MigrationMakeCommand/ModelTest.php::\Tests\Feature\Playground\Make\Model\Console\Commands\MigrationMakeCommand\ModelTest::test_command_make_create_migration_and_load_model_from_migration_configuration' flowId='1']
 
-##teamcity[testFinished name='test_command_make_create_migration_and_load_model_from_migration_configuration' duration='14' flowId='1']
+##teamcity[testFinished name='test_command_make_create_migration_and_load_model_from_migration_configuration' duration='15' flowId='1']
 
 ##teamcity[testStarted name='test_command_make_create_migration_with_bare_model_skeleton' locationHint='php_qn:///app/tests/Feature/Console/Commands/MigrationMakeCommand/ModelTest.php::\Tests\Feature\Playground\Make\Model\Console\Commands\MigrationMakeCommand\ModelTest::test_command_make_create_migration_with_bare_model_skeleton' flowId='1']
 
-##teamcity[testFinished name='test_command_make_create_migration_with_bare_model_skeleton' duration='13' flowId='1']
+##teamcity[testFinished name='test_command_make_create_migration_with_bare_model_skeleton' duration='14' flowId='1']
 
 ##teamcity[testStarted name='test_command_make_create_migration_with_sparse_model_skeleton' locationHint='php_qn:///app/tests/Feature/Console/Commands/MigrationMakeCommand/ModelTest.php::\Tests\Feature\Playground\Make\Model\Console\Commands\MigrationMakeCommand\ModelTest::test_command_make_create_migration_with_sparse_model_skeleton' flowId='1']
 
-##teamcity[testFinished name='test_command_make_create_migration_with_sparse_model_skeleton' duration='14' flowId='1']
+##teamcity[testFinished name='test_command_make_create_migration_with_sparse_model_skeleton' duration='15' flowId='1']
 
 ##teamcity[testSuiteFinished name='Tests\Feature\Playground\Make\Model\Console\Commands\MigrationMakeCommand\ModelTest' flowId='1']
 
@@ -215,15 +215,15 @@
 
 ##teamcity[testStarted name='test_command_make_model_with_force' locationHint='php_qn:///app/tests/Feature/Console/Commands/ModelMakeCommand/ModelTest.php::\Tests\Feature\Playground\Make\Model\Console\Commands\ModelMakeCommand\ModelTest::test_command_make_model_with_force' flowId='1']
 
-##teamcity[testFinished name='test_command_make_model_with_force' duration='36' flowId='1']
+##teamcity[testFinished name='test_command_make_model_with_force' duration='50' flowId='1']
 
 ##teamcity[testStarted name='test_command_make_playground_model_api_with_force' locationHint='php_qn:///app/tests/Feature/Console/Commands/ModelMakeCommand/ModelTest.php::\Tests\Feature\Playground\Make\Model\Console\Commands\ModelMakeCommand\ModelTest::test_command_make_playground_model_api_with_force' flowId='1']
 
-##teamcity[testFinished name='test_command_make_playground_model_api_with_force' duration='84' flowId='1']
+##teamcity[testFinished name='test_command_make_playground_model_api_with_force' duration='82' flowId='1']
 
 ##teamcity[testStarted name='test_command_make_playground_model_resource_with_force' locationHint='php_qn:///app/tests/Feature/Console/Commands/ModelMakeCommand/ModelTest.php::\Tests\Feature\Playground\Make\Model\Console\Commands\ModelMakeCommand\ModelTest::test_command_make_playground_model_resource_with_force' flowId='1']
 
-##teamcity[testFinished name='test_command_make_playground_model_resource_with_force' duration='96' flowId='1']
+##teamcity[testFinished name='test_command_make_playground_model_resource_with_force' duration='99' flowId='1']
 
 ##teamcity[testStarted name='test_command_make_all_playground_model_api_with_force' locationHint='php_qn:///app/tests/Feature/Console/Commands/ModelMakeCommand/ModelTest.php::\Tests\Feature\Playground\Make\Model\Console\Commands\ModelMakeCommand\ModelTest::test_command_make_all_playground_model_api_with_force' flowId='1']
 
@@ -231,11 +231,11 @@
 
 ##teamcity[testStarted name='test_command_make_all_playground_model_resource_with_force' locationHint='php_qn:///app/tests/Feature/Console/Commands/ModelMakeCommand/ModelTest.php::\Tests\Feature\Playground\Make\Model\Console\Commands\ModelMakeCommand\ModelTest::test_command_make_all_playground_model_resource_with_force' flowId='1']
 
-##teamcity[testFinished name='test_command_make_all_playground_model_resource_with_force' duration='81' flowId='1']
+##teamcity[testFinished name='test_command_make_all_playground_model_resource_with_force' duration='80' flowId='1']
 
 ##teamcity[testStarted name='test_command_make_test_playground_model_resource_with_force' locationHint='php_qn:///app/tests/Feature/Console/Commands/ModelMakeCommand/ModelTest.php::\Tests\Feature\Playground\Make\Model\Console\Commands\ModelMakeCommand\ModelTest::test_command_make_test_playground_model_resource_with_force' flowId='1']
 
-##teamcity[testFinished name='test_command_make_test_playground_model_resource_with_force' duration='107' flowId='1']
+##teamcity[testFinished name='test_command_make_test_playground_model_resource_with_force' duration='106' flowId='1']
 
 ##teamcity[testSuiteFinished name='Tests\Feature\Playground\Make\Model\Console\Commands\ModelMakeCommand\ModelTest' flowId='1']
 
@@ -251,15 +251,15 @@
 
 ##teamcity[testStarted name='test_command_make_model_with_pivot_option' locationHint='php_qn:///app/tests/Feature/Console/Commands/ModelMakeCommand/OptionsTest.php::\Tests\Feature\Playground\Make\Model\Console\Commands\ModelMakeCommand\OptionsTest::test_command_make_model_with_pivot_option' flowId='1']
 
-##teamcity[testFinished name='test_command_make_model_with_pivot_option' duration='19' flowId='1']
+##teamcity[testFinished name='test_command_make_model_with_pivot_option' duration='20' flowId='1']
 
 ##teamcity[testStarted name='test_command_make_model_with_morph_pivot_type' locationHint='php_qn:///app/tests/Feature/Console/Commands/ModelMakeCommand/OptionsTest.php::\Tests\Feature\Playground\Make\Model\Console\Commands\ModelMakeCommand\OptionsTest::test_command_make_model_with_morph_pivot_type' flowId='1']
 
-##teamcity[testFinished name='test_command_make_model_with_morph_pivot_type' duration='19' flowId='1']
+##teamcity[testFinished name='test_command_make_model_with_morph_pivot_type' duration='20' flowId='1']
 
 ##teamcity[testStarted name='test_command_make_model_with_morph_pivot_option' locationHint='php_qn:///app/tests/Feature/Console/Commands/ModelMakeCommand/OptionsTest.php::\Tests\Feature\Playground\Make\Model\Console\Commands\ModelMakeCommand\OptionsTest::test_command_make_model_with_morph_pivot_option' flowId='1']
 
-##teamcity[testFinished name='test_command_make_model_with_morph_pivot_option' duration='19' flowId='1']
+##teamcity[testFinished name='test_command_make_model_with_morph_pivot_option' duration='20' flowId='1']
 
 ##teamcity[testStarted name='test_command_make_model_with_api_type' locationHint='php_qn:///app/tests/Feature/Console/Commands/ModelMakeCommand/OptionsTest.php::\Tests\Feature\Playground\Make\Model\Console\Commands\ModelMakeCommand\OptionsTest::test_command_make_model_with_api_type' flowId='1']
 
@@ -267,7 +267,7 @@
 
 ##teamcity[testStarted name='test_command_make_model_with_abstract_type' locationHint='php_qn:///app/tests/Feature/Console/Commands/ModelMakeCommand/OptionsTest.php::\Tests\Feature\Playground\Make\Model\Console\Commands\ModelMakeCommand\OptionsTest::test_command_make_model_with_abstract_type' flowId='1']
 
-##teamcity[testFinished name='test_command_make_model_with_abstract_type' duration='14' flowId='1']
+##teamcity[testFinished name='test_command_make_model_with_abstract_type' duration='15' flowId='1']
 
 ##teamcity[testStarted name='test_command_make_model_with_model_type' locationHint='php_qn:///app/tests/Feature/Console/Commands/ModelMakeCommand/OptionsTest.php::\Tests\Feature\Playground\Make\Model\Console\Commands\ModelMakeCommand\OptionsTest::test_command_make_model_with_model_type' flowId='1']
 
@@ -279,7 +279,7 @@
 
 ##teamcity[testStarted name='test_command_make_model_with_resource_controller_option' locationHint='php_qn:///app/tests/Feature/Console/Commands/ModelMakeCommand/OptionsTest.php::\Tests\Feature\Playground\Make\Model\Console\Commands\ModelMakeCommand\OptionsTest::test_command_make_model_with_resource_controller_option' flowId='1']
 
-##teamcity[testFinished name='test_command_make_model_with_resource_controller_option' duration='37' flowId='1']
+##teamcity[testFinished name='test_command_make_model_with_resource_controller_option' duration='36' flowId='1']
 
 ##teamcity[testSuiteFinished name='Tests\Feature\Playground\Make\Model\Console\Commands\ModelMakeCommand\OptionsTest' flowId='1']
 

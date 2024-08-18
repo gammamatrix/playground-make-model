@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-08-17 20:11:34</timestamp>
+  <timestamp>2024-08-18 06:42:00</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>159</methodCount>
-    <crapMethodCount>6</crapMethodCount>
-    <crapLoad>91</crapLoad>
-    <totalCrap>2716.01</totalCrap>
-    <crapMethodPercent>3.77</crapMethodPercent>
+    <methodCount>160</methodCount>
+    <crapMethodCount>8</crapMethodCount>
+    <crapLoad>123</crapLoad>
+    <totalCrap>3346.28</totalCrap>
+    <crapMethodPercent>5</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -754,10 +754,10 @@
       <methodName>buildClass_skeleton_ids_package</methodName>
       <methodSignature>buildClass_skeleton_ids_package(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
       <fullMethod>buildClass_skeleton_ids_package(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
-      <crap>9.02</crap>
+      <crap>69.29</crap>
       <complexity>9</complexity>
-      <coverage>93.75</coverage>
-      <crapLoad>0</crapLoad>
+      <coverage>9.38</coverage>
+      <crapLoad>8</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Model\Building\Skeleton</package>
@@ -1579,10 +1579,21 @@
       <methodName>init</methodName>
       <methodSignature>init(): void</methodSignature>
       <fullMethod>init(): void</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
+      <crap>20</crap>
+      <complexity>4</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Matrix</className>
+      <methodName>init</methodName>
+      <methodSignature>init(): void</methodSignature>
+      <fullMethod>init(): void</fullMethod>
+      <crap>552</crap>
+      <complexity>23</complexity>
+      <coverage>0</coverage>
+      <crapLoad>23</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Model\Recipe</package>
