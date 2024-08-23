@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-08-18 06:42:00</timestamp>
+  <timestamp>2024-08-23 03:29:09</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>160</methodCount>
-    <crapMethodCount>8</crapMethodCount>
-    <crapLoad>123</crapLoad>
-    <totalCrap>3346.28</totalCrap>
-    <crapMethodPercent>5</crapMethodPercent>
+    <methodCount>171</methodCount>
+    <crapMethodCount>12</crapMethodCount>
+    <crapLoad>233</crapLoad>
+    <totalCrap>8962.13</totalCrap>
+    <crapMethodPercent>7.02</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -350,6 +350,72 @@
       <crap>3</crap>
       <complexity>3</complexity>
       <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Building\Dump</package>
+      <className>Playground\Make\Model\Building\Dump\BuildConfiguration</className>
+      <methodName>buildClass_configuration</methodName>
+      <methodSignature>buildClass_configuration(): void</methodSignature>
+      <fullMethod>buildClass_configuration(): void</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Building\Dump</package>
+      <className>Playground\Make\Model\Building\Dump\BuildConfiguration</className>
+      <methodName>buildClass_configuration_create</methodName>
+      <methodSignature>buildClass_configuration_create(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
+      <fullMethod>buildClass_configuration_create(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
+      <crap>110</crap>
+      <complexity>10</complexity>
+      <coverage>0</coverage>
+      <crapLoad>10</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Building\Dump</package>
+      <className>Playground\Make\Model\Building\Dump\BuildConfiguration</className>
+      <methodName>buildClass_configuration_identify_primary</methodName>
+      <methodSignature>buildClass_configuration_identify_primary(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
+      <fullMethod>buildClass_configuration_identify_primary(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
+      <crap>72</crap>
+      <complexity>8</complexity>
+      <coverage>0</coverage>
+      <crapLoad>8</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Building\Dump</package>
+      <className>Playground\Make\Model\Building\Dump\BuildConfiguration</className>
+      <methodName>buildClass_configuration_identify_column_type</methodName>
+      <methodSignature>buildClass_configuration_identify_column_type(string $column, int $i, array $meta): void</methodSignature>
+      <fullMethod>buildClass_configuration_identify_column_type(string $column, int $i, array $meta): void</fullMethod>
+      <crap>4970</crap>
+      <complexity>70</complexity>
+      <coverage>0</coverage>
+      <crapLoad>71</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Building\Dump</package>
+      <className>Playground\Make\Model\Building\Dump\BuildConfiguration</className>
+      <methodName>buildClass_configuration_identify_columns</methodName>
+      <methodSignature>buildClass_configuration_identify_columns(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
+      <fullMethod>buildClass_configuration_identify_columns(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
+      <crap>420</crap>
+      <complexity>20</complexity>
+      <coverage>0</coverage>
+      <crapLoad>20</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Building\Dump</package>
+      <className>Playground\Make\Model\Building\Dump\ListTables</className>
+      <methodName>listTables</methodName>
+      <methodSignature>listTables(): ?bool</methodSignature>
+      <fullMethod>listTables(): ?bool</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1059,12 +1125,23 @@
     <method>
       <package>Playground\Make\Model\Console\Commands\Concerns</package>
       <className>Playground\Make\Model\Console\Commands\Concerns\Recipes</className>
+      <methodName>loadRecipes</methodName>
+      <methodSignature>loadRecipes(): void</methodSignature>
+      <fullMethod>loadRecipes(): void</fullMethod>
+      <crap>9.37</crap>
+      <complexity>9</complexity>
+      <coverage>83.33</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Console\Commands\Concerns</package>
+      <className>Playground\Make\Model\Console\Commands\Concerns\Recipes</className>
       <methodName>handleRecipe</methodName>
       <methodSignature>handleRecipe(string $name, string $type): void</methodSignature>
       <fullMethod>handleRecipe(string $name, string $type): void</fullMethod>
-      <crap>13.07</crap>
+      <crap>13.06</crap>
       <complexity>13</complexity>
-      <coverage>92.59</coverage>
+      <coverage>92.86</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1205,9 +1282,20 @@
       <methodName>prepareOptions</methodName>
       <methodSignature>prepareOptions(): void</methodSignature>
       <fullMethod>prepareOptions(): void</fullMethod>
-      <crap>38.7</crap>
-      <complexity>37</complexity>
-      <coverage>89.25</coverage>
+      <crap>49.06</crap>
+      <complexity>43</complexity>
+      <coverage>85.15</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Console\Commands</package>
+      <className>Playground\Make\Model\Console\Commands\ModelMakeCommand</className>
+      <methodName>handle</methodName>
+      <methodSignature>handle(): ?bool</methodSignature>
+      <fullMethod>handle(): ?bool</fullMethod>
+      <crap>4.13</crap>
+      <complexity>4</complexity>
+      <coverage>80</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1647,6 +1735,39 @@
       <fullMethod>index(): Playground\Make\Model\Recipe\Views\Index</fullMethod>
       <crap>6</crap>
       <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Model</className>
+      <methodName>timestamp_created</methodName>
+      <methodSignature>timestamp_created(): string</methodSignature>
+      <fullMethod>timestamp_created(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Model</className>
+      <methodName>timestamp_deleted</methodName>
+      <methodSignature>timestamp_deleted(): string</methodSignature>
+      <fullMethod>timestamp_deleted(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Model</className>
+      <methodName>timestamp_updated</methodName>
+      <methodSignature>timestamp_updated(): string</methodSignature>
+      <fullMethod>timestamp_updated(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
