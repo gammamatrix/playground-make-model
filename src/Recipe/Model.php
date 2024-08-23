@@ -33,6 +33,12 @@ abstract class Model implements
 
     protected string $type = '';
 
+    protected string $timestamp_created = 'created_at';
+
+    protected string $timestamp_deleted = 'deleted_at';
+
+    protected string $timestamp_updated = 'updated_at';
+
     private Index $index;
 
     /**
@@ -69,5 +75,20 @@ abstract class Model implements
         }
 
         return $this->index;
+    }
+
+    public function timestamp_created(): string
+    {
+        return $this->timestamp_created;
+    }
+
+    public function timestamp_deleted(): string
+    {
+        return $this->timestamp_deleted;
+    }
+
+    public function timestamp_updated(): string
+    {
+        return $this->timestamp_updated;
     }
 }

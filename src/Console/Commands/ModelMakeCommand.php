@@ -36,6 +36,8 @@ class ModelMakeCommand extends GeneratorCommand
     use Building\BuildPerPage;
     use Building\BuildRelationships;
     use Building\BuildTable;
+    use Building\Dump\BuildConfiguration;
+    use Building\Dump\ListTables;
     use Building\MakeCommands;
     use Building\MakeSkeleton;
     use Building\Skeleton\MakeColumns;
@@ -119,6 +121,10 @@ class ModelMakeCommand extends GeneratorCommand
 
     protected bool $isApi = false;
 
+    protected bool $isDump = false;
+
+    protected bool $isList = false;
+
     protected bool $isResource = false;
 
     protected bool $replace = false;
@@ -135,6 +141,10 @@ class ModelMakeCommand extends GeneratorCommand
         }
 
         $this->handleRecipe($this->c->name(), $type);
+
+        if ($this->hasOption('dump') && $this->option('dump')) {
+            $this->isDump = true;
+        }
 
         if ($this->hasOption('all') && $this->option('all')) {
 
@@ -259,12 +269,39 @@ class ModelMakeCommand extends GeneratorCommand
             $this->replace = true;
         }
 
-        // dd([
+        if ($this->hasOption('table') && $this->option('table') && is_string($this->option('table'))) {
+            $this->c->setOptions([
+                'table' => $this->option('table'),
+            ]);
+        }
+
+        if ($this->isDump) {
+            $this->buildClass_configuration();
+        }
+
+        // art playground:make:model TestingDump --table testing_dumps --dump --factory --migration --test --skeleton --force --namespace Acme/Testing --package acme-testing --module Testing --type playground-model
+        // dump([
         //     '__METHOD__' => __METHOD__,
         //     '$this->c' => $this->c,
         //     // '$this->c' => $this->c->toArray(),
         //     '$this->searches' => $this->searches,
+        //     '$options' => $options,
         // ]);
+    }
+
+    /**
+     * Execute the console command.
+     */
+    public function handle(): ?bool
+    {
+        $this->isDump = $this->hasOption('dump') && $this->option('dump');
+        $this->isList = $this->hasOption('list') && $this->option('list');
+
+        if ($this->isList) {
+            return $this->listTables();
+        }
+
+        return parent::handle();
     }
 
     public function finish(): ?bool
@@ -464,6 +501,8 @@ class ModelMakeCommand extends GeneratorCommand
             ['all',             'a',  InputOption::VALUE_NONE, 'Generate a migration, seeder, factory, policy, resource controller, and form request classes for the model'],
             ['controller',      'c',  InputOption::VALUE_NONE, 'Create a new controller for the model'],
             ['factory',         'f',  InputOption::VALUE_NONE, 'Create a new factory for the model'],
+            ['dump',            null, InputOption::VALUE_NONE, 'Dump a table into a model configuration'],
+            ['list',            null, InputOption::VALUE_NONE, 'List the tables in the database'],
             ['playground',      null, InputOption::VALUE_NONE, 'Create a Playground model'],
             ['force',           null, InputOption::VALUE_NONE, 'Create the class even if the model already exists'],
             ['skeleton',        null, InputOption::VALUE_NONE, 'Create the skeleton for the model'],

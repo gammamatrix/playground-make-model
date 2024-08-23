@@ -19,17 +19,44 @@ trait Recipes
      * @var array<string, class-string<Recipe\Model>>
      */
     protected array $recipes = [
+        // 'acme' => App\Make\Recipes\Acme\Acme::class,
+        // 'acme-widget' => App\Make\Recipes\Acme\AcmeWidget::class,
         'cms' => Recipe\Cms::class,
         'crm' => Recipe\Crm::class,
         'directory' => Recipe\Directory::class,
+        'dump' => Recipe\Dump::class,
         'laravel' => Recipe\Laravel::class,
         'lead' => Recipe\Lead::class,
         'matrix' => Recipe\Matrix::class,
         'playground' => Recipe\Playground::class,
     ];
 
+    public function loadRecipes(): void
+    {
+        $recipes = config('playground-make-model.recipes');
+
+        if (is_array($recipes)) {
+            foreach ($recipes as $recipe => $recipeClass) {
+                if (! is_string($recipe) || empty($recipe)) {
+                    throw new \Exception(__('playground-make-model:recipes.recipe.key.invalid'));
+                }
+                if (! is_string($recipeClass)
+                    || empty($recipeClass)
+                    || ! class_exists($recipeClass)
+                    || ! is_subclass_of($recipeClass, Recipe\Model::class)
+                ) {
+                    throw new \Exception(__('playground-make-model:recipes.recipe.class.invalid'));
+                }
+                $this->recipes[$recipe] = $recipeClass;
+            }
+        }
+        ksort($this->recipes);
+    }
+
     public function handleRecipe(string $name, string $type): void
     {
+        $this->loadRecipes();
+
         $recipe = ! empty($this->recipes[$this->c->recipe()]) ? $this->c->recipe() : '';
         $class = $this->recipes['playground'];
 
