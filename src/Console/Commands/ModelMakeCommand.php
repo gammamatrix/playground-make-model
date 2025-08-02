@@ -33,6 +33,7 @@ class ModelMakeCommand extends GeneratorCommand
     use Building\BuildCreate;
     use Building\BuildDocBlock;
     use Building\BuildFillable;
+    use Building\BuildHasFactory;
     use Building\BuildPerPage;
     use Building\BuildRelationships;
     use Building\BuildTable;
@@ -82,6 +83,7 @@ class ModelMakeCommand extends GeneratorCommand
         'use' => '',
         // 'use_class' => '    use HasFactory;',
         'use_class' => '',
+        'use_factory' => '',
         'table' => '',
         'property_table' => '',
         // 'perPage' => PHP_EOL.PHP_EOL.'    protected $perPage = 25;',
@@ -373,6 +375,7 @@ class ModelMakeCommand extends GeneratorCommand
         $this->searches['use_class'] = '';
 
         $this->buildClass_model_table();
+        $this->buildClass_model_has_factory();
 
         if ($this->c->skeleton()) {
             $this->buildClass_skeleton();
@@ -399,7 +402,11 @@ class ModelMakeCommand extends GeneratorCommand
         $this->buildClass_HasOne();
         $this->buildClass_HasMany();
 
+
         $this->buildClass_uses($name);
+
+        // if ($this->c->factory()) {
+        // }
 
         // $this->c->apply();
         $this->applyConfigurationToSearch(true);

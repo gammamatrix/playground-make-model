@@ -57,10 +57,7 @@ trait BuildStates
 
         return <<<PHP_CODE
 
-    /**
-     * @return Factory<$model>
-     */
-    public function $method(): Factory
+    public function $method(): ${model}Factory
     {
         return \$this->state(fn (array \$attributes) => [
             '$flag' => $value,

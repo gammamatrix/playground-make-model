@@ -58,7 +58,7 @@ trait BuildRelationships
     /**
      * {$HasMany->comment()}
      *
-     * @return HasMany<$related>
+     * @return HasMany<$related, \$this>
      */
     public function {$method}(): HasMany
     {
@@ -140,7 +140,7 @@ PHP_CODE;
     /**
      * {$HasOne->comment()}
      *
-     * @return HasOne<$related>
+     * @return HasOne<$related, \$this>
      */
     public function {$method}(): HasOne
     {
@@ -167,7 +167,7 @@ PHP_CODE;
     /**
      * {$HasOne->comment()}
      *
-     * @return HasOne<EloquentModel&\Illuminate\Contracts\Auth\Authenticatable>
+     * @return HasOne<EloquentModel&\Illuminate\Contracts\Auth\Authenticatable, \$this>
      */
     public function {$method}(): HasOne
     {
