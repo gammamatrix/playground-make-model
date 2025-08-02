@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-08-23 03:29:09</timestamp>
+  <timestamp>2025-08-02 23:51:47</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>171</methodCount>
+    <methodCount>173</methodCount>
     <crapMethodCount>12</crapMethodCount>
     <crapLoad>233</crapLoad>
-    <totalCrap>8962.13</totalCrap>
-    <crapMethodPercent>7.02</crapMethodPercent>
+    <totalCrap>8964.13</totalCrap>
+    <crapMethodPercent>6.94</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -262,6 +262,28 @@
       <crap>14.98</crap>
       <complexity>13</complexity>
       <coverage>77.27</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Building</package>
+      <className>Playground\Make\Model\Building\BuildHasFactory</className>
+      <methodName>buildClass_model_has_factory</methodName>
+      <methodSignature>buildClass_model_has_factory(): void</methodSignature>
+      <fullMethod>buildClass_model_has_factory(): void</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Building</package>
+      <className>Playground\Make\Model\Building\BuildHasFactory</className>
+      <methodName>buildClass_states_print_has_factory</methodName>
+      <methodSignature>buildClass_states_print_has_factory(): string</methodSignature>
+      <fullMethod>buildClass_states_print_has_factory(): string</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
