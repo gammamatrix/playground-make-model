@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2025-08-02 23:51:47</timestamp>
+  <timestamp>2025-08-18 02:01:23</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>173</methodCount>
     <crapMethodCount>12</crapMethodCount>
     <crapLoad>233</crapLoad>
-    <totalCrap>8964.13</totalCrap>
+    <totalCrap>8965.44</totalCrap>
     <crapMethodPercent>6.94</crapMethodPercent>
   </stats>
   <methods>
@@ -15,8 +15,8 @@
       <package>Playground\Make\Model\Building</package>
       <className>Playground\Make\Model\Building\Analysis</className>
       <methodName>analyze</methodName>
-      <methodSignature>analyze(Playground\Make\Configuration\Model\Create $create, string $name): void</methodSignature>
-      <fullMethod>analyze(Playground\Make\Configuration\Model\Create $create, string $name): void</fullMethod>
+      <methodSignature>analyze(Create $create, string $name): void</methodSignature>
+      <fullMethod>analyze(Create $create, string $name): void</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
@@ -26,8 +26,8 @@
       <package>Playground\Make\Model\Building</package>
       <className>Playground\Make\Model\Building\Analysis</className>
       <methodName>analyze_reset</methodName>
-      <methodSignature>analyze_reset(Playground\Make\Configuration\Model\Create $create, string $name): void</methodSignature>
-      <fullMethod>analyze_reset(Playground\Make\Configuration\Model\Create $create, string $name): void</fullMethod>
+      <methodSignature>analyze_reset(Create $create, string $name): void</methodSignature>
+      <fullMethod>analyze_reset(Create $create, string $name): void</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
@@ -37,8 +37,8 @@
       <package>Playground\Make\Model\Building</package>
       <className>Playground\Make\Model\Building\Analysis</className>
       <methodName>analyze_attributes</methodName>
-      <methodSignature>analyze_attributes(Playground\Make\Configuration\Model\Create $create, string $name): void</methodSignature>
-      <fullMethod>analyze_attributes(Playground\Make\Configuration\Model\Create $create, string $name): void</fullMethod>
+      <methodSignature>analyze_attributes(Create $create, string $name): void</methodSignature>
+      <fullMethod>analyze_attributes(Create $create, string $name): void</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
@@ -48,8 +48,8 @@
       <package>Playground\Make\Model\Building</package>
       <className>Playground\Make\Model\Building\Analysis</className>
       <methodName>analyze_casts</methodName>
-      <methodSignature>analyze_casts(Playground\Make\Configuration\Model\Create $create, string $name): void</methodSignature>
-      <fullMethod>analyze_casts(Playground\Make\Configuration\Model\Create $create, string $name): void</fullMethod>
+      <methodSignature>analyze_casts(Create $create, string $name): void</methodSignature>
+      <fullMethod>analyze_casts(Create $create, string $name): void</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
@@ -59,8 +59,8 @@
       <package>Playground\Make\Model\Building</package>
       <className>Playground\Make\Model\Building\Analysis</className>
       <methodName>analyze_fillable</methodName>
-      <methodSignature>analyze_fillable(Playground\Make\Configuration\Model\Create $create, string $name): void</methodSignature>
-      <fullMethod>analyze_fillable(Playground\Make\Configuration\Model\Create $create, string $name): void</fullMethod>
+      <methodSignature>analyze_fillable(Create $create, string $name): void</methodSignature>
+      <fullMethod>analyze_fillable(Create $create, string $name): void</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
@@ -70,8 +70,8 @@
       <package>Playground\Make\Model\Building</package>
       <className>Playground\Make\Model\Building\Analysis</className>
       <methodName>analyze_filters</methodName>
-      <methodSignature>analyze_filters(Playground\Make\Configuration\Model\Create $create, string $name): void</methodSignature>
-      <fullMethod>analyze_filters(Playground\Make\Configuration\Model\Create $create, string $name): void</fullMethod>
+      <methodSignature>analyze_filters(Create $create, string $name): void</methodSignature>
+      <fullMethod>analyze_filters(Create $create, string $name): void</fullMethod>
       <crap>29.35</crap>
       <complexity>29</complexity>
       <coverage>92.5</coverage>
@@ -81,8 +81,8 @@
       <package>Playground\Make\Model\Building</package>
       <className>Playground\Make\Model\Building\Analysis</className>
       <methodName>analyze_sortable</methodName>
-      <methodSignature>analyze_sortable(Playground\Make\Configuration\Model\Create $create, string $name): void</methodSignature>
-      <fullMethod>analyze_sortable(Playground\Make\Configuration\Model\Create $create, string $name): void</fullMethod>
+      <methodSignature>analyze_sortable(Create $create, string $name): void</methodSignature>
+      <fullMethod>analyze_sortable(Create $create, string $name): void</fullMethod>
       <crap>2</crap>
       <complexity>2</complexity>
       <coverage>100</coverage>
@@ -92,8 +92,8 @@
       <package>Playground\Make\Model\Building</package>
       <className>Playground\Make\Model\Building\Analysis</className>
       <methodName>analyze_scopes</methodName>
-      <methodSignature>analyze_scopes(Playground\Make\Configuration\Model\Create $create, string $name): void</methodSignature>
-      <fullMethod>analyze_scopes(Playground\Make\Configuration\Model\Create $create, string $name): void</fullMethod>
+      <methodSignature>analyze_scopes(Create $create, string $name): void</methodSignature>
+      <fullMethod>analyze_scopes(Create $create, string $name): void</fullMethod>
       <crap>2</crap>
       <complexity>2</complexity>
       <coverage>100</coverage>
@@ -105,9 +105,9 @@
       <methodName>buildClass_attributes</methodName>
       <methodSignature>buildClass_attributes(): void</methodSignature>
       <fullMethod>buildClass_attributes(): void</fullMethod>
-      <crap>11.06</crap>
+      <crap>11.07</crap>
       <complexity>11</complexity>
-      <coverage>92</coverage>
+      <coverage>91.67</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -125,8 +125,8 @@
       <package>Playground\Make\Model\Building</package>
       <className>Playground\Make\Model\Building\BuildCreate</className>
       <methodName>buildClass_model_create</methodName>
-      <methodSignature>buildClass_model_create(string $name, string $type): Playground\Make\Configuration\Model\Create</methodSignature>
-      <fullMethod>buildClass_model_create(string $name, string $type): Playground\Make\Configuration\Model\Create</fullMethod>
+      <methodSignature>buildClass_model_create(string $name, string $type): Create</methodSignature>
+      <fullMethod>buildClass_model_create(string $name, string $type): Create</fullMethod>
       <crap>5.2</crap>
       <complexity>3</complexity>
       <coverage>37.5</coverage>
@@ -147,8 +147,8 @@
       <package>Playground\Make\Model\Building</package>
       <className>Playground\Make\Model\Building\BuildDocBlock</className>
       <methodName>buildClass_docblock_properties</methodName>
-      <methodSignature>buildClass_docblock_properties(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
-      <fullMethod>buildClass_docblock_properties(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
+      <methodSignature>buildClass_docblock_properties(Create $create): void</methodSignature>
+      <fullMethod>buildClass_docblock_properties(Create $create): void</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
@@ -158,8 +158,8 @@
       <package>Playground\Make\Model\Building</package>
       <className>Playground\Make\Model\Building\BuildDocBlock</className>
       <methodName>buildClass_docblock_ids</methodName>
-      <methodSignature>buildClass_docblock_ids(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
-      <fullMethod>buildClass_docblock_ids(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
+      <methodSignature>buildClass_docblock_ids(Create $create): void</methodSignature>
+      <fullMethod>buildClass_docblock_ids(Create $create): void</fullMethod>
       <crap>9.02</crap>
       <complexity>9</complexity>
       <coverage>94.12</coverage>
@@ -169,10 +169,10 @@
       <package>Playground\Make\Model\Building</package>
       <className>Playground\Make\Model\Building\BuildDocBlock</className>
       <methodName>buildClass_docblock_dates</methodName>
-      <methodSignature>buildClass_docblock_dates(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
-      <fullMethod>buildClass_docblock_dates(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
-      <crap>5</crap>
-      <complexity>5</complexity>
+      <methodSignature>buildClass_docblock_dates(Create $create): void</methodSignature>
+      <fullMethod>buildClass_docblock_dates(Create $create): void</fullMethod>
+      <crap>6</crap>
+      <complexity>6</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -180,8 +180,8 @@
       <package>Playground\Make\Model\Building</package>
       <className>Playground\Make\Model\Building\BuildDocBlock</className>
       <methodName>buildClass_docblock_permissions</methodName>
-      <methodSignature>buildClass_docblock_permissions(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
-      <fullMethod>buildClass_docblock_permissions(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
+      <methodSignature>buildClass_docblock_permissions(Create $create): void</methodSignature>
+      <fullMethod>buildClass_docblock_permissions(Create $create): void</fullMethod>
       <crap>5</crap>
       <complexity>5</complexity>
       <coverage>100</coverage>
@@ -191,8 +191,8 @@
       <package>Playground\Make\Model\Building</package>
       <className>Playground\Make\Model\Building\BuildDocBlock</className>
       <methodName>buildClass_docblock_status</methodName>
-      <methodSignature>buildClass_docblock_status(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
-      <fullMethod>buildClass_docblock_status(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
+      <methodSignature>buildClass_docblock_status(Create $create): void</methodSignature>
+      <fullMethod>buildClass_docblock_status(Create $create): void</fullMethod>
       <crap>5.2</crap>
       <complexity>5</complexity>
       <coverage>80</coverage>
@@ -202,8 +202,8 @@
       <package>Playground\Make\Model\Building</package>
       <className>Playground\Make\Model\Building\BuildDocBlock</className>
       <methodName>buildClass_docblock_flags</methodName>
-      <methodSignature>buildClass_docblock_flags(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
-      <fullMethod>buildClass_docblock_flags(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
+      <methodSignature>buildClass_docblock_flags(Create $create): void</methodSignature>
+      <fullMethod>buildClass_docblock_flags(Create $create): void</fullMethod>
       <crap>5</crap>
       <complexity>5</complexity>
       <coverage>95</coverage>
@@ -213,8 +213,8 @@
       <package>Playground\Make\Model\Building</package>
       <className>Playground\Make\Model\Building\BuildDocBlock</className>
       <methodName>buildClass_docblock_matrix</methodName>
-      <methodSignature>buildClass_docblock_matrix(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
-      <fullMethod>buildClass_docblock_matrix(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
+      <methodSignature>buildClass_docblock_matrix(Create $create): void</methodSignature>
+      <fullMethod>buildClass_docblock_matrix(Create $create): void</fullMethod>
       <crap>8.2</crap>
       <complexity>8</complexity>
       <coverage>85.29</coverage>
@@ -224,8 +224,8 @@
       <package>Playground\Make\Model\Building</package>
       <className>Playground\Make\Model\Building\BuildDocBlock</className>
       <methodName>buildClass_docblock_columns</methodName>
-      <methodSignature>buildClass_docblock_columns(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
-      <fullMethod>buildClass_docblock_columns(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
+      <methodSignature>buildClass_docblock_columns(Create $create): void</methodSignature>
+      <fullMethod>buildClass_docblock_columns(Create $create): void</fullMethod>
       <crap>8.2</crap>
       <complexity>8</complexity>
       <coverage>85.29</coverage>
@@ -235,8 +235,8 @@
       <package>Playground\Make\Model\Building</package>
       <className>Playground\Make\Model\Building\BuildDocBlock</className>
       <methodName>buildClass_docblock_ui</methodName>
-      <methodSignature>buildClass_docblock_ui(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
-      <fullMethod>buildClass_docblock_ui(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
+      <methodSignature>buildClass_docblock_ui(Create $create): void</methodSignature>
+      <fullMethod>buildClass_docblock_ui(Create $create): void</fullMethod>
       <crap>7.06</crap>
       <complexity>7</complexity>
       <coverage>89.29</coverage>
@@ -246,8 +246,8 @@
       <package>Playground\Make\Model\Building</package>
       <className>Playground\Make\Model\Building\BuildDocBlock</className>
       <methodName>buildClass_docblock_json</methodName>
-      <methodSignature>buildClass_docblock_json(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
-      <fullMethod>buildClass_docblock_json(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
+      <methodSignature>buildClass_docblock_json(Create $create): void</methodSignature>
+      <fullMethod>buildClass_docblock_json(Create $create): void</fullMethod>
       <crap>8.04</crap>
       <complexity>8</complexity>
       <coverage>91.18</coverage>
@@ -259,9 +259,9 @@
       <methodName>buildClass_fillable</methodName>
       <methodSignature>buildClass_fillable(): void</methodSignature>
       <fullMethod>buildClass_fillable(): void</fullMethod>
-      <crap>14.98</crap>
+      <crap>15.28</crap>
       <complexity>13</complexity>
-      <coverage>77.27</coverage>
+      <coverage>76.19</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -312,8 +312,8 @@
       <package>Playground\Make\Model\Building</package>
       <className>Playground\Make\Model\Building\BuildRelationships</className>
       <methodName>buildClass_HasMany_print</methodName>
-      <methodSignature>buildClass_HasMany_print(string $method, Playground\Make\Configuration\Model\HasMany $HasMany): string</methodSignature>
-      <fullMethod>buildClass_HasMany_print(string $method, Playground\Make\Configuration\Model\HasMany $HasMany): string</fullMethod>
+      <methodSignature>buildClass_HasMany_print(string $method, HasMany $HasMany): string</methodSignature>
+      <fullMethod>buildClass_HasMany_print(string $method, HasMany $HasMany): string</fullMethod>
       <crap>2</crap>
       <complexity>2</complexity>
       <coverage>90.91</coverage>
@@ -334,8 +334,8 @@
       <package>Playground\Make\Model\Building</package>
       <className>Playground\Make\Model\Building\BuildRelationships</className>
       <methodName>buildClass_HasOne_print</methodName>
-      <methodSignature>buildClass_HasOne_print(string $method, Playground\Make\Configuration\Model\HasOne $HasOne): string</methodSignature>
-      <fullMethod>buildClass_HasOne_print(string $method, Playground\Make\Configuration\Model\HasOne $HasOne): string</fullMethod>
+      <methodSignature>buildClass_HasOne_print(string $method, HasOne $HasOne): string</methodSignature>
+      <fullMethod>buildClass_HasOne_print(string $method, HasOne $HasOne): string</fullMethod>
       <crap>2</crap>
       <complexity>2</complexity>
       <coverage>90.91</coverage>
@@ -345,8 +345,8 @@
       <package>Playground\Make\Model\Building</package>
       <className>Playground\Make\Model\Building\BuildRelationships</className>
       <methodName>buildClass_HasOne_print_user</methodName>
-      <methodSignature>buildClass_HasOne_print_user(string $method, Playground\Make\Configuration\Model\HasOne $HasOne): string</methodSignature>
-      <fullMethod>buildClass_HasOne_print_user(string $method, Playground\Make\Configuration\Model\HasOne $HasOne): string</fullMethod>
+      <methodSignature>buildClass_HasOne_print_user(string $method, HasOne $HasOne): string</methodSignature>
+      <fullMethod>buildClass_HasOne_print_user(string $method, HasOne $HasOne): string</fullMethod>
       <crap>6</crap>
       <complexity>2</complexity>
       <coverage>0</coverage>
@@ -389,8 +389,8 @@
       <package>Playground\Make\Model\Building\Dump</package>
       <className>Playground\Make\Model\Building\Dump\BuildConfiguration</className>
       <methodName>buildClass_configuration_create</methodName>
-      <methodSignature>buildClass_configuration_create(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
-      <fullMethod>buildClass_configuration_create(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
+      <methodSignature>buildClass_configuration_create(Create $create): void</methodSignature>
+      <fullMethod>buildClass_configuration_create(Create $create): void</fullMethod>
       <crap>110</crap>
       <complexity>10</complexity>
       <coverage>0</coverage>
@@ -400,8 +400,8 @@
       <package>Playground\Make\Model\Building\Dump</package>
       <className>Playground\Make\Model\Building\Dump\BuildConfiguration</className>
       <methodName>buildClass_configuration_identify_primary</methodName>
-      <methodSignature>buildClass_configuration_identify_primary(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
-      <fullMethod>buildClass_configuration_identify_primary(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
+      <methodSignature>buildClass_configuration_identify_primary(Create $create): void</methodSignature>
+      <fullMethod>buildClass_configuration_identify_primary(Create $create): void</fullMethod>
       <crap>72</crap>
       <complexity>8</complexity>
       <coverage>0</coverage>
@@ -422,8 +422,8 @@
       <package>Playground\Make\Model\Building\Dump</package>
       <className>Playground\Make\Model\Building\Dump\BuildConfiguration</className>
       <methodName>buildClass_configuration_identify_columns</methodName>
-      <methodSignature>buildClass_configuration_identify_columns(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
-      <fullMethod>buildClass_configuration_identify_columns(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
+      <methodSignature>buildClass_configuration_identify_columns(Create $create): void</methodSignature>
+      <fullMethod>buildClass_configuration_identify_columns(Create $create): void</fullMethod>
       <crap>420</crap>
       <complexity>20</complexity>
       <coverage>0</coverage>
@@ -543,8 +543,8 @@
       <package>Playground\Make\Model\Building</package>
       <className>Playground\Make\Model\Building\MakeSkeleton</className>
       <methodName>buildClass_skeleton_prepare</methodName>
-      <methodSignature>buildClass_skeleton_prepare(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
-      <fullMethod>buildClass_skeleton_prepare(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
+      <methodSignature>buildClass_skeleton_prepare(Create $create): void</methodSignature>
+      <fullMethod>buildClass_skeleton_prepare(Create $create): void</fullMethod>
       <crap>11</crap>
       <complexity>11</complexity>
       <coverage>100</coverage>
@@ -631,8 +631,8 @@
       <package>Playground\Make\Model\Building\Migration</package>
       <className>Playground\Make\Model\Building\Migration\BuildIds</className>
       <methodName>buildClass_column_id</methodName>
-      <methodSignature>buildClass_column_id(Playground\Make\Configuration\Model\CreateId $createId): string</methodSignature>
-      <fullMethod>buildClass_column_id(Playground\Make\Configuration\Model\CreateId $createId): string</fullMethod>
+      <methodSignature>buildClass_column_id(CreateId $createId): string</methodSignature>
+      <fullMethod>buildClass_column_id(CreateId $createId): string</fullMethod>
       <crap>132</crap>
       <complexity>11</complexity>
       <coverage>0</coverage>
@@ -719,8 +719,8 @@
       <package>Playground\Make\Model\Building\Skeleton</package>
       <className>Playground\Make\Model\Building\Skeleton\MakeColumns</className>
       <methodName>buildClass_skeleton_columns</methodName>
-      <methodSignature>buildClass_skeleton_columns(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
-      <fullMethod>buildClass_skeleton_columns(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
+      <methodSignature>buildClass_skeleton_columns(Create $create): void</methodSignature>
+      <fullMethod>buildClass_skeleton_columns(Create $create): void</fullMethod>
       <crap>9</crap>
       <complexity>9</complexity>
       <coverage>97.22</coverage>
@@ -730,8 +730,8 @@
       <package>Playground\Make\Model\Building\Skeleton</package>
       <className>Playground\Make\Model\Building\Skeleton\MakeDates</className>
       <methodName>buildClass_skeleton_date</methodName>
-      <methodSignature>buildClass_skeleton_date(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
-      <fullMethod>buildClass_skeleton_date(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
+      <methodSignature>buildClass_skeleton_date(Create $create): void</methodSignature>
+      <fullMethod>buildClass_skeleton_date(Create $create): void</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
@@ -741,8 +741,8 @@
       <package>Playground\Make\Model\Building\Skeleton</package>
       <className>Playground\Make\Model\Building\Skeleton\MakeDates</className>
       <methodName>buildClass_skeleton_timestamps</methodName>
-      <methodSignature>buildClass_skeleton_timestamps(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
-      <fullMethod>buildClass_skeleton_timestamps(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
+      <methodSignature>buildClass_skeleton_timestamps(Create $create): void</methodSignature>
+      <fullMethod>buildClass_skeleton_timestamps(Create $create): void</fullMethod>
       <crap>6</crap>
       <complexity>6</complexity>
       <coverage>96.97</coverage>
@@ -752,8 +752,8 @@
       <package>Playground\Make\Model\Building\Skeleton</package>
       <className>Playground\Make\Model\Building\Skeleton\MakeDates</className>
       <methodName>buildClass_skeleton_softDeletes</methodName>
-      <methodSignature>buildClass_skeleton_softDeletes(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
-      <fullMethod>buildClass_skeleton_softDeletes(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
+      <methodSignature>buildClass_skeleton_softDeletes(Create $create): void</methodSignature>
+      <fullMethod>buildClass_skeleton_softDeletes(Create $create): void</fullMethod>
       <crap>4</crap>
       <complexity>4</complexity>
       <coverage>94.44</coverage>
@@ -763,8 +763,8 @@
       <package>Playground\Make\Model\Building\Skeleton</package>
       <className>Playground\Make\Model\Building\Skeleton\MakeDates</className>
       <methodName>buildClass_skeleton_dates</methodName>
-      <methodSignature>buildClass_skeleton_dates(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
-      <fullMethod>buildClass_skeleton_dates(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
+      <methodSignature>buildClass_skeleton_dates(Create $create): void</methodSignature>
+      <fullMethod>buildClass_skeleton_dates(Create $create): void</fullMethod>
       <crap>6</crap>
       <complexity>6</complexity>
       <coverage>96</coverage>
@@ -774,8 +774,8 @@
       <package>Playground\Make\Model\Building\Skeleton</package>
       <className>Playground\Make\Model\Building\Skeleton\MakeFlags</className>
       <methodName>buildClass_skeleton_flags</methodName>
-      <methodSignature>buildClass_skeleton_flags(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
-      <fullMethod>buildClass_skeleton_flags(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
+      <methodSignature>buildClass_skeleton_flags(Create $create): void</methodSignature>
+      <fullMethod>buildClass_skeleton_flags(Create $create): void</fullMethod>
       <crap>9</crap>
       <complexity>9</complexity>
       <coverage>97.22</coverage>
@@ -785,8 +785,8 @@
       <package>Playground\Make\Model\Building\Skeleton</package>
       <className>Playground\Make\Model\Building\Skeleton\MakeIds</className>
       <methodName>buildClass_skeleton_ids</methodName>
-      <methodSignature>buildClass_skeleton_ids(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
-      <fullMethod>buildClass_skeleton_ids(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
+      <methodSignature>buildClass_skeleton_ids(Create $create): void</methodSignature>
+      <fullMethod>buildClass_skeleton_ids(Create $create): void</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
@@ -796,8 +796,8 @@
       <package>Playground\Make\Model\Building\Skeleton</package>
       <className>Playground\Make\Model\Building\Skeleton\MakeIds</className>
       <methodName>buildClass_skeleton_ids_primary</methodName>
-      <methodSignature>buildClass_skeleton_ids_primary(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
-      <fullMethod>buildClass_skeleton_ids_primary(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
+      <methodSignature>buildClass_skeleton_ids_primary(Create $create): void</methodSignature>
+      <fullMethod>buildClass_skeleton_ids_primary(Create $create): void</fullMethod>
       <crap>4</crap>
       <complexity>4</complexity>
       <coverage>100</coverage>
@@ -807,8 +807,8 @@
       <package>Playground\Make\Model\Building\Skeleton</package>
       <className>Playground\Make\Model\Building\Skeleton\MakeIds</className>
       <methodName>buildClass_skeleton_ids_users</methodName>
-      <methodSignature>buildClass_skeleton_ids_users(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
-      <fullMethod>buildClass_skeleton_ids_users(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
+      <methodSignature>buildClass_skeleton_ids_users(Create $create): void</methodSignature>
+      <fullMethod>buildClass_skeleton_ids_users(Create $create): void</fullMethod>
       <crap>10.07</crap>
       <complexity>10</complexity>
       <coverage>91.18</coverage>
@@ -818,8 +818,8 @@
       <package>Playground\Make\Model\Building\Skeleton</package>
       <className>Playground\Make\Model\Building\Skeleton\MakeIds</className>
       <methodName>buildClass_skeleton_ids_type</methodName>
-      <methodSignature>buildClass_skeleton_ids_type(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
-      <fullMethod>buildClass_skeleton_ids_type(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
+      <methodSignature>buildClass_skeleton_ids_type(Create $create): void</methodSignature>
+      <fullMethod>buildClass_skeleton_ids_type(Create $create): void</fullMethod>
       <crap>6.4</crap>
       <complexity>5</complexity>
       <coverage>61.76</coverage>
@@ -829,8 +829,8 @@
       <package>Playground\Make\Model\Building\Skeleton</package>
       <className>Playground\Make\Model\Building\Skeleton\MakeIds</className>
       <methodName>buildClass_skeleton_ids_model</methodName>
-      <methodSignature>buildClass_skeleton_ids_model(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
-      <fullMethod>buildClass_skeleton_ids_model(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
+      <methodSignature>buildClass_skeleton_ids_model(Create $create): void</methodSignature>
+      <fullMethod>buildClass_skeleton_ids_model(Create $create): void</fullMethod>
       <crap>9.02</crap>
       <complexity>9</complexity>
       <coverage>93.75</coverage>
@@ -840,8 +840,8 @@
       <package>Playground\Make\Model\Building\Skeleton</package>
       <className>Playground\Make\Model\Building\Skeleton\MakeIds</className>
       <methodName>buildClass_skeleton_ids_package</methodName>
-      <methodSignature>buildClass_skeleton_ids_package(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
-      <fullMethod>buildClass_skeleton_ids_package(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
+      <methodSignature>buildClass_skeleton_ids_package(Create $create): void</methodSignature>
+      <fullMethod>buildClass_skeleton_ids_package(Create $create): void</fullMethod>
       <crap>69.29</crap>
       <complexity>9</complexity>
       <coverage>9.38</coverage>
@@ -851,8 +851,8 @@
       <package>Playground\Make\Model\Building\Skeleton</package>
       <className>Playground\Make\Model\Building\Skeleton\MakeJson</className>
       <methodName>buildClass_skeleton_json</methodName>
-      <methodSignature>buildClass_skeleton_json(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
-      <fullMethod>buildClass_skeleton_json(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
+      <methodSignature>buildClass_skeleton_json(Create $create): void</methodSignature>
+      <fullMethod>buildClass_skeleton_json(Create $create): void</fullMethod>
       <crap>9</crap>
       <complexity>9</complexity>
       <coverage>97.22</coverage>
@@ -862,8 +862,8 @@
       <package>Playground\Make\Model\Building\Skeleton</package>
       <className>Playground\Make\Model\Building\Skeleton\MakeMatrix</className>
       <methodName>buildClass_skeleton_matrix</methodName>
-      <methodSignature>buildClass_skeleton_matrix(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
-      <fullMethod>buildClass_skeleton_matrix(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
+      <methodSignature>buildClass_skeleton_matrix(Create $create): void</methodSignature>
+      <fullMethod>buildClass_skeleton_matrix(Create $create): void</fullMethod>
       <crap>11</crap>
       <complexity>11</complexity>
       <coverage>97.44</coverage>
@@ -873,8 +873,8 @@
       <package>Playground\Make\Model\Building\Skeleton</package>
       <className>Playground\Make\Model\Building\Skeleton\MakePermissions</className>
       <methodName>buildClass_skeleton_permissions</methodName>
-      <methodSignature>buildClass_skeleton_permissions(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
-      <fullMethod>buildClass_skeleton_permissions(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
+      <methodSignature>buildClass_skeleton_permissions(Create $create): void</methodSignature>
+      <fullMethod>buildClass_skeleton_permissions(Create $create): void</fullMethod>
       <crap>9</crap>
       <complexity>9</complexity>
       <coverage>97.22</coverage>
@@ -884,8 +884,8 @@
       <package>Playground\Make\Model\Building\Skeleton</package>
       <className>Playground\Make\Model\Building\Skeleton\MakeRelationships</className>
       <methodName>buildClass_skeleton_relationships</methodName>
-      <methodSignature>buildClass_skeleton_relationships(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
-      <fullMethod>buildClass_skeleton_relationships(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
+      <methodSignature>buildClass_skeleton_relationships(Create $create): void</methodSignature>
+      <fullMethod>buildClass_skeleton_relationships(Create $create): void</fullMethod>
       <crap>3.58</crap>
       <complexity>3</complexity>
       <coverage>60</coverage>
@@ -895,8 +895,8 @@
       <package>Playground\Make\Model\Building\Skeleton</package>
       <className>Playground\Make\Model\Building\Skeleton\MakeRelationships</className>
       <methodName>buildClass_skeleton_relationships_hasMany</methodName>
-      <methodSignature>buildClass_skeleton_relationships_hasMany(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
-      <fullMethod>buildClass_skeleton_relationships_hasMany(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
+      <methodSignature>buildClass_skeleton_relationships_hasMany(Create $create): void</methodSignature>
+      <fullMethod>buildClass_skeleton_relationships_hasMany(Create $create): void</fullMethod>
       <crap>6</crap>
       <complexity>2</complexity>
       <coverage>0</coverage>
@@ -906,8 +906,8 @@
       <package>Playground\Make\Model\Building\Skeleton</package>
       <className>Playground\Make\Model\Building\Skeleton\MakeRelationships</className>
       <methodName>buildClass_skeleton_relationships_hasOne</methodName>
-      <methodSignature>buildClass_skeleton_relationships_hasOne(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
-      <fullMethod>buildClass_skeleton_relationships_hasOne(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
+      <methodSignature>buildClass_skeleton_relationships_hasOne(Create $create): void</methodSignature>
+      <fullMethod>buildClass_skeleton_relationships_hasOne(Create $create): void</fullMethod>
       <crap>6</crap>
       <complexity>2</complexity>
       <coverage>0</coverage>
@@ -917,8 +917,8 @@
       <package>Playground\Make\Model\Building\Skeleton</package>
       <className>Playground\Make\Model\Building\Skeleton\MakeStatus</className>
       <methodName>buildClass_skeleton_status</methodName>
-      <methodSignature>buildClass_skeleton_status(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
-      <fullMethod>buildClass_skeleton_status(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
+      <methodSignature>buildClass_skeleton_status(Create $create): void</methodSignature>
+      <fullMethod>buildClass_skeleton_status(Create $create): void</fullMethod>
       <crap>9</crap>
       <complexity>9</complexity>
       <coverage>97.22</coverage>
@@ -928,8 +928,8 @@
       <package>Playground\Make\Model\Building\Skeleton</package>
       <className>Playground\Make\Model\Building\Skeleton\MakeUi</className>
       <methodName>buildClass_skeleton_ui</methodName>
-      <methodSignature>buildClass_skeleton_ui(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
-      <fullMethod>buildClass_skeleton_ui(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
+      <methodSignature>buildClass_skeleton_ui(Create $create): void</methodSignature>
+      <fullMethod>buildClass_skeleton_ui(Create $create): void</fullMethod>
       <crap>9</crap>
       <complexity>9</complexity>
       <coverage>97.06</coverage>
@@ -939,8 +939,8 @@
       <package>Playground\Make\Model\Building\Skeleton</package>
       <className>Playground\Make\Model\Building\Skeleton\MakeUnique</className>
       <methodName>buildClass_skeleton_uniques</methodName>
-      <methodSignature>buildClass_skeleton_uniques(Playground\Make\Configuration\Model\Create $create): void</methodSignature>
-      <fullMethod>buildClass_skeleton_uniques(Playground\Make\Configuration\Model\Create $create): void</fullMethod>
+      <methodSignature>buildClass_skeleton_uniques(Create $create): void</methodSignature>
+      <fullMethod>buildClass_skeleton_uniques(Create $create): void</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
@@ -1753,8 +1753,8 @@
       <package>Playground\Make\Model\Recipe</package>
       <className>Playground\Make\Model\Recipe\Model</className>
       <methodName>index</methodName>
-      <methodSignature>index(): Playground\Make\Model\Recipe\Views\Index</methodSignature>
-      <fullMethod>index(): Playground\Make\Model\Recipe\Views\Index</fullMethod>
+      <methodSignature>index(): Index</methodSignature>
+      <fullMethod>index(): Index</fullMethod>
       <crap>6</crap>
       <complexity>2</complexity>
       <coverage>0</coverage>
