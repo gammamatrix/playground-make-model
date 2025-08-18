@@ -1,9 +1,11 @@
 <?php
+
 /**
  * Playground
  */
 
 declare(strict_types=1);
+
 namespace Playground\Make\Model\Building\Dump;
 
 use Illuminate\Support\Facades\Schema;
@@ -287,7 +289,7 @@ trait BuildConfiguration
     protected bool $dump_type_is_unique = false;
 
     /**
-     * @param array<string, mixed> $meta
+     * @param  array<string, mixed>  $meta
      */
     protected function buildClass_configuration_identify_column_type(string $column, int $i, array $meta): void
     {

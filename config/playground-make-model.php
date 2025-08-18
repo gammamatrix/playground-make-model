@@ -1,12 +1,30 @@
 <?php
+
 /**
  * Playground
  */
 
 declare(strict_types=1);
 
+use Playground\Make\Model\Recipe;
+
 /**
  * Playground Make Configuration and Environment Variables
+ *
+ * @return array{
+ *        about: bool,
+ *        locale: ?string,
+ *        load: array{commands: bool, translations: bool},
+ *        recipes: array{
+ *            cms: Recipe\Model,
+ *            crm: Recipe\Model,
+ *            directory: Recipe\Model,
+ *            dump: Recipe\Model,
+ *            lead: Recipe\Model,
+ *            matrix: Recipe\Model,
+ *            playground: Recipe\Model
+ *        }
+ *    }
  */
 return [
 
@@ -48,12 +66,12 @@ return [
     'recipes' => [
         // 'acme' => App\Make\Recipes\Acme\Acme::class,
         // 'acme-widget' => App\Make\Recipes\Acme\AcmeWidget::class,
-        'cms' => Playground\Make\Model\Recipe\Cms::class,
-        'crm' => Playground\Make\Model\Recipe\Crm::class,
-        'directory' => Playground\Make\Model\Recipe\Directory::class,
-        'dump' => Playground\Make\Model\Recipe\Dump::class,
-        'lead' => Playground\Make\Model\Recipe\Lead::class,
-        'matrix' => Playground\Make\Model\Recipe\Matrix::class,
-        'playground' => Playground\Make\Model\Recipe\Playground::class,
+        'cms' => Recipe\Cms::class,
+        'crm' => Recipe\Crm::class,
+        'directory' => Recipe\Directory::class,
+        'dump' => Recipe\Dump::class,
+        'lead' => Recipe\Lead::class,
+        'matrix' => Recipe\Matrix::class,
+        'playground' => Recipe\Playground::class,
     ],
 ];

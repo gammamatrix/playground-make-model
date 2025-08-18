@@ -1,15 +1,19 @@
 <?php
+
 /**
  * Playground
  */
 
 declare(strict_types=1);
+
 namespace Playground\Make\Model\Building;
 
 use Illuminate\Support\Str;
 
 /**
  * \Playground\Make\Model\Building\BuildHasFactory
+ *
+ * @mixin \Playground\Make\Model\Console\Commands\ModelMakeCommand
  */
 trait BuildHasFactory
 {
@@ -24,9 +28,11 @@ trait BuildHasFactory
         $fqdn = $this->parseClassInput($this->c->fqdn());
 
         $factory = Str::of($fqdn)->start('\\Database\\Factories\\')->finish('Factory')->toString();
+        $factory_short = Str::of($this->c->model())->finish('Factory')->toString();
+        $this->buildClass_uses_add($factory);
 
         return <<<PHP_CODE
-    /** @use HasFactory<$factory> */
+    /** @use HasFactory<$factory_short> */
     use HasFactory;
 
 

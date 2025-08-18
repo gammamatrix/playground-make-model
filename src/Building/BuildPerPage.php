@@ -1,13 +1,17 @@
 <?php
+
 /**
  * Playground
  */
 
 declare(strict_types=1);
+
 namespace Playground\Make\Model\Building;
 
 /**
  * \Playground\Make\Model\Building\BuildPerPage
+ *
+ * @mixin \Playground\Make\Model\Console\Commands\ModelMakeCommand
  */
 trait BuildPerPage
 {

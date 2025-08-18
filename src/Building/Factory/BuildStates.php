@@ -1,9 +1,11 @@
 <?php
+
 /**
  * Playground
  */
 
 declare(strict_types=1);
+
 namespace Playground\Make\Model\Building\Factory;
 
 /**
@@ -47,7 +49,7 @@ trait BuildStates
     }
 
     /**
-     * @param array<string, mixed> $meta
+     * @param  array<string, mixed>  $meta
      */
     protected function buildClass_states_print_flag(string $method, array $meta): string
     {

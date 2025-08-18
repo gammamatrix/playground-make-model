@@ -1,14 +1,16 @@
 <?php
+
 /**
  * Playground
  */
 
 declare(strict_types=1);
+
 namespace Tests\Unit\Playground\Make\Model\Configuration\Migration;
 
 use PHPUnit\Framework\Attributes\CoversClass;
-use Tests\Unit\Playground\Make\Model\TestCase;
 use Playground\Make\Model\Configuration\Migration;
+use Tests\Unit\Playground\Make\Model\TestCase;
 
 /**
  * \Tests\Unit\Playground\Make\Model\Configuration\Migration\InstanceTest
@@ -20,6 +22,7 @@ class InstanceTest extends TestCase
     {
         $instance = new Migration;
 
+        /** @phpstan-ignore method.alreadyNarrowedType */
         $this->assertInstanceOf(Migration::class, $instance);
     }
 
@@ -64,8 +67,6 @@ class InstanceTest extends TestCase
     public function test_folder_is_empty_by_default(): void
     {
         $instance = new Migration;
-
-        $this->assertInstanceOf(Migration::class, $instance);
 
         $this->assertIsString($instance->folder());
         $this->assertEmpty($instance->folder());

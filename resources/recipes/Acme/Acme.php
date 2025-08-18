@@ -1,9 +1,11 @@
 <?php
+
 /**
  * Playground
  */
 
 declare(strict_types=1);
+
 namespace App\Make\Recipes\Acme;
 
 use Playground\Make\Model\Recipe\Dump;

@@ -1,13 +1,17 @@
 <?php
+
 /**
  * Playground
  */
 
 declare(strict_types=1);
+
 namespace Playground\Make\Model\Building;
 
 /**
  * \Playground\Make\Model\Building\BuildAttributes
+ *
+ * @mixin \Playground\Make\Model\Console\Commands\ModelMakeCommand
  */
 trait BuildAttributes
 {
@@ -44,12 +48,7 @@ trait BuildAttributes
 
         $code .= str_repeat(' ', 4);
 
-        $this->searches['attributes'] .= sprintf('    /**
-     * The default values for attributes.
-     *
-     * @var array<string, mixed>
-     */
-    protected $attributes = [%1$s];',
+        $this->searches['attributes'] .= sprintf('    protected $attributes = [%1$s];',
             $code
         );
 

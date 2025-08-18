@@ -1,9 +1,11 @@
 <?php
+
 /**
  * Playground
  */
 
 declare(strict_types=1);
+
 namespace Playground\Make\Model\Recipe;
 
 use Playground\Make\Model\Recipe\Views\Index;
@@ -11,9 +13,7 @@ use Playground\Make\Model\Recipe\Views\Index;
 /**
  * \Playground\Make\Model\Recipe\Model
  */
-abstract class Model implements
-    Contracts\Models,
-    Contracts\Views
+abstract class Model implements Contracts\Models, Contracts\Views
 {
     use Concerns\Columns;
     use Concerns\Dates;
@@ -54,9 +54,7 @@ abstract class Model implements
         $this->init();
     }
 
-    public function init(): void
-    {
-    }
+    public function init(): void {}
 
     public function name(): string
     {

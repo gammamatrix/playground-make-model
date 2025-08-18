@@ -1,15 +1,19 @@
 <?php
+
 /**
  * Playground
  */
 
 declare(strict_types=1);
+
 namespace Playground\Make\Model\Building;
 
 use Playground\Make\Configuration\Model\Create;
 
 /**
  * \Playground\Make\Model\Building\BuildDocBlock
+ *
+ * @mixin \Playground\Make\Model\Console\Commands\ModelMakeCommand
  */
 trait BuildDocBlock
 {
@@ -96,8 +100,10 @@ trait BuildDocBlock
 
     protected function buildClass_docblock_dates(Create $create): void
     {
+        $addCarbon = false;
         // Handle timestamps
         if ($create->timestamps()) {
+            $addCarbon = true;
 
             $this->searches['docblock'] .= PHP_EOL.
                 ' * @property ?Carbon $created_at';
@@ -107,6 +113,7 @@ trait BuildDocBlock
 
         // Handle softDeletes
         if ($create->softDeletes()) {
+            $addCarbon = true;
 
             $this->searches['docblock'] .= PHP_EOL.
                 ' * @property ?Carbon $deleted_at';
@@ -114,6 +121,7 @@ trait BuildDocBlock
 
         // Handle all other dates.
         foreach ($create->dates() as $column => $createDate) {
+            $addCarbon = true;
             $type = 'Carbon';
 
             $this->searches['docblock'] .= PHP_EOL.sprintf(
@@ -122,6 +130,10 @@ trait BuildDocBlock
                 $type,
                 $createDate->column(),
             );
+        }
+
+        if ($addCarbon) {
+            $this->buildClass_uses_add('Illuminate/Support/Carbon');
         }
     }
 
@@ -223,7 +235,7 @@ trait BuildDocBlock
                 'double',
                 'float',
             ])) {
-                $type = 'double';
+                $type = 'float';
             } elseif (in_array($createMatrix->type(), [
                 'boolean',
             ])) {
@@ -231,11 +243,11 @@ trait BuildDocBlock
             } elseif (in_array($createMatrix->type(), [
                 'JSON_OBJECT',
             ])) {
-                $type = 'array';
+                $type = 'array<string, mixed>';
             } elseif (in_array($createMatrix->type(), [
                 'JSON_ARRAY',
             ])) {
-                $type = 'array';
+                $type = 'array<int, array<string, mixed>>';
             }
 
             $this->searches['docblock'] .= PHP_EOL.sprintf(
@@ -264,7 +276,7 @@ trait BuildDocBlock
                 'double',
                 'float',
             ])) {
-                $type = 'double';
+                $type = 'float';
             } elseif (in_array($createColumn->type(), [
                 'boolean',
             ])) {
@@ -272,11 +284,11 @@ trait BuildDocBlock
             } elseif (in_array($createColumn->type(), [
                 'JSON_OBJECT',
             ])) {
-                $type = 'array';
+                $type = 'array<string, mixed>';
             } elseif (in_array($createColumn->type(), [
                 'JSON_ARRAY',
             ])) {
-                $type = 'array';
+                $type = 'array<int, array<string, mixed>>';
             }
 
             $this->searches['docblock'] .= PHP_EOL.sprintf(
@@ -307,11 +319,11 @@ trait BuildDocBlock
             } elseif (in_array($createUi->type(), [
                 'JSON_OBJECT',
             ])) {
-                $type = 'array';
+                $type = 'array<string, mixed>';
             } elseif (in_array($createUi->type(), [
                 'JSON_ARRAY',
             ])) {
-                $type = 'array';
+                $type = 'array<int, array<string, mixed>>';
             }
 
             $this->searches['docblock'] .= PHP_EOL.sprintf(
@@ -348,11 +360,11 @@ trait BuildDocBlock
             } elseif (in_array($createJson->type(), [
                 'JSON_OBJECT',
             ])) {
-                $type = 'array';
+                $type = 'array<string, mixed>';
             } elseif (in_array($createJson->type(), [
                 'JSON_ARRAY',
             ])) {
-                $type = 'array';
+                $type = 'array<int, array<string, mixed>>';
             }
 
             $this->searches['docblock'] .= PHP_EOL.sprintf(

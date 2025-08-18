@@ -1,15 +1,19 @@
 <?php
+
 /**
  * Playground
  */
 
 declare(strict_types=1);
+
 namespace Playground\Make\Model\Building;
 
 use Illuminate\Support\Str;
 
 /**
  * \Playground\Make\Model\Building\BuildTable
+ *
+ * @mixin \Playground\Make\Model\Console\Commands\ModelMakeCommand
  */
 trait BuildTable
 {

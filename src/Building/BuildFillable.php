@@ -1,13 +1,17 @@
 <?php
+
 /**
  * Playground
  */
 
 declare(strict_types=1);
+
 namespace Playground\Make\Model\Building;
 
 /**
  * \Playground\Make\Model\Building\BuildFillable
+ *
+ * @mixin \Playground\Make\Model\Console\Commands\ModelMakeCommand
  */
 trait BuildFillable
 {
@@ -38,12 +42,7 @@ trait BuildFillable
 
         $code .= str_repeat(' ', 4);
 
-        $this->searches['fillable'] .= sprintf('    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = [%1$s];',
+        $this->searches['fillable'] .= sprintf('    protected $fillable = [%1$s];',
             $code
         );
 

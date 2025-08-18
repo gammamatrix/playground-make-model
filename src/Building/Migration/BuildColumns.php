@@ -1,9 +1,11 @@
 <?php
+
 /**
  * Playground
  */
 
 declare(strict_types=1);
+
 namespace Playground\Make\Model\Building\Migration;
 
 /**
@@ -12,7 +14,7 @@ namespace Playground\Make\Model\Building\Migration;
 trait BuildColumns
 {
     /**
-     * @param array<string, mixed> $meta
+     * @param  array<string, mixed>  $meta
      */
     protected function buildClass_column(string $attribute, array $meta, string $group): string
     {

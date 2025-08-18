@@ -1,9 +1,11 @@
 <?php
+
 /**
  * Playground
  */
 
 declare(strict_types=1);
+
 namespace Tests\Feature\Playground\Make\Model\Console\Commands\MigrationMakeCommand;
 
 use Illuminate\Support\Facades\Artisan;
@@ -21,7 +23,7 @@ class CommandTest extends TestCase
          */
         $result = $this->artisan('playground:make:migration --table testing');
         $result->assertExitCode(1);
-        $result->expectsOutputToContain( __('playground-make::generator.input.error'));
+        $result->expectsOutputToContain(__('playground-make::generator.input.error'));
     }
 
     public function test_command_with_reserved_name(): void

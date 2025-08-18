@@ -1,9 +1,11 @@
 <?php
+
 /**
  * Playground
  */
 
 declare(strict_types=1);
+
 namespace Playground\Make\Model\Console\Commands;
 
 use Illuminate\Console\Concerns\CreatesMatchingTest;
@@ -401,7 +403,6 @@ class ModelMakeCommand extends GeneratorCommand
         // // Relationships
         $this->buildClass_HasOne();
         $this->buildClass_HasMany();
-
 
         $this->buildClass_uses($name);
 

@@ -1,14 +1,16 @@
 <?php
+
 /**
  * Playground
  */
 
 declare(strict_types=1);
+
 namespace Tests\Unit\Playground\Make\Model\Configuration\Factory;
 
 use PHPUnit\Framework\Attributes\CoversClass;
-use Tests\Unit\Playground\Make\Model\TestCase;
 use Playground\Make\Model\Configuration\Factory;
+use Tests\Unit\Playground\Make\Model\TestCase;
 
 /**
  * \Tests\Unit\Playground\Make\Model\Configuration\Factory\InstanceTest
@@ -20,6 +22,7 @@ class InstanceTest extends TestCase
     {
         $instance = new Factory;
 
+        /** @phpstan-ignore method.alreadyNarrowedType */
         $this->assertInstanceOf(Factory::class, $instance);
     }
 
@@ -64,8 +67,6 @@ class InstanceTest extends TestCase
     public function test_folder_is_empty_by_default(): void
     {
         $instance = new Factory;
-
-        $this->assertInstanceOf(Factory::class, $instance);
 
         $this->assertIsString($instance->folder());
         $this->assertEmpty($instance->folder());

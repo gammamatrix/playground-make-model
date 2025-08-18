@@ -1,14 +1,16 @@
 <?php
+
 /**
  * Playground
  */
 
 declare(strict_types=1);
+
 namespace Tests\Unit\Playground\Make\Model\Configuration\Seeder;
 
 use PHPUnit\Framework\Attributes\CoversClass;
-use Tests\Unit\Playground\Make\Model\TestCase;
 use Playground\Make\Model\Configuration\Seeder;
+use Tests\Unit\Playground\Make\Model\TestCase;
 
 /**
  * \Tests\Unit\Playground\Make\Model\Configuration\Seeder\InstanceTest
@@ -20,6 +22,7 @@ class InstanceTest extends TestCase
     {
         $instance = new Seeder;
 
+        /** @phpstan-ignore method.alreadyNarrowedType */
         $this->assertInstanceOf(Seeder::class, $instance);
     }
 
@@ -63,8 +66,6 @@ class InstanceTest extends TestCase
     public function test_folder_is_empty_by_default(): void
     {
         $instance = new Seeder;
-
-        $this->assertInstanceOf(Seeder::class, $instance);
 
         $this->assertIsString($instance->folder());
         $this->assertEmpty($instance->folder());

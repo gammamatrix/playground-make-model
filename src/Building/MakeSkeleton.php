@@ -1,9 +1,11 @@
 <?php
+
 /**
  * Playground
  */
 
 declare(strict_types=1);
+
 namespace Playground\Make\Model\Building;
 
 use Illuminate\Support\Str;
@@ -11,6 +13,8 @@ use Playground\Make\Configuration\Model\Create;
 
 /**
  * \Playground\Make\Model\Building\MakeSkeleton
+ *
+ * @mixin \Playground\Make\Model\Console\Commands\ModelMakeCommand
  */
 trait MakeSkeleton
 {

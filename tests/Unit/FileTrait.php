@@ -1,9 +1,11 @@
 <?php
+
 /**
  * Playground
  */
 
 declare(strict_types=1);
+
 namespace Tests\Unit\Playground\Make\Model;
 
 /**
@@ -19,6 +21,7 @@ trait FileTrait
         $file = $this->getResourceFile($type);
         $content = file_exists($file) ? file_get_contents($file) : null;
         $data = $content ? json_decode($content, true) : [];
+
         return is_array($data) ? $data : [];
     }
 
@@ -36,9 +39,9 @@ trait FileTrait
                 $package_base
             );
 
-        //
-        // Factories
-        //
+            //
+            // Factories
+            //
 
         } elseif (in_array($type, [
             'factory-model',
@@ -48,9 +51,9 @@ trait FileTrait
                 $package_base
             );
 
-        //
-        // Migrations
-        //
+            //
+            // Migrations
+            //
 
         } elseif (in_array($type, [
             'migration',
@@ -76,10 +79,9 @@ trait FileTrait
                 $package_base
             );
 
-
-        //
-        // Seeder
-        //
+            //
+            // Seeder
+            //
 
         } elseif (in_array($type, [
             'seeder-model',
@@ -89,7 +91,7 @@ trait FileTrait
                 $package_base
             );
 
-    } else {
+        } else {
             $file = sprintf(
                 '%1$s/resources/testing/empty.json',
                 $package_base

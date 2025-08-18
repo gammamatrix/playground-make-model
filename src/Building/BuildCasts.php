@@ -1,13 +1,17 @@
 <?php
+
 /**
  * Playground
  */
 
 declare(strict_types=1);
+
 namespace Playground\Make\Model\Building;
 
 /**
  * \Playground\Make\Model\Building\BuildCasts
+ *
+ * @mixin \Playground\Make\Model\Console\Commands\ModelMakeCommand
  */
 trait BuildCasts
 {
@@ -35,12 +39,7 @@ trait BuildCasts
 
         $code .= str_repeat(' ', 8);
 
-        $this->searches['casts'] .= sprintf('    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
+        $this->searches['casts'] .= sprintf('    protected function casts(): array
     {
         return [%1$s];
     }',

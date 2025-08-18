@@ -1,15 +1,19 @@
 <?php
+
 /**
  * Playground
  */
 
 declare(strict_types=1);
+
 namespace Playground\Make\Model\Building;
 
 use Playground\Make\Configuration\Model\Create;
 
 /**
  * \Playground\Make\Model\Building\BuildModel
+ *
+ * @mixin \Playground\Make\Model\Console\Commands\ModelMakeCommand
  */
 trait BuildCreate
 {

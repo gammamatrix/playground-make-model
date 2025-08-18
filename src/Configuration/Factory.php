@@ -1,9 +1,11 @@
 <?php
+
 /**
  * Playground
  */
 
 declare(strict_types=1);
+
 namespace Playground\Make\Model\Configuration;
 
 use Playground\Make\Configuration\PrimaryConfiguration;
@@ -46,7 +48,7 @@ class Factory extends PrimaryConfiguration
     ];
 
     /**
-     * @param array<string, mixed> $options
+     * @param  array<string, mixed>  $options
      */
     public function setOptions(array $options = []): self
     {
@@ -70,7 +72,7 @@ class Factory extends PrimaryConfiguration
     }
 
     /**
-     * @param array<string, mixed> $options
+     * @param  array<string, mixed>  $options
      */
     public function addModels(array $options): self
     {
