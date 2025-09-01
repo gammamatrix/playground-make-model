@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage line-rate="0.4504737295435" branch-rate="0" lines-covered="1569" lines-valid="3483" branches-covered="0" branches-valid="0" complexity="878" version="0.4" timestamp="1755482483">
+<coverage line-rate="0.44751853964632" branch-rate="0" lines-covered="1569" lines-valid="3506" branches-covered="0" branches-valid="0" complexity="882" version="0.4" timestamp="1756761905">
   <sources>
     <source>/app/src</source>
   </sources>
@@ -8146,6 +8146,66 @@
         <class name="Playground\Make\Model\Recipe\Playground" filename="Recipe/Playground.php" line-rate="0" branch-rate="0" complexity="0">
           <methods/>
           <lines/>
+        </class>
+      </classes>
+    </package>
+    <package name="Recipe/Taxonomy.php" line-rate="0" branch-rate="0" complexity="4">
+      <classes>
+        <class name="Playground\Make\Model\Recipe\Taxonomy" filename="Recipe/Taxonomy.php" line-rate="0" branch-rate="0" complexity="4">
+          <methods>
+            <method name="init" signature="" line-rate="0" branch-rate="0" complexity="4">
+              <lines>
+                <line number="300" hits="0"/>
+                <line number="302" hits="0"/>
+                <line number="303" hits="0"/>
+                <line number="305" hits="0"/>
+                <line number="306" hits="0"/>
+                <line number="315" hits="0"/>
+                <line number="316" hits="0"/>
+                <line number="317" hits="0"/>
+                <line number="318" hits="0"/>
+                <line number="319" hits="0"/>
+                <line number="320" hits="0"/>
+                <line number="321" hits="0"/>
+                <line number="322" hits="0"/>
+                <line number="323" hits="0"/>
+                <line number="324" hits="0"/>
+                <line number="326" hits="0"/>
+                <line number="327" hits="0"/>
+                <line number="328" hits="0"/>
+                <line number="329" hits="0"/>
+                <line number="330" hits="0"/>
+                <line number="331" hits="0"/>
+                <line number="335" hits="0"/>
+                <line number="336" hits="0"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="300" hits="0"/>
+            <line number="302" hits="0"/>
+            <line number="303" hits="0"/>
+            <line number="305" hits="0"/>
+            <line number="306" hits="0"/>
+            <line number="315" hits="0"/>
+            <line number="316" hits="0"/>
+            <line number="317" hits="0"/>
+            <line number="318" hits="0"/>
+            <line number="319" hits="0"/>
+            <line number="320" hits="0"/>
+            <line number="321" hits="0"/>
+            <line number="322" hits="0"/>
+            <line number="323" hits="0"/>
+            <line number="324" hits="0"/>
+            <line number="326" hits="0"/>
+            <line number="327" hits="0"/>
+            <line number="328" hits="0"/>
+            <line number="329" hits="0"/>
+            <line number="330" hits="0"/>
+            <line number="331" hits="0"/>
+            <line number="335" hits="0"/>
+            <line number="336" hits="0"/>
+          </lines>
         </class>
       </classes>
     </package>
