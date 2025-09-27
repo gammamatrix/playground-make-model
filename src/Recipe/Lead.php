@@ -423,7 +423,7 @@ class Lead extends Playground
             'precision' => 8,
             'scale' => 4,
             'description' => sprintf(
-                'The bonus rate of the %1$s. Percent value is stored as decimal: 99% => 0.99',
+                'The bonus rate of the %1$s. Percent value is stored as decimal: 99%% => 0.99',
                 $name_lower
             ),
         ];
@@ -442,7 +442,7 @@ class Lead extends Playground
             'scale' => 4,
             // TODO verify this sets in the docs.
             'description' => sprintf(
-                'The commission rate of the %1$s. Percent value is stored as decimal: 99% => 0.99',
+                'The commission rate of the %1$s. Percent value is stored as decimal: 99%% => 0.99',
                 $name_lower
             ),
         ];
