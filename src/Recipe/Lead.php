@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace Playground\Make\Model\Recipe;
 
-use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
 /**
@@ -355,8 +354,10 @@ class Lead extends Playground
         $has_one_accessor = Str::of($this->name())->camel()->toString();
         $table_id = Str::of($has_one_accessor)->finish('_id')->toString();
 
-        $this->hasOne = Arr::except($this->hasOne_all, $has_one_accessor);
-        $this->ids = Arr::except($this->ids_all, $table_id);
+        $this->hasOne = $this->hasOne_all;
+        unset($this->hasOne[$has_one_accessor]);
+        $this->ids = $this->ids_all;
+        unset($this->ids[$table_id]);
 
         // dd([
         //     '__METHOD__' => __METHOD__,

@@ -24,8 +24,6 @@ trait BuildAttributes
 
         if (! empty($this->searches['table'])) {
             $this->searches['attributes'] .= PHP_EOL;
-        } elseif (! empty($this->configuration['uses']) && empty($this->searches['table'])) {
-            $this->searches['attributes'] .= PHP_EOL;
         }
 
         $code = PHP_EOL;

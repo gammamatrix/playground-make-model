@@ -27,7 +27,9 @@ trait ListTables
 
     protected function listTables(): ?bool
     {
+        /** @phpstan-ignore assign.propertyType */
         $this->dump_tables = Schema::getTables();
+        /** @phpstan-ignore assign.propertyType */
         $this->dump_tables_listing = Schema::getTableListing();
         dump([
             '__METHOD__' => __METHOD__,

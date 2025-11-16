@@ -98,6 +98,7 @@ trait BuildConfiguration
             return;
         }
 
+        /** @phpstan-ignore assign.propertyType */
         $this->dump_all_columns = Schema::getColumns($table);
 
         $create = $this->c->create();

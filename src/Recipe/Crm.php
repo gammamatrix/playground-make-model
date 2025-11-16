@@ -13,9 +13,6 @@ namespace Playground\Make\Model\Recipe;
  */
 class Crm extends Playground
 {
-    /**
-     * @var array<string, array<string, mixed>>
-     */
     protected array $dates = [
         'canceled_at' => [
             'nullable' => true,
@@ -75,9 +72,6 @@ class Crm extends Playground
         ],
     ];
 
-    /**
-     * @var array<string, array<string, mixed>>
-     */
     protected array $factoryStates = [
         'locked' => [
             'type' => 'flag',
@@ -90,9 +84,6 @@ class Crm extends Playground
         ],
     ];
 
-    /**
-     * @var array<string, array<string, mixed>>
-     */
     protected array $json = [
         'address' => [
             'default' => '{}',

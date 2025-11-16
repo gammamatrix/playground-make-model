@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace Playground\Make\Model\Recipe;
 
-use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
 /**
@@ -863,7 +862,10 @@ class Matrix extends Playground
                 'index' => false,
             ];
 
-            $this->ids = Arr::except($this->ids_all, $ids_excludes);
+            $this->ids = $this->ids_all;
+            foreach ($ids_excludes as $ids_exclude) {
+                unset($this->ids[$ids_exclude]);
+            }
 
             $this->ids['completed_by_id'] = [
                 'type' => 'uuid',
@@ -962,7 +964,10 @@ class Matrix extends Playground
         }
 
         if ($withIds) {
-            $this->ids = Arr::except($this->ids_all, $ids_excludes);
+            $this->ids = $this->ids_all;
+            foreach ($ids_excludes as $ids_exclude) {
+                unset($this->ids[$ids_exclude]);
+            }
         }
 
         // dump([
@@ -983,7 +988,10 @@ class Matrix extends Playground
         // ]);
 
         if ($withHasOne) {
-            $this->hasOne = Arr::except($this->hasOne_all, $hasOne_excludes);
+            $this->hasOne = $this->hasOne_all;
+            foreach ($hasOne_excludes as $hasOne_exclude) {
+                unset($this->hasOne[$hasOne_exclude]);
+            }
             foreach (array_keys($this->hasOne) as $accessor) {
 
                 if (empty($this->hasOne[$accessor]['localKey'])
@@ -1018,7 +1026,10 @@ class Matrix extends Playground
         }
 
         if ($withHasMany) {
-            $this->hasMany = Arr::except($this->hasMany_all, $hasMany_excludes);
+            $this->hasMany = $this->hasMany_all;
+            foreach ($hasMany_excludes as $hasMany_exclude) {
+                unset($this->hasMany[$hasMany_exclude]);
+            }
 
             foreach ($this->hasMany as $accessor => $meta) {
                 if (! empty($meta['comment']) && is_string($meta['comment'])) {
@@ -1031,9 +1042,13 @@ class Matrix extends Playground
             }
         }
 
-        $this->flags = Arr::except($this->flags, $flags_excludes);
+        foreach ($flags_excludes as $flags_exclude) {
+            unset($this->flags[$flags_exclude]);
+        }
 
-        $this->json = Arr::except($this->json, $json_excludes);
+        foreach ($json_excludes as $json_exclude) {
+            unset($this->json[$json_exclude]);
+        }
 
         // backlog_id
         if (! in_array($this->name(), [
