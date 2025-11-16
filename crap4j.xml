@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2025-09-27 18:35:07</timestamp>
+  <timestamp>2025-11-16 00:54:33</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>174</methodCount>
     <crapMethodCount>12</crapMethodCount>
-    <crapLoad>233</crapLoad>
-    <totalCrap>8985.44</totalCrap>
+    <crapLoad>239</crapLoad>
+    <totalCrap>9301.37</totalCrap>
     <crapMethodPercent>6.9</crapMethodPercent>
   </stats>
   <methods>
@@ -105,9 +105,9 @@
       <methodName>buildClass_attributes</methodName>
       <methodSignature>buildClass_attributes(): void</methodSignature>
       <fullMethod>buildClass_attributes(): void</fullMethod>
-      <crap>11.07</crap>
-      <complexity>11</complexity>
-      <coverage>91.67</coverage>
+      <crap>9</crap>
+      <complexity>9</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1700,10 +1700,10 @@
       <methodName>init</methodName>
       <methodSignature>init(): void</methodSignature>
       <fullMethod>init(): void</fullMethod>
-      <crap>552</crap>
-      <complexity>23</complexity>
+      <crap>870</crap>
+      <complexity>29</complexity>
       <coverage>0</coverage>
-      <crapLoad>23</crapLoad>
+      <crapLoad>30</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Model\Recipe</package>
