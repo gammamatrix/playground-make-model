@@ -296,10 +296,11 @@ class MigrationMakeCommand extends GeneratorCommand
         }
 
         if (! $class) {
-            $date = date('Y_m_d');
+            // $date = date('Y_m_d');
+            $date = '2010_09_30';
             $order = '000000';
-            $date = '2020_01_02';
-            $order = '100001';
+            // $date = '2020_01_02';
+            // $order = '100001';
             $class = sprintf(
                 '%1$s_%2$s_%3$s_%4$s_table',
                 $date,

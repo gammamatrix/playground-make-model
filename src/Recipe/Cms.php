@@ -128,6 +128,15 @@ class Cms extends Playground
             ],
             'trait' => 'WithParent',
         ],
+        'matrix_id' => [
+            'type' => 'uuid',
+            'nullable' => true,
+            'index' => true,
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'matrix_matrices',
+            ],
+        ],
         'page_id' => [
             'type' => 'uuid',
             'nullable' => true,
