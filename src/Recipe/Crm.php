@@ -50,13 +50,13 @@ class Crm extends Playground
             'nullable' => true,
             'index' => false,
         ],
-        'resumed_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
         'resolved_at' => [
             'nullable' => true,
             'index' => true,
+        ],
+        'resumed_at' => [
+            'nullable' => true,
+            'index' => false,
         ],
         'suspended_at' => [
             'nullable' => true,
@@ -72,10 +72,72 @@ class Crm extends Playground
         ],
     ];
 
+    protected array $ids = [
+        'matrix_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'matrix_matrices',
+            ],
+            'index' => true,
+            'nullable' => true,
+            'type' => 'uuid',
+        ],
+        'client_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'crm_clients',
+            ],
+            'index' => true,
+            'nullable' => true,
+            'type' => 'uuid',
+        ],
+        'contact_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'crm_contacts',
+            ],
+            'index' => true,
+            'nullable' => true,
+            'type' => 'uuid',
+        ],
+        'location_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'crm_locations',
+            ],
+            'index' => true,
+            'nullable' => true,
+            'type' => 'uuid',
+        ],
+        'organization_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'crm_organizations',
+            ],
+            'index' => true,
+            'nullable' => true,
+            'type' => 'uuid',
+        ],
+        'people_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'crm_people',
+            ],
+            'index' => true,
+            'nullable' => true,
+            'type' => 'uuid',
+        ],
+    ];
+
     protected array $factoryStates = [
         'locked' => [
             'type' => 'flag',
-            // 'flag' => 'locked',
             'value' => true,
         ],
         'featured' => [
@@ -106,11 +168,11 @@ class Crm extends Playground
             'type' => 'JSON_OBJECT',
         ],
         'notes' => [
-            'default' => '[]',
-            'readOnly' => true,
-            'nullable' => true,
-            'type' => 'JSON_ARRAY',
             'comment' => 'Array of note objects',
+            'default' => '[]',
+            'nullable' => true,
+            'readOnly' => true,
+            'type' => 'JSON_ARRAY',
         ],
         'options' => [
             'default' => '{}',
@@ -124,27 +186,37 @@ class Crm extends Playground
         ],
     ];
 
-    public function init(): void
+    public function addColumns(): void
     {
-        $this->flags['featured'] = [
-            'type' => 'boolean',
-            'default' => false,
-            'icon' => 'fa-solid fa-star',
-        ];
-        $this->flags['sms'] = [
-            'type' => 'boolean',
-            'default' => false,
-            'icon' => 'fa-solid fa-comment-sms',
-        ];
-
         $this->columns['email'] = [
-            'type' => 'string',
             'nullable' => true,
+            'type' => 'string',
         ];
 
         $this->columns['phone'] = [
-            'type' => 'string',
             'nullable' => true,
+            'type' => 'string',
         ];
+    }
+
+    public function addFlags(): void
+    {
+        $this->flags['featured'] = [
+            'icon' => 'fa-solid fa-star text-primary',
+            'default' => false,
+            'type' => 'boolean',
+        ];
+
+        $this->flags['sms'] = [
+            'icon' => 'fa-solid fa-comment-sms',
+            'default' => false,
+            'type' => 'boolean',
+        ];
+    }
+
+    public function init(): void
+    {
+        $this->addColumns();
+        $this->addFlags();
     }
 }

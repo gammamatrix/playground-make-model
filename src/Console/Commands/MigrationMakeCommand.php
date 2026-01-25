@@ -95,6 +95,8 @@ class MigrationMakeCommand extends GeneratorCommand
         $options[] = ['table', null, InputOption::VALUE_OPTIONAL, 'The schema table name of the migration'];
         $options[] = ['create', null, InputOption::VALUE_NONE, 'Make a create migration'];
         $options[] = ['update', null, InputOption::VALUE_NONE, 'Make an update migration'];
+        $options[] = ['migration-date',  null,  InputOption::VALUE_REQUIRED, 'Specify the date prefix for the migration file name for the model'];
+        $options[] = ['migration-order', null,  InputOption::VALUE_REQUIRED, 'Specify the order prefix for the migration file name for the model'];
 
         return $options;
     }
@@ -297,10 +299,23 @@ class MigrationMakeCommand extends GeneratorCommand
 
         if (! $class) {
             // $date = date('Y_m_d');
-            $date = '2010_09_30';
-            $order = '000000';
+            // $date = '2010_09_30';
+            // $order = '000000';
             // $date = '2020_01_02';
             // $order = '100001';
+            // $date = '2010_06_01';
+            // $order = '000000';
+            $date = $this->hasOption('migration-date')
+                && ! empty($this->option('migration-date'))
+                && is_string($this->option('migration-date'))
+                ? $this->option('migration-date')
+                : date('Y_m_d');
+            $order = $this->hasOption('migration-order')
+                && ! empty($this->option('migration-order'))
+                && is_string($this->option('migration-order'))
+                ? $this->option('migration-order')
+                : '000000';
+
             $class = sprintf(
                 '%1$s_%2$s_%3$s_%4$s_table',
                 $date,

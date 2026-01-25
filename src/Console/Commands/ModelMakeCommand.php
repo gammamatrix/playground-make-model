@@ -86,6 +86,7 @@ class ModelMakeCommand extends GeneratorCommand
         // 'use_class' => '    use HasFactory;',
         'use_class' => '',
         'use_factory' => '',
+        'migration_prefix' => '',
         'table' => '',
         'property_table' => '',
         // 'perPage' => PHP_EOL.PHP_EOL.'    protected $perPage = 25;',
@@ -135,9 +136,7 @@ class ModelMakeCommand extends GeneratorCommand
 
     public function prepareOptions(): void
     {
-        $options = $this->options();
-
-        $type = $this->getConfigurationType();
+        $type = $this->c->type();
         if (! $type) {
             $this->c->setOptions([
                 'type' => 'model',
@@ -165,7 +164,6 @@ class ModelMakeCommand extends GeneratorCommand
             ]);
         }
 
-        $this->isApi = $this->hasOption('api') && $this->option('api');
         $this->isResource = $this->hasOption('resource') && $this->option('resource');
 
         if ($this->isApi || $this->isResource) {
@@ -518,6 +516,8 @@ class ModelMakeCommand extends GeneratorCommand
             ['replace',         null, InputOption::VALUE_NONE, 'Replace the attributes, casts, fillable options when using skeleton for the model'],
             ['test',            null, InputOption::VALUE_NONE, 'Create the unit and feature tests for the model'],
             ['migration',       'm',  InputOption::VALUE_NONE, 'Create a new migration file for the model'],
+            ['migration-date',  null,  InputOption::VALUE_REQUIRED, 'Specify the date prefix for the migration file name for the model'],
+            ['migration-order', null,  InputOption::VALUE_REQUIRED, 'Specify the order prefix for the migration file name for the model'],
             ['morph-pivot',     null, InputOption::VALUE_NONE, 'Indicates if the generated model should be a custom polymorphic intermediate table model'],
             ['policy',          null, InputOption::VALUE_NONE, 'Create a new policy for the model'],
             ['seed',            's',  InputOption::VALUE_NONE, 'Create a new seeder for the model'],

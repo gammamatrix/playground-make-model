@@ -17,105 +17,105 @@ trait Flags
      * @var array<string, array<string, mixed>>
      */
     protected array $flags = [
-        'active' => [
+        'active' => [ // $withLifecycle
             'type' => 'boolean',
             'default' => true,
             'index' => true,
             'icon' => 'fa-solid fa-person-running',
         ],
-        'canceled' => [
+        'canceled' => [ // $withLifecycle
             'type' => 'boolean',
             'default' => false,
             'icon' => 'fa-solid fa-ban text-warning',
         ],
-        'closed' => [
+        'closed' => [ // $withLifecycle
             'type' => 'boolean',
             'default' => false,
             'icon' => 'fa-solid fa-xmark',
         ],
-        'completed' => [
+        'completed' => [ // $withLifecycle
             'type' => 'boolean',
             'default' => false,
             'icon' => 'fa-solid fa-check',
         ],
-        'cron' => [
+        'cron' => [ // $withLifecycle
             'type' => 'boolean',
             'default' => false,
             'index' => true,
             'icon' => 'fa-regular fa-clock',
         ],
-        'duplicate' => [
+        'duplicate' => [ // $withLifecycle
             'type' => 'boolean',
             'default' => false,
             'icon' => 'fa-solid fa-clone',
         ],
-        'fixed' => [
+        'fixed' => [ // $withLifecycle
             'type' => 'boolean',
             'default' => false,
-            'icon' => 'fa-solid fa-wrench',
+            'icon' => 'fa-solid fa-wrench text-success',
         ],
-        'flagged' => [
+        'flagged' => [ // $withLifecycle
             'type' => 'boolean',
             'default' => false,
             'icon' => 'fa-solid fa-flag',
         ],
-        'internal' => [
+        'internal' => [ // $withLifecycle
             'type' => 'boolean',
             'readOnly' => false,
             'default' => false,
             'icon' => 'fa-solid fa-server',
         ],
-        'locked' => [
+        'locked' => [ // $withPermissions
             'type' => 'boolean',
             'default' => false,
             'icon' => 'fa-solid fa-lock text-warning',
         ],
-        'pending' => [
+        'pending' => [ // $withLifecycle
             'type' => 'boolean',
             'default' => false,
             'icon' => 'fa-solid fa-circle-pause text-warning',
         ],
-        'planned' => [
+        'planned' => [ // $withPlanning
             'type' => 'boolean',
             'default' => false,
             'icon' => 'fa-solid fa-circle-pause text-success',
         ],
-        'prioritized' => [
+        'prioritized' => [ // $withPlanning
             'type' => 'boolean',
             'default' => false,
             'icon' => 'fa-solid fa-triangle-exclamation text-success',
         ],
-        'problem' => [
+        'problem' => [ // $withLifecycle
             'type' => 'boolean',
             'default' => false,
             'icon' => 'fa-solid fa-triangle-exclamation text-danger',
         ],
-        'published' => [
+        'published' => [ // $withPublishing
             'type' => 'boolean',
             'default' => false,
             'icon' => 'fa-solid fa-book',
         ],
-        'released' => [
+        'released' => [ // $withPublishing
             'type' => 'boolean',
             'default' => false,
             'icon' => 'fa-solid fa-dove',
         ],
-        'retired' => [
+        'retired' => [ // $withLifecycle
             'type' => 'boolean',
             'default' => false,
             'icon' => 'fa-solid fa-chair text-success',
         ],
-        'resolved' => [
+        'resolved' => [ // $withLifecycle
             'type' => 'boolean',
             'default' => false,
             'icon' => 'fa-solid fa-check-double text-success',
         ],
-        'suspended' => [
+        'suspended' => [ // $withLifecycle
             'type' => 'boolean',
             'default' => false,
             'icon' => 'fa-solid fa-hand text-danger',
         ],
-        'unknown' => [
+        'unknown' => [ // $withLifecycle
             'type' => 'boolean',
             'default' => false,
             'icon' => 'fa-solid fa-question text-warning',

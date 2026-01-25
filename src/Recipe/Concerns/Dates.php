@@ -17,51 +17,55 @@ trait Dates
      * @var array<string, array<string, mixed>>
      */
     protected array $dates = [
-        'canceled_at' => [
+        'canceled_at' => [ // $withLifecycle
             'nullable' => true,
             'index' => false,
         ],
-        'closed_at' => [
+        'closed_at' => [ // $withLifecycle
             'nullable' => true,
             'index' => true,
         ],
-        'embargo_at' => [
+        'embargo_at' => [ // $withPublishing
             'nullable' => true,
             'index' => false,
         ],
-        'planned_end_at' => [
+        'planned_end_at' => [ // $withPlanning
             'nullable' => true,
             'index' => false,
         ],
-        'planned_start_at' => [
+        'planned_start_at' => [ // $withPlanning
             'nullable' => true,
             'index' => false,
         ],
-        'postponed_at' => [
+        'postponed_at' => [ // $withPlanning
             'nullable' => true,
             'index' => false,
         ],
-        'published_at' => [
+        'published_at' => [ // $withPublishing
             'nullable' => true,
             'index' => false,
         ],
-        'resolved_at' => [
+        'released_at' => [ // $withLifecycle
             'nullable' => true,
             'index' => true,
         ],
-        'resumed_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'suspended_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'timer_end_at' => [
+        'resolved_at' => [ // $withLifecycle
             'nullable' => true,
             'index' => true,
         ],
-        'timer_start_at' => [
+        'resumed_at' => [ // $withLifecycle
+            'nullable' => true,
+            'index' => false,
+        ],
+        'suspended_at' => [ // $withLifecycle
+            'nullable' => true,
+            'index' => false,
+        ],
+        'timer_end_at' => [ // $withPlanning
+            'nullable' => true,
+            'index' => true,
+        ],
+        'timer_start_at' => [ // $withPlanning
             'nullable' => true,
             'index' => true,
         ],
