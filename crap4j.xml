@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2025-11-23 18:16:57</timestamp>
+  <timestamp>2026-01-25 01:23:45</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>174</methodCount>
+    <methodCount>178</methodCount>
     <crapMethodCount>12</crapMethodCount>
     <crapLoad>239</crapLoad>
-    <totalCrap>9301.37</totalCrap>
-    <crapMethodPercent>6.9</crapMethodPercent>
+    <totalCrap>9320.49</totalCrap>
+    <crapMethodPercent>6.74</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -545,9 +545,9 @@
       <methodName>buildClass_skeleton_prepare</methodName>
       <methodSignature>buildClass_skeleton_prepare(Create $create): void</methodSignature>
       <fullMethod>buildClass_skeleton_prepare(Create $create): void</fullMethod>
-      <crap>11</crap>
-      <complexity>11</complexity>
-      <coverage>100</coverage>
+      <crap>17</crap>
+      <complexity>17</complexity>
+      <coverage>96</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1271,9 +1271,9 @@
       <methodName>qualifyClass</methodName>
       <methodSignature>qualifyClass($name): string</methodSignature>
       <fullMethod>qualifyClass($name): string</fullMethod>
-      <crap>3</crap>
-      <complexity>3</complexity>
-      <coverage>100</coverage>
+      <crap>9.04</crap>
+      <complexity>9</complexity>
+      <coverage>92.31</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1304,9 +1304,9 @@
       <methodName>prepareOptions</methodName>
       <methodSignature>prepareOptions(): void</methodSignature>
       <fullMethod>prepareOptions(): void</fullMethod>
-      <crap>49.06</crap>
-      <complexity>43</complexity>
-      <coverage>85.15</coverage>
+      <crap>48.14</crap>
+      <complexity>42</complexity>
+      <coverage>84.85</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1428,6 +1428,28 @@
       <crap>4.59</crap>
       <complexity>4</complexity>
       <coverage>66.67</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Admin</className>
+      <methodName>addFlags</methodName>
+      <methodSignature>addFlags(): void</methodSignature>
+      <fullMethod>addFlags(): void</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Admin</className>
+      <methodName>init</methodName>
+      <methodSignature>init(): void</methodSignature>
+      <fullMethod>init(): void</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1601,6 +1623,28 @@
       <methodName>unique</methodName>
       <methodSignature>unique(): array</methodSignature>
       <fullMethod>unique(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Crm</className>
+      <methodName>addColumns</methodName>
+      <methodSignature>addColumns(): void</methodSignature>
+      <fullMethod>addColumns(): void</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Crm</className>
+      <methodName>addFlags</methodName>
+      <methodSignature>addFlags(): void</methodSignature>
+      <fullMethod>addFlags(): void</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
