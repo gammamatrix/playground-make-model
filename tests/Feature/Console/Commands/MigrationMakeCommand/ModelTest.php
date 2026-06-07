@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Tests\Feature\Playground\Make\Model\Console\Commands\MigrationMakeCommand;
 
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Testing\PendingCommand;
 use PHPUnit\Framework\Attributes\CoversClass;
 use Playground\Make\Model\Console\Commands\MigrationMakeCommand;
 use Tests\Feature\Playground\Make\Model\TestCase;
@@ -27,7 +28,7 @@ class ModelTest extends TestCase
         );
 
         /**
-         * @var \Illuminate\Testing\PendingCommand $result
+         * @var PendingCommand $result
          */
         $result = $this->artisan($command);
         $result->assertExitCode(1);
@@ -43,7 +44,7 @@ class ModelTest extends TestCase
         );
 
         /**
-         * @var \Illuminate\Testing\PendingCommand $result
+         * @var PendingCommand $result
          */
         $result = $this->artisan($command);
         $result->assertExitCode(0);
@@ -57,7 +58,7 @@ class ModelTest extends TestCase
         );
 
         /**
-         * @var \Illuminate\Testing\PendingCommand $result
+         * @var PendingCommand $result
          */
         $result = $this->artisan($command);
         $result->assertExitCode(0);
@@ -71,7 +72,7 @@ class ModelTest extends TestCase
         );
 
         /**
-         * @var \Illuminate\Testing\PendingCommand $result
+         * @var PendingCommand $result
          */
         $result = $this->artisan($command);
         $result->assertExitCode(1);
@@ -87,7 +88,7 @@ class ModelTest extends TestCase
         );
 
         /**
-         * @var \Illuminate\Testing\PendingCommand $result
+         * @var PendingCommand $result
          */
         $result = $this->artisan($command);
         $result->assertExitCode(0);
@@ -101,7 +102,7 @@ class ModelTest extends TestCase
         );
 
         /**
-         * @var \Illuminate\Testing\PendingCommand $result
+         * @var PendingCommand $result
          */
         $result = $this->artisan($command);
         $result->assertExitCode(0);
@@ -116,7 +117,7 @@ class ModelTest extends TestCase
         );
 
         /**
-         * @var \Illuminate\Testing\PendingCommand $result
+         * @var PendingCommand $result
          */
         $result = $this->artisan($command);
         $result->assertExitCode(0);
@@ -132,7 +133,7 @@ class ModelTest extends TestCase
         // dump(Artisan::output());
 
         /**
-         * @var \Illuminate\Testing\PendingCommand $result
+         * @var PendingCommand $result
          */
         $result = $this->artisan($command);
         $result->assertExitCode(0);
@@ -146,7 +147,7 @@ class ModelTest extends TestCase
         );
 
         /**
-         * @var \Illuminate\Testing\PendingCommand $result
+         * @var PendingCommand $result
          */
         $result = $this->artisan($command);
         $result->assertExitCode(0);
@@ -160,7 +161,7 @@ class ModelTest extends TestCase
         );
 
         /**
-         * @var \Illuminate\Testing\PendingCommand $result
+         * @var PendingCommand $result
          */
         $result = $this->artisan($command);
         $result->assertExitCode(0);

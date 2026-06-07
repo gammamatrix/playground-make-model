@@ -10,11 +10,12 @@ namespace Playground\Make\Model\Building;
 
 use Illuminate\Support\Str;
 use Playground\Make\Configuration\Model\Create;
+use Playground\Make\Model\Console\Commands\ModelMakeCommand;
 
 /**
  * \Playground\Make\Model\Building\MakeSkeleton
  *
- * @mixin \Playground\Make\Model\Console\Commands\ModelMakeCommand
+ * @mixin ModelMakeCommand
  */
 trait MakeSkeleton
 {

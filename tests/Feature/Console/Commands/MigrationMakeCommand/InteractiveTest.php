@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Tests\Feature\Playground\Make\Model\Console\Commands\MigrationMakeCommand;
 
+use Illuminate\Testing\PendingCommand;
 use Playground\Make\Model\Console\Commands\Concerns\InteractiveCommands;
 use Tests\Feature\Playground\Make\Model\TestCase;
 
@@ -25,7 +26,7 @@ class InteractiveTest extends TestCase
     public function test_command_with_interactive_option(): void
     {
         /**
-         * @var \Illuminate\Testing\PendingCommand $result
+         * @var PendingCommand $result
          */
         $result = $this->artisan('playground:make:migration --force --interactive');
         $result->expectsQuestion('What should the migration be named?', 'testing')
@@ -41,7 +42,7 @@ class InteractiveTest extends TestCase
     public function test_command_with_interactive_option_and_cancel(): void
     {
         /**
-         * @var \Illuminate\Testing\PendingCommand $result
+         * @var PendingCommand $result
          */
         $result = $this->artisan('playground:make:migration --interactive');
         $result->expectsQuestion('What should the migration be named?', false);

@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Tests\Feature\Playground\Make\Model\Console\Commands\ModelMakeCommand;
 
+use Illuminate\Testing\PendingCommand;
 use PHPUnit\Framework\Attributes\CoversClass;
 use Playground\Make\Model\Console\Commands\ModelMakeCommand;
 use Tests\Feature\Playground\Make\Model\TestCase;
@@ -24,7 +25,7 @@ class OptionsTest extends TestCase
         $command = 'playground:make:model testing --force --controller --factory --migration --policy --requests --seed';
 
         /**
-         * @var \Illuminate\Testing\PendingCommand $result
+         * @var PendingCommand $result
          */
         $result = $this->artisan($command);
         $result->assertExitCode(0);
@@ -35,7 +36,7 @@ class OptionsTest extends TestCase
         $command = 'playground:make:model testing --force --type pivot';
 
         /**
-         * @var \Illuminate\Testing\PendingCommand $result
+         * @var PendingCommand $result
          */
         $result = $this->artisan($command);
         $result->assertExitCode(0);
@@ -46,7 +47,7 @@ class OptionsTest extends TestCase
         $command = 'playground:make:model testing --force --pivot';
 
         /**
-         * @var \Illuminate\Testing\PendingCommand $result
+         * @var PendingCommand $result
          */
         $result = $this->artisan($command);
         $result->assertExitCode(0);
@@ -57,7 +58,7 @@ class OptionsTest extends TestCase
         $command = 'playground:make:model testing --force --type morph-pivot';
 
         /**
-         * @var \Illuminate\Testing\PendingCommand $result
+         * @var PendingCommand $result
          */
         $result = $this->artisan($command);
         $result->assertExitCode(0);
@@ -68,7 +69,7 @@ class OptionsTest extends TestCase
         $command = 'playground:make:model testing --force --morph-pivot';
 
         /**
-         * @var \Illuminate\Testing\PendingCommand $result
+         * @var PendingCommand $result
          */
         $result = $this->artisan($command);
         $result->assertExitCode(0);
@@ -79,7 +80,7 @@ class OptionsTest extends TestCase
         $command = 'playground:make:model testing --force --type api';
 
         /**
-         * @var \Illuminate\Testing\PendingCommand $result
+         * @var PendingCommand $result
          */
         $result = $this->artisan($command);
         $result->assertExitCode(0);
@@ -90,7 +91,7 @@ class OptionsTest extends TestCase
         $command = 'playground:make:model testing --force --type abstract';
 
         /**
-         * @var \Illuminate\Testing\PendingCommand $result
+         * @var PendingCommand $result
          */
         $result = $this->artisan($command);
         $result->assertExitCode(0);
@@ -101,7 +102,7 @@ class OptionsTest extends TestCase
         $command = 'playground:make:model testing --force --type model';
 
         /**
-         * @var \Illuminate\Testing\PendingCommand $result
+         * @var PendingCommand $result
          */
         $result = $this->artisan($command);
         $result->assertExitCode(0);
@@ -112,7 +113,7 @@ class OptionsTest extends TestCase
         $command = 'playground:make:model testing --force --api --controller';
 
         /**
-         * @var \Illuminate\Testing\PendingCommand $result
+         * @var PendingCommand $result
          */
         $result = $this->artisan($command);
         $result->assertExitCode(0);
@@ -123,7 +124,7 @@ class OptionsTest extends TestCase
         $command = 'playground:make:model testing --force --resource --controller';
 
         /**
-         * @var \Illuminate\Testing\PendingCommand $result
+         * @var PendingCommand $result
          */
         $result = $this->artisan($command);
         $result->assertExitCode(0);

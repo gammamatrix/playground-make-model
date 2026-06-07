@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Tests\Feature\Playground\Make\Model\Console\Commands\MigrationMakeCommand;
 
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Testing\PendingCommand;
 use Tests\Feature\Playground\Make\Model\TestCase;
 
 /**
@@ -19,7 +20,7 @@ class CommandTest extends TestCase
     public function test_command_without_argument_and_with_table_option(): void
     {
         /**
-         * @var \Illuminate\Testing\PendingCommand $result
+         * @var PendingCommand $result
          */
         $result = $this->artisan('playground:make:migration --table testing');
         $result->assertExitCode(1);
@@ -29,7 +30,7 @@ class CommandTest extends TestCase
     public function test_command_with_reserved_name(): void
     {
         /**
-         * @var \Illuminate\Testing\PendingCommand $result
+         * @var PendingCommand $result
          */
         $result = $this->artisan('playground:make:migration true');
         $result->assertExitCode(1);
@@ -39,7 +40,7 @@ class CommandTest extends TestCase
     public function test_command_skeleton(): void
     {
         /**
-         * @var \Illuminate\Testing\PendingCommand $result
+         * @var PendingCommand $result
          */
         $result = $this->artisan('playground:make:migration testing --skeleton --force');
         $result->assertExitCode(0);
@@ -48,7 +49,7 @@ class CommandTest extends TestCase
     public function test_command_skeleton_without_force(): void
     {
         /**
-         * @var \Illuminate\Testing\PendingCommand $result
+         * @var PendingCommand $result
          */
         $result = $this->artisan('playground:make:migration testing --skeleton');
         $result->assertExitCode(1);
@@ -58,7 +59,7 @@ class CommandTest extends TestCase
     public function test_command_skeleton_with_invalid_table_parameter(): void
     {
         /**
-         * @var \Illuminate\Testing\PendingCommand $result
+         * @var PendingCommand $result
          */
         $result = $this->artisan('playground:make:migration testing --skeleton --force --table="invalid ! table name"');
         $result->assertExitCode(0);

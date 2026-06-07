@@ -9,18 +9,20 @@ declare(strict_types=1);
 namespace Playground\Make\Model\Building;
 
 use Illuminate\Support\Str;
+use Playground\Make\Console\Commands\FactoryMakeCommand;
+use Playground\Make\Model\Console\Commands\ModelMakeCommand;
 
 /**
  * \Playground\Make\Model\Building\MakeCommands
  *
- * @mixin \Playground\Make\Model\Console\Commands\ModelMakeCommand
+ * @mixin ModelMakeCommand
  */
 trait MakeCommands
 {
     /**
      * Create a factory file for the model.
      *
-     * @see \Playground\Make\Console\Commands\FactoryMakeCommand
+     * @see FactoryMakeCommand
      */
     protected function createFactory(): void
     {

@@ -11,11 +11,12 @@ namespace Playground\Make\Model\Building;
 use Illuminate\Support\Str;
 use Playground\Make\Configuration\Model\HasMany;
 use Playground\Make\Configuration\Model\HasOne;
+use Playground\Make\Model\Console\Commands\ModelMakeCommand;
 
 /**
  * \Playground\Make\Model\Building\BuildRelationshipsBuildRelationships
  *
- * @mixin \Playground\Make\Model\Console\Commands\ModelMakeCommand
+ * @mixin ModelMakeCommand
  */
 trait BuildRelationships
 {

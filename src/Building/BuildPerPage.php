@@ -8,10 +8,12 @@ declare(strict_types=1);
 
 namespace Playground\Make\Model\Building;
 
+use Playground\Make\Model\Console\Commands\ModelMakeCommand;
+
 /**
  * \Playground\Make\Model\Building\BuildPerPage
  *
- * @mixin \Playground\Make\Model\Console\Commands\ModelMakeCommand
+ * @mixin ModelMakeCommand
  */
 trait BuildPerPage
 {
