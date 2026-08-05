@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2026-08-05 15:49:11</timestamp>
+  <timestamp>2026-08-05 15:59:19</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>182</methodCount>
@@ -1741,9 +1741,9 @@
     <method>
       <package>Playground\Make\Model\Recipe</package>
       <className>Playground\Make\Model\Recipe\Lead</className>
-      <methodName>addDates</methodName>
-      <methodSignature>addDates(): void</methodSignature>
-      <fullMethod>addDates(): void</fullMethod>
+      <methodName>addColumns</methodName>
+      <methodSignature>addColumns(): void</methodSignature>
+      <fullMethod>addColumns(): void</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
@@ -1752,9 +1752,9 @@
     <method>
       <package>Playground\Make\Model\Recipe</package>
       <className>Playground\Make\Model\Recipe\Lead</className>
-      <methodName>addColumns</methodName>
-      <methodSignature>addColumns(): void</methodSignature>
-      <fullMethod>addColumns(): void</fullMethod>
+      <methodName>addDates</methodName>
+      <methodSignature>addDates(): void</methodSignature>
+      <fullMethod>addDates(): void</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
