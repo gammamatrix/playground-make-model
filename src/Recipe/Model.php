@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Playground\Make\Model\Recipe;
 
+use Illuminate\Support\Str;
 use Playground\Make\Model\Recipe\Views\Index;
 
 /**
@@ -31,6 +32,8 @@ abstract class Model implements Contracts\Models, Contracts\Views
 
     protected string $name = '';
 
+    protected string $name_lower = '';
+
     protected string $type = '';
 
     protected string $timestamp_created = 'created_at';
@@ -49,6 +52,8 @@ abstract class Model implements Contracts\Models, Contracts\Views
     public function __construct(string $name, string $type)
     {
         $this->name = $name;
+        $this->name_lower = Str::of($name)->kebab()->replace('-', ' ')->lower()->toString();
+
         $this->type = $type;
 
         $this->init();

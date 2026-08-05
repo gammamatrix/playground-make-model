@@ -15,67 +15,70 @@ use Illuminate\Support\Str;
  */
 class Lead extends Playground
 {
-    /**
-     * @var array<string, array<string, mixed>>
-     */
-    protected array $dates = [
-        'canceled_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'closed_at' => [
-            'nullable' => true,
-            'index' => true,
-        ],
-        'embargo_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'fixed_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'planned_end_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'planned_start_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'postponed_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'published_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'released_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'resumed_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'resolved_at' => [
-            'nullable' => true,
-            'index' => true,
-        ],
-        'suspended_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'timer_end_at' => [
-            'nullable' => true,
-            'index' => true,
-        ],
-        'timer_start_at' => [
-            'nullable' => true,
-            'index' => true,
-        ],
-    ];
+    //    /**
+    //     * Adds:
+    //     * - fixed_at
+    //     *
+    //     * @var array<string, array<string, mixed>>
+    //     */
+    //    protected array $dates = [
+    //        'canceled_at' => [
+    //            'nullable' => true,
+    //            'index' => false,
+    //        ],
+    //        'closed_at' => [
+    //            'nullable' => true,
+    //            'index' => true,
+    //        ],
+    //        'embargo_at' => [
+    //            'nullable' => true,
+    //            'index' => false,
+    //        ],
+    //        'fixed_at' => [
+    //            'nullable' => true,
+    //            'index' => false,
+    //        ],
+    //        'planned_end_at' => [
+    //            'nullable' => true,
+    //            'index' => false,
+    //        ],
+    //        'planned_start_at' => [
+    //            'nullable' => true,
+    //            'index' => false,
+    //        ],
+    //        'postponed_at' => [
+    //            'nullable' => true,
+    //            'index' => false,
+    //        ],
+    //        'published_at' => [
+    //            'nullable' => true,
+    //            'index' => false,
+    //        ],
+    //        'released_at' => [
+    //            'nullable' => true,
+    //            'index' => false,
+    //        ],
+    //        'resolved_at' => [
+    //            'nullable' => true,
+    //            'index' => true,
+    //        ],
+    //        'resumed_at' => [
+    //            'nullable' => true,
+    //            'index' => false,
+    //        ],
+    //        'suspended_at' => [
+    //            'nullable' => true,
+    //            'index' => false,
+    //        ],
+    //        'timer_end_at' => [
+    //            'nullable' => true,
+    //            'index' => true,
+    //        ],
+    //        'timer_start_at' => [
+    //            'nullable' => true,
+    //            'index' => true,
+    //        ],
+    //    ];
 
     /**
      * @var array<string, array<string, mixed>>
@@ -139,15 +142,15 @@ class Lead extends Playground
         ],
     ];
 
-    /**
-     * @var array<string, array<string, mixed>>
-     */
-    protected array $ids = [];
+    //    /**
+    //     * @var array<string, array<string, mixed>>
+    //     */
+    //    protected array $ids = [];
 
     /**
      * @var array<string, array<string, mixed>>
      */
-    protected array $ids_all = [
+    protected array $allIds = [
         'parent_id' => [
             'type' => 'uuid',
             'nullable' => true,
@@ -157,6 +160,15 @@ class Lead extends Playground
                 'on' => null,
             ],
             'trait' => 'WithParent',
+        ],
+        'matrix_id' => [
+            'type' => 'uuid',
+            'nullable' => true,
+            'index' => true,
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'matrix_matrices',
+            ],
         ],
         'campaign_id' => [
             'type' => 'uuid',
@@ -259,15 +271,15 @@ class Lead extends Playground
         ],
     ];
 
-    /**
-     * @var array<string, array<string, mixed>>
-     */
-    protected array $hasOne = [];
+    //    /**
+    //     * @var array<string, array<string, mixed>>
+    //     */
+    //    protected array $hasOne = [];
 
     /**
      * @var array<string, array<string, mixed>>
      */
-    protected array $hasOne_all = [
+    protected array $circletHasOne = [
         'campaign' => [
             'comment' => 'The campaign of the %1$s.',
             'accessor' => 'campaign',
@@ -347,41 +359,17 @@ class Lead extends Playground
         ],
     ];
 
-    public function init(): void
+    public function addDates(): void
     {
-        $name_lower = Str::of($this->name())->kebab()->replace('-', ' ')->lower()->toString();
-        // $has_many_accessor = Str::of($this->name())->plural()->camel()->toString();
-        $has_one_accessor = Str::of($this->name())->camel()->toString();
-        $table_id = Str::of($has_one_accessor)->finish('_id')->toString();
-
-        $this->hasOne = $this->hasOne_all;
-        unset($this->hasOne[$has_one_accessor]);
-        $this->ids = $this->ids_all;
-        unset($this->ids[$table_id]);
-
-        // dd([
-        //     '__METHOD__' => __METHOD__,
-        //     '$this' => $this,
-        //     '$this->name()' => $this->name(),
-        //     '$model_id' => $model_id,
-        //     '$this->ids' => $this->ids,
-        // ]);
-        $this->flags['featured'] = [
-            'type' => 'boolean',
-            'default' => false,
-            'icon' => 'fa-solid fa-star text-warning',
+        $this->dates['fixed_at'] = [
+            'nullable' => true,
+            'index' => false,
         ];
-        $this->flags['sms'] = [
-            'type' => 'boolean',
-            'default' => false,
-            'icon' => 'fa-solid fa-comment-sms',
-        ];
-        $this->flags['special'] = [
-            'type' => 'boolean',
-            'default' => false,
-            'icon' => 'fa-solid fa-star text-success',
-        ];
+        ksort($this->dates);
+    }
 
+    public function addColumns(): void
+    {
         $this->columns['email'] = [
             'type' => 'string',
             'nullable' => true,
@@ -425,7 +413,7 @@ class Lead extends Playground
             'scale' => 4,
             'description' => sprintf(
                 'The bonus rate of the %1$s. Percent value is stored as decimal: 99%% => 0.99',
-                $name_lower
+                $this->name_lower
             ),
         ];
 
@@ -444,7 +432,7 @@ class Lead extends Playground
             // TODO verify this sets in the docs.
             'description' => sprintf(
                 'The commission rate of the %1$s. Percent value is stored as decimal: 99%% => 0.99',
-                $name_lower
+                $this->name_lower
             ),
         ];
 
@@ -517,18 +505,46 @@ class Lead extends Playground
             'precision' => 19,
             'scale' => 4,
         ];
+    }
 
-        foreach ($this->hasOne as $accessor => $meta) {
-            if (! empty($meta['comment']) && is_string($meta['comment'])) {
-                $this->hasOne[$accessor]['comment'] = sprintf(
-                    $meta['comment'],
-                    $name_lower
-                );
-            }
-        }
+    public function addFlags(): void
+    {
+        $this->flags['featured'] = [
+            'type' => 'boolean',
+            'default' => false,
+            'icon' => 'fa-solid fa-star text-warning',
+        ];
 
-        ksort($this->dates);
+        $this->flags['sms'] = [
+            'type' => 'boolean',
+            'default' => false,
+            'icon' => 'fa-solid fa-comment-sms',
+        ];
+
+        $this->flags['special'] = [
+            'type' => 'boolean',
+            'default' => false,
+            'icon' => 'fa-solid fa-star text-success',
+        ];
+
         ksort($this->flags);
+    }
+
+    public function init(): void
+    {
+        // $has_many_accessor = Str::of($this->name())->plural()->camel()->toString();
+
+        $this->addColumns();
+        $this->addDates();
+        $this->addFlags();
+        $this->handleCircletHasOne();
+        // dd([
+        //     '__METHOD__' => __METHOD__,
+        //     '$this' => $this,
+        //     '$this->name()' => $this->name(),
+        //     '$model_id' => $model_id,
+        //     '$this->ids' => $this->ids,
+        // ]);
 
         // dd([
         //     '__METHOD__' => __METHOD__,

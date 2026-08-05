@@ -18,6 +18,11 @@ trait Ids
     /**
      * @var array<string, array<string, mixed>>
      */
+    protected array $allIds = [];
+
+    /**
+     * @var array<string, array<string, mixed>>
+     */
     protected array $ids = [
         'parent_id' => [
             'type' => 'uuid',
