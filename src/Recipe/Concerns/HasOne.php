@@ -35,9 +35,23 @@ trait HasOne
 
     public function handleCircletHasOne(): void
     {
-        $has_one_accessor = Str::of($this->name())->camel()->toString();
-        $table_id = Str::of($has_one_accessor)->finish('_id')->toString();
-
+        $has_one_accessor = $this->name_camel;
+        $table_id = Str::of($this->name_snake)->finish('_id')->toString();
+        // dd([
+        //    '__METHOD__' => __METHOD__,
+        //    //'$this' => $this,
+        //    '$has_one_accessor' => $has_one_accessor,
+        //    '$table_id' => $table_id,
+        //    '$this->name' => $this->name,
+        //    '$this->name_lower' => $this->name_lower,
+        //    '$this->name_snake' => $this->name_snake,
+        //    '$this->name_camel' => $this->name_camel,
+        //    '$this->type' => $this->type,
+        //    '$this->ids' => $this->ids,
+        //    '$this->circletHasOne' => $this->circletHasOne,
+        //    '$this->hasOne' => $this->hasOne,
+        //    '$this->allIds' => $this->allIds,
+        // ]);
         $this->hasOne = $this->circletHasOne;
         unset($this->hasOne[$has_one_accessor]);
         $this->ids = $this->allIds;

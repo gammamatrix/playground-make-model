@@ -34,6 +34,10 @@ abstract class Model implements Contracts\Models, Contracts\Views
 
     protected string $name_lower = '';
 
+    protected string $name_snake = '';
+
+    protected string $name_camel = '';
+
     protected string $type = '';
 
     protected string $timestamp_created = 'created_at';
@@ -53,6 +57,8 @@ abstract class Model implements Contracts\Models, Contracts\Views
     {
         $this->name = $name;
         $this->name_lower = Str::of($name)->kebab()->replace('-', ' ')->lower()->toString();
+        $this->name_snake = Str::of($name)->snake()->toString();
+        $this->name_camel = Str::of($name)->camel()->toString();
 
         $this->type = $type;
 

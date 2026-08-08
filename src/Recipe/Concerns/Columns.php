@@ -15,6 +15,7 @@ trait Columns
 {
     /**
      * TODO label is ignored.
+     *
      * @var array<string, array<string, mixed>>
      */
     protected array $columns = [

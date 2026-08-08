@@ -103,6 +103,7 @@ PHP_CODE;
 
         $i = 0;
         foreach ($ho as $method => $HasOne) {
+            $method = Str::camel($method);
             $i++;
             $related = $HasOne->related();
             if ($related) {
