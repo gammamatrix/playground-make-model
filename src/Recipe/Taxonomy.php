@@ -101,17 +101,17 @@ class Taxonomy extends Playground
      */
     protected array $json = [
         'address' => [
-            'default' => '{}',
+            'default' => null,
             'nullable' => true,
             'type' => 'JSON_OBJECT',
         ],
         'assets' => [
-            'default' => '{}',
+            'default' => null,
             'nullable' => true,
             'type' => 'JSON_OBJECT',
         ],
         'meta' => [
-            'default' => '{}',
+            'default' => null,
             'nullable' => true,
             'type' => 'JSON_OBJECT',
         ],
@@ -123,12 +123,12 @@ class Taxonomy extends Playground
             'comment' => 'Array of note objects',
         ],
         'options' => [
-            'default' => '{}',
+            'default' => null,
             'nullable' => true,
             'type' => 'JSON_OBJECT',
         ],
         'sources' => [
-            'default' => '{}',
+            'default' => null,
             'nullable' => true,
             'type' => 'JSON_OBJECT',
         ],

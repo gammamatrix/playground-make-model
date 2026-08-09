@@ -291,13 +291,11 @@ trait MakeIds
 
         foreach ($this->recipe->userIds() as $column => $meta) {
 
-            $label = ! empty($meta['label'])
-                ? empty($meta['label'])
-                : Str::of($column)->replace('_', ' ')->ucfirst()->toString();
-            // dump([
-            //     '__METHOD__' => __METHOD__,
-            //     '$column' => $column,
-            //     '$label' => $label,
+            $label = ! empty($meta['label']) ? $meta['label'] : Str::of($column)->headline()->lower()->ucfirst()->replace([' id'], [' ID'])->toString();
+            // dd([
+            // '__METHOD__' => __METHOD__,
+            // '$column' => $column,
+            // '$label' => $label,
             // ]);
 
             $type = '';

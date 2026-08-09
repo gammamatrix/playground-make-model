@@ -34,6 +34,10 @@ abstract class Model implements Contracts\Models, Contracts\Views
 
     protected string $name_lower = '';
 
+    protected string $name_title = '';
+
+    protected string $name_kebab = '';
+
     protected string $name_snake = '';
 
     protected string $name_camel = '';
@@ -56,7 +60,9 @@ abstract class Model implements Contracts\Models, Contracts\Views
     public function __construct(string $name, string $type)
     {
         $this->name = $name;
-        $this->name_lower = Str::of($name)->kebab()->replace('-', ' ')->lower()->toString();
+        $this->name_kebab = Str::of($name)->kebab()->toString();
+        $this->name_title = Str::of($this->name_kebab)->headline()->toString();
+        $this->name_lower = Str::of($this->name_title)->lower()->toString();
         $this->name_snake = Str::of($name)->snake()->toString();
         $this->name_camel = Str::of($name)->camel()->toString();
 

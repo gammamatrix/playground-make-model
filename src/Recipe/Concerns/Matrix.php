@@ -22,7 +22,7 @@ trait Matrix
             'label' => '',
             'description' => '',
             'icon' => '',
-            'default' => '{}',
+            'default' => null,
             'index' => false,
             'nullable' => true,
             'readOnly' => false,

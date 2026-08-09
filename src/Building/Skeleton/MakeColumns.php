@@ -34,13 +34,12 @@ trait MakeColumns
 
         foreach ($this->recipe->columns() as $column => $meta) {
 
-            $label = ! empty($meta['label'])
-                ? empty($meta['label'])
-                : Str::of($column)->replace('_', ' ')->ucfirst()->toString();
+            $label = ! empty($meta['label']) ? $meta['label'] : Str::of($column)->headline()->lower()->ucfirst()->toString();
             // dump([
             //     '__METHOD__' => __METHOD__,
             //     '$column' => $column,
             //     '$label' => $label,
+            //     '$meta' => $meta,
             // ]);
 
             $type = '';

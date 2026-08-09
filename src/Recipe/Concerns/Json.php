@@ -18,12 +18,12 @@ trait Json
      */
     protected array $json = [
         'assets' => [
-            'default' => '{}',
+            'default' => null,
             'nullable' => true,
             'type' => 'JSON_OBJECT',
         ],
         'meta' => [
-            'default' => '{}',
+            'default' => null,
             'nullable' => true,
             'type' => 'JSON_OBJECT',
         ],
@@ -35,12 +35,12 @@ trait Json
             'comment' => 'Array of note objects',
         ],
         'options' => [
-            'default' => '{}',
+            'default' => null,
             'nullable' => true,
             'type' => 'JSON_OBJECT',
         ],
         'sources' => [
-            'default' => '{}',
+            'default' => null,
             'nullable' => true,
             'type' => 'JSON_OBJECT',
         ],

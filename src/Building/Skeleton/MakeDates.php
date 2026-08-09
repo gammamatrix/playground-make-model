@@ -127,9 +127,7 @@ trait MakeDates
 
         foreach ($this->recipe->dates() as $column => $meta) {
 
-            $label = ! empty($meta['label'])
-                ? empty($meta['label'])
-                : Str::of($column)->replace('_', ' ')->ucfirst()->toString();
+            $label = ! empty($meta['label']) ? $meta['label'] : Str::of($column)->headline()->lower()->ucfirst()->toString();
             // dd([
             //     '__METHOD__' => __METHOD__,
             //     '$column' => $column,

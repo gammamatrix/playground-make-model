@@ -265,7 +265,7 @@ class Cms extends Playground
                 'icon' => '',
             ];
             $this->json['params'] = [
-                'default' => '{}',
+                'default' => null,
                 'nullable' => true,
                 'type' => 'JSON_OBJECT',
             ];

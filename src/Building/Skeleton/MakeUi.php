@@ -34,9 +34,7 @@ trait MakeUi
 
         foreach ($this->recipe->ui() as $column => $meta) {
 
-            $label = ! empty($meta['label'])
-                ? empty($meta['label'])
-                : Str::of($column)->replace('_', ' ')->ucfirst()->toString();
+            $label = ! empty($meta['label']) ? $meta['label'] : Str::of($column)->headline()->lower()->ucfirst()->toString();
             // dump([
             //     '__METHOD__' => __METHOD__,
             //     '$column' => $column,

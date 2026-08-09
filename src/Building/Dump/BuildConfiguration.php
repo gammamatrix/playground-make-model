@@ -685,7 +685,7 @@ trait BuildConfiguration
             );
 
             $meta = [
-                'label' => Str::of($this->dump_type_column)->replace('_', ' ')->ucfirst()->toString(),
+                'label' => Str::of($this->dump_type_column)->headline()->lower()->ucfirst()->toString(),
                 'name' => $this->dump_type_column,
                 'nullable' => $this->dump_type_nullable,
             ];

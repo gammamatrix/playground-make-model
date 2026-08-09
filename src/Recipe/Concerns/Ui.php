@@ -33,7 +33,7 @@ trait Ui
             'size' => 512,
         ],
         'ui' => [
-            'default' => '{}',
+            'default' => null,
             'type' => 'JSON_OBJECT',
             'nullable' => true,
         ],
