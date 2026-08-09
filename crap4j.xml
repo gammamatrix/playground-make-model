@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2026-08-08 17:29:05</timestamp>
+  <timestamp>2026-08-09 18:16:05</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>182</methodCount>
     <crapMethodCount>12</crapMethodCount>
     <crapLoad>239</crapLoad>
-    <totalCrap>9328.49</totalCrap>
+    <totalCrap>9328.44</totalCrap>
     <crapMethodPercent>6.59</crapMethodPercent>
   </stats>
   <methods>
@@ -723,7 +723,7 @@
       <fullMethod>buildClass_skeleton_columns(Create $create): void</fullMethod>
       <crap>9</crap>
       <complexity>9</complexity>
-      <coverage>97.22</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -767,7 +767,7 @@
       <fullMethod>buildClass_skeleton_dates(Create $create): void</fullMethod>
       <crap>6</crap>
       <complexity>6</complexity>
-      <coverage>96</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -778,7 +778,7 @@
       <fullMethod>buildClass_skeleton_flags(Create $create): void</fullMethod>
       <crap>9</crap>
       <complexity>9</complexity>
-      <coverage>97.22</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -809,9 +809,9 @@
       <methodName>buildClass_skeleton_ids_users</methodName>
       <methodSignature>buildClass_skeleton_ids_users(Create $create): void</methodSignature>
       <fullMethod>buildClass_skeleton_ids_users(Create $create): void</fullMethod>
-      <crap>10.07</crap>
+      <crap>10.02</crap>
       <complexity>10</complexity>
-      <coverage>91.18</coverage>
+      <coverage>93.75</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -855,7 +855,7 @@
       <fullMethod>buildClass_skeleton_json(Create $create): void</fullMethod>
       <crap>9</crap>
       <complexity>9</complexity>
-      <coverage>97.22</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -866,7 +866,7 @@
       <fullMethod>buildClass_skeleton_matrix(Create $create): void</fullMethod>
       <crap>11</crap>
       <complexity>11</complexity>
-      <coverage>97.44</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -877,7 +877,7 @@
       <fullMethod>buildClass_skeleton_permissions(Create $create): void</fullMethod>
       <crap>9</crap>
       <complexity>9</complexity>
-      <coverage>97.22</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -921,7 +921,7 @@
       <fullMethod>buildClass_skeleton_status(Create $create): void</fullMethod>
       <crap>9</crap>
       <complexity>9</complexity>
-      <coverage>97.22</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -932,7 +932,7 @@
       <fullMethod>buildClass_skeleton_ui(Create $create): void</fullMethod>
       <crap>9</crap>
       <complexity>9</complexity>
-      <coverage>97.06</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
