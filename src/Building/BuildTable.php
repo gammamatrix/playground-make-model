@@ -44,11 +44,11 @@ trait BuildTable
         }
 
         if (! $this->c->model_singular() && $name) {
-            $options['model_singular'] = $name;
+            $options['model_singular'] = Str::of($name)->headline()->toString();
         }
 
         if (! $this->c->model_plural() && $name) {
-            $options['model_plural'] = Str::of($name)->plural()->toString();
+            $options['model_plural'] = Str::of($name)->headline()->plural()->toString();
             // $this->searches['model_plural'] = $options['model_plural'];
         }
 

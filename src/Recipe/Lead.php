@@ -251,75 +251,44 @@ class Lead extends Playground
         ],
     ];
 
-    protected array $json = [
-        'address' => [
-            'default' => null,
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
-        ],
-        'assets' => [
-            'default' => null,
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
-        ],
-        'contact' => [
-            'default' => null,
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
-        ],
-        'meta' => [
-            'default' => null,
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
-        ],
-        'notes' => [
-            'comment' => 'Array of note objects',
-            'default' => '[]',
-            'nullable' => true,
-            'type' => 'JSON_ARRAY',
-        ],
-        'options' => [
-            'default' => null,
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
-        ],
-        'sources' => [
-            'default' => null,
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
-        ],
-    ];
-
     public function addColumns(): void
     {
         $this->columns['email'] = [
+            'label' => 'Email',
             'nullable' => true,
             'type' => 'string',
         ];
 
         $this->columns['phone'] = [
+            'label' => 'Phone',
             'nullable' => true,
             'type' => 'string',
         ];
 
         $this->columns['team_role'] = [
+            'label' => 'Team role',
             'nullable' => true,
             'type' => 'string',
         ];
 
         $this->columns['currency'] = [
+            'label' => 'Currency',
             'nullable' => true,
             'type' => 'string',
         ];
 
         $this->columns['amount'] = [
+            'label' => 'Amount',
             'precision' => 19,
+            'scale' => 4,
             'nullable' => true,
             'type' => 'decimal',
         ];
 
         $this->columns['bonus'] = [
+            'label' => 'Bonus',
             'precision' => 19,
+            'scale' => 4,
             'nullable' => true,
             'type' => 'decimal',
         ];
@@ -329,13 +298,17 @@ class Lead extends Playground
                 'The bonus rate of the %1$s. Percent value is stored as decimal: 99%% => 0.99',
                 $this->name_lower
             ),
+            'label' => 'Bonus rate',
             'precision' => 8,
+            'scale' => 4,
             'nullable' => true,
             'type' => 'decimal',
         ];
 
         $this->columns['commission'] = [
+            'label' => 'Commission',
             'precision' => 19,
+            'scale' => 4,
             'nullable' => true,
             'type' => 'decimal',
         ];
@@ -345,67 +318,89 @@ class Lead extends Playground
                 'The commission rate of the %1$s. Percent value is stored as decimal: 99%% => 0.99',
                 $this->name_lower
             ),
+            'label' => 'Commission rate',
             'precision' => 8,
+            'scale' => 4,
             'nullable' => true,
             'type' => 'decimal',
         ];
 
         $this->columns['estimate'] = [
+            'label' => 'Estimate',
             'precision' => 19,
+            'scale' => 4,
             'nullable' => true,
             'type' => 'decimal',
         ];
 
         $this->columns['fees'] = [
+            'label' => 'Fees',
             'precision' => 19,
+            'scale' => 4,
             'nullable' => true,
             'type' => 'decimal',
         ];
 
         $this->columns['materials'] = [
+            'label' => 'Materials',
             'precision' => 19,
+            'scale' => 4,
             'nullable' => true,
             'type' => 'decimal',
         ];
 
         $this->columns['services'] = [
+            'label' => 'Services',
             'precision' => 19,
+            'scale' => 4,
             'nullable' => true,
             'type' => 'decimal',
         ];
 
         $this->columns['shipping'] = [
+            'label' => 'Shipping',
             'precision' => 19,
+            'scale' => 4,
             'nullable' => true,
             'type' => 'decimal',
         ];
 
         $this->columns['subtotal'] = [
+            'label' => 'Subtotal',
             'precision' => 19,
+            'scale' => 4,
             'nullable' => true,
             'type' => 'decimal',
         ];
 
         $this->columns['taxable'] = [
+            'label' => 'Taxable',
             'precision' => 19,
+            'scale' => 4,
             'nullable' => true,
             'type' => 'decimal',
         ];
 
         $this->columns['tax_rate'] = [
+            'label' => 'Tax rate',
             'precision' => 8,
+            'scale' => 4,
             'nullable' => true,
             'type' => 'decimal',
         ];
 
         $this->columns['taxes'] = [
+            'label' => 'Taxes',
             'precision' => 19,
+            'scale' => 4,
             'nullable' => true,
             'type' => 'decimal',
         ];
 
         $this->columns['total'] = [
+            'label' => 'Total',
             'precision' => 19,
+            'scale' => 4,
             'nullable' => true,
             'type' => 'decimal',
         ];
@@ -414,6 +409,7 @@ class Lead extends Playground
     public function addDates(): void
     {
         $this->dates['fixed_at'] = [
+            'label' => 'Fixed at',
             'nullable' => true,
         ];
 
@@ -425,24 +421,44 @@ class Lead extends Playground
         $this->flags['featured'] = [
             'icon' => 'fa-solid fa-star text-primary',
             'default' => false,
+            'label' => 'Featured',
+            'index' => true,
             'type' => 'boolean',
         ];
 
         $this->flags['sms'] = [
             'icon' => 'fa-solid fa-comment-sms',
             'default' => false,
+            'label' => 'SMS',
             'type' => 'boolean',
         ];
 
         $this->flags['special'] = [
             'icon' => 'fa-solid fa-star text-success',
             'default' => false,
+            'label' => 'Special',
             'index' => true,
-            'nullable' => true,
             'type' => 'boolean',
         ];
 
         ksort($this->flags);
+    }
+
+    public function addJson(): void
+    {
+        $this->json['address'] = [
+            'label' => 'Address',
+            'default' => null,
+            'nullable' => true,
+            'type' => 'JSON_OBJECT',
+        ];
+
+        $this->json['contact'] = [
+            'label' => 'Contact',
+            'default' => null,
+            'nullable' => true,
+            'type' => 'JSON_OBJECT',
+        ];
     }
 
     public function init(): void
@@ -450,6 +466,7 @@ class Lead extends Playground
         $this->addColumns();
         $this->addDates();
         $this->addFlags();
+        $this->addJson();
         $this->handleCircletHasOne();
     }
 }
