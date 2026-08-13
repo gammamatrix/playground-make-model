@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2026-08-12 02:57:45</timestamp>
+  <timestamp>2026-08-13 02:40:00</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>183</methodCount>
+    <methodCount>186</methodCount>
     <crapMethodCount>12</crapMethodCount>
     <crapLoad>239</crapLoad>
-    <totalCrap>9330.44</totalCrap>
-    <crapMethodPercent>6.56</crapMethodPercent>
+    <totalCrap>9354.44</totalCrap>
+    <crapMethodPercent>6.45</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -1520,6 +1520,17 @@
     </method>
     <method>
       <package>Playground\Make\Model\Recipe\Concerns</package>
+      <className>Playground\Make\Model\Recipe\Concerns\HasMany</className>
+      <methodName>handleCircletHasMany</methodName>
+      <methodSignature>handleCircletHasMany(): void</methodSignature>
+      <fullMethod>handleCircletHasMany(): void</fullMethod>
+      <crap>20</crap>
+      <complexity>4</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe\Concerns</package>
       <className>Playground\Make\Model\Recipe\Concerns\HasOne</className>
       <methodName>hasOne</methodName>
       <methodSignature>hasOne(): array</methodSignature>
@@ -1653,9 +1664,31 @@
     <method>
       <package>Playground\Make\Model\Recipe</package>
       <className>Playground\Make\Model\Recipe\Crm</className>
+      <methodName>addDates</methodName>
+      <methodSignature>addDates(): void</methodSignature>
+      <fullMethod>addDates(): void</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Crm</className>
       <methodName>addFlags</methodName>
       <methodSignature>addFlags(): void</methodSignature>
       <fullMethod>addFlags(): void</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Crm</className>
+      <methodName>addJson</methodName>
+      <methodSignature>addJson(): void</methodSignature>
+      <fullMethod>addJson(): void</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
