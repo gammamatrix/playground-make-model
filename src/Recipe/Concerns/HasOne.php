@@ -8,8 +8,6 @@ declare(strict_types=1);
 
 namespace Playground\Make\Model\Recipe\Concerns;
 
-use Illuminate\Support\Str;
-
 /**
  * \Playground\Make\Model\Recipe\Concerns\HasOne
  */
@@ -36,12 +34,11 @@ trait HasOne
     public function handleCircletHasOne(): void
     {
         $has_one_accessor = $this->name_camel;
-        $table_id = Str::of($this->name_snake)->finish('_id')->toString();
         // dd([
         //    '__METHOD__' => __METHOD__,
         //    //'$this' => $this,
         //    '$has_one_accessor' => $has_one_accessor,
-        //    '$table_id' => $table_id,
+        //    '$this->table_id' => $this->table_id,
         //    '$this->name' => $this->name,
         //    '$this->name_lower' => $this->name_lower,
         //    '$this->name_snake' => $this->name_snake,
@@ -55,7 +52,7 @@ trait HasOne
         $this->hasOne = $this->circletHasOne;
         unset($this->hasOne[$has_one_accessor]);
         $this->ids = $this->allIds;
-        unset($this->ids[$table_id]);
+        unset($this->ids[$this->table_id]);
         foreach ($this->hasOne as $accessor => $meta) {
             if (! empty($meta['comment']) && is_string($meta['comment'])) {
                 $this->hasOne[$accessor]['comment'] = sprintf(
