@@ -66,13 +66,22 @@ abstract class Model implements Contracts\Models, Contracts\Views
     public function __construct(string $name, string $type)
     {
         $this->name = $name;
-        $this->name_camel = Str::of($name)->camel()->toString();
-        $this->name_camels = Str::of($name)->plural()->camel()->toString();
+
         $this->name_kebab = Str::of($name)->kebab()->toString();
-        $this->name_lower = Str::of($this->name_title)->lower()->toString();
-        $this->name_snake = Str::of($name)->snake()->toString();
-        $this->name_snakes = Str::of($name)->plural()->snake()->toString();
         $this->name_title = Str::of($this->name_kebab)->headline()->toString();
+        $this->name_lower = Str::of($this->name_title)->lower()->toString();
+
+        /**
+         * Snake and camel need to end with an "s" for has one and many accessors.
+         *
+         * plural() will try to properly apply the correct ending.
+         */
+        $this->name_camel = Str::of($name)->camel()->toString();
+        $this->name_camels = Str::of($name)->plural()->camel()->finish('s')->toString();
+
+        $this->name_snake = Str::of($name)->snake()->toString();
+        $this->name_snakes = Str::of($name)->plural()->snake()->finish('s')->toString();
+
         $this->table_id = Str::of($this->name_snake)->finish('_id')->toString();
 
         $this->type = $type;
