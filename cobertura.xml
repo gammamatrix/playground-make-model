@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage line-rate="0.43457814661134" branch-rate="0" lines-covered="1571" lines-valid="3615" branches-covered="0" branches-valid="0" complexity="912" version="0.4" timestamp="1786588800">
+<coverage line-rate="0.43457814661134" branch-rate="0" lines-covered="1571" lines-valid="3615" branches-covered="0" branches-valid="0" complexity="912" version="0.4" timestamp="1787420675">
   <sources>
     <source>/app/src</source>
   </sources>
@@ -8338,77 +8338,77 @@
             <method name="__construct" signature="string $name, string $type" line-rate="0" branch-rate="0" complexity="1">
               <lines>
                 <line number="68" hits="0"/>
-                <line number="69" hits="0"/>
                 <line number="70" hits="0"/>
                 <line number="71" hits="0"/>
                 <line number="72" hits="0"/>
-                <line number="73" hits="0"/>
-                <line number="74" hits="0"/>
-                <line number="75" hits="0"/>
-                <line number="76" hits="0"/>
-                <line number="78" hits="0"/>
+                <line number="79" hits="0"/>
                 <line number="80" hits="0"/>
+                <line number="82" hits="0"/>
+                <line number="83" hits="0"/>
+                <line number="85" hits="0"/>
+                <line number="87" hits="0"/>
+                <line number="89" hits="0"/>
               </lines>
             </method>
             <method name="init" signature="" line-rate="0" branch-rate="0" complexity="1">
               <lines>
-                <line number="83" hits="0"/>
+                <line number="92" hits="0"/>
               </lines>
             </method>
             <method name="name" signature="" line-rate="0" branch-rate="0" complexity="1">
               <lines>
-                <line number="87" hits="0"/>
+                <line number="96" hits="0"/>
               </lines>
             </method>
             <method name="type" signature="" line-rate="0" branch-rate="0" complexity="1">
               <lines>
-                <line number="92" hits="0"/>
+                <line number="101" hits="0"/>
               </lines>
             </method>
             <method name="index" signature="" line-rate="0" branch-rate="0" complexity="2">
               <lines>
-                <line number="97" hits="0"/>
-                <line number="98" hits="0"/>
-                <line number="101" hits="0"/>
+                <line number="106" hits="0"/>
+                <line number="107" hits="0"/>
+                <line number="110" hits="0"/>
               </lines>
             </method>
             <method name="timestamp_created" signature="" line-rate="0" branch-rate="0" complexity="1">
               <lines>
-                <line number="106" hits="0"/>
+                <line number="115" hits="0"/>
               </lines>
             </method>
             <method name="timestamp_deleted" signature="" line-rate="0" branch-rate="0" complexity="1">
               <lines>
-                <line number="111" hits="0"/>
+                <line number="120" hits="0"/>
               </lines>
             </method>
             <method name="timestamp_updated" signature="" line-rate="0" branch-rate="0" complexity="1">
               <lines>
-                <line number="116" hits="0"/>
+                <line number="125" hits="0"/>
               </lines>
             </method>
           </methods>
           <lines>
             <line number="68" hits="0"/>
-            <line number="69" hits="0"/>
             <line number="70" hits="0"/>
             <line number="71" hits="0"/>
             <line number="72" hits="0"/>
-            <line number="73" hits="0"/>
-            <line number="74" hits="0"/>
-            <line number="75" hits="0"/>
-            <line number="76" hits="0"/>
-            <line number="78" hits="0"/>
+            <line number="79" hits="0"/>
             <line number="80" hits="0"/>
+            <line number="82" hits="0"/>
             <line number="83" hits="0"/>
+            <line number="85" hits="0"/>
             <line number="87" hits="0"/>
+            <line number="89" hits="0"/>
             <line number="92" hits="0"/>
-            <line number="97" hits="0"/>
-            <line number="98" hits="0"/>
+            <line number="96" hits="0"/>
             <line number="101" hits="0"/>
             <line number="106" hits="0"/>
-            <line number="111" hits="0"/>
-            <line number="116" hits="0"/>
+            <line number="107" hits="0"/>
+            <line number="110" hits="0"/>
+            <line number="115" hits="0"/>
+            <line number="120" hits="0"/>
+            <line number="125" hits="0"/>
           </lines>
         </class>
       </classes>
