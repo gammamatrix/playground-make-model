@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2026-08-22 17:44:35</timestamp>
+  <timestamp>2026-08-29 16:31:01</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>186</methodCount>
     <crapMethodCount>12</crapMethodCount>
     <crapLoad>239</crapLoad>
-    <totalCrap>9354.44</totalCrap>
+    <totalCrap>9394.37</totalCrap>
     <crapMethodPercent>6.45</crapMethodPercent>
   </stats>
   <methods>
@@ -523,9 +523,9 @@
       <methodName>createTest</methodName>
       <methodSignature>createTest()</methodSignature>
       <fullMethod>createTest()</fullMethod>
-      <crap>7</crap>
-      <complexity>7</complexity>
-      <coverage>97.37</coverage>
+      <crap>9</crap>
+      <complexity>9</complexity>
+      <coverage>95.83</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1304,9 +1304,9 @@
       <methodName>prepareOptions</methodName>
       <methodSignature>prepareOptions(): void</methodSignature>
       <fullMethod>prepareOptions(): void</fullMethod>
-      <crap>48.14</crap>
-      <complexity>42</complexity>
-      <coverage>84.85</coverage>
+      <crap>47.07</crap>
+      <complexity>39</complexity>
+      <coverage>82.56</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1392,8 +1392,8 @@
       <methodName>getConfigurationFilename</methodName>
       <methodSignature>getConfigurationFilename(): string</methodSignature>
       <fullMethod>getConfigurationFilename(): string</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
+      <crap>4</crap>
+      <complexity>4</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -1524,8 +1524,8 @@
       <methodName>handleCircletHasMany</methodName>
       <methodSignature>handleCircletHasMany(): void</methodSignature>
       <fullMethod>handleCircletHasMany(): void</fullMethod>
-      <crap>20</crap>
-      <complexity>4</complexity>
+      <crap>30</crap>
+      <complexity>5</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -1546,8 +1546,8 @@
       <methodName>handleCircletHasOne</methodName>
       <methodSignature>handleCircletHasOne(): void</methodSignature>
       <fullMethod>handleCircletHasOne(): void</fullMethod>
-      <crap>20</crap>
-      <complexity>4</complexity>
+      <crap>42</crap>
+      <complexity>6</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -1843,8 +1843,8 @@
       <methodName>__construct</methodName>
       <methodSignature>__construct(string $name, string $type)</methodSignature>
       <fullMethod>__construct(string $name, string $type)</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
+      <crap>6</crap>
+      <complexity>2</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
