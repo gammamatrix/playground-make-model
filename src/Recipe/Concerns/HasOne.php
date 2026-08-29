@@ -33,10 +33,16 @@ trait HasOne
 
     public function handleCircletHasOne(): void
     {
+        if (! in_array($this->name, [
+            'Tagged',
+        ]) && empty($this->circletHasOne[$this->name])
+        ) {
+            return;
+        }
         $has_one_accessor = $this->name_camel;
         // dd([
         //    '__METHOD__' => __METHOD__,
-        //    //'$this' => $this,
+        //    '$this' => $this,
         //    '$has_one_accessor' => $has_one_accessor,
         //    '$this->table_id' => $this->table_id,
         //    '$this->name' => $this->name,

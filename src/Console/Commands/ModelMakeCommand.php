@@ -165,21 +165,28 @@ class ModelMakeCommand extends GeneratorCommand
             ]);
         }
 
-        $this->isResource = $this->hasOption('resource') && $this->option('resource');
+        //        $this->isResource = $this->hasOption('resource') && $this->option('resource');
+        //
+        //        // TODO is api and resource do not belong in model
+        //        if ($this->isApi || $this->isResource) {
+        //            $this->c->setOptions([
+        //                'controller' => true,
+        //                'factory' => true,
+        //                'migration' => true,
+        //                'policy' => false,
+        //                'requests' => false,
+        //                'resources' => false,
+        //                'seed' => true,
+        //                'test' => true,
+        //                'transformers' => false,
+        //            ]);
+        //        }
 
-        if ($this->isApi || $this->isResource) {
-            $this->c->setOptions([
-                'controller' => true,
-                'factory' => true,
-                'migration' => true,
-                'policy' => false,
-                'requests' => false,
-                'resources' => false,
-                'seed' => true,
-                'test' => true,
-                'transformers' => false,
-            ]);
-        }
+        //        if ($type === 'playround-model-tagged') {
+        //            $this->c->setOptions([
+        //                'test' => false,
+        //            ]);
+        //        }
 
         // Check options
 
@@ -283,13 +290,12 @@ class ModelMakeCommand extends GeneratorCommand
         }
 
         // art playground:make:model TestingDump --table testing_dumps --dump --factory --migration --test --skeleton --force --namespace Acme/Testing --package acme-testing --module Testing --type playground-model
-        // dump([
-        //     '__METHOD__' => __METHOD__,
-        //     '$this->c' => $this->c,
-        //     // '$this->c' => $this->c->toArray(),
-        //     '$this->searches' => $this->searches,
-        //     '$options' => $options,
-        // ]);
+        //         dump([
+        //             '__METHOD__' => __METHOD__,
+        //             //'$this->c' => $this->c,
+        //             '$this->options()' => $this->options(),
+        //             '$this->c' => $this->c->toArray(),
+        //         ]);
     }
 
     /**
@@ -310,6 +316,13 @@ class ModelMakeCommand extends GeneratorCommand
     public function finish(): ?bool
     {
         $this->saveConfiguration();
+        //         dd([
+        //             '__METHOD__' => __METHOD__,
+        //             '$this->c' => $this->c,
+        //             // '$this->c' => $this->c->toArray(),
+        //             '$this->searches' => $this->searches,
+        //             // '$this->analyze' => $this->analyze,
+        //         ]);
 
         if ($this->c->factory()) {
             $this->createFactory();
@@ -439,6 +452,8 @@ class ModelMakeCommand extends GeneratorCommand
             'resource',
             'playground',
             'playground-model',
+            'playground-model-linked',
+            'playground-model-tagged',
             'playground-api',
             'playground-resource',
         ])) {
@@ -495,6 +510,8 @@ class ModelMakeCommand extends GeneratorCommand
         'pivot',
         'playground',
         'playground-model',
+        'playground-model-linked',
+        'playground-model-tagged',
     ];
 
     /**
@@ -582,9 +599,18 @@ class ModelMakeCommand extends GeneratorCommand
 
     protected function getConfigurationFilename(): string
     {
+        $type = $this->getType();
+        switch ($this->c->type()) {
+            case 'playground-model':
+            case 'playground-model-linked':
+            case 'playground-model-tagged':
+                $type = 'model';
+                break;
+        }
+
         return sprintf(
             '%2$s/%1$s.json',
-            Str::of($this->getType())->kebab()->toString(),
+            Str::of($type)->kebab()->toString(),
             Str::of($this->c->name())->kebab()->toString(),
         );
     }

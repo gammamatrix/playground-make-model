@@ -66,6 +66,7 @@ abstract class Model implements Contracts\Models, Contracts\Views
     public function __construct(string $name, string $type)
     {
         $this->name = $name;
+        $this->type = $type;
 
         $this->name_kebab = Str::of($name)->kebab()->toString();
         $this->name_title = Str::of($this->name_kebab)->headline()->toString();
@@ -77,14 +78,28 @@ abstract class Model implements Contracts\Models, Contracts\Views
          * plural() will try to properly apply the correct ending.
          */
         $this->name_camel = Str::of($name)->camel()->toString();
-        $this->name_camels = Str::of($name)->plural()->camel()->finish('s')->toString();
 
         $this->name_snake = Str::of($name)->snake()->toString();
-        $this->name_snakes = Str::of($name)->plural()->snake()->finish('s')->toString();
+
+        if (in_array($type, [
+            // 'playground-api-linked',
+            // 'playground-resource-linked',
+            'playground-model-tagged',
+        ])) {
+            // TODO check for words ending with "ed" instead?
+            $this->name_camels = $this->name_camel;
+            $this->name_snakes = $this->name_snake;
+        } else {
+            $this->name_camels = Str::of($name)->plural()->camel()->finish('s')->toString();
+            $this->name_snakes = Str::of($name)->plural()->snake()->finish('s')->toString();
+        }
 
         $this->table_id = Str::of($this->name_snake)->finish('_id')->toString();
-
-        $this->type = $type;
+        dump([
+            '__METHOD__' => __METHOD__,
+            '$name' => $name,
+            '$type' => $type,
+        ]);
 
         $this->init();
     }

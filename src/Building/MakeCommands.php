@@ -258,6 +258,13 @@ trait MakeCommands
         // $this->c->type()
         $type = 'model';
 
+        switch ($this->c->type()) {
+            case 'playground-model':
+            case 'playground-model-tagged':
+                $type = $this->c->type();
+                break;
+        }
+
         $options = [
             'name' => $name->toString(),
             '--namespace' => $this->c->namespace(),
@@ -276,10 +283,11 @@ trait MakeCommands
         if ($file) {
             $options['--model-file'] = $file;
         }
-        // dump([
-        //     '__METHOD__' => __METHOD__,
-        //     '$options' => $options,
-        // ]);
+        dump([
+            '__METHOD__' => __METHOD__,
+            '$options' => $options,
+            '$this->c' => $this->c->toArray(),
+        ]);
 
         $options['--suite'] = 'unit';
 
