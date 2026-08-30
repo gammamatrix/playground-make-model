@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2026-08-29 16:31:01</timestamp>
+  <timestamp>2026-08-30 18:37:01</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>186</methodCount>
-    <crapMethodCount>12</crapMethodCount>
-    <crapLoad>239</crapLoad>
-    <totalCrap>9394.37</totalCrap>
-    <crapMethodPercent>6.45</crapMethodPercent>
+    <methodCount>191</methodCount>
+    <crapMethodCount>13</crapMethodCount>
+    <crapLoad>247</crapLoad>
+    <totalCrap>9437.04</totalCrap>
+    <crapMethodPercent>6.81</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -171,8 +171,8 @@
       <methodName>buildClass_docblock_dates</methodName>
       <methodSignature>buildClass_docblock_dates(Create $create): void</methodSignature>
       <fullMethod>buildClass_docblock_dates(Create $create): void</fullMethod>
-      <crap>6</crap>
-      <complexity>6</complexity>
+      <crap>8</crap>
+      <complexity>8</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -322,6 +322,28 @@
     <method>
       <package>Playground\Make\Model\Building</package>
       <className>Playground\Make\Model\Building\BuildRelationships</className>
+      <methodName>buildClass_HasManyThrough</methodName>
+      <methodSignature>buildClass_HasManyThrough(): void</methodSignature>
+      <fullMethod>buildClass_HasManyThrough(): void</fullMethod>
+      <crap>21.19</crap>
+      <complexity>6</complexity>
+      <coverage>25</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Building</package>
+      <className>Playground\Make\Model\Building\BuildRelationships</className>
+      <methodName>buildClass_HasManyThrough_print</methodName>
+      <methodSignature>buildClass_HasManyThrough_print(string $method, HasManyThrough $HasManyThrough): string</methodSignature>
+      <fullMethod>buildClass_HasManyThrough_print(string $method, HasManyThrough $HasManyThrough): string</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Building</package>
+      <className>Playground\Make\Model\Building\BuildRelationships</className>
       <methodName>buildClass_HasOne</methodName>
       <methodSignature>buildClass_HasOne(): void</methodSignature>
       <fullMethod>buildClass_HasOne(): void</fullMethod>
@@ -358,9 +380,9 @@
       <methodName>buildClass_model_table</methodName>
       <methodSignature>buildClass_model_table(): void</methodSignature>
       <fullMethod>buildClass_model_table(): void</fullMethod>
-      <crap>19.27</crap>
-      <complexity>19</complexity>
-      <coverage>90.91</coverage>
+      <crap>20.84</crap>
+      <complexity>20</complexity>
+      <coverage>87.18</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -545,9 +567,9 @@
       <methodName>buildClass_skeleton_prepare</methodName>
       <methodSignature>buildClass_skeleton_prepare(Create $create): void</methodSignature>
       <fullMethod>buildClass_skeleton_prepare(Create $create): void</fullMethod>
-      <crap>17</crap>
-      <complexity>17</complexity>
-      <coverage>96</coverage>
+      <crap>18.12</crap>
+      <complexity>18</complexity>
+      <coverage>92.73</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -743,9 +765,9 @@
       <methodName>buildClass_skeleton_timestamps</methodName>
       <methodSignature>buildClass_skeleton_timestamps(Create $create): void</methodSignature>
       <fullMethod>buildClass_skeleton_timestamps(Create $create): void</fullMethod>
-      <crap>6</crap>
-      <complexity>6</complexity>
-      <coverage>96.97</coverage>
+      <crap>7.01</crap>
+      <complexity>7</complexity>
+      <coverage>94.59</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -754,9 +776,9 @@
       <methodName>buildClass_skeleton_softDeletes</methodName>
       <methodSignature>buildClass_skeleton_softDeletes(Create $create): void</methodSignature>
       <fullMethod>buildClass_skeleton_softDeletes(Create $create): void</fullMethod>
-      <crap>4</crap>
-      <complexity>4</complexity>
-      <coverage>94.44</coverage>
+      <crap>5.02</crap>
+      <complexity>5</complexity>
+      <coverage>90.91</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -886,9 +908,9 @@
       <methodName>buildClass_skeleton_relationships</methodName>
       <methodSignature>buildClass_skeleton_relationships(Create $create): void</methodSignature>
       <fullMethod>buildClass_skeleton_relationships(Create $create): void</fullMethod>
-      <crap>3.58</crap>
-      <complexity>3</complexity>
-      <coverage>60</coverage>
+      <crap>5.26</crap>
+      <complexity>4</complexity>
+      <coverage>57.14</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -897,6 +919,17 @@
       <methodName>buildClass_skeleton_relationships_hasMany</methodName>
       <methodSignature>buildClass_skeleton_relationships_hasMany(Create $create): void</methodSignature>
       <fullMethod>buildClass_skeleton_relationships_hasMany(Create $create): void</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Building\Skeleton</package>
+      <className>Playground\Make\Model\Building\Skeleton\MakeRelationships</className>
+      <methodName>buildClass_skeleton_relationships_hasManyThrough</methodName>
+      <methodSignature>buildClass_skeleton_relationships_hasManyThrough(Create $create): void</methodSignature>
+      <fullMethod>buildClass_skeleton_relationships_hasManyThrough(Create $create): void</fullMethod>
       <crap>6</crap>
       <complexity>2</complexity>
       <coverage>0</coverage>
@@ -1304,10 +1337,10 @@
       <methodName>prepareOptions</methodName>
       <methodSignature>prepareOptions(): void</methodSignature>
       <fullMethod>prepareOptions(): void</fullMethod>
-      <crap>47.07</crap>
-      <complexity>39</complexity>
-      <coverage>82.56</coverage>
-      <crapLoad>0</crapLoad>
+      <crap>51.15</crap>
+      <complexity>40</complexity>
+      <coverage>80.9</coverage>
+      <crapLoad>8</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Model\Console\Commands</package>
@@ -1348,9 +1381,9 @@
       <methodName>getStub</methodName>
       <methodSignature>getStub()</methodSignature>
       <fullMethod>getStub()</fullMethod>
-      <crap>6</crap>
-      <complexity>6</complexity>
-      <coverage>100</coverage>
+      <crap>7</crap>
+      <complexity>7</complexity>
+      <coverage>96</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1524,8 +1557,30 @@
       <methodName>handleCircletHasMany</methodName>
       <methodSignature>handleCircletHasMany(): void</methodSignature>
       <fullMethod>handleCircletHasMany(): void</fullMethod>
-      <crap>30</crap>
-      <complexity>5</complexity>
+      <crap>20</crap>
+      <complexity>4</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe\Concerns</package>
+      <className>Playground\Make\Model\Recipe\Concerns\HasManyThrough</className>
+      <methodName>hasManyThrough</methodName>
+      <methodSignature>hasManyThrough(): array</methodSignature>
+      <fullMethod>hasManyThrough(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe\Concerns</package>
+      <className>Playground\Make\Model\Recipe\Concerns\HasManyThrough</className>
+      <methodName>handleHasManyThrough</methodName>
+      <methodSignature>handleHasManyThrough(): void</methodSignature>
+      <fullMethod>handleHasManyThrough(): void</fullMethod>
+      <crap>20</crap>
+      <complexity>4</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -1546,8 +1601,8 @@
       <methodName>handleCircletHasOne</methodName>
       <methodSignature>handleCircletHasOne(): void</methodSignature>
       <fullMethod>handleCircletHasOne(): void</fullMethod>
-      <crap>42</crap>
-      <complexity>6</complexity>
+      <crap>20</crap>
+      <complexity>4</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
