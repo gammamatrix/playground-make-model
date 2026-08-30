@@ -108,16 +108,24 @@ trait BuildDocBlock
 
             $this->searches['docblock'] .= PHP_EOL.
                 ' * @property ?Carbon $created_at';
-            $this->searches['docblock'] .= PHP_EOL.
-                ' * @property ?Carbon $updated_at';
+            if (! in_array($this->c->type(), [
+                'playground-model-tagged',
+            ])) {
+                $this->searches['docblock'] .= PHP_EOL.
+                    ' * @property ?Carbon $updated_at';
+            }
         }
 
         // Handle softDeletes
         if ($create->softDeletes()) {
             $addCarbon = true;
 
-            $this->searches['docblock'] .= PHP_EOL.
-                ' * @property ?Carbon $deleted_at';
+            if (! in_array($this->c->type(), [
+                'playground-model-tagged',
+            ])) {
+                $this->searches['docblock'] .= PHP_EOL.
+                    ' * @property ?Carbon $deleted_at';
+            }
         }
 
         // Handle all other dates.

@@ -149,6 +149,12 @@ trait MakeSkeleton
                 ],
             ];
         }
+        if (in_array($this->c->type(), [
+            'playground-model-tagged',
+        ])) {
+            $options_create['timestamps'] = true;
+            $options_create['softDeletes'] = false;
+        }
 
         if ($options_create) {
             $create->setOptions($options_create);

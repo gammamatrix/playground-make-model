@@ -33,9 +33,9 @@ trait HasMany
 
     public function handleCircletHasMany(): void
     {
-        if (empty($this->circletHasMany[$this->name])) {
-            return;
-        }
+        //        if (empty($this->circletHasMany[$this->name])) {
+        //            return;
+        //        }
         $has_many_accessor = $this->name_camels;
         // dd([
         //    '__METHOD__' => __METHOD__,
@@ -65,5 +65,10 @@ trait HasMany
                 );
             }
         }
+        dump([
+            '__METHOD__' => __METHOD__,
+            // '$this' => $this,
+            '$this->hasMany ' => $this->hasMany,
+        ]);
     }
 }

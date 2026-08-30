@@ -21,6 +21,7 @@ abstract class Model implements Contracts\Models, Contracts\Views
     use Concerns\FactoryStates;
     use Concerns\Flags;
     use Concerns\HasMany;
+    use Concerns\HasManyThrough;
     use Concerns\HasOne;
     use Concerns\Ids;
     use Concerns\Json;
@@ -95,11 +96,11 @@ abstract class Model implements Contracts\Models, Contracts\Views
         }
 
         $this->table_id = Str::of($this->name_snake)->finish('_id')->toString();
-        dump([
-            '__METHOD__' => __METHOD__,
-            '$name' => $name,
-            '$type' => $type,
-        ]);
+        //        dump([
+        //            '__METHOD__' => __METHOD__,
+        //            '$name' => $name,
+        //            '$type' => $type,
+        //        ]);
 
         $this->init();
     }

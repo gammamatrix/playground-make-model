@@ -97,6 +97,7 @@ class ModelMakeCommand extends GeneratorCommand
         'fillable' => '',
         'perPage' => '',
         'HasMany' => '',
+        'HasManyThrough' => '',
         'HasOne' => '',
         'scopes' => '',
         'filters' => '',
@@ -182,11 +183,10 @@ class ModelMakeCommand extends GeneratorCommand
         //            ]);
         //        }
 
-        //        if ($type === 'playround-model-tagged') {
-        //            $this->c->setOptions([
-        //                'test' => false,
-        //            ]);
-        //        }
+        if ($type === 'playground-model-tagged') {
+            $this->c->addToUse('Playground\Models\User');
+            $this->c->create()?->setOptions(['timestamps' => true]);
+        }
 
         // Check options
 
@@ -290,12 +290,12 @@ class ModelMakeCommand extends GeneratorCommand
         }
 
         // art playground:make:model TestingDump --table testing_dumps --dump --factory --migration --test --skeleton --force --namespace Acme/Testing --package acme-testing --module Testing --type playground-model
-        //         dump([
-        //             '__METHOD__' => __METHOD__,
-        //             //'$this->c' => $this->c,
-        //             '$this->options()' => $this->options(),
-        //             '$this->c' => $this->c->toArray(),
-        //         ]);
+        // dd([
+        //     '__METHOD__' => __METHOD__,
+        //     //'$this->c' => $this->c,
+        //     '$this->options()' => $this->options(),
+        //     '$this->c' => $this->c->toArray(),
+        // ]);
     }
 
     /**
@@ -316,13 +316,13 @@ class ModelMakeCommand extends GeneratorCommand
     public function finish(): ?bool
     {
         $this->saveConfiguration();
-        //         dd([
-        //             '__METHOD__' => __METHOD__,
-        //             '$this->c' => $this->c,
-        //             // '$this->c' => $this->c->toArray(),
-        //             '$this->searches' => $this->searches,
-        //             // '$this->analyze' => $this->analyze,
-        //         ]);
+        //dd([
+        //    '__METHOD__' => __METHOD__,
+        //    '$this->c' => $this->c,
+        //    // '$this->c' => $this->c->toArray(),
+        //    '$this->searches' => $this->searches,
+        //    // '$this->analyze' => $this->analyze,
+        //]);
 
         if ($this->c->factory()) {
             $this->createFactory();
@@ -415,6 +415,7 @@ class ModelMakeCommand extends GeneratorCommand
         // // Relationships
         $this->buildClass_HasOne();
         $this->buildClass_HasMany();
+        $this->buildClass_HasManyThrough();
 
         $this->buildClass_uses($name);
 
@@ -424,12 +425,13 @@ class ModelMakeCommand extends GeneratorCommand
         // $this->c->apply();
         $this->applyConfigurationToSearch(true);
 
-        // dd([
-        //     '__METHOD__' => __METHOD__,
-        //     // '$this->c' => $this->c,
-        //     '$this->searches' => $this->searches,
-        //     '$this->c->skeleton()' => $this->c->skeleton(),
-        // ]);
+        //         dd([
+        //             '__METHOD__' => __METHOD__,
+        //             '$this->options' => $this->options(),
+        //             '$this->c' => $this->c->toArray(),
+        //             '$this->searches' => $this->searches,
+        //             '$this->c->skeleton()' => $this->c->skeleton(),
+        //         ]);
 
         return parent::buildClass($name);
     }
@@ -448,12 +450,15 @@ class ModelMakeCommand extends GeneratorCommand
         } elseif ($this->c->type() === 'model') {
             $template = 'model/model.stub';
         } elseif (in_array($this->c->type(), [
+            'playground-model-tagged',
+        ])) {
+            $template = 'model/model-tagged.stub';
+        } elseif (in_array($this->c->type(), [
             'api',
             'resource',
             'playground',
             'playground-model',
             'playground-model-linked',
-            'playground-model-tagged',
             'playground-api',
             'playground-resource',
         ])) {

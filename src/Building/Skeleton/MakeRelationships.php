@@ -23,6 +23,10 @@ trait MakeRelationships
             $this->buildClass_skeleton_relationships_hasMany($create);
         }
 
+        if ($this->recipe->hasManyThrough()) {
+            $this->buildClass_skeleton_relationships_hasManyThrough($create);
+        }
+
         if ($this->recipe->hasOne()) {
             $this->buildClass_skeleton_relationships_hasOne($create);
         }
@@ -40,6 +44,21 @@ trait MakeRelationships
             //     '$this->recipe->name()' => $this->recipe->name(),
             // ]);
             $this->c->addHasMany($accessor, $meta);
+        }
+    }
+
+    protected function buildClass_skeleton_relationships_hasManyThrough(Create $create): void
+    {
+        $this->components->info(sprintf('Skeleton relationships [hasManyThrough] for [%s]', $this->c->name()));
+
+        foreach ($this->recipe->hasManyThrough() as $accessor => $meta) {
+            // dump([
+            //     '__METHOD__' => __METHOD__,
+            //     '$accessor' => $accessor,
+            //     '$meta' => $meta,
+            //     '$this->recipe->name()' => $this->recipe->name(),
+            // ]);
+            $this->c->addHasManyThrough($accessor, $meta);
         }
     }
 

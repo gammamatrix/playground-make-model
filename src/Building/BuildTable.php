@@ -71,6 +71,13 @@ trait BuildTable
                 $options['extends'] = 'Model';
                 // $this->searches['extends'] = 'Model';
             } elseif (in_array($type, [
+                'playground-model-linked',
+                'playground-model-tagged',
+            ])) {
+                $options['extends_use'] = 'Playground/Models/UuidModel';
+                $options['extends'] = 'UuidModel';
+                // $this->searches['extends'] = 'Model';
+            } elseif (in_array($type, [
                 'playground-resource',
                 'playground-api',
             ])) {

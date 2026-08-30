@@ -97,13 +97,13 @@ trait Recipes
             ]);
         }
 
-        // dd([
-        //     '__METHOD__' => __METHOD__,
-        //     '$name' => $name,
-        //     '$type' => $type,
-        //     '$recipe' => $recipe,
-        //     '$class' => $class,
-        //     '$this->recipe' => $this->recipe,
-        // ]);
+        //         dd([
+        //             '__METHOD__' => __METHOD__,
+        //             '$name' => $name,
+        //             '$type' => $type,
+        //             '$recipe' => $recipe,
+        //             '$class' => $class,
+        //             '$this->recipe' => $this->recipe,
+        //         ]);
     }
 }

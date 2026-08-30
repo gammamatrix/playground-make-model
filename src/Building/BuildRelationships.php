@@ -10,6 +10,7 @@ namespace Playground\Make\Model\Building;
 
 use Illuminate\Support\Str;
 use Playground\Make\Configuration\Model\HasMany;
+use Playground\Make\Configuration\Model\HasManyThrough;
 use Playground\Make\Configuration\Model\HasOne;
 use Playground\Make\Model\Console\Commands\ModelMakeCommand;
 
@@ -23,6 +24,11 @@ trait BuildRelationships
     protected function buildClass_HasMany(): void
     {
         $hm = $this->c->HasMany();
+        // dd([
+        //    '__METHOD__' => __METHOD__,
+        //    //'$hm' => $hm,
+        //    '$this->c' => $this->c,
+        // ]);
 
         if (! $hm) {
             return;
@@ -76,9 +82,77 @@ trait BuildRelationships
 PHP_CODE;
     }
 
+    protected function buildClass_HasManyThrough(): void
+    {
+        $hmt = $this->c->HasManyThrough();
+        //        dump([
+        //            '__METHOD__' => __METHOD__,
+        //            '$hmt' => $hmt,
+        //        ]);
+        if (! $hmt) {
+            return;
+        }
+
+        if ($this->searches['HasOne'] || $this->searches['HasMany']) {
+            $this->searches['HasManyThrough'] .= PHP_EOL;
+        }
+
+        $this->buildClass_uses_add('Illuminate/Database/Eloquent/Relations/HasManyThrough');
+
+        // $add_new_line = ! empty($this->searches['use_class'])
+        //     || ! empty($this->searches['table'])
+        //     || ! empty($this->searches['perPage'])
+        //     || ! empty($this->searches['HasOne']);
+        // // $this->searches['HasMany'] = $add_new_line ? PHP_EOL : '';
+
+        $i = 0;
+        foreach ($hmt as $method => $HasManyThrough) {
+            $i++;
+            $this->searches['HasManyThrough'] .= $this->buildClass_HasManyThrough_print($method, $HasManyThrough);
+            if ($i < count($hmt)) {
+                $this->searches['HasManyThrough'] .= PHP_EOL;
+            }
+        }
+    }
+
+    protected function buildClass_HasManyThrough_print(string $method, HasManyThrough $HasManyThrough): string
+    {
+        $related = $HasManyThrough->related();
+
+        if ($related !== class_basename($related)) {
+            $related = '\\'.$this->parseClassInput($related);
+        }
+
+        $through = $HasManyThrough->through() ?: 'DummyThrough';
+
+        return <<<PHP_CODE
+
+    /**
+     * {$HasManyThrough->comment()}
+     *
+     * @return HasManyThrough<$related, $through, \$this>
+     */
+    public function {$method}(): HasManyThrough
+    {
+        return \$this->hasManyThrough(
+            {$related}::class,
+            {$through}::class,
+            '{$HasManyThrough->firstKey()}',
+            '{$HasManyThrough->secondKey()}',
+            '{$HasManyThrough->localKey()}',
+            '{$HasManyThrough->secondLocalKey()}'
+        );
+    }
+PHP_CODE;
+    }
+
     protected function buildClass_HasOne(): void
     {
         $ho = $this->c->HasOne();
+        // dd([
+        //     '__METHOD__' => __METHOD__,
+        //     '$ho' => $ho,
+        // ]);
         if (! $ho) {
             return;
         }

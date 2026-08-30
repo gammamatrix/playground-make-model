@@ -14,5 +14,7 @@ namespace {{ namespace }}\Models;
  */
 class {{ class }} extends {{ extends }}{{ implements }}
 {
+    const UPDATED_AT = null;
+
 {{ use_class }}{{ use_factory }}{{ property_table }}{{ attributes }}{{ fillable }}{{ casts }}{{ perPage }}{{ HasOne }}{{ HasMany }}{{ HasManyThrough }}{{ scopes }}{{ filters }}
 }

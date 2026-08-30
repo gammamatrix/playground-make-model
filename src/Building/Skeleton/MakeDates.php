@@ -64,6 +64,11 @@ trait MakeDates
             ];
         }
 
+        if (in_array($this->c->type(), [
+            'playground-model-tagged',
+        ])) {
+            return;
+        }
         $this->c->addAttribute('updated_at', null);
         $this->c->addCast('updated_at', 'datetime');
 
@@ -93,6 +98,12 @@ trait MakeDates
     protected function buildClass_skeleton_softDeletes(Create $create): void
     {
         if (! $create->softDeletes()) {
+            return;
+        }
+
+        if (in_array($this->c->type(), [
+            'playground-model-tagged',
+        ])) {
             return;
         }
 
