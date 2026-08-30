@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2026-08-30 18:37:01</timestamp>
+  <timestamp>2026-08-30 18:39:24</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>191</methodCount>
@@ -547,7 +547,7 @@
       <fullMethod>createTest()</fullMethod>
       <crap>9</crap>
       <complexity>9</complexity>
-      <coverage>95.83</coverage>
+      <coverage>95.35</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
