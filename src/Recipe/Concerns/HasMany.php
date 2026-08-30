@@ -65,10 +65,5 @@ trait HasMany
                 );
             }
         }
-        dump([
-            '__METHOD__' => __METHOD__,
-            // '$this' => $this,
-            '$this->hasMany ' => $this->hasMany,
-        ]);
     }
 }

@@ -283,11 +283,11 @@ trait MakeCommands
         if ($file) {
             $options['--model-file'] = $file;
         }
-        dump([
-            '__METHOD__' => __METHOD__,
-            '$options' => $options,
-            '$this->c' => $this->c->toArray(),
-        ]);
+        //dump([
+        //    '__METHOD__' => __METHOD__,
+        //    '$options' => $options,
+        //    '$this->c' => $this->c->toArray(),
+        //]);
 
         $options['--suite'] = 'unit';
 
