@@ -316,13 +316,13 @@ class ModelMakeCommand extends GeneratorCommand
     public function finish(): ?bool
     {
         $this->saveConfiguration();
-        //dd([
+        // dd([
         //    '__METHOD__' => __METHOD__,
         //    '$this->c' => $this->c,
         //    // '$this->c' => $this->c->toArray(),
         //    '$this->searches' => $this->searches,
         //    // '$this->analyze' => $this->analyze,
-        //]);
+        // ]);
 
         if ($this->c->factory()) {
             $this->createFactory();

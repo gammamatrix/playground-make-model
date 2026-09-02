@@ -88,6 +88,13 @@ trait MakeCommands
             $options['--model-file'] = $file;
         }
 
+        if ($this->hasOption('migration-date') && $this->option('migration-date')) {
+            $options['--migration-date'] = $this->option('migration-date');
+        }
+        if ($this->hasOption('migration-order') && $this->option('migration-order')) {
+            $options['--migration-order'] = $this->option('migration-order');
+        }
+
         $this->call('playground:make:migration', $options);
     }
 
@@ -283,11 +290,11 @@ trait MakeCommands
         if ($file) {
             $options['--model-file'] = $file;
         }
-        //dump([
+        // dump([
         //    '__METHOD__' => __METHOD__,
         //    '$options' => $options,
         //    '$this->c' => $this->c->toArray(),
-        //]);
+        // ]);
 
         $options['--suite'] = 'unit';
 

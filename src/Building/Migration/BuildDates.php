@@ -64,10 +64,17 @@ trait BuildDates
 
         $this->searches['table_timestamps'] .= PHP_EOL.PHP_EOL;
 
-        $this->searches['table_timestamps'] .= sprintf(
-            '%1$s$table->timestamps();',
-            str_repeat(' ', 12)
-        );
+        if ($this->c->type() === 'playground-model-tagged') {
+            $this->searches['table_timestamps'] .= sprintf(
+                '%1$s$table->timestamp(\'created_at\')->nullable();',
+                str_repeat(' ', 12)
+            );
+        } else {
+            $this->searches['table_timestamps'] .= sprintf(
+                '%1$s$table->timestamps();',
+                str_repeat(' ', 12)
+            );
+        }
     }
 
     protected function buildClass_softDeletes(): void

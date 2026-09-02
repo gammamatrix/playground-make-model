@@ -33,29 +33,40 @@ trait BuildTable
             $this->searches['model_fqdn'] = $this->c->fqdn() ?: '';
         }
 
-        if (! $this->c->model() && $name) {
-            $options['model'] = $name;
-            // $this->searches['model'] = $options['model'];
+        if ($name) {
+            if (! $this->c->model()) {
+                $options['model'] = $name;
+                // $this->searches['model'] = $options['model'];
+            }
+
+            if (! $this->c->model_slug()) {
+                $options['model_slug'] = Str::of($name)->kebab()->slug()->toString();
+                // $this->searches['model_slug'] = $options['model_slug'];
+            }
+
+            if (! $this->c->model_singular()) {
+                $options['model_singular'] = Str::of($name)->headline()->toString();
+            }
+
+            if (! $this->c->model_plural()) {
+                if ($this->c->type() == 'playground-model-tagged') {
+                    $options['model_plural'] = Str::of($name)->headline()->toString();
+                } else {
+                    $options['model_plural'] = Str::of($name)->headline()->plural()->toString();
+                }
+                // $this->searches['model_plural'] = $options['model_plural'];
+            }
+
+            if (! $this->c->model_slug_plural()) {
+                if ($this->c->type() == 'playground-model-tagged') {
+                    $options['model_slug_plural'] = Str::of($name)->kebab()->slug()->toString();
+                } else {
+                    $options['model_slug_plural'] = Str::of($name)->plural()->kebab()->slug()->toString();
+                }
+                // $this->searches['model_slug_plural'] = $options['model_slug_plural'];
+            }
         }
 
-        if (! $this->c->model_slug() && $name) {
-            $options['model_slug'] = Str::of($name)->kebab()->slug()->toString();
-            // $this->searches['model_slug'] = $options['model_slug'];
-        }
-
-        if (! $this->c->model_singular() && $name) {
-            $options['model_singular'] = Str::of($name)->headline()->toString();
-        }
-
-        if (! $this->c->model_plural() && $name) {
-            $options['model_plural'] = Str::of($name)->headline()->plural()->toString();
-            // $this->searches['model_plural'] = $options['model_plural'];
-        }
-
-        if (! $this->c->model_slug_plural() && $name) {
-            $options['model_slug_plural'] = Str::of($name)->plural()->kebab()->slug()->toString();
-            // $this->searches['model_slug_plural'] = $options['model_slug_plural'];
-        }
         // dump([
         //     '__METHOD__' => __METHOD__,
         //     '$options[model_slug_plural]' => $options['model_slug_plural'],
@@ -93,11 +104,11 @@ trait BuildTable
             $this->c->setOptions($options);
             $this->c->apply();
         }
-        // dd([
-        //     '__METHOD__' => __METHOD__,
-        //     '$options' => $options,
-        //     '$this->c' => $this->c,
-        // ]);
+        //         dd([
+        //             '__METHOD__' => __METHOD__,
+        //             '$options' => $options,
+        //             '$this->c' => $this->c,
+        //         ]);
     }
 
     protected function buildClass_table_property(): void

@@ -202,6 +202,11 @@ class MigrationMakeCommand extends GeneratorCommand
                 ]);
             }
         }
+        //        dump([
+        //            '__METHOD__' => __METHOD__,
+        //            '$type' => $type,
+        //            '$table' => $table,
+        //        ]);
 
         if (! $table) {
 
@@ -221,7 +226,16 @@ class MigrationMakeCommand extends GeneratorCommand
             } else {
                 $table = $this->model?->table();
                 if (! $table) {
-                    $table = Str::snake(Str::pluralStudly(class_basename($name)));
+                    if ($type === 'playground-model-tagged') {
+                        $name = 'tagged';
+                    } else {
+                        $name = Str::snake(Str::pluralStudly(class_basename($name)));
+                    }
+                    $table = sprintf(
+                        '%1$s_%2$s',
+                        Str::snake($this->c->module_slug()),
+                        $name
+                    );
                 }
             }
         } else {
@@ -238,18 +252,18 @@ class MigrationMakeCommand extends GeneratorCommand
         $this->c->setOptions([
             'table' => $table,
         ]);
-        // dump([
-        //     '__METHOD__' => __METHOD__,
-        //     // '$options' => $options,
-        //     '$type' => $type,
-        //     '$table' => $table,
-        //     // '$this->model' => $this->model,
-        //     '!empty($this->model)' => !empty($this->model),
-        //     '$this->c' => $this->c,
-        //     '$this->c->class()' => $this->c->class(),
-        //     '$this->c->table()' => $this->c->table(),
-        //     '$this->c->model_fqdn()' => $this->c->model_fqdn(),
-        // ]);
+        //         dd([
+        //             '__METHOD__' => __METHOD__,
+        //             // '$options' => $options,
+        //             '$type' => $type,
+        //             '$table' => $table,
+        //             // '$this->model' => $this->model,
+        //             '!empty($this->model)' => !empty($this->model),
+        //             '$this->c' => $this->c,
+        //             '$this->c->class()' => $this->c->class(),
+        //             '$this->c->table()' => $this->c->table(),
+        //             '$this->c->model_fqdn()' => $this->c->model_fqdn(),
+        //         ]);
 
         if (! $this->option('interactive') && ! $this->c->table()) {
             throw new \RuntimeException('A table is required.');
@@ -330,18 +344,18 @@ class MigrationMakeCommand extends GeneratorCommand
             'class' => $class,
         ]);
 
-        // dd([
-        //     '__METHOD__' => __METHOD__,
-        //     // '$his->arguments()' => $this->arguments(),
-        //     // '$his->options()' => $this->options(),
-        //     // '$this->c' => $this->c,
-        //     '$this->c->class()' => $this->c->class(),
-        //     '$this->c->table()' => $this->c->table(),
-        //     // '$this->searches' => $this->searches,
-        //     '$class' => $class,
-        //     '$name' => $name,
-        //     '$table' => $table,
-        // ]);
+        //         dd([
+        //             '__METHOD__' => __METHOD__,
+        //             // '$this->arguments()' => $this->arguments(),
+        //             '$this->options()' => $this->options(),
+        //             // '$this->c' => $this->c,
+        //             '$this->c->class()' => $this->c->class(),
+        //             '$this->c->table()' => $this->c->table(),
+        //             // '$this->searches' => $this->searches,
+        //             '$class' => $class,
+        //             '$name' => $name,
+        //             '$table' => $table,
+        //         ]);
 
         return $this->c->class();
     }
@@ -358,6 +372,8 @@ class MigrationMakeCommand extends GeneratorCommand
         if (in_array($this->c->type(), [
             'model',
             'playground-model',
+            'playground-model-linked',
+            'playground-model-tagged',
             'resource',
             'playground-resource',
             'api',
@@ -376,18 +392,17 @@ class MigrationMakeCommand extends GeneratorCommand
             $this->buildClass_ui();
             $this->buildClass_json();
             $this->buildClass_uses($name);
-
         }
 
         $this->applyConfigurationToSearch();
-        // dd([
-        //     '__METHOD__' => __METHOD__,
-        //     '$his->arguments()' => $this->arguments(),
-        //     '$his->options()' => $this->options(),
-        //     '$this->c' => $this->c->toArray(),
-        //     '$this->searches' => $this->searches,
-        //     '$this->model' => $this->model,
-        // ]);
+        //         dd([
+        //             '__METHOD__' => __METHOD__,
+        //             '$his->arguments()' => $this->arguments(),
+        //             '$his->options()' => $this->options(),
+        //             '$this->c' => $this->c->toArray(),
+        //             '$this->searches' => $this->searches,
+        //             '$this->model' => $this->model,
+        //         ]);
 
         return parent::buildClass($name);
     }
