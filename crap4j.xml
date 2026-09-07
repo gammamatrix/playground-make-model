@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2026-08-30 18:39:24</timestamp>
+  <timestamp>2026-09-07 18:07:02</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>191</methodCount>
     <crapMethodCount>13</crapMethodCount>
     <crapLoad>247</crapLoad>
-    <totalCrap>9437.04</totalCrap>
+    <totalCrap>9454.61</totalCrap>
     <crapMethodPercent>6.81</crapMethodPercent>
   </stats>
   <methods>
@@ -380,9 +380,9 @@
       <methodName>buildClass_model_table</methodName>
       <methodSignature>buildClass_model_table(): void</methodSignature>
       <fullMethod>buildClass_model_table(): void</fullMethod>
-      <crap>20.84</crap>
-      <complexity>20</complexity>
-      <coverage>87.18</coverage>
+      <crap>19.3</crap>
+      <complexity>18</complexity>
+      <coverage>84.09</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -468,9 +468,9 @@
       <methodName>buildClass_states</methodName>
       <methodSignature>buildClass_states(): void</methodSignature>
       <fullMethod>buildClass_states(): void</fullMethod>
-      <crap>12.19</crap>
-      <complexity>4</complexity>
-      <coverage>20</coverage>
+      <crap>15.55</crap>
+      <complexity>5</complexity>
+      <coverage>25</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -501,9 +501,9 @@
       <methodName>createMigration</methodName>
       <methodSignature>createMigration(): void</methodSignature>
       <fullMethod>createMigration(): void</fullMethod>
-      <crap>5</crap>
-      <complexity>5</complexity>
-      <coverage>100</coverage>
+      <crap>9.07</crap>
+      <complexity>9</complexity>
+      <coverage>90.48</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -569,7 +569,7 @@
       <fullMethod>buildClass_skeleton_prepare(Create $create): void</fullMethod>
       <crap>18.12</crap>
       <complexity>18</complexity>
-      <coverage>92.73</coverage>
+      <coverage>92.86</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -611,9 +611,9 @@
       <methodName>buildClass_timestamps</methodName>
       <methodSignature>buildClass_timestamps(): void</methodSignature>
       <fullMethod>buildClass_timestamps(): void</fullMethod>
-      <crap>4.31</crap>
-      <complexity>2</complexity>
-      <coverage>16.67</coverage>
+      <crap>9.18</crap>
+      <complexity>3</complexity>
+      <coverage>11.76</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -622,9 +622,9 @@
       <methodName>buildClass_softDeletes</methodName>
       <methodSignature>buildClass_softDeletes(): void</methodSignature>
       <fullMethod>buildClass_softDeletes(): void</fullMethod>
-      <crap>3.46</crap>
-      <complexity>2</complexity>
-      <coverage>28.57</coverage>
+      <crap>8.21</crap>
+      <complexity>3</complexity>
+      <coverage>16.67</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1216,9 +1216,9 @@
       <methodName>getStub</methodName>
       <methodSignature>getStub(): string</methodSignature>
       <fullMethod>getStub(): string</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
+      <crap>2.06</crap>
+      <complexity>2</complexity>
+      <coverage>75</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1282,9 +1282,9 @@
       <methodName>prepareOptions</methodName>
       <methodSignature>prepareOptions(): void</methodSignature>
       <fullMethod>prepareOptions(): void</fullMethod>
-      <crap>18.31</crap>
-      <complexity>16</complexity>
-      <coverage>79.17</coverage>
+      <crap>19.31</crap>
+      <complexity>17</complexity>
+      <coverage>80</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
