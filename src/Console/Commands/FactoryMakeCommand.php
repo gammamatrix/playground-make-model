@@ -101,6 +101,9 @@ class FactoryMakeCommand extends GeneratorCommand
     protected function getStub(): string
     {
         $template = 'model/factory.stub';
+        if ($this->c->type() === 'playground-model-tagged') {
+            $template = 'model/factory-empty.stub';
+        }
 
         return $this->resolveStubPath($template);
     }
@@ -117,9 +120,7 @@ class FactoryMakeCommand extends GeneratorCommand
 
     public function prepareOptions(): void
     {
-        $options = $this->options();
-
-        $type = $this->getConfigurationType();
+        $type = $this->c->type();
         if (! $type) {
             $this->c->setOptions([
                 'type' => 'model',

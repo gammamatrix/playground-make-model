@@ -114,6 +114,11 @@ trait BuildTable
     protected function buildClass_table_property(): void
     {
         $table = $this->c->table();
+        // dd([
+        //     '__METHOD__' => __METHOD__,
+        //     '$table' => $table,
+        //     '$this->c' => $this->c->toArray(),
+        // ]);
 
         $this->searches['property_table'] = ! empty($this->searches['use_class']) ? PHP_EOL : '';
 

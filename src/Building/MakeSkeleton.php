@@ -89,24 +89,24 @@ trait MakeSkeleton
         $options_create = [];
         $table = $this->c->table();
 
+        if (! $table && $this->c->model_slug_plural()) {
+            $table = sprintf(
+                '%1$s_%2$s',
+                $this->c->module_slug(),
+                Str::of($this->c->model_slug_plural())->slug('_')->toString()
+            );
+        }
+
+        if (! $this->c->table() && $table) {
+            $options['table'] = $table;
+        }
+
         if (in_array($this->c->type(), [
             'model',
             'playground-model',
         ])) {
             $options_create['timestamps'] = true;
             $options_create['softDeletes'] = true;
-
-            if (! $table && $this->c->model_slug_plural()) {
-                $table = sprintf(
-                    '%1$s_%2$s',
-                    $this->c->module_slug(),
-                    Str::of($this->c->model_slug_plural())->slug('_')->toString()
-                );
-            }
-
-            if (! $this->c->table() && $table) {
-                $options['table'] = $table;
-            }
 
             if (! $create->migration() && $table) {
                 // $date = date('Y_m_d');
@@ -150,6 +150,7 @@ trait MakeSkeleton
             ];
         }
         if (in_array($this->c->type(), [
+            'playground-model-linked',
             'playground-model-tagged',
         ])) {
             $options_create['timestamps'] = true;

@@ -425,13 +425,13 @@ class ModelMakeCommand extends GeneratorCommand
         // $this->c->apply();
         $this->applyConfigurationToSearch(true);
 
-        //         dd([
-        //             '__METHOD__' => __METHOD__,
-        //             '$this->options' => $this->options(),
-        //             '$this->c' => $this->c->toArray(),
-        //             '$this->searches' => $this->searches,
-        //             '$this->c->skeleton()' => $this->c->skeleton(),
-        //         ]);
+        // dd([
+        //     '__METHOD__' => __METHOD__,
+        //     '$this->options' => $this->options(),
+        //     '$this->c' => $this->c->toArray(),
+        //     '$this->searches' => $this->searches,
+        //     '$this->c->skeleton()' => $this->c->skeleton(),
+        // ]);
 
         return parent::buildClass($name);
     }

@@ -83,6 +83,14 @@ trait BuildDates
             return;
         }
 
+        if (in_array($this->c->type(), [
+            'playground-model-linked',
+            'playground-model-tagged',
+        ])) {
+            // No soft deletes for linked or tagged models. Use a regular model instead.
+            return;
+        }
+
         $this->searches['table_softDeletes'] = PHP_EOL.PHP_EOL;
 
         $this->searches['table_softDeletes'] .= sprintf(

@@ -16,7 +16,9 @@ trait BuildStates
     protected function buildClass_states(): void
     {
         $states = $this->recipe->factoryStates();
-        if (! $states) {
+        if (! $states
+            || in_array($this->c->type(), ['playground-model-tagged'])
+        ) {
             return;
         }
 
