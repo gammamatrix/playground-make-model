@@ -47,4 +47,20 @@ trait HasOne
             }
         }
     }
+
+    public function handleHasOne(): void
+    {
+        $has_one_accessor = $this->name_camel;
+        unset($this->hasOne[$has_one_accessor]);
+        $this->ids = $this->allIds;
+        unset($this->ids[$this->table_id]);
+        foreach ($this->hasOne as $accessor => $meta) {
+            if (! empty($meta['comment']) && is_string($meta['comment'])) {
+                $this->hasOne[$accessor]['comment'] = sprintf(
+                    $meta['comment'],
+                    $this->name_lower
+                );
+            }
+        }
+    }
 }

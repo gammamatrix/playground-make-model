@@ -16,87 +16,27 @@ class Cms extends Playground
     /**
      * @var array<string, array<string, mixed>>
      */
-    protected array $dates = [
-        'canceled_at' => [
-            'nullable' => true,
-            'index' => false,
+    protected array $factoryStates = [
+        'locked' => [
+            'type' => 'flag',
+            'value' => true,
         ],
-        'closed_at' => [
-            'nullable' => true,
-            'index' => true,
-        ],
-        'embargo_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'fixed_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'planned_end_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'planned_start_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'postponed_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'published_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'released_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'resolved_at' => [
-            'nullable' => true,
-            'index' => true,
-        ],
-        'resumed_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'suspended_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'timer_end_at' => [
-            'nullable' => true,
-            'index' => true,
-        ],
-        'timer_start_at' => [
-            'nullable' => true,
-            'index' => true,
+        'published' => [
+            'type' => 'flag',
+            'value' => true,
         ],
     ];
 
-    /**
-     * @var array<string, array<string, mixed>>
-     */
     protected array $hasMany = [
         'revisions' => [
-            // 'comment' => 'The revisions of the page.',
-            // 'comment' => 'The revisions of the snippet.',
             'comment' => 'The revisions of the model.',
             'accessor' => 'revisions',
-            // 'related' => 'PageRevision',
-            // 'related' => 'SnippetRevision',
             'related' => '',
-            // 'foreignKey' => 'page_id',
-            // 'foreignKey' => 'snippet_id',
             'foreignKey' => '',
             'localKey' => 'id',
         ],
     ];
 
-    /**
-     * @var array<string, array<string, mixed>>
-     */
     protected array $hasOne = [
         'page' => [
             'comment' => 'The page of the revision.',
@@ -117,62 +57,69 @@ class Cms extends Playground
     /**
      * @var array<string, array<string, mixed>>
      */
-    protected array $ids = [
+    protected array $allIds = [
         'parent_id' => [
-            'type' => 'uuid',
-            'nullable' => true,
-            'index' => true,
+            'description' => '',
             'foreign' => [
                 'references' => 'id',
                 'on' => null,
             ],
+            'index' => true,
+            'nullable' => true,
             'trait' => 'WithParent',
+            'type' => 'uuid',
         ],
         'matrix_id' => [
-            'type' => 'uuid',
-            'nullable' => true,
-            'index' => true,
+            'description' => '',
             'foreign' => [
                 'references' => 'id',
                 'on' => 'matrix_matrices',
             ],
+            'index' => true,
+            'nullable' => true,
+            'type' => 'uuid',
         ],
         'page_id' => [
-            'type' => 'uuid',
-            'nullable' => true,
-            'index' => true,
+            'description' => '',
             'foreign' => [
                 'references' => 'id',
                 'on' => 'cms_pages',
             ],
+            'index' => true,
+            'nullable' => true,
+            'type' => 'uuid',
         ],
         'snippet_id' => [
-            'type' => 'uuid',
-            'nullable' => true,
-            'index' => true,
+            'description' => '',
             'foreign' => [
                 'references' => 'id',
                 'on' => 'cms_snippets',
             ],
+            'index' => true,
+            'nullable' => true,
+            'type' => 'uuid',
         ],
     ];
 
-    /**
-     * @var array<string, array<string, mixed>>
-     */
-    protected array $factoryStates = [
-        'locked' => [
-            'type' => 'flag',
-            // 'flag' => 'locked',
-            'value' => true,
-        ],
-        'published' => [
-            'type' => 'flag',
-            'value' => true,
-        ],
-    ];
+    public function addDates(): void
+    {
+        $this->dates['fixed_at'] = [
+            'label' => 'Fixed at',
+            'nullable' => true,
+        ];
+
+        ksort($this->dates);
+    }
 
     public function init(): void
+    {
+        $this->addDates();
+        $this->handleHasOne();
+        $this->withRevisions();
+        $this->withRouting();
+    }
+
+    public function withRevisions(): void
     {
         $this->status['revision'] = [
             'type' => 'bigInteger',
@@ -218,7 +165,10 @@ class Cms extends Playground
             unset($this->ids['snippet_id']);
             unset($this->hasOne['snippet']);
         }
+    }
 
+    public function withRouting(): void
+    {
         if (in_array($this->name(), [
             'Page',
             'PageRevision',
