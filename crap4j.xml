@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2026-09-08 17:29:29</timestamp>
+  <timestamp>2026-09-11 21:27:07</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>191</methodCount>
-    <crapMethodCount>13</crapMethodCount>
-    <crapLoad>247</crapLoad>
-    <totalCrap>9454.61</totalCrap>
-    <crapMethodPercent>6.81</crapMethodPercent>
+    <methodCount>195</methodCount>
+    <crapMethodCount>12</crapMethodCount>
+    <crapLoad>240</crapLoad>
+    <totalCrap>9470.61</totalCrap>
+    <crapMethodPercent>6.15</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -1488,13 +1488,46 @@
     <method>
       <package>Playground\Make\Model\Recipe</package>
       <className>Playground\Make\Model\Recipe\Cms</className>
+      <methodName>addDates</methodName>
+      <methodSignature>addDates(): void</methodSignature>
+      <fullMethod>addDates(): void</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Cms</className>
       <methodName>init</methodName>
       <methodSignature>init(): void</methodSignature>
       <fullMethod>init(): void</fullMethod>
-      <crap>56</crap>
-      <complexity>7</complexity>
+      <crap>2</crap>
+      <complexity>1</complexity>
       <coverage>0</coverage>
-      <crapLoad>7</crapLoad>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Cms</className>
+      <methodName>withRevisions</methodName>
+      <methodSignature>withRevisions(): void</methodSignature>
+      <fullMethod>withRevisions(): void</fullMethod>
+      <crap>42</crap>
+      <complexity>6</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Cms</className>
+      <methodName>withRouting</methodName>
+      <methodSignature>withRouting(): void</methodSignature>
+      <fullMethod>withRouting(): void</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Model\Recipe\Concerns</package>
@@ -1601,6 +1634,17 @@
       <methodName>handleCircletHasOne</methodName>
       <methodSignature>handleCircletHasOne(): void</methodSignature>
       <fullMethod>handleCircletHasOne(): void</fullMethod>
+      <crap>20</crap>
+      <complexity>4</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe\Concerns</package>
+      <className>Playground\Make\Model\Recipe\Concerns\HasOne</className>
+      <methodName>handleHasOne</methodName>
+      <methodSignature>handleHasOne(): void</methodSignature>
+      <fullMethod>handleHasOne(): void</fullMethod>
       <crap>20</crap>
       <complexity>4</complexity>
       <coverage>0</coverage>
