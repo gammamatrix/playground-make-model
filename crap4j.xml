@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2026-09-12 16:25:14</timestamp>
+  <timestamp>2026-09-17 19:16:02</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>195</methodCount>
-    <crapMethodCount>12</crapMethodCount>
-    <crapLoad>240</crapLoad>
-    <totalCrap>9470.61</totalCrap>
-    <crapMethodPercent>6.15</crapMethodPercent>
+    <methodCount>210</methodCount>
+    <crapMethodCount>11</crapMethodCount>
+    <crapLoad>232</crapLoad>
+    <totalCrap>9489.1</totalCrap>
+    <crapMethodPercent>5.24</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -380,9 +380,9 @@
       <methodName>buildClass_model_table</methodName>
       <methodSignature>buildClass_model_table(): void</methodSignature>
       <fullMethod>buildClass_model_table(): void</fullMethod>
-      <crap>19.3</crap>
-      <complexity>18</complexity>
-      <coverage>84.09</coverage>
+      <crap>9.46</crap>
+      <complexity>9</complexity>
+      <coverage>82.14</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1200,6 +1200,17 @@
       <crapLoad>0</crapLoad>
     </method>
     <method>
+      <package>Playground\Make\Model\Console\Commands\Concerns</package>
+      <className>Playground\Make\Model\Console\Commands\Concerns\Recipes</className>
+      <methodName>applyRecipeToConfiguration</methodName>
+      <methodSignature>applyRecipeToConfiguration(): void</methodSignature>
+      <fullMethod>applyRecipeToConfiguration(): void</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
       <package>Playground\Make\Model\Console\Commands</package>
       <className>Playground\Make\Model\Console\Commands\FactoryMakeCommand</className>
       <methodName>getConfigurationFilename</methodName>
@@ -1282,9 +1293,9 @@
       <methodName>prepareOptions</methodName>
       <methodSignature>prepareOptions(): void</methodSignature>
       <fullMethod>prepareOptions(): void</fullMethod>
-      <crap>19.31</crap>
-      <complexity>17</complexity>
-      <coverage>80</coverage>
+      <crap>20.87</crap>
+      <complexity>18</complexity>
+      <coverage>79.31</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1337,10 +1348,21 @@
       <methodName>prepareOptions</methodName>
       <methodSignature>prepareOptions(): void</methodSignature>
       <fullMethod>prepareOptions(): void</fullMethod>
-      <crap>51.15</crap>
-      <complexity>40</complexity>
-      <coverage>80.9</coverage>
-      <crapLoad>8</crapLoad>
+      <crap>49.92</crap>
+      <complexity>44</complexity>
+      <coverage>85.48</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Console\Commands</package>
+      <className>Playground\Make\Model\Console\Commands\ModelMakeCommand</className>
+      <methodName>applyToSearches</methodName>
+      <methodSignature>applyToSearches(): void</methodSignature>
+      <fullMethod>applyToSearches(): void</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Model\Console\Commands</package>
@@ -1964,6 +1986,149 @@
       <methodName>name</methodName>
       <methodSignature>name(): string</methodSignature>
       <fullMethod>name(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Model</className>
+      <methodName>names</methodName>
+      <methodSignature>names(): string</methodSignature>
+      <fullMethod>names(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Model</className>
+      <methodName>name_camel</methodName>
+      <methodSignature>name_camel(): string</methodSignature>
+      <fullMethod>name_camel(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Model</className>
+      <methodName>name_camels</methodName>
+      <methodSignature>name_camels(): string</methodSignature>
+      <fullMethod>name_camels(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Model</className>
+      <methodName>name_kebab</methodName>
+      <methodSignature>name_kebab(): string</methodSignature>
+      <fullMethod>name_kebab(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Model</className>
+      <methodName>name_kebabs</methodName>
+      <methodSignature>name_kebabs(): string</methodSignature>
+      <fullMethod>name_kebabs(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Model</className>
+      <methodName>name_lower</methodName>
+      <methodSignature>name_lower(): string</methodSignature>
+      <fullMethod>name_lower(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Model</className>
+      <methodName>name_lowers</methodName>
+      <methodSignature>name_lowers(): string</methodSignature>
+      <fullMethod>name_lowers(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Model</className>
+      <methodName>name_snake</methodName>
+      <methodSignature>name_snake(): string</methodSignature>
+      <fullMethod>name_snake(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Model</className>
+      <methodName>name_snakes</methodName>
+      <methodSignature>name_snakes(): string</methodSignature>
+      <fullMethod>name_snakes(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Model</className>
+      <methodName>name_studly</methodName>
+      <methodSignature>name_studly(): string</methodSignature>
+      <fullMethod>name_studly(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Model</className>
+      <methodName>name_studlies</methodName>
+      <methodSignature>name_studlies(): string</methodSignature>
+      <fullMethod>name_studlies(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Model</className>
+      <methodName>name_label</methodName>
+      <methodSignature>name_label(): string</methodSignature>
+      <fullMethod>name_label(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Model</className>
+      <methodName>name_labels</methodName>
+      <methodSignature>name_labels(): string</methodSignature>
+      <fullMethod>name_labels(): string</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
