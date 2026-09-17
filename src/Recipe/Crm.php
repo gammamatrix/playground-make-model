@@ -16,20 +16,6 @@ class Crm extends Playground
     /**
      * @var array<string, array<string, mixed>>
      */
-    protected array $factoryStates = [
-        'locked' => [
-            'type' => 'flag',
-            'value' => true,
-        ],
-        'featured' => [
-            'type' => 'flag',
-            'value' => true,
-        ],
-    ];
-
-    /**
-     * @var array<string, array<string, mixed>>
-     */
     protected array $allIds = [
         'parent_id' => [
             'description' => '',
@@ -107,6 +93,20 @@ class Crm extends Playground
     /**
      * @var array<string, array<string, mixed>>
      */
+    protected array $factoryStates = [
+        'locked' => [
+            'type' => 'flag',
+            'value' => true,
+        ],
+        'featured' => [
+            'type' => 'flag',
+            'value' => true,
+        ],
+    ];
+
+    /**
+     * @var array<string, array<string, mixed>>
+     */
     protected array $circletHasOne = [
         'client' => [
             'comment' => 'The client of the %1$s.',
@@ -142,6 +142,47 @@ class Crm extends Playground
             'related' => 'People',
             'foreignKey' => 'id',
             'localKey' => 'people_id',
+        ],
+    ];
+
+    /**
+     * @var array<string, array<string, mixed>>
+     */
+    protected array $circletHasMany = [
+        'clients' => [
+            'comment' => 'The clients of the %1$s.',
+            'accessor' => 'clients',
+            'related' => 'Client',
+            'foreignKey' => '',
+            'localKey' => 'id',
+        ],
+        'contacts' => [
+            'comment' => 'The contacts of the %1$s.',
+            'accessor' => 'contacts',
+            'related' => 'Contact',
+            'foreignKey' => '',
+            'localKey' => 'id',
+        ],
+        'locations' => [
+            'comment' => 'The locations of the %1$s.',
+            'accessor' => 'locations',
+            'related' => 'Location',
+            'foreignKey' => '',
+            'localKey' => 'id',
+        ],
+        'organizations' => [
+            'comment' => 'The organizations of the %1$s.',
+            'accessor' => 'organizations',
+            'related' => 'Organization',
+            'foreignKey' => '',
+            'localKey' => 'id',
+        ],
+        'peoples' => [
+            'comment' => 'The people of the %1$s.',
+            'accessor' => 'peoples',
+            'related' => 'People',
+            'foreignKey' => '',
+            'localKey' => 'id',
         ],
     ];
 
@@ -194,14 +235,14 @@ class Crm extends Playground
     {
         $this->json['address'] = [
             'label' => 'Address',
-            'default' => '{}',
+            'default' => null,
             'nullable' => true,
             'type' => 'JSON_OBJECT',
         ];
 
         $this->json['contact'] = [
             'label' => 'Contact',
-            'default' => '{}',
+            'default' => null,
             'nullable' => true,
             'type' => 'JSON_OBJECT',
         ];
@@ -214,5 +255,10 @@ class Crm extends Playground
         $this->addFlags();
         $this->addJson();
         $this->handleCircletHasOne();
+        $this->handleCircletHasMany();
+        //        dump([
+        //            '__METHOD__' => __METHOD__,
+        //            '$this' => $this,
+        //        ]);
     }
 }

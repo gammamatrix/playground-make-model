@@ -224,10 +224,13 @@ class MigrationMakeCommand extends GeneratorCommand
                     $table = Str::snake(Str::pluralStudly(class_basename($name)));
                 }
             } else {
+                $model_snakes = $this->model?->model_snakes();
                 $table = $this->model?->table();
                 if (! $table) {
                     if ($type === 'playground-model-tagged') {
                         $name = 'tagged';
+                    } elseif ($model_snakes) {
+                        $name = $model_snakes;
                     } else {
                         $name = Str::snake(Str::pluralStudly(class_basename($name)));
                     }

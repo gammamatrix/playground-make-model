@@ -17,6 +17,7 @@ use Playground\Make\Configuration\Model as Configuration;
 use Playground\Make\Console\Commands\GeneratorCommand;
 use Playground\Make\Model\Building;
 use Playground\Make\Model\Console\Commands\Concerns\Recipes as ConcernsRecipes;
+use Playground\Make\Model\Recipe\Model;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -74,6 +75,7 @@ class ModelMakeCommand extends GeneratorCommand
         'class' => '',
         'module' => '',
         'module_slug' => '',
+        'module_slugs' => '',
         'namespace' => 'App\\',
         'extends' => 'Model',
         'implements' => '',
@@ -96,6 +98,22 @@ class ModelMakeCommand extends GeneratorCommand
         'docblock' => '',
         'fillable' => '',
         'perPage' => '',
+        'model_camel' => '',
+        'model_camels' => '',
+        'model_label' => '',
+        'model_labels' => '',
+        'model_lower' => '',
+        'model_lowers' => '',
+        'model_kebab' => '',
+        'model_kebabs' => '',
+        'model_slug' => '',
+        'model_slugs' => '',
+        'model_snake' => '',
+        'model_snakes' => '',
+        'model_studly' => '',
+        'model_studlies' => '',
+        'model_variable' => '',
+        'model_variables' => '',
         'HasMany' => '',
         'HasManyThrough' => '',
         'HasOne' => '',
@@ -138,6 +156,8 @@ class ModelMakeCommand extends GeneratorCommand
 
     public function prepareOptions(): void
     {
+        $options = [];
+
         $type = $this->c->type();
         if (! $type) {
             $this->c->setOptions([
@@ -147,41 +167,29 @@ class ModelMakeCommand extends GeneratorCommand
 
         $this->handleRecipe($this->c->name(), $type);
 
+        /**
+         * Set the model_* attributes generated in the recipe
+         *
+         * @see Model::__construct() For default
+         * @see Model::init() For override and customization
+         */
+        if (! empty($this->recipe) && $this->hasOption('skeleton') && $this->option('skeleton')) {
+            $this->applyRecipeToConfiguration();
+        }
+
         if ($this->hasOption('dump') && $this->option('dump')) {
             $this->isDump = true;
         }
 
         if ($this->hasOption('all') && $this->option('all')) {
-
-            $this->c->setOptions([
-                'controller' => true,
-                'factory' => true,
-                'migration' => true,
-                'policy' => true,
-                'requests' => true,
-                // 'resources' => true,
-                'seed' => true,
-                'test' => true,
-                // 'transformers' => true,
-            ]);
+            $options['controller'] = true;
+            $options['factory'] = true;
+            $options['migration'] = true;
+            $options['policy'] = true;
+            $options['requests'] = true;
+            $options['seed'] = true;
+            $options['test'] = true;
         }
-
-        //        $this->isResource = $this->hasOption('resource') && $this->option('resource');
-        //
-        //        // TODO is api and resource do not belong in model
-        //        if ($this->isApi || $this->isResource) {
-        //            $this->c->setOptions([
-        //                'controller' => true,
-        //                'factory' => true,
-        //                'migration' => true,
-        //                'policy' => false,
-        //                'requests' => false,
-        //                'resources' => false,
-        //                'seed' => true,
-        //                'test' => true,
-        //                'transformers' => false,
-        //            ]);
-        //        }
 
         if ($type === 'playground-model-tagged') {
             $this->c->addToUse('Playground\Models\User');
@@ -191,88 +199,60 @@ class ModelMakeCommand extends GeneratorCommand
         // Check options
 
         if ($this->hasOption('revision') && $this->option('revision')) {
-            $this->c->setOptions([
-                'revision' => true,
-            ]);
+            $options['revision'] = true;
         }
 
         if ($this->hasOption('controller') && $this->option('controller')) {
-            $this->c->setOptions([
-                'controller' => true,
-            ]);
+            $options['controller'] = true;
         }
 
         if ($this->hasOption('factory') && $this->option('factory')) {
-            $this->c->setOptions([
-                'factory' => true,
-            ]);
+            $options['factory'] = true;
         }
 
         if ($this->hasOption('migration') && $this->option('migration')) {
-            $this->c->setOptions([
-                'migration' => true,
-            ]);
+            $options['migration'] = true;
         }
 
         if ($this->hasOption('policy') && $this->option('policy')) {
-            $this->c->setOptions([
-                'policy' => true,
-            ]);
+            $options['policy'] = true;
         }
 
         if ($this->hasOption('playground') && $this->option('playground')) {
-            $this->c->setOptions([
-                'playground' => true,
-            ]);
+            $options['playground'] = true;
         }
 
         if ($this->hasOption('requests') && $this->option('requests')) {
-            $this->c->setOptions([
-                'requests' => true,
-            ]);
+            $options['requests'] = true;
         }
 
         if ($this->hasOption('resources') && $this->option('resources')) {
-            $this->c->setOptions([
-                'resources' => true,
-            ]);
+            $options['resources'] = true;
         }
 
         if ($this->hasOption('seed') && $this->option('seed')) {
-            $this->c->setOptions([
-                'seed' => true,
-            ]);
+            $options['seed'] = true;
         }
 
         if ($this->hasOption('test') && $this->option('test')) {
-            $this->c->setOptions([
-                'test' => true,
-            ]);
+            $options['test'] = true;
         }
 
         if ($this->hasOption('transformers') && $this->option('transformers')) {
-            $this->c->setOptions([
-                'transformers' => true,
-            ]);
+            $options['transformers'] = true;
         }
 
         if ($this->hasOption('pivot') && $this->option('pivot')) {
-            $this->c->setOptions([
-                'type' => 'pivot',
-            ]);
+            $options['type'] = 'pivot';
         } elseif ($this->hasOption('morph-pivot') && $this->option('morph-pivot')) {
-            $this->c->setOptions([
-                'type' => 'morph-pivot',
-            ]);
+            $options['type'] = 'morph-pivot';
         }
 
         if (in_array($this->c->type(), [
             'pivot',
             'morph-pivot',
         ])) {
-            $this->c->setOptions([
-                'migration' => true,
-            ]);
+            $options['migration'] = true;
         }
 
         if ($this->hasOption('replace') && $this->option('replace')) {
@@ -280,22 +260,48 @@ class ModelMakeCommand extends GeneratorCommand
         }
 
         if ($this->hasOption('table') && $this->option('table') && is_string($this->option('table'))) {
-            $this->c->setOptions([
-                'table' => $this->option('table'),
-            ]);
+            $options['table'] = $this->option('table');
         }
+
+        if (! empty($options)) {
+            $this->c->setOptions($options);
+        }
+
+        $this->applyToSearches();
 
         if ($this->isDump) {
             $this->buildClass_configuration();
         }
 
         // art playground:make:model TestingDump --table testing_dumps --dump --factory --migration --test --skeleton --force --namespace Acme/Testing --package acme-testing --module Testing --type playground-model
-        // dd([
+        // dump([
         //     '__METHOD__' => __METHOD__,
         //     //'$this->c' => $this->c,
+        //     '$options' => $options,
         //     '$this->options()' => $this->options(),
         //     '$this->c' => $this->c->toArray(),
+        //     '$this->searches' => $this->searches,
         // ]);
+    }
+
+    public function applyToSearches(): void
+    {
+        $this->searches['model_camel'] = $this->c->model_camel();
+        $this->searches['model_camels'] = $this->c->model_camels();
+        $this->searches['model_label'] = $this->c->model_label();
+        $this->searches['model_labels'] = $this->c->model_labels();
+        $this->searches['model_lower'] = $this->c->model_lower();
+        $this->searches['model_kebab'] = $this->c->model_kebab();
+        $this->searches['model_kebabs'] = $this->c->model_kebabs();
+        $this->searches['model_slug'] = $this->c->model_slug();
+        $this->searches['model_slugs'] = $this->c->model_slugs();
+        $this->searches['model_snake'] = $this->c->model_snake();
+        $this->searches['model_snakes'] = $this->c->model_snakes();
+        $this->searches['model_studly'] = $this->c->model_studly();
+        $this->searches['model_studlies'] = $this->c->model_studlies();
+        $this->searches['model_variable'] = $this->c->model_variable();
+        $this->searches['model_variables'] = $this->c->model_variables();
+        $this->searches['model'] = $this->c->model();
     }
 
     /**
@@ -357,12 +363,10 @@ class ModelMakeCommand extends GeneratorCommand
         // }
 
         $this->saveConfiguration();
-        // dd([
-        //     '__METHOD__' => __METHOD__,
-        //     '$this->c' => $this->c,
-        //     // '$this->c' => $this->c->toArray(),
-        //     '$this->searches' => $this->searches,
-        //     // '$this->analyze' => $this->analyze,
+        // dump([
+        //    '__METHOD__' => __METHOD__,
+        //    //'$this->c' => $this->c,
+        //    '$this->searches' => $this->searches,
         // ]);
 
         return $this->return_status;

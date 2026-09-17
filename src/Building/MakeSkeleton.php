@@ -89,11 +89,12 @@ trait MakeSkeleton
         $options_create = [];
         $table = $this->c->table();
 
-        if (! $table && $this->c->model_slug_plural()) {
+        if (! $table && $this->c->model_snakes()) {
             $table = sprintf(
                 '%1$s_%2$s',
                 $this->c->module_slug(),
-                Str::of($this->c->model_slug_plural())->slug('_')->toString()
+                // Str::of($this->c->model_snakes())->slug('_')->toString()
+                $this->c->model_snakes()
             );
         }
 

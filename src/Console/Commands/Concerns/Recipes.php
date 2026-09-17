@@ -96,14 +96,32 @@ trait Recipes
                 'recipe' => $recipe,
             ]);
         }
+    }
 
-        //         dd([
-        //             '__METHOD__' => __METHOD__,
-        //             '$name' => $name,
-        //             '$type' => $type,
-        //             '$recipe' => $recipe,
-        //             '$class' => $class,
-        //             '$this->recipe' => $this->recipe,
-        //         ]);
+    public function applyRecipeToConfiguration(): void
+    {
+        $this->c->setOptions([
+            'model' => $this->recipe->name(),
+            'name' => $this->recipe->name(),
+            'names' => $this->recipe->names(),
+            'model_camel' => $this->recipe->name_camel(),
+            'model_camels' => $this->recipe->name_camels(),
+            'model_label' => $this->recipe->name_label(),
+            'model_labels' => $this->recipe->name_labels(),
+            'model_lower' => $this->recipe->name_lower(),
+            'model_lowers' => $this->recipe->name_lowers(),
+            'model_kebab' => $this->recipe->name_kebab(),
+            'model_kebabs' => $this->recipe->name_kebabs(),
+            // slugs can be kebab or snake case
+            'model_slug' => $this->recipe->name_kebab(),
+            'model_slugs' => $this->recipe->name_kebabs(),
+            'model_snake' => $this->recipe->name_snake(),
+            'model_snakes' => $this->recipe->name_snakes(),
+            'model_studly' => $this->recipe->name_studly(),
+            'model_studlies' => $this->recipe->name_studlies(),
+            // variables can be camel or snake case
+            'model_variable' => $this->recipe->name_camel(),
+            'model_variables' => $this->recipe->name_camels(),
+        ])->apply();
     }
 }

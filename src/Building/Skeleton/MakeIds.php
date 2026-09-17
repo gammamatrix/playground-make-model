@@ -396,10 +396,10 @@ trait MakeIds
 
         if ($this->c->revision()) {
             $column = Str::of($this->c->name())->before('Revision')->snake()->finish('_type')->toString();
-            $label = Str::of($this->c->model_singular())->before('Revision')->finish(' Type')->toString();
+            $label = Str::of($this->c->model_label())->before('Revision')->finish(' Type')->toString();
         } else {
             $column = Str::of($this->c->name())->snake()->finish('_type')->toString();
-            $label = Str::of($this->c->model_singular())->finish(' Type')->toString();
+            $label = Str::of($this->c->model_label())->finish(' Type')->toString();
         }
 
         $meta = [
