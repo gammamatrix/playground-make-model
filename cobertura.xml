@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage line-rate="0.43024182832846" branch-rate="0" lines-covered="1619" lines-valid="3763" branches-covered="0" branches-valid="0" complexity="965" version="0.4" timestamp="1789672561">
+<coverage line-rate="0.43024182832846" branch-rate="0" lines-covered="1619" lines-valid="3763" branches-covered="0" branches-valid="0" complexity="965" version="0.4" timestamp="1789762912">
   <sources>
     <source>/app/src</source>
   </sources>
@@ -1303,90 +1303,90 @@
           <methods>
             <method name="buildClass_model_table" signature="" line-rate="0.82142857142857" branch-rate="0" complexity="9">
               <lines>
-                <line number="27" hits="18"/>
-                <line number="29" hits="18"/>
+                <line number="26" hits="18"/>
+                <line number="28" hits="18"/>
+                <line number="30" hits="18"/>
                 <line number="31" hits="18"/>
-                <line number="32" hits="18"/>
-                <line number="35" hits="18"/>
+                <line number="34" hits="18"/>
+                <line number="35" hits="11"/>
                 <line number="36" hits="11"/>
                 <line number="37" hits="11"/>
                 <line number="38" hits="11"/>
                 <line number="39" hits="11"/>
-                <line number="40" hits="11"/>
+                <line number="40" hits="0"/>
                 <line number="41" hits="0"/>
-                <line number="42" hits="0"/>
+                <line number="43" hits="11"/>
                 <line number="44" hits="11"/>
                 <line number="45" hits="11"/>
                 <line number="46" hits="11"/>
-                <line number="47" hits="11"/>
+                <line number="47" hits="0"/>
                 <line number="48" hits="0"/>
-                <line number="49" hits="0"/>
+                <line number="50" hits="11"/>
                 <line number="51" hits="11"/>
                 <line number="52" hits="11"/>
                 <line number="53" hits="11"/>
-                <line number="54" hits="11"/>
-                <line number="55" hits="0"/>
+                <line number="54" hits="0"/>
+                <line number="56" hits="11"/>
                 <line number="57" hits="11"/>
-                <line number="58" hits="11"/>
-                <line number="63" hits="18"/>
+                <line number="62" hits="18"/>
+                <line number="63" hits="11"/>
                 <line number="64" hits="11"/>
-                <line number="65" hits="11"/>
               </lines>
             </method>
             <method name="buildClass_table_property" signature="" line-rate="1" branch-rate="0" complexity="3">
               <lines>
-                <line number="76" hits="18"/>
-                <line number="83" hits="18"/>
-                <line number="85" hits="18"/>
-                <line number="86" hits="8"/>
+                <line number="75" hits="18"/>
+                <line number="82" hits="18"/>
+                <line number="84" hits="18"/>
+                <line number="85" hits="8"/>
+                <line number="87" hits="8"/>
                 <line number="88" hits="8"/>
                 <line number="89" hits="8"/>
                 <line number="90" hits="8"/>
                 <line number="91" hits="8"/>
-                <line number="92" hits="8"/>
-                <line number="94" hits="10"/>
+                <line number="93" hits="10"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="27" hits="18"/>
-            <line number="29" hits="18"/>
+            <line number="26" hits="18"/>
+            <line number="28" hits="18"/>
+            <line number="30" hits="18"/>
             <line number="31" hits="18"/>
-            <line number="32" hits="18"/>
-            <line number="35" hits="18"/>
+            <line number="34" hits="18"/>
+            <line number="35" hits="11"/>
             <line number="36" hits="11"/>
             <line number="37" hits="11"/>
             <line number="38" hits="11"/>
             <line number="39" hits="11"/>
-            <line number="40" hits="11"/>
+            <line number="40" hits="0"/>
             <line number="41" hits="0"/>
-            <line number="42" hits="0"/>
+            <line number="43" hits="11"/>
             <line number="44" hits="11"/>
             <line number="45" hits="11"/>
             <line number="46" hits="11"/>
-            <line number="47" hits="11"/>
+            <line number="47" hits="0"/>
             <line number="48" hits="0"/>
-            <line number="49" hits="0"/>
+            <line number="50" hits="11"/>
             <line number="51" hits="11"/>
             <line number="52" hits="11"/>
             <line number="53" hits="11"/>
-            <line number="54" hits="11"/>
-            <line number="55" hits="0"/>
+            <line number="54" hits="0"/>
+            <line number="56" hits="11"/>
             <line number="57" hits="11"/>
-            <line number="58" hits="11"/>
-            <line number="63" hits="18"/>
+            <line number="62" hits="18"/>
+            <line number="63" hits="11"/>
             <line number="64" hits="11"/>
-            <line number="65" hits="11"/>
-            <line number="76" hits="18"/>
-            <line number="83" hits="18"/>
-            <line number="85" hits="18"/>
-            <line number="86" hits="8"/>
+            <line number="75" hits="18"/>
+            <line number="82" hits="18"/>
+            <line number="84" hits="18"/>
+            <line number="85" hits="8"/>
+            <line number="87" hits="8"/>
             <line number="88" hits="8"/>
             <line number="89" hits="8"/>
             <line number="90" hits="8"/>
             <line number="91" hits="8"/>
-            <line number="92" hits="8"/>
-            <line number="94" hits="10"/>
+            <line number="93" hits="10"/>
           </lines>
         </class>
       </classes>
