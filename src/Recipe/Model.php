@@ -198,7 +198,7 @@ abstract class Model implements Contracts\Models, Contracts\Views
 
     public function name_labels(): string
     {
-        return $this->name_label;
+        return $this->name_labels;
     }
 
     public function type(): string
