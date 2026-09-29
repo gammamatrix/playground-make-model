@@ -102,6 +102,8 @@ trait MakeSkeleton
             $options['table'] = $table;
         }
 
+        $createMigration = false;
+
         if (in_array($this->c->type(), [
             'model',
             'playground-model',
@@ -110,31 +112,7 @@ trait MakeSkeleton
             $options_create['softDeletes'] = true;
 
             if (! $create->migration() && $table) {
-                // $date = date('Y_m_d');
-                // $date = '2010_09_30';
-                // $order = '000000';
-                // $date = '2020_01_02';
-                // $order = '100001';
-                // $date = '2010_06_01';
-                // $order = '000000';
-                $date = $this->hasOption('migration-date')
-                    && ! empty($this->option('migration-date'))
-                    && is_string($this->option('migration-date'))
-                    ? $this->option('migration-date')
-                    : date('Y_m_d');
-                $order = $this->hasOption('migration-order')
-                    && ! empty($this->option('migration-order'))
-                    && is_string($this->option('migration-order'))
-                    ? $this->option('migration-order')
-                    : '000000';
-
-                $options_create['migration'] = sprintf(
-                    '%1$s_%2$s_%3$s_%4$s_table',
-                    $date,
-                    $order,
-                    'create',
-                    $table
-                );
+                $createMigration = true;
             }
         }
 
@@ -154,8 +132,37 @@ trait MakeSkeleton
             'playground-model-linked',
             'playground-model-tagged',
         ])) {
+            $createMigration = true;
             $options_create['timestamps'] = true;
             $options_create['softDeletes'] = false;
+        }
+
+        if ($createMigration) {
+            // $date = date('Y_m_d');
+            // $date = '2010_09_30';
+            // $order = '000000';
+            // $date = '2020_01_02';
+            // $order = '100001';
+            // $date = '2010_06_01';
+            // $order = '000000';
+            $date = $this->hasOption('migration-date')
+            && ! empty($this->option('migration-date'))
+            && is_string($this->option('migration-date'))
+                ? $this->option('migration-date')
+                : date('Y_m_d');
+            $order = $this->hasOption('migration-order')
+            && ! empty($this->option('migration-order'))
+            && is_string($this->option('migration-order'))
+                ? $this->option('migration-order')
+                : '000000';
+
+            $options_create['migration'] = sprintf(
+                '%1$s_%2$s_%3$s_%4$s_table',
+                $date,
+                $order,
+                'create',
+                $table
+            );
         }
 
         if ($options_create) {

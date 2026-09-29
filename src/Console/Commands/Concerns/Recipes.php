@@ -112,6 +112,7 @@ trait Recipes
             'model_lowers' => $this->recipe->name_lowers(),
             'model_kebab' => $this->recipe->name_kebab(),
             'model_kebabs' => $this->recipe->name_kebabs(),
+            'model_route_param' => $this->recipe->name_snake(),
             // slugs can be kebab or snake case
             'model_slug' => $this->recipe->name_kebab(),
             'model_slugs' => $this->recipe->name_kebabs(),
