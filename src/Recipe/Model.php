@@ -112,6 +112,8 @@ abstract class Model implements Contracts\Models, Contracts\Views
             $this->name_kebabs = $this->name_kebab;
             $this->name_snakes = $this->name_snake;
             $this->name_studlies = $this->name_studly;
+            $this->name_labels = $this->name_label;
+            $this->name_lowers = $this->name_lower;
         } else {
             $this->name_kebabs = Str::of($this->names)->kebab()->finish('s')->toString();
             $this->name_camels = Str::of($this->names)->camel()->finish('s')->toString();
