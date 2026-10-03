@@ -136,6 +136,12 @@ trait MakeSkeleton
             $options_create['timestamps'] = true;
             $options_create['softDeletes'] = false;
         }
+        if (in_array($this->c->type(), [
+            'playground-model-tagged',
+        ])) {
+            $options['model_attribute'] = 'tag_id';
+            $options['model_attribute_required'] = true;
+        }
 
         if ($createMigration) {
             // $date = date('Y_m_d');
