@@ -42,7 +42,7 @@ class CommandTest extends TestCase
         /**
          * @var PendingCommand $result
          */
-        $result = $this->artisan('playground:make:migration testing --skeleton --force');
+        $result = $this->artisan('playground:make:migration testing --skeleton --force --package acme');
         $result->assertExitCode(0);
     }
 
@@ -51,7 +51,7 @@ class CommandTest extends TestCase
         /**
          * @var PendingCommand $result
          */
-        $result = $this->artisan('playground:make:migration testing --skeleton');
+        $result = $this->artisan('playground:make:migration testing --skeleton --package acme');
         $result->assertExitCode(1);
         $result->expectsOutputToContain('Migration already exists.');
     }
@@ -61,7 +61,7 @@ class CommandTest extends TestCase
         /**
          * @var PendingCommand $result
          */
-        $result = $this->artisan('playground:make:migration testing --skeleton --force --table="invalid ! table name"');
+        $result = $this->artisan('playground:make:migration testing --package acme --skeleton --force --table="invalid ! table name"');
         $result->assertExitCode(0);
         $result->expectsOutputToContain('Invalid table name [invalid ! table name], using argument [testing] to generate.');
     }

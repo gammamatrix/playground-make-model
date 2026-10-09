@@ -53,7 +53,7 @@ class ModelTest extends TestCase
     public function test_command_make_create_migration_with_force_and_without_skeleton(): void
     {
         $command = sprintf(
-            'playground:make:migration testing --force --create --model-file %1$s',
+            'playground:make:migration testing --force --create --model-file %1$s --package acme',
             $this->getResourceFile('model-crm-contact')
         );
 
@@ -97,7 +97,7 @@ class ModelTest extends TestCase
     public function test_command_make_update_migration_with_force_and_without_skeleton(): void
     {
         $command = sprintf(
-            'playground:make:migration testing --force --update --model-file %1$s',
+            'playground:make:migration testing --force --update --model-file %1$s --package acme',
             $this->getResourceFile('model-crm-contact')
         );
 
@@ -142,7 +142,7 @@ class ModelTest extends TestCase
     public function test_command_make_create_migration_with_bare_model_skeleton(): void
     {
         $command = sprintf(
-            'playground:make:migration Bare --skeleton --force --create --type playground-model --model-file %1$s',
+            'playground:make:migration Bare --skeleton --force --create --type playground-model --model-file %1$s --package acme',
             $this->getResourceFile('playground-model-bare')
         );
 

@@ -21,7 +21,7 @@ trait BuildSeeders
 
         $this->searches['seeders'] = '';
 
-        if (empty($seeders) || !is_array($seeders)) {
+        if (empty($seeders) || ! is_array($seeders)) {
             return;
         }
 

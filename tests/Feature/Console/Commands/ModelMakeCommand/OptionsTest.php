@@ -22,7 +22,7 @@ class OptionsTest extends TestCase
     public function test_command_make_model_with_all_of_the_option_flags_except_test(): void
     {
         // $command = 'playground:make:model testing --force --controller --factory --migration --policy --requests --seed --test';
-        $command = 'playground:make:model testing --force --controller --factory --migration --policy --requests --seed';
+        $command = 'playground:make:model testing --force --controller --factory --migration --policy --requests --seed --package acme';
 
         /**
          * @var PendingCommand $result
@@ -33,7 +33,7 @@ class OptionsTest extends TestCase
 
     public function test_command_make_model_with_pivot_type(): void
     {
-        $command = 'playground:make:model testing --force --type pivot';
+        $command = 'playground:make:model testing --force --type pivot --package acme';
 
         /**
          * @var PendingCommand $result
@@ -44,7 +44,7 @@ class OptionsTest extends TestCase
 
     public function test_command_make_model_with_pivot_option(): void
     {
-        $command = 'playground:make:model testing --force --pivot';
+        $command = 'playground:make:model testing --force --pivot --package acme';
 
         /**
          * @var PendingCommand $result
@@ -55,7 +55,7 @@ class OptionsTest extends TestCase
 
     public function test_command_make_model_with_morph_pivot_type(): void
     {
-        $command = 'playground:make:model testing --force --type morph-pivot';
+        $command = 'playground:make:model testing --force --type morph-pivot --package acme';
 
         /**
          * @var PendingCommand $result
@@ -66,7 +66,7 @@ class OptionsTest extends TestCase
 
     public function test_command_make_model_with_morph_pivot_option(): void
     {
-        $command = 'playground:make:model testing --force --morph-pivot';
+        $command = 'playground:make:model testing --force --morph-pivot --package acme';
 
         /**
          * @var PendingCommand $result
@@ -77,7 +77,7 @@ class OptionsTest extends TestCase
 
     public function test_command_make_model_with_api_type(): void
     {
-        $command = 'playground:make:model testing --force --type api';
+        $command = 'playground:make:model testing --force --type api --package acme';
 
         /**
          * @var PendingCommand $result
@@ -88,7 +88,7 @@ class OptionsTest extends TestCase
 
     public function test_command_make_model_with_abstract_type(): void
     {
-        $command = 'playground:make:model testing --force --type abstract';
+        $command = 'playground:make:model testing --force --type abstract --package acme';
 
         /**
          * @var PendingCommand $result
@@ -99,7 +99,7 @@ class OptionsTest extends TestCase
 
     public function test_command_make_model_with_model_type(): void
     {
-        $command = 'playground:make:model testing --force --type model';
+        $command = 'playground:make:model testing --force --type model --package acme';
 
         /**
          * @var PendingCommand $result
@@ -110,7 +110,7 @@ class OptionsTest extends TestCase
 
     public function test_command_make_model_with_api_controller_option(): void
     {
-        $command = 'playground:make:model testing --force --api --controller';
+        $command = 'playground:make:model testing --force --api --controller --package acme';
 
         /**
          * @var PendingCommand $result
@@ -121,7 +121,7 @@ class OptionsTest extends TestCase
 
     public function test_command_make_model_with_resource_controller_option(): void
     {
-        $command = 'playground:make:model testing --force --resource --controller';
+        $command = 'playground:make:model testing --force --resource --controller --package acme';
 
         /**
          * @var PendingCommand $result
