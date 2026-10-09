@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * {{organization}}
+ */
+
+declare(strict_types=1);
+
+namespace {{ namespace }};
+
+/**
+ * \{{ namespace }}\{{name}}
+ *
+ * Add secondary tag seeders.
+ */
+class {{name}} extends TagSeeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        $this->loadSecondaries();{{seeder_run_secondary}}
+    }
+}

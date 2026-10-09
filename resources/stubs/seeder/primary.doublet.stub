@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * {{organization}}
+ */
+
+declare(strict_types=1);
+
+namespace {{ namespace }};
+
+/**
+ * \{{ namespace }}\{{name}}
+ *
+ * Add primary {{model_lower}} seeders.
+ */
+class {{name}} extends {{model}}Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {{{seeder_run_primary}}
+        $this->loadPrimaries();
+    }
+}

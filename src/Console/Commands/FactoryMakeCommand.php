@@ -185,7 +185,7 @@ class FactoryMakeCommand extends GeneratorCommand
     {
         $options = parent::getOptions();
 
-        $options[] = ['recipe', null, InputOption::VALUE_OPTIONAL, 'The configuration recipe of the '.strtolower($this->type)];
+        $options[] = ['recipe', null, InputOption::VALUE_REQUIRED, 'The configuration recipe of the '.strtolower($this->type)];
 
         return $options;
     }

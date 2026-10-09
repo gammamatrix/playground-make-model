@@ -1,0 +1,459 @@
+<?php
+
+/**
+ * Playground
+ */
+
+declare(strict_types=1);
+
+namespace {{ namespace }};
+
+use Illuminate\Database\Seeder as BaseSeeder;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
+use {{ model_tag_fqdn }};
+use {{ model_tagged_fqdn }};
+use {{ model_fqdn }};
+
+/**
+ * \{{ namespace }}\{{ model }}Seeder
+ *
+ * Load seeders for {{ model_package }}
+ */
+abstract class {{ model }}Seeder extends BaseSeeder
+{
+    /**
+     * @var array<string, array{
+     *     id: string,
+     *     slug: ?string,
+     *     title: string,
+     *     label: string,
+     *     description: string
+     * }>
+     */
+    protected array $primaries = [];
+
+    /**
+     * @var array<string, array{
+     *     id: string,
+     *     slug: ?string,
+     *     title: string,
+     *     label: string,
+     *     description: string
+     * }>
+     */
+    protected array $tags = [];
+
+    /**
+     * @var array<string, string> slug, ID
+     */
+    protected array $secondaries = [];
+
+    /**
+     * @var array<string, array<string, string|null>> secondary ID, parent slug
+     */
+    protected array $secondariesParent = [];
+
+    /**
+     * @var string[]
+     */
+    protected array $seeders = [{{ seeders }}
+    ];
+
+    /**
+     * @var array<string, array{
+     *      title: string,
+     *      description?: string,
+     *      label?: string,
+     *      primary?: string,
+     *      secondary?: string,
+     *      description?: string,
+     *      duration?: null|int,
+     *      cron?: string[],
+     *      triggers?: string[],
+     *      perpetual?: bool,
+     *  }>
+     */
+    protected array $data = [];
+
+    protected function loadTags(): void
+    {
+        if (empty($this->tags)) {
+            foreach (Tag::whereNotNull('slug')->get() as $tag) {
+                if (! empty($tag->slug)) {
+                    $this->tags[$tag->slug] = [
+                        'id' => $tag->id,
+                        'slug' => $tag->slug,
+                        'title' => $tag->title,
+                        'label' => $tag->label,
+                        'description' => $tag->description,
+                    ];
+                }
+            }
+        }
+    }
+
+    protected function loadPrimaries(): void
+    {
+        if (empty($this->primaries)) {
+            foreach ({{ model }}::whereNull('parent_id')->whereNotNull('slug')->get() as ${{ model_variable }}) {
+                if (! empty(${{ model_variable }}->slug)) {
+                    $this->primaries[${{ model_variable }}->slug] = [
+                        'id' => ${{ model_variable }}->id,
+                        'slug' => ${{ model_variable }}->slug,
+                        'title' => ${{ model_variable }}->title,
+                        'label' => ${{ model_variable }}->label,
+                        'description' => ${{ model_variable }}->description,
+                    ];
+                }
+            }
+        }
+    }
+
+    protected function loadSecondaries(): void
+    {
+        $this->loadPrimaries();
+        if (empty($this->secondaries)) {
+            foreach ($this->primaries as $primary => $primaryMeta) {
+                foreach ({{ model }}::where('parent_id', $primaryMeta['id'])->get() as ${{ model_variable }}) {
+                    if (! empty(${{ model_variable }}->slug)) {
+                        $secondary = sprintf('%1$s--%2$s', $primary, ${{ model_variable }}->slug);
+                        $this->secondaries[$secondary] = ${{ model_variable }}->id;
+                        $this->secondariesParent[${{ model_variable }}->id] = [
+                            'primary' => $primary,
+                            'primary_id' => $primaryMeta['id'],
+                            'primary_slug' => $primaryMeta['slug'],
+                            'primary_title' => $primaryMeta['title'],
+                            'primary_label' => $primaryMeta['label'],
+                            'primary_description' => $primaryMeta['description'],
+                            'secondary' => $secondary,
+                            'secondary_id' => ${{ model_variable }}->id,
+                            'secondary_slug' => ${{ model_variable }}->slug,
+                            'secondary_title' => ${{ model_variable }}->title,
+                            'secondary_label' => ${{ model_variable }}->label,
+                            'secondary_description' => ${{ model_variable }}->description,
+                        ];
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * @param  'primary'|'secondary'|'tertiary'  $type
+     */
+    protected function loadSeeder(string $seeder, string $type): void
+    {
+        // Reset data
+        $this->data = [];
+
+        if (! in_array($seeder, $this->seeders, true)) {
+            Log::channel('stderr')->warning(__METHOD__, [
+                'WARNING' => 'Unable to load seeder',
+                '$seeder' => $seeder,
+                '$type' => $type,
+            ]);
+
+            return;
+        }
+
+        $contents = include dirname(__DIR__, 2).'/config/'.$seeder.'.php';
+
+        if (! is_array($contents)) {
+            Log::channel('stderr')->warning(__METHOD__, [
+                'WARNING' => 'No payload found for the seeder.',
+                '$seeder' => $seeder,
+                '$type' => $type,
+            ]);
+
+            return;
+        }
+
+        /**
+         * @var array{
+         *     title: string,
+         *     description?: string,
+         *     label?: string,
+         *     primary?: string,
+         *     secondary?: string,
+         *     description?: string,
+         *     duration?: null|int,
+         *     cron?: string[],
+         *     tags?: string[],
+         *     triggers?: string[],
+         *     perpetual?: bool,
+         * } ${{ model_variable }}
+         */
+        foreach ($contents as $slug => ${{ model_variable }}) {
+
+            if (! is_string($slug)
+                || empty($slug)
+                || ! is_array(${{ model_variable }})
+            ) {
+                Log::channel('stderr')->warning(__METHOD__, [
+                    'WARNING' => 'Invalid record for the seeder ${{ model_lower }}. $slug must be a string and ${{ model_variable }} should be an array.',
+                    '$seeder' => $seeder,
+                    '$type' => $type,
+                    '$slug' => $slug,
+                    '${{ model_variable }}' => ${{ model_variable }},
+                ]);
+
+                continue;
+            }
+            /**
+             * Sparsely load attributes
+             *
+             * Use the slug as the title if not provided.
+             */
+            $this->data[$slug] = [
+                'title' => ${{ model_variable }}['title'] ?? Str::of($slug)->headline()->lower()->ucfirst()->toString(),
+            ];
+
+            /**
+             * Title, label, and description are common across types.
+             */
+            if (! empty(${{ model_variable }}['description'])) {
+                $this->data[$slug]['description'] = ${{ model_variable }}['description'];
+            }
+            if (! empty(${{ model_variable }}['label'])) {
+                $this->data[$slug]['label'] = ${{ model_variable }}['label'];
+            }
+
+            /**
+             * Secondary and tertiary fields need a primary
+             */
+            if ($type === 'secondary') {
+                if (! empty(${{ model_variable }}['primary'])) {
+                    $this->data[$slug]['primary'] = ${{ model_variable }}['primary'];
+                }
+            }
+
+            if ($type === 'tertiary') {
+                if (array_key_exists('duration', ${{ model_variable }})) {
+                    $this->data[$slug]['duration'] = ${{ model_variable }}['duration'];
+                }
+
+                if (array_key_exists('cron', ${{ model_variable }}) && is_array(${{ model_variable }}['cron'])) {
+                    $this->data[$slug]['cron'] = ${{ model_variable }}['cron'];
+                }
+
+                if (array_key_exists('perpetual', ${{ model_variable }}) && is_bool(${{ model_variable }}['perpetual'])) {
+                    $this->data[$slug]['perpetual'] = ${{ model_variable }}['perpetual'];
+                }
+
+                if (array_key_exists('tags', ${{ model_variable }}) && is_array(${{ model_variable }}['tags'])) {
+                    $this->data[$slug]['tags'] = ${{ model_variable }}['tags'];
+                }
+            }
+        }
+    }
+
+    /**
+     * Run the primary {{ model_lower }} seeds.
+     *
+     * NOTE: Only creates, no updates.
+     */
+    public function runPrimary(string $seeder): void
+    {
+        $this->loadSeeder($seeder, 'primary');
+
+        foreach ($this->data as $slug => $meta) {
+
+            $payload = [
+                '{{ model_snake }}_type' => 'primary',
+                'slug' => $slug,
+                'title' => $meta['title'] ?? '',
+                'description' => $meta['description'] ?? '',
+                'label' => $meta['label'] ?? $meta['title'] ?? '',
+                // 'duration' => $meta['duration'] ?? null,
+                // 'cron' => $meta['cron'] ?? [],
+                // 'triggers' => $meta['triggers'] ?? [],
+                // 'perpetual' => $meta['perpetual'] ?? false,
+            ];
+
+            /**
+             * @var ?{{ model }} $model
+             */
+            $model = {{ model }}::where('slug', $slug)->whereNull('parent_id')->first();
+
+            if (empty($model)) {
+                $model = {{ model }}::create($payload);
+                $model->save();
+                Log::channel('stderr')->debug(__METHOD__, ['saved' => $slug, 'type' => 'primary', 'created_at' => $model->created_at]);
+            } else {
+                Log::channel('stderr')->debug(__METHOD__, ['exists' => $slug, 'type' => 'primary', 'created_at' => $model->created_at]);
+            }
+        }
+    }
+
+    /**
+     * Run the primary {{ model_lower }} seeds.
+     */
+    public function runSecondary(string $seeder): void
+    {
+        $this->loadSeeder($seeder, 'secondary');
+
+        foreach ($this->data as $slug => $meta) {
+
+            $payload = [
+                '{{ model_snake }}_type' => 'secondary',
+                'slug' => $slug,
+                'title' => $meta['title'] ?? '',
+                'description' => $meta['description'] ?? '',
+                'label' => $meta['label'] ?? $meta['title'] ?? '',
+                // 'duration' => $meta['duration'] ?? null,
+                // 'cron' => $meta['cron'] ?? [],
+                // 'triggers' => $meta['triggers'] ?? [],
+                // 'perpetual' => $meta['perpetual'] ?? false,
+            ];
+
+            if (empty($meta['primary'])
+                || empty($this->primaries[$meta['primary']])
+                || empty($this->primaries[$meta['primary']]['id'])
+            ) {
+                Log::channel('stderr')->warning(__METHOD__, [
+                    'WARNING' => 'Missing primary. Unable to load secondary seeder.',
+                    '$seeder' => $seeder,
+                    'type' => 'secondary',
+                    '$slug' => $slug,
+                ]);
+
+                continue;
+            }
+
+            $payload['parent_id'] = $this->primaries[$meta['primary']]['id'];
+
+            /**
+             * @var ?{{ model }} $model
+             */
+            $model = {{ model }}::where('slug', $slug)->where('parent_id', $payload['parent_id'])->first();
+
+            if (empty($model)) {
+                $model = {{ model }}::create($payload);
+                $model->save();
+                Log::channel('stderr')->debug(__METHOD__, ['saved' => $slug, 'type' => 'secondary', 'created_at' => $model->created_at, 'parent_id' => $model->parent_id]);
+            } else {
+                Log::channel('stderr')->debug(__METHOD__, ['exists' => $slug, 'type' => 'secondary', 'created_at' => $model->created_at, 'parent_id' => $model->parent_id]);
+            }
+        }
+    }
+
+    /**
+     * Run the primary {{ model_lower }} seeds.
+     */
+    public function runTertiary(
+        string $seeder,
+        string $primary,
+        string $secondary
+    ): void {
+        $this->loadSeeder($seeder, 'tertiary');
+
+        if (empty($primary) || empty($secondary)) {
+            Log::channel('stderr')->warning(__METHOD__, [
+                'WARNING' => 'Tertiary requires primary and secondary to be set. Unable to load tertiary seeder.',
+                '$seeder' => $seeder,
+                '$primary' => $primary,
+                '$secondary' => $secondary,
+                'type' => 'tertiary',
+            ]);
+
+            return;
+        }
+
+        $secondariesSlug = sprintf('%1$s--%2$s', $primary, $secondary);
+
+        if (empty($this->secondaries[$secondariesSlug])) {
+            Log::channel('stderr')->warning(__METHOD__, [
+                'WARNING' => 'Missing secondaries slug. Unable to load tertiary seeder.',
+                '$seeder' => $seeder,
+                '$primary' => $primary,
+                '$secondary' => $secondary,
+                '$secondariesSlug' => $secondariesSlug,
+                'type' => 'tertiary',
+            ]);
+
+            return;
+        }
+
+        $this->loadTags();
+
+        foreach ($this->data as $slug => $meta) {
+
+            $tags = [];
+            if (array_key_exists('tags', $meta)
+                && is_array($meta['tags'])
+            ) {
+                foreach ($meta['tags'] as $tag) {
+                    if (! empty($tag)
+                        && is_string($tag)
+                        && ! in_array($tag, $tags)
+                        && ! empty($this->tags[$tag]['id'])
+                    ) {
+                        $tags[$tag] = $this->tags[$tag]['id'];
+                    }
+                }
+            }
+            $payload = [
+                'slug' => $slug,
+                'title' => $meta['title'] ?? '',
+                'description' => $meta['description'] ?? '',
+                'label' => $meta['label'] ?? $meta['title'] ?? '',
+                'duration' => $meta['duration'] ?? null,
+                // 'cron' => $meta['cron'] ?? [],
+                // 'triggers' => $meta['triggers'] ?? [],
+                // 'perpetual' => $meta['perpetual'] ?? false,
+                'meta' => [
+                    'parents' => [],
+                ],
+            ];
+
+            $secondaryId = $this->secondaries[$secondariesSlug] ?? null;
+            if (empty($secondaryId) || empty($this->secondariesParent[$secondaryId])) {
+                Log::channel('stderr')->warning(__METHOD__, [
+                    'WARNING' => 'Missing secondary parent. Unable to load tertiary seeder.',
+                    '$seeder' => $seeder,
+                    '$primary' => $primary,
+                    '$secondary' => $secondary,
+                    '$secondariesSlug' => $secondariesSlug,
+                    '$secondaryId' => $secondaryId,
+                    'type' => 'tertiary',
+                ]);
+
+                return;
+            }
+
+            $secondaryParent = $this->secondariesParent[$secondaryId];
+
+            $payload['meta']['parents'] = $secondaryParent;
+
+            $payload['parent_id'] = $secondaryParent['secondary_id'];
+
+            /**
+             * @var ?{{ model }} $model
+             */
+            $model = {{ model }}::where('slug', $slug)->where('parent_id', $payload['parent_id'])->first();
+
+            if (empty($model)) {
+                $model = {{ model }}::create($payload);
+                $model->save();
+                Log::channel('stderr')->debug(__METHOD__, ['saved' => $slug, 'type' => 'secondary', 'created_at' => $model->created_at, 'parent_id' => $model->parent_id]);
+            } else {
+                Log::channel('stderr')->debug(__METHOD__, ['exists' => $slug, 'type' => 'secondary', 'created_at' => $model->created_at, 'parent_id' => $model->parent_id]);
+            }
+
+            foreach ($tags as $tagSlug => $tagId) {
+                $tagged = Tagged::where('tag_id', $tagId)->where('{{ model_snake }}_id', $model->id)->first();
+                if (empty($tagged)) {
+                    $tagged = Tagged::create([
+                        'tag_id' => $tagId,
+                        '{{ model_snake }}_id' => $model->id,
+                    ]);
+                    $tagged->save();
+                    Log::channel('stderr')->debug(__METHOD__, ['saved' => $slug, '$tagSlug' => $tagSlug, 'created_at' => $model->created_at]);
+                } else {
+                    Log::channel('stderr')->debug(__METHOD__, ['exists' => $slug, '$tagSlug' => $tagSlug, 'created_at' => $model->created_at]);
+                }
+            }
+        }
+    }
+}
