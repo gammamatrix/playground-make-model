@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage line-rate="0.42620065375911" branch-rate="0" lines-covered="1695" lines-valid="3977" branches-covered="0" branches-valid="0" complexity="1032" version="0.4" timestamp="1791566537">
+<coverage line-rate="0.42648906760493" branch-rate="0" lines-covered="1697" lines-valid="3979" branches-covered="0" branches-valid="0" complexity="1032" version="0.4" timestamp="1791566817">
   <sources>
     <source>/app/src</source>
   </sources>
@@ -6097,9 +6097,9 @@
         </class>
       </classes>
     </package>
-    <package name="Console/Commands/ModelMakeCommand.php" line-rate="0.94270833333333" branch-rate="0" complexity="75">
+    <package name="Console/Commands/ModelMakeCommand.php" line-rate="0.94300518134715" branch-rate="0" complexity="75">
       <classes>
-        <class name="Playground\Make\Model\Console\Commands\ModelMakeCommand" filename="Console/Commands/ModelMakeCommand.php" line-rate="0.94270833333333" branch-rate="0" complexity="75">
+        <class name="Playground\Make\Model\Console\Commands\ModelMakeCommand" filename="Console/Commands/ModelMakeCommand.php" line-rate="0.94300518134715" branch-rate="0" complexity="75">
           <methods>
             <method name="prepareOptions" signature="" line-rate="0.85483870967742" branch-rate="0" complexity="44">
               <lines>
@@ -6307,30 +6307,31 @@
                 <line number="564" hits="20"/>
                 <line number="565" hits="20"/>
                 <line number="566" hits="20"/>
+                <line number="567" hits="20"/>
               </lines>
             </method>
             <method name="handleTestCreation" signature="$path" line-rate="1" branch-rate="0" complexity="4">
               <lines>
-                <line number="599" hits="18"/>
-                <line number="600" hits="17"/>
-                <line number="606" hits="1"/>
-                <line number="608" hits="1"/>
+                <line number="600" hits="18"/>
+                <line number="601" hits="17"/>
+                <line number="607" hits="1"/>
+                <line number="609" hits="1"/>
               </lines>
             </method>
             <method name="getConfigurationFilename" signature="" line-rate="1" branch-rate="0" complexity="4">
               <lines>
-                <line number="613" hits="18"/>
                 <line number="614" hits="18"/>
                 <line number="615" hits="18"/>
-                <line number="616" hits="11"/>
+                <line number="616" hits="18"/>
                 <line number="617" hits="11"/>
-                <line number="618" hits="7"/>
+                <line number="618" hits="11"/>
                 <line number="619" hits="7"/>
-                <line number="622" hits="18"/>
+                <line number="620" hits="7"/>
                 <line number="623" hits="18"/>
                 <line number="624" hits="18"/>
                 <line number="625" hits="18"/>
                 <line number="626" hits="18"/>
+                <line number="627" hits="18"/>
               </lines>
             </method>
           </methods>
@@ -6511,29 +6512,30 @@
             <line number="564" hits="20"/>
             <line number="565" hits="20"/>
             <line number="566" hits="20"/>
-            <line number="599" hits="18"/>
-            <line number="600" hits="17"/>
-            <line number="606" hits="1"/>
-            <line number="608" hits="1"/>
-            <line number="613" hits="18"/>
+            <line number="567" hits="20"/>
+            <line number="600" hits="18"/>
+            <line number="601" hits="17"/>
+            <line number="607" hits="1"/>
+            <line number="609" hits="1"/>
             <line number="614" hits="18"/>
             <line number="615" hits="18"/>
-            <line number="616" hits="11"/>
+            <line number="616" hits="18"/>
             <line number="617" hits="11"/>
-            <line number="618" hits="7"/>
+            <line number="618" hits="11"/>
             <line number="619" hits="7"/>
-            <line number="622" hits="18"/>
+            <line number="620" hits="7"/>
             <line number="623" hits="18"/>
             <line number="624" hits="18"/>
             <line number="625" hits="18"/>
             <line number="626" hits="18"/>
+            <line number="627" hits="18"/>
           </lines>
         </class>
       </classes>
     </package>
-    <package name="Console/Commands/SeederMakeCommand.php" line-rate="0.69369369369369" branch-rate="0" complexity="33">
+    <package name="Console/Commands/SeederMakeCommand.php" line-rate="0.69642857142857" branch-rate="0" complexity="33">
       <classes>
-        <class name="Playground\Make\Model\Console\Commands\SeederMakeCommand" filename="Console/Commands/SeederMakeCommand.php" line-rate="0.69369369369369" branch-rate="0" complexity="33">
+        <class name="Playground\Make\Model\Console\Commands\SeederMakeCommand" filename="Console/Commands/SeederMakeCommand.php" line-rate="0.69642857142857" branch-rate="0" complexity="33">
           <methods>
             <method name="getStub" signature="" line-rate="0.56521739130435" branch-rate="0" complexity="11">
               <lines>
@@ -6649,8 +6651,8 @@
                 <line number="302" hits="2"/>
                 <line number="303" hits="2"/>
                 <line number="304" hits="2"/>
-                <line number="307" hits="2"/>
-                <line number="318" hits="2"/>
+                <line number="305" hits="2"/>
+                <line number="308" hits="2"/>
                 <line number="319" hits="2"/>
                 <line number="320" hits="2"/>
                 <line number="321" hits="2"/>
@@ -6664,6 +6666,7 @@
                 <line number="329" hits="2"/>
                 <line number="330" hits="2"/>
                 <line number="331" hits="2"/>
+                <line number="332" hits="2"/>
               </lines>
             </method>
           </methods>
@@ -6764,8 +6767,8 @@
             <line number="302" hits="2"/>
             <line number="303" hits="2"/>
             <line number="304" hits="2"/>
-            <line number="307" hits="2"/>
-            <line number="318" hits="2"/>
+            <line number="305" hits="2"/>
+            <line number="308" hits="2"/>
             <line number="319" hits="2"/>
             <line number="320" hits="2"/>
             <line number="321" hits="2"/>
@@ -6779,6 +6782,7 @@
             <line number="329" hits="2"/>
             <line number="330" hits="2"/>
             <line number="331" hits="2"/>
+            <line number="332" hits="2"/>
           </lines>
         </class>
       </classes>
