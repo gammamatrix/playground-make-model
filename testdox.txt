@@ -40,8 +40,6 @@ Instance (Tests\Unit\Playground\Make\Model\Configuration\Migration\Instance)
 Instance (Tests\Unit\Playground\Make\Model\Configuration\Seeder\Instance)
  [x] Instance
  [x] Instance apply without options
- [x] Folder is empty by default
- [x] Seeder for model with file and skeleton
 
 Interactive (Tests\Feature\Playground\Make\Model\Console\Commands\MigrationMakeCommand\Interactive)
  [x] Command with interactive option

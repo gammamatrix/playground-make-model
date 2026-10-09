@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2026-09-29 22:04:15</timestamp>
+  <timestamp>2026-10-09 17:22:17</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>210</methodCount>
-    <crapMethodCount>11</crapMethodCount>
-    <crapLoad>232</crapLoad>
-    <totalCrap>9490.19</totalCrap>
-    <crapMethodPercent>5.24</crapMethodPercent>
+    <methodCount>221</methodCount>
+    <crapMethodCount>14</crapMethodCount>
+    <crapLoad>257</crapLoad>
+    <totalCrap>9816.23</totalCrap>
+    <crapMethodPercent>6.33</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -567,9 +567,9 @@
       <methodName>buildClass_skeleton_prepare</methodName>
       <methodSignature>buildClass_skeleton_prepare(Create $create): void</methodSignature>
       <fullMethod>buildClass_skeleton_prepare(Create $create): void</fullMethod>
-      <crap>19.21</crap>
-      <complexity>19</complexity>
-      <coverage>91.67</coverage>
+      <crap>20.5</crap>
+      <complexity>20</complexity>
+      <coverage>89.23</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -736,6 +736,17 @@
       <complexity>7</complexity>
       <coverage>7.14</coverage>
       <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Building\Seeder</package>
+      <className>Playground\Make\Model\Building\Seeder\BuildSeeders</className>
+      <methodName>buildClass_seeders</methodName>
+      <methodSignature>buildClass_seeders(): void</methodSignature>
+      <fullMethod>buildClass_seeders(): void</fullMethod>
+      <crap>73.3</crap>
+      <complexity>9</complexity>
+      <coverage>7.41</coverage>
+      <crapLoad>9</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Model\Building\Skeleton</package>
@@ -1125,24 +1136,24 @@
     <method>
       <package>Playground\Make\Model\Configuration</package>
       <className>Playground\Make\Model\Configuration\Seeder</className>
-      <methodName>setOptions</methodName>
-      <methodSignature>setOptions(array $options): self</methodSignature>
-      <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>3</crap>
-      <complexity>3</complexity>
-      <coverage>100</coverage>
+      <methodName>apply</methodName>
+      <methodSignature>apply(): Configuration</methodSignature>
+      <fullMethod>apply(): Configuration</fullMethod>
+      <crap>37.14</crap>
+      <complexity>11</complexity>
+      <coverage>40</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Model\Configuration</package>
       <className>Playground\Make\Model\Configuration\Seeder</className>
-      <methodName>addModels</methodName>
-      <methodSignature>addModels(array $options): self</methodSignature>
-      <fullMethod>addModels(array $options): self</fullMethod>
-      <crap>4</crap>
-      <complexity>4</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
+      <methodName>setOptions</methodName>
+      <methodSignature>setOptions(array $options): self</methodSignature>
+      <fullMethod>setOptions(array $options): self</fullMethod>
+      <crap>90</crap>
+      <complexity>9</complexity>
+      <coverage>0</coverage>
+      <crapLoad>9</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Model\Configuration</package>
@@ -1161,6 +1172,17 @@
       <methodName>model_fqdn</methodName>
       <methodSignature>model_fqdn(): string</methodSignature>
       <fullMethod>model_fqdn(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Configuration</package>
+      <className>Playground\Make\Model\Configuration\Seeder</className>
+      <methodName>model_tag</methodName>
+      <methodSignature>model_tag(): string</methodSignature>
+      <fullMethod>model_tag(): string</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
@@ -1169,12 +1191,89 @@
     <method>
       <package>Playground\Make\Model\Configuration</package>
       <className>Playground\Make\Model\Configuration\Seeder</className>
-      <methodName>models</methodName>
-      <methodSignature>models(): array</methodSignature>
-      <fullMethod>models(): array</fullMethod>
+      <methodName>model_tagged</methodName>
+      <methodSignature>model_tagged(): string</methodSignature>
+      <fullMethod>model_tagged(): string</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Configuration</package>
+      <className>Playground\Make\Model\Configuration\SeederConfig</className>
+      <methodName>setOptions</methodName>
+      <methodSignature>setOptions(array $options): self</methodSignature>
+      <fullMethod>setOptions(array $options): self</fullMethod>
+      <crap>56</crap>
+      <complexity>7</complexity>
+      <coverage>0</coverage>
+      <crapLoad>7</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Configuration</package>
+      <className>Playground\Make\Model\Configuration\SeederConfig</className>
+      <methodName>file</methodName>
+      <methodSignature>file(): string</methodSignature>
+      <fullMethod>file(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Configuration</package>
+      <className>Playground\Make\Model\Configuration\SeederConfig</className>
+      <methodName>type</methodName>
+      <methodSignature>type(): string</methodSignature>
+      <fullMethod>type(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Configuration</package>
+      <className>Playground\Make\Model\Configuration\SeederConfig</className>
+      <methodName>seeder</methodName>
+      <methodSignature>seeder(): string</methodSignature>
+      <fullMethod>seeder(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Configuration</package>
+      <className>Playground\Make\Model\Configuration\SeederConfig</className>
+      <methodName>data</methodName>
+      <methodSignature>data(): string</methodSignature>
+      <fullMethod>data(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Configuration</package>
+      <className>Playground\Make\Model\Configuration\Seeders</className>
+      <methodName>setOptions</methodName>
+      <methodSignature>setOptions(array $options): self</methodSignature>
+      <fullMethod>setOptions(array $options): self</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Configuration</package>
+      <className>Playground\Make\Model\Configuration\Seeders</className>
+      <methodName>recipe</methodName>
+      <methodSignature>recipe(): string</methodSignature>
+      <fullMethod>recipe(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1458,9 +1557,9 @@
       <methodName>getStub</methodName>
       <methodSignature>getStub(): string</methodSignature>
       <fullMethod>getStub(): string</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
+      <crap>20.94</crap>
+      <complexity>11</complexity>
+      <coverage>56.52</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1480,9 +1579,31 @@
       <methodName>getDefaultNamespace</methodName>
       <methodSignature>getDefaultNamespace($rootNamespace): string</methodSignature>
       <fullMethod>getDefaultNamespace($rootNamespace): string</fullMethod>
-      <crap>4.59</crap>
+      <crap>4.91</crap>
       <complexity>4</complexity>
-      <coverage>66.67</coverage>
+      <coverage>61.54</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Console\Commands</package>
+      <className>Playground\Make\Model\Console\Commands\SeederMakeCommand</className>
+      <methodName>prepareOptions</methodName>
+      <methodSignature>prepareOptions(): void</methodSignature>
+      <fullMethod>prepareOptions(): void</fullMethod>
+      <crap>30.05</crap>
+      <complexity>16</complexity>
+      <coverage>62</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Console\Commands</package>
+      <className>Playground\Make\Model\Console\Commands\SeederMakeCommand</className>
+      <methodName>getOptions</methodName>
+      <methodSignature>getOptions(): array</methodSignature>
+      <fullMethod>getOptions(): array</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
