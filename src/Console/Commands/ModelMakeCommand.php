@@ -540,6 +540,7 @@ class ModelMakeCommand extends GeneratorCommand
             ['list',            null, InputOption::VALUE_NONE, 'List the tables in the database'],
             ['playground',      null, InputOption::VALUE_NONE, 'Create a Playground model'],
             ['force',           null, InputOption::VALUE_NONE, 'Create the class even if the model already exists'],
+            ['interactive',     'i',  InputOption::VALUE_NONE, 'Use interactive mode to create the class even for the '.strtolower($this->type)],
             ['skeleton',        null, InputOption::VALUE_NONE, 'Create the skeleton for the model'],
             ['revision',        null, InputOption::VALUE_NONE, 'The model is a revision of another model.'],
             ['replace',         null, InputOption::VALUE_NONE, 'Replace the attributes, casts, fillable options when using skeleton for the model'],
