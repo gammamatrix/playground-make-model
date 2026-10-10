@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * {{organization}}
+ */
+
+declare(strict_types=1);
+
+/**
+ * @see \{{ seeder }}::$data
+ *
+ * @return array<string, array<string, mixed>>
+ */
+return [
+{{seeder_data}}
+];

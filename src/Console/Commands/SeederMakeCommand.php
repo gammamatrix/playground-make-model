@@ -90,6 +90,9 @@ class SeederMakeCommand extends GeneratorCommand
         //        'filters' => '',
         'model_tag_fqdn' => '',
         'model_tagged_fqdn' => '',
+        'seeder_data' => '',
+        'seeder_primary' => '',
+        'seeder_secondary' => '',
         'seeders_doublet' => '',
         'seeders_tag' => '',
         'seeders_triplet' => '',
@@ -129,6 +132,9 @@ class SeederMakeCommand extends GeneratorCommand
         $type = $this->c->type();
 
         $stub = 'seeder/seeder.stub';
+
+        // seeders
+
         if ($type === 'abstract-tag') {
             $stub = 'seeder/abstract.tag.stub';
         } elseif ($type === 'primary-tag') {
@@ -151,15 +157,55 @@ class SeederMakeCommand extends GeneratorCommand
             $stub = 'seeder/tertiary.triplet.stub';
         }
 
+        // data
+
+        if ($type === 'data-tag-primary') {
+            $stub = 'seeder/data.tag.primary.stub';
+        } elseif ($type === 'data-tag-secondary') {
+            $stub = 'seeder/data.tag.secondary.stub';
+        } elseif ($type === 'data-model-primary') {
+            $stub = 'seeder/data.model.primary.stub';
+        } elseif ($type === 'data-model-secondary') {
+            $stub = 'seeder/data.model.secondary.stub';
+        } elseif ($type === 'data-model-tertiary') {
+            $stub = 'seeder/data.model.tertiary.stub';
+        }
+
         return $this->resolveStubPath($stub);
     }
 
     protected function getConfigurationFilename(): string
     {
-        $file = sprintf(
-            'seeders/%1$s.json',
-            Str::of($this->c->name())->kebab(),
-        );
+        $type = $this->c->type();
+        if (in_array($type, [
+            'data-tag-primary',
+        ])) {
+            $file = sprintf(
+                'seeders/%1$s.json',
+                'seeder-tags--primary',
+            );
+        } elseif (in_array($type, [
+            'data-tag-secondary',
+        ])) {
+            $file = sprintf(
+                'seeders/%1$s.json',
+                $this->c->name(),
+            );
+        } elseif (in_array($type, [
+            'data-model-primary',
+            'data-model-secondary',
+            'data-model-tertiary',
+        ])) {
+            $file = sprintf(
+                'seeders/%1$s.json',
+                $this->c->name(),
+            );
+        } else {
+            $file = sprintf(
+                'seeders/%1$s.json',
+                Str::of($this->c->name())->kebab(),
+            );
+        }
 
         return $file;
     }
@@ -274,6 +320,7 @@ class SeederMakeCommand extends GeneratorCommand
         $this->c->setOptions($options);
 
         $this->buildClass_seeders();
+        $this->buildClass_seeder_configs();
         // dd([
         //    '__METHOD__' => __METHOD__,
         //    // '$this->c' => $this->c,
@@ -282,6 +329,51 @@ class SeederMakeCommand extends GeneratorCommand
         //    '$this->c' => $this->c->toArray(),
         //    '$this->searches' => $this->searches,
         // ]);
+    }
+
+    protected function getPath($name): string
+    {
+        $type = $this->c->type();
+
+        if (in_array($type, [
+            'data-tag-primary',
+            'data-tag-secondary',
+            'data-model-primary',
+            'data-model-secondary',
+            'data-model-tertiary',
+        ])) {
+            $this->path_destination_folder = 'config';
+            $path = sprintf(
+                '%1$s/%2$s.php',
+                $this->folder(),
+                $this->c->name()
+            );
+        } else {
+            $path = sprintf(
+                '%1$s/%2$s.php',
+                $this->folder(),
+                $this->c->class()
+            );
+        }
+
+        return $this->laravel->storagePath().$path;
+    }
+
+    public function handleName(string $name): string
+    {
+        $type = $this->c->type();
+
+        if (in_array($type, [
+            'data-tag-primary',
+            'data-tag-secondary',
+            'data-model-primary',
+            'data-model-secondary',
+            'data-model-tertiary',
+        ])) {
+            return $name;
+        }
+
+        return parent::handleName($name);
     }
 
     /**
@@ -328,7 +420,59 @@ class SeederMakeCommand extends GeneratorCommand
             ['model',           null, InputOption::VALUE_REQUIRED, 'The model for the '.strtolower($this->type)],
             ['model-tag',       null, InputOption::VALUE_REQUIRED, 'The tag model for the '.strtolower($this->type)],
             ['model-tagged',    null, InputOption::VALUE_REQUIRED, 'The tagged model for the '.strtolower($this->type)],
-            ['seeders',         null, InputOption::VALUE_IS_ARRAY | InputOption::VALUE_REQUIRED, 'The tagged model for the '.strtolower($this->type)],
+            ['seeders',         null, InputOption::VALUE_IS_ARRAY | InputOption::VALUE_REQUIRED, 'The file slugs for the '.strtolower($this->type)],
+            ['data',            null, InputOption::VALUE_OPTIONAL, 'The data file for the '.strtolower($this->type)],
+            ['seeder',          null, InputOption::VALUE_REQUIRED, 'The seeder for the data file'],
         ];
+    }
+
+    protected function saveConfiguration(): PrimaryConfigurationContract
+    {
+        $path_resources_packages = $this->getResourcePackageFolder();
+
+        $filename = $this->getConfigurationFilename();
+
+        $path = sprintf(
+            '%1$s/%2$s',
+            $path_resources_packages,
+            $filename
+        );
+
+        $applyData = false;
+        if (in_array($this->c->type(), [
+            'data-tag-primary',
+            'data-tag-secondary',
+            'data-model-primary',
+            'data-model-secondary',
+            'data-model-tertiary',
+        ])) {
+            $applyData = true;
+        }
+
+        $fullpath = $this->laravel->storagePath().$path;
+
+        $this->path_to_configuration = $fullpath;
+
+        $this->makeDirectory($fullpath);
+
+        $payload = json_encode(
+            $applyData ? $this->data : $this->c->apply(),
+            JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT
+        );
+
+        if ($payload) {
+            $this->files->put(
+                $fullpath,
+                $payload.PHP_EOL
+            );
+
+            $this->components->info(sprintf(
+                'The configuration [%s] was saved in [%s]',
+                $filename,
+                $fullpath
+            ));
+        }
+
+        return $this->c;
     }
 }
