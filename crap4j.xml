@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2026-10-10 23:13:13</timestamp>
+  <timestamp>2026-10-11 04:05:59</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>227</methodCount>
     <crapMethodCount>17</crapMethodCount>
-    <crapLoad>295</crapLoad>
-    <totalCrap>10300.58</totalCrap>
+    <crapLoad>299</crapLoad>
+    <totalCrap>10416.58</totalCrap>
     <crapMethodPercent>7.49</crapMethodPercent>
   </stats>
   <methods>
@@ -765,10 +765,10 @@
       <methodName>buildClass_seeder_configs_print_attributes</methodName>
       <methodSignature>buildClass_seeder_configs_print_attributes(string $slug, array $meta, int $indent): string</methodSignature>
       <fullMethod>buildClass_seeder_configs_print_attributes(string $slug, array $meta, int $indent): string</fullMethod>
-      <crap>156</crap>
-      <complexity>12</complexity>
+      <crap>272</crap>
+      <complexity>16</complexity>
       <coverage>0</coverage>
-      <crapLoad>12</crapLoad>
+      <crapLoad>16</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Model\Building\Seeder</package>
