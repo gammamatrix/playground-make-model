@@ -180,8 +180,24 @@ trait BuildSeeders
                 } elseif (is_null($value)) {
                     $value = 'null';
                 } elseif (is_array($value)) {
-                    $subComment = '';
-                    $subOutput = 'null';
+                    $subOutput = '[';
+                    foreach ($value as $subSlug => $subMeta) {
+                        if (is_int($subSlug)) {
+                            $subOutput .= sprintf(
+                                '%1$s%2$s\'%3$s\',',
+                                PHP_EOL,
+                                str_repeat(' ', $indent),
+                                is_scalar($subMeta) ? $subMeta : 'null // unhandled value'
+                            );
+                        } else {
+                            $subOutput .= $this->buildClass_seeder_configs_print_attributes(
+                                $subSlug,
+                                is_array($subMeta) ? $subMeta : [],
+                                $indent + 4
+                            );
+                        }
+                    }
+                    $subOutput .= sprintf('%1$s%2$s]', PHP_EOL, str_repeat(' ', $indent - 4));
                     $value = $subOutput;
                 } elseif (! is_scalar($value)) {
                     dd([
