@@ -379,8 +379,6 @@ class SeederMakeCommand extends GeneratorCommand
     /**
      * Get the console command options.
      *
-     * NOTE: copied from model
-     *
      * @return array<int, mixed>
      */
     protected function getOptions(): array

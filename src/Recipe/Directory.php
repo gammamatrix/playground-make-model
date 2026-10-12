@@ -16,161 +16,47 @@ class Directory extends Playground
     /**
      * @var array<string, array<string, mixed>>
      */
-    protected array $dates = [
-        'canceled_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'closed_at' => [
-            'nullable' => true,
-            'index' => true,
-        ],
-        'embargo_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'fixed_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'planned_end_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'planned_start_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'postponed_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'published_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'released_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'resolved_at' => [
-            'nullable' => true,
-            'index' => true,
-        ],
-        'resumed_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'suspended_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'timer_end_at' => [
-            'nullable' => true,
-            'index' => true,
-        ],
-        'timer_start_at' => [
-            'nullable' => true,
-            'index' => true,
-        ],
-    ];
-
-    /**
-     * @var array<string, array<string, mixed>>
-     */
-    protected array $hasMany = [
-        // 'revisions' => [
-        //     // 'comment' => 'The revisions of the location.',
-        //     // 'comment' => 'The revisions of the sublocation.',
-        //     'comment' => 'The revisions of the model.',
-        //     'accessor' => 'revisions',
-        //     // 'related' => 'LocationRevision',
-        //     // 'related' => 'SublocationRevision',
-        //     'related' => '',
-        //     // 'foreignKey' => 'location_id',
-        //     // 'foreignKey' => 'sublocation_id',
-        //     'foreignKey' => '',
-        //     'localKey' => 'id',
-        // ],
-    ];
-
-    /**
-     * @var array<string, array<string, mixed>>
-     */
-    protected array $hasOne = [
-        // 'location' => [
-        //     'comment' => 'The location of the sublocation',
-        //     'comment' => 'The location of the revision.',
-        //     'accessor' => 'location',
-        //     'related' => 'Location',
-        //     'foreignKey' => 'id',
-        //     'localKey' => 'location_id',
-        // ],
-        // 'sublocation' => [
-        //     'comment' => 'The sublocation of the revision.',
-        //     'accessor' => 'sublocation',
-        //     'related' => 'Sublocation',
-        //     'foreignKey' => 'id',
-        //     'localKey' => 'sublocation_id',
-        // ],
-    ];
-
-    /**
-     * @var array<string, array<string, mixed>>
-     */
-    protected array $ids = [
+    protected array $allIds = [
         'parent_id' => [
-            'type' => 'uuid',
-            'nullable' => true,
-            'index' => true,
+            'description' => '',
             'foreign' => [
                 'references' => 'id',
                 'on' => null,
             ],
-            // 'trait' => 'WithParent',
-        ],
-    ];
-
-    /**
-     * @var array<string, array<string, mixed>>
-     */
-    protected array $json = [
-        'address' => [
-            'default' => null,
+            'index' => true,
             'nullable' => true,
-            'type' => 'JSON_OBJECT',
+            'trait' => 'WithParent',
+            'type' => 'uuid',
         ],
-        'assets' => [
-            'default' => null,
+        'matrix_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'matrix_matrices',
+            ],
+            'index' => true,
             'nullable' => true,
-            'type' => 'JSON_OBJECT',
+            'type' => 'uuid',
         ],
-        'contact' => [
-            'default' => null,
+        'location_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'directory_locations',
+            ],
+            'index' => true,
             'nullable' => true,
-            'type' => 'JSON_OBJECT',
+            'type' => 'uuid',
         ],
-        'meta' => [
-            'default' => null,
+        'contact_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'directory_contact',
+            ],
+            'index' => true,
             'nullable' => true,
-            'type' => 'JSON_OBJECT',
-        ],
-        'notes' => [
-            'default' => '[]',
-            'readOnly' => true,
-            'nullable' => true,
-            'type' => 'JSON_ARRAY',
-            'comment' => 'Array of note objects',
-        ],
-        'options' => [
-            'default' => null,
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
-        ],
-        'sources' => [
-            'default' => null,
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
+            'type' => 'uuid',
         ],
     ];
 
@@ -180,7 +66,6 @@ class Directory extends Playground
     protected array $factoryStates = [
         'locked' => [
             'type' => 'flag',
-            // 'flag' => 'locked',
             'value' => true,
         ],
         'published' => [
@@ -189,14 +74,99 @@ class Directory extends Playground
         ],
     ];
 
-    public function reset(): void
+    protected array $hasMany = [
+        'revisions' => [
+            'comment' => 'The revisions of the model.',
+            'accessor' => 'revisions',
+            'related' => '',
+            'foreignKey' => '',
+            'localKey' => 'id',
+        ],
+    ];
+
+    protected array $hasOne = [
+        'location' => [
+            'comment' => 'The location of the revision.',
+            'accessor' => 'location',
+            'related' => 'Location',
+            'foreignKey' => 'id',
+            'localKey' => 'location_id',
+        ],
+        'contact' => [
+            'comment' => 'The contact of the revision.',
+            'accessor' => 'contact',
+            'related' => 'Contact',
+            'foreignKey' => 'id',
+            'localKey' => 'contact_id',
+        ],
+    ];
+
+    public function addColumns(): void
     {
-        $this->flags['sitemap'] = [
-            'type' => 'boolean',
-            'default' => false,
-            'icon' => 'fa-solid fa-sitemap text-success',
+        $this->columns['email'] = [
+            'label' => 'Email',
+            'nullable' => true,
+            'type' => 'string',
         ];
 
+        $this->columns['phone'] = [
+            'label' => 'Phone',
+            'nullable' => true,
+            'type' => 'string',
+        ];
+    }
+
+    public function addDates(): void
+    {
+        $this->dates['fixed_at'] = [
+            'label' => 'Fixed at',
+            'nullable' => true,
+        ];
+
+        ksort($this->dates);
+    }
+
+    public function addFlags(): void
+    {
+        $this->flags['sitemap'] = [
+            'icon' => 'fa-solid fa-sitemap text-success',
+            'default' => false,
+            'label' => 'Sitemap',
+            'type' => 'boolean',
+        ];
+
+        ksort($this->flags);
+    }
+
+    public function addJson(): void
+    {
+        $this->json['address'] = [
+            'label' => 'Address',
+            'default' => null,
+            'nullable' => true,
+            'type' => 'JSON_OBJECT',
+        ];
+
+        $this->json['contact'] = [
+            'label' => 'Contact',
+            'default' => null,
+            'nullable' => true,
+            'type' => 'JSON_OBJECT',
+        ];
+    }
+
+    public function init(): void
+    {
+        $this->addColumns();
+        $this->addDates();
+        $this->addFlags();
+        $this->addJson();
+        $this->handleHasOne();
+        $this->withRevisions();
+    }
+
+    public function withRevisions(): void
+    {
         $this->status['revision'] = [
             'type' => 'bigInteger',
             'default' => false,
@@ -205,176 +175,41 @@ class Directory extends Playground
             'icon' => '',
         ];
 
-        $this->ids = [
-            'parent_id' => [
-                'type' => 'uuid',
-                'nullable' => true,
-                'index' => true,
-                'foreign' => [
-                    'references' => 'id',
-                    'on' => null,
-                ],
-                // 'trait' => 'WithParent',
-            ],
-        ];
-
-        $this->columns['email'] = [
-            'type' => 'string',
-            'nullable' => true,
-        ];
-
-        $this->columns['phone'] = [
-            'type' => 'string',
-            'nullable' => true,
-        ];
-
-        $this->hasMany = [];
-        $this->hasOne = [];
-
-        // unset($this->hasMany['sublocations']);
-        // unset($this->hasMany['revisions']);
-
-        // unset($this->ids['location_id']);
-        // unset($this->hasOne['location']);
-
-        // unset($this->ids['sublocation_id']);
-        // unset($this->hasOne['sublocation']);
-
-    }
-
-    public function init(): void
-    {
-        $this->reset();
+        if (! in_array($this->name(), [
+            'Location',
+            'Contact',
+        ])) {
+            unset($this->hasMany['revisions']);
+        }
 
         if (in_array($this->name(), [
             'Location',
         ])) {
-            $this->init_Location();
-        } elseif (in_array($this->name(), [
+            $this->hasMany['revisions']['comment'] = 'The revisions of the location.';
+            $this->hasMany['revisions']['related'] = 'LocationRevision';
+            $this->hasMany['revisions']['foreignKey'] = 'location_id';
+        }
+
+        if (! in_array($this->name(), [
             'LocationRevision',
         ])) {
-            $this->init_LocationRevision();
-        } elseif (in_array($this->name(), [
-            'Sublocation',
-        ])) {
-            $this->init_Sublocation();
-        } elseif (in_array($this->name(), [
-            'SublocationRevision',
-        ])) {
-            $this->init_SublocationRevision();
+            unset($this->ids['location_id']);
+            unset($this->hasOne['location']);
         }
-    }
 
-    public function init_Location(): void
-    {
-        $this->ids['parent_id']['trait'] = 'WithParent';
+        if (in_array($this->name(), [
+            'Contact',
+        ])) {
+            $this->hasMany['revisions']['comment'] = 'The revisions of the contact.';
+            $this->hasMany['revisions']['related'] = 'ContactRevision';
+            $this->hasMany['revisions']['foreignKey'] = 'contact_id';
+        }
 
-        $this->hasMany['revisions'] = [
-            'comment' => 'The revisions of the location.',
-            'accessor' => 'revisions',
-            'related' => 'LocationRevision',
-            'foreignKey' => 'location_id',
-            'localKey' => 'id',
-        ];
-
-        $this->hasMany['sublocations'] = [
-            'comment' => 'The sublocations of the location.',
-            'accessor' => 'sublocations',
-            'related' => 'Sublocation',
-            'foreignKey' => 'location_id',
-            'localKey' => 'id',
-        ];
-
-    }
-
-    public function init_LocationRevision(): void
-    {
-        $this->hasOne['location'] = [
-            'comment' => 'The location of the revision.',
-            'accessor' => 'location',
-            'related' => 'Location',
-            'foreignKey' => 'id',
-            'localKey' => 'location_id',
-        ];
-
-        $this->ids['location_id'] = [
-            'type' => 'uuid',
-            'nullable' => true,
-            'index' => true,
-            'foreign' => [
-                'references' => 'id',
-                'on' => 'directory_locations',
-            ],
-        ];
-    }
-
-    public function init_Sublocation(): void
-    {
-        $this->ids['parent_id']['trait'] = 'WithParent';
-
-        $this->hasMany['revisions'] = [
-            'comment' => 'The revisions of the sublocation.',
-            'accessor' => 'revisions',
-            'related' => 'SublocationRevision',
-            'foreignKey' => 'sublocation_id',
-            'localKey' => 'id',
-        ];
-
-        $this->hasOne['location'] = [
-            'comment' => 'The location of the sublocation',
-            'accessor' => 'location',
-            'related' => 'Location',
-            'foreignKey' => 'id',
-            'localKey' => 'location_id',
-        ];
-
-        $this->ids['location_id'] = [
-            'type' => 'uuid',
-            'nullable' => true,
-            'index' => true,
-            'foreign' => [
-                'references' => 'id',
-                'on' => 'directory_locations',
-            ],
-        ];
-    }
-
-    public function init_SublocationRevision(): void
-    {
-        $this->hasOne['sublocation'] = [
-            'comment' => 'The sublocation of the revision.',
-            'accessor' => 'sublocation',
-            'related' => 'Sublocation',
-            'foreignKey' => 'id',
-            'localKey' => 'sublocation_id',
-        ];
-
-        $this->ids['sublocation_id'] = [
-            'type' => 'uuid',
-            'nullable' => true,
-            'index' => true,
-            'foreign' => [
-                'references' => 'id',
-                'on' => 'directory_sublocations',
-            ],
-        ];
-
-        $this->hasOne['location'] = [
-            'comment' => 'The location of the sublocation revision',
-            'accessor' => 'location',
-            'related' => 'Location',
-            'foreignKey' => 'id',
-            'localKey' => 'location_id',
-        ];
-
-        $this->ids['location_id'] = [
-            'type' => 'uuid',
-            'nullable' => true,
-            'index' => true,
-            'foreign' => [
-                'references' => 'id',
-                'on' => 'directory_locations',
-            ],
-        ];
+        if (! in_array($this->name(), [
+            'ContactRevision',
+        ])) {
+            unset($this->ids['contact_id']);
+            unset($this->hasOne['contact']);
+        }
     }
 }
