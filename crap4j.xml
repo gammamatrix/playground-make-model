@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2026-10-11 04:05:59</timestamp>
+  <timestamp>2026-10-12 16:14:43</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>227</methodCount>
     <crapMethodCount>17</crapMethodCount>
     <crapLoad>299</crapLoad>
-    <totalCrap>10416.58</totalCrap>
+    <totalCrap>10428.58</totalCrap>
     <crapMethodPercent>7.49</crapMethodPercent>
   </stats>
   <methods>
@@ -2016,9 +2016,42 @@
     <method>
       <package>Playground\Make\Model\Recipe</package>
       <className>Playground\Make\Model\Recipe\Directory</className>
-      <methodName>reset</methodName>
-      <methodSignature>reset(): void</methodSignature>
-      <fullMethod>reset(): void</fullMethod>
+      <methodName>addColumns</methodName>
+      <methodSignature>addColumns(): void</methodSignature>
+      <fullMethod>addColumns(): void</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Directory</className>
+      <methodName>addDates</methodName>
+      <methodSignature>addDates(): void</methodSignature>
+      <fullMethod>addDates(): void</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Directory</className>
+      <methodName>addFlags</methodName>
+      <methodSignature>addFlags(): void</methodSignature>
+      <fullMethod>addFlags(): void</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Directory</className>
+      <methodName>addJson</methodName>
+      <methodSignature>addJson(): void</methodSignature>
+      <fullMethod>addJson(): void</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
@@ -2030,17 +2063,6 @@
       <methodName>init</methodName>
       <methodSignature>init(): void</methodSignature>
       <fullMethod>init(): void</fullMethod>
-      <crap>30</crap>
-      <complexity>5</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Make\Model\Recipe</package>
-      <className>Playground\Make\Model\Recipe\Directory</className>
-      <methodName>init_Location</methodName>
-      <methodSignature>init_Location(): void</methodSignature>
-      <fullMethod>init_Location(): void</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
@@ -2049,33 +2071,11 @@
     <method>
       <package>Playground\Make\Model\Recipe</package>
       <className>Playground\Make\Model\Recipe\Directory</className>
-      <methodName>init_LocationRevision</methodName>
-      <methodSignature>init_LocationRevision(): void</methodSignature>
-      <fullMethod>init_LocationRevision(): void</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Make\Model\Recipe</package>
-      <className>Playground\Make\Model\Recipe\Directory</className>
-      <methodName>init_Sublocation</methodName>
-      <methodSignature>init_Sublocation(): void</methodSignature>
-      <fullMethod>init_Sublocation(): void</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Make\Model\Recipe</package>
-      <className>Playground\Make\Model\Recipe\Directory</className>
-      <methodName>init_SublocationRevision</methodName>
-      <methodSignature>init_SublocationRevision(): void</methodSignature>
-      <fullMethod>init_SublocationRevision(): void</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
+      <methodName>withRevisions</methodName>
+      <methodSignature>withRevisions(): void</methodSignature>
+      <fullMethod>withRevisions(): void</fullMethod>
+      <crap>42</crap>
+      <complexity>6</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
