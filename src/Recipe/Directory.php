@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Playground\Make\Model\Recipe;
 
+use Illuminate\Support\Arr;
+
 /**
  * \Playground\Make\Model\Recipe\Directory
  */
@@ -58,6 +60,26 @@ class Directory extends Playground
             'nullable' => true,
             'type' => 'uuid',
         ],
+        'tag_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'directory_tags',
+            ],
+            'index' => true,
+            'nullable' => true,
+            'type' => 'uuid',
+        ],
+        'tagged_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'directory_tagged',
+            ],
+            'index' => true,
+            'nullable' => true,
+            'type' => 'uuid',
+        ],
     ];
 
     /**
@@ -100,6 +122,24 @@ class Directory extends Playground
             'localKey' => 'contact_id',
         ],
     ];
+
+    /**
+     * @var array<string, array<string, mixed>>
+     */
+    protected array $hasManyThrough = [
+        'tags' => [
+            'comment' => 'The tags of the %1$s.',
+            'accessor' => 'tags',
+            'related' => 'Tag',
+            'through' => 'Tagged',
+            'firstKey' => 'task_id',
+            'secondKey' => 'id',
+            'localKey' => 'id',
+            'secondLocalKey' => 'tag_id',
+        ],
+    ];
+
+    protected string $tableTags = 'directory_tags';
 
     public function addColumns(): void
     {
@@ -157,12 +197,38 @@ class Directory extends Playground
 
     public function init(): void
     {
-        $this->addColumns();
-        $this->addDates();
-        $this->addFlags();
-        $this->addJson();
+        /**
+         * @var array<string, array<string, mixed>> $allIds
+         */
+        $allIds = Arr::except($this->allIds, ['parent_id', 'matrix_id']);
+
+        if ($this->type === 'playground-model-tagged') {
+            $this->circletHasOne['contact']['comment'] = 'The tagged contact.';
+            $this->circletHasOne['location']['comment'] = 'The tagged location.';
+            $this->allIds = $allIds;
+            $this->handleTagged();
+            $this->handleCircletHasOne();
+        }
+
+        if ($this->name === 'Tag') {
+            $this->allIds = $allIds;
+            $this->circletHasOne = [];
+            $this->circletHasMany = [];
+            $this->hasManyThrough = [];
+        } else {
+            $this->addColumns();
+            $this->addDates();
+            $this->addFlags();
+            $this->addJson();
+            $this->withRevisions();
+        }
         $this->handleHasOne();
-        $this->withRevisions();
+        $this->handleHasManyThrough();
+        // dd($this);
+        // dump([
+        //    '__METHOD__' => __METHOD__,
+        //    '$this->hasManyThrough' => $this->hasManyThrough,
+        // ]);
     }
 
     public function withRevisions(): void

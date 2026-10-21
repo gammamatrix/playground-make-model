@@ -28,6 +28,7 @@ abstract class Model implements Contracts\Models, Contracts\Views
     use Concerns\Matrix;
     use Concerns\Permissions;
     use Concerns\Status;
+    use Concerns\Tags;
     use Concerns\Ui;
     use Concerns\Unique;
 

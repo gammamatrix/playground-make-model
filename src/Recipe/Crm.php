@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Playground\Make\Model\Recipe;
 
+use Illuminate\Support\Arr;
+
 /**
  * \Playground\Make\Model\Recipe\Crm
  */
@@ -78,11 +80,21 @@ class Crm extends Playground
             'nullable' => true,
             'type' => 'uuid',
         ],
-        'people_id' => [
+        'tagged_id' => [
             'description' => '',
             'foreign' => [
                 'references' => 'id',
-                'on' => 'crm_people',
+                'on' => 'crm_tagged',
+            ],
+            'index' => true,
+            'nullable' => true,
+            'type' => 'uuid',
+        ],
+        'tag_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'crm_tags',
             ],
             'index' => true,
             'nullable' => true,
@@ -136,13 +148,6 @@ class Crm extends Playground
             'foreignKey' => 'id',
             'localKey' => 'organization_id',
         ],
-        'people' => [
-            'comment' => 'The people of the %1$s.',
-            'accessor' => 'people',
-            'related' => 'People',
-            'foreignKey' => 'id',
-            'localKey' => 'people_id',
-        ],
     ];
 
     /**
@@ -177,14 +182,25 @@ class Crm extends Playground
             'foreignKey' => '',
             'localKey' => 'id',
         ],
-        'peoples' => [
-            'comment' => 'The people of the %1$s.',
-            'accessor' => 'peoples',
-            'related' => 'People',
-            'foreignKey' => '',
+    ];
+
+    /**
+     * @var array<string, array<string, mixed>>
+     */
+    protected array $hasManyThrough = [
+        'tags' => [
+            'comment' => 'The tags of the %1$s.',
+            'accessor' => 'tags',
+            'related' => 'Tag',
+            'through' => 'Tagged',
+            'firstKey' => 'task_id',
+            'secondKey' => 'id',
             'localKey' => 'id',
+            'secondLocalKey' => 'tag_id',
         ],
     ];
+
+    protected string $tableTags = 'crm_tags';
 
     public function addColumns(): void
     {
@@ -250,15 +266,40 @@ class Crm extends Playground
 
     public function init(): void
     {
-        $this->addColumns();
-        $this->addDates();
-        $this->addFlags();
-        $this->addJson();
+        /**
+         * @var array<string, array<string, mixed>> $allIds
+         */
+        $allIds = Arr::except($this->allIds, ['parent_id', 'matrix_id']);
+
+        if ($this->type === 'playground-model-tagged') {
+            $this->circletHasOne['client']['comment'] = 'The tagged client.';
+            $this->circletHasOne['contact']['comment'] = 'The tagged contact.';
+            $this->circletHasOne['location']['comment'] = 'The tagged location.';
+            $this->circletHasOne['organization']['comment'] = 'The tagged organization.';
+            $this->allIds = $allIds;
+            $this->handleTagged();
+            $this->handleCircletHasOne();
+        }
+
+        if ($this->name === 'Tag') {
+            $this->allIds = $allIds;
+            $this->circletHasOne = [];
+            $this->circletHasMany = [];
+            $this->hasManyThrough = [];
+        } else {
+            $this->addColumns();
+            $this->addDates();
+            $this->addFlags();
+            $this->addJson();
+        }
+
         $this->handleCircletHasOne();
         $this->handleCircletHasMany();
-        //        dump([
-        //            '__METHOD__' => __METHOD__,
-        //            '$this' => $this,
-        //        ]);
+        $this->handleHasManyThrough();
+        // dd($this);
+        // dump([
+        //    '__METHOD__' => __METHOD__,
+        //    '$this->hasManyThrough' => $this->hasManyThrough,
+        // ]);
     }
 }

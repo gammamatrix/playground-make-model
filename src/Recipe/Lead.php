@@ -8,29 +8,13 @@ declare(strict_types=1);
 
 namespace Playground\Make\Model\Recipe;
 
+use Illuminate\Support\Arr;
+
 /**
  * \Playground\Make\Model\Recipe\Lead
  */
 class Lead extends Playground
 {
-    /**
-     * @var array<string, array<string, mixed>>
-     */
-    protected array $factoryStates = [
-        'locked' => [
-            'type' => 'flag',
-            'value' => true,
-        ],
-        'featured' => [
-            'type' => 'flag',
-            'value' => true,
-        ],
-        'special' => [
-            'type' => 'flag',
-            'value' => true,
-        ],
-    ];
-
     /**
      * @var array<string, array<string, mixed>>
      */
@@ -166,6 +150,44 @@ class Lead extends Playground
             'nullable' => true,
             'type' => 'uuid',
         ],
+        'tagged_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'lead_tagged',
+            ],
+            'index' => true,
+            'nullable' => true,
+            'type' => 'uuid',
+        ],
+        'tag_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'lead_tags',
+            ],
+            'index' => true,
+            'nullable' => true,
+            'type' => 'uuid',
+        ],
+    ];
+
+    /**
+     * @var array<string, array<string, mixed>>
+     */
+    protected array $factoryStates = [
+        'locked' => [
+            'type' => 'flag',
+            'value' => true,
+        ],
+        'featured' => [
+            'type' => 'flag',
+            'value' => true,
+        ],
+        'special' => [
+            'type' => 'flag',
+            'value' => true,
+        ],
     ];
 
     /**
@@ -250,6 +272,107 @@ class Lead extends Playground
             'localKey' => 'teammate_id',
         ],
     ];
+
+    /**
+     * @var array<string, array<string, mixed>>
+     */
+    protected array $circletHasMany = [
+        'campaigns' => [
+            'comment' => 'The campaigns of the %1$s.',
+            'accessor' => 'campaigns',
+            'related' => 'Campaign',
+            'foreignKey' => '',
+            'localKey' => 'id',
+        ],
+        'goals' => [
+            'comment' => 'The goals of the %1$s.',
+            'accessor' => 'goals',
+            'related' => 'Goal',
+            'foreignKey' => '',
+            'localKey' => 'id',
+        ],
+        'leads' => [
+            'comment' => 'The leads of the %1$s.',
+            'accessor' => 'leads',
+            'related' => 'Lead',
+            'foreignKey' => '',
+            'localKey' => 'id',
+        ],
+        'opportunities' => [
+            'comment' => 'The opportunities of the %1$s.',
+            'accessor' => 'opportunities',
+            'related' => 'Opportunity',
+            'foreignKey' => '',
+            'localKey' => 'id',
+        ],
+        'plans' => [
+            'comment' => 'The plans of the %1$s.',
+            'accessor' => 'plans',
+            'related' => 'Plan',
+            'foreignKey' => '',
+            'localKey' => 'id',
+        ],
+        'regions' => [
+            'comment' => 'The regions of the %1$s.',
+            'accessor' => 'regions',
+            'related' => 'Region',
+            'foreignKey' => '',
+            'localKey' => 'id',
+        ],
+        'reports' => [
+            'comment' => 'The reports of the %1$s.',
+            'accessor' => 'reports',
+            'related' => 'Report',
+            'foreignKey' => '',
+            'localKey' => 'id',
+        ],
+        'sources' => [
+            'comment' => 'The sources of the %1$s.',
+            'accessor' => 'sources',
+            'related' => 'Source',
+            'foreignKey' => '',
+            'localKey' => 'id',
+        ],
+        'tasks' => [
+            'comment' => 'The tasks of the %1$s.',
+            'accessor' => 'tasks',
+            'related' => 'Task',
+            'foreignKey' => '',
+            'localKey' => 'id',
+        ],
+        'teams' => [
+            'comment' => 'The teams of the %1$s.',
+            'accessor' => 'teams',
+            'related' => 'Team',
+            'foreignKey' => '',
+            'localKey' => 'id',
+        ],
+        'teammates' => [
+            'comment' => 'The teammates of the %1$s.',
+            'accessor' => 'teammates',
+            'related' => 'Teammate',
+            'foreignKey' => '',
+            'localKey' => 'id',
+        ],
+    ];
+
+    /**
+     * @var array<string, array<string, mixed>>
+     */
+    protected array $hasManyThrough = [
+        'tags' => [
+            'comment' => 'The tags of the %1$s.',
+            'accessor' => 'tags',
+            'related' => 'Tag',
+            'through' => 'Tagged',
+            'firstKey' => 'task_id',
+            'secondKey' => 'id',
+            'localKey' => 'id',
+            'secondLocalKey' => 'tag_id',
+        ],
+    ];
+
+    protected string $tableTags = 'lead_tags';
 
     public function addColumns(): void
     {
@@ -438,6 +561,7 @@ class Lead extends Playground
             'default' => false,
             'label' => 'Special',
             'index' => true,
+            'nullable' => true,
             'type' => 'boolean',
         ];
 
@@ -463,10 +587,47 @@ class Lead extends Playground
 
     public function init(): void
     {
-        $this->addColumns();
-        $this->addDates();
-        $this->addFlags();
-        $this->addJson();
+        /**
+         * @var array<string, array<string, mixed>> $allIds
+         */
+        $allIds = Arr::except($this->allIds, ['parent_id', 'matrix_id']);
+
+        if ($this->type === 'playground-model-tagged') {
+            $this->circletHasOne['campaign']['comment'] = 'The tagged campaign.';
+            $this->circletHasOne['goal']['comment'] = 'The tagged goal.';
+            $this->circletHasOne['lead']['comment'] = 'The tagged lead.';
+            $this->circletHasOne['opportunity']['comment'] = 'The tagged opportunity.';
+            $this->circletHasOne['plan']['comment'] = 'The tagged plan.';
+            $this->circletHasOne['region']['comment'] = 'The tagged region.';
+            $this->circletHasOne['report']['comment'] = 'The tagged report.';
+            $this->circletHasOne['source']['comment'] = 'The tagged source.';
+            $this->circletHasOne['task']['comment'] = 'The tagged task.';
+            $this->circletHasOne['team']['comment'] = 'The tagged team.';
+            $this->circletHasOne['teammate']['comment'] = 'The tagged teammate.';
+            $this->allIds = $allIds;
+            $this->handleTagged();
+            $this->handleCircletHasOne();
+        }
+
+        if ($this->name === 'Tag') {
+            $this->allIds = $allIds;
+            $this->circletHasOne = [];
+            $this->circletHasMany = [];
+            $this->hasManyThrough = [];
+        } else {
+            $this->addColumns();
+            $this->addDates();
+            $this->addFlags();
+            $this->addJson();
+        }
+
         $this->handleCircletHasOne();
+        $this->handleCircletHasMany();
+        $this->handleHasManyThrough();
+        // dd($this);
+        // dump([
+        //    '__METHOD__' => __METHOD__,
+        //    '$this->hasManyThrough' => $this->hasManyThrough,
+        // ]);
     }
 }

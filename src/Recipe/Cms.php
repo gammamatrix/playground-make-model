@@ -101,6 +101,24 @@ class Cms extends Playground
         ],
     ];
 
+    /**
+     * @var array<string, array<string, mixed>>
+     */
+    protected array $hasManyThrough = [
+        'tags' => [
+            'comment' => 'The tags of the %1$s.',
+            'accessor' => 'tags',
+            'related' => 'Tag',
+            'through' => 'Tagged',
+            'firstKey' => 'task_id',
+            'secondKey' => 'id',
+            'localKey' => 'id',
+            'secondLocalKey' => 'tag_id',
+        ],
+    ];
+
+    protected string $tableTags = 'cms_tags';
+
     public function addDates(): void
     {
         $this->dates['fixed_at'] = [
@@ -118,6 +136,38 @@ class Cms extends Playground
         $this->withRevisions();
         $this->withRouting();
     }
+
+    //    public function init(): void
+    //    {
+    //        if ($this->type === 'playground-model-tagged') {
+    //            $this->circletHasOne['page']['comment'] = 'The tagged page.';
+    //            $this->circletHasOne['snippet']['comment'] = 'The tagged snippet.';
+    //            $this->allIds = Arr::except($this->allIds, ['parent_id', 'matrix_id']);
+    //            $this->handleTagged();
+    //            $this->handleCircletHasOne();
+    //        }
+    //
+    //        if ($this->name === 'Tag') {
+    //            $this->allIds = Arr::only($this->allIds, ['parent_id', 'matrix_id']);
+    //            $this->circletHasOne = [];
+    //            $this->circletHasMany = [];
+    //            $this->hasManyThrough = [];
+    //        } else {
+    //            $this->addColumns();
+    //            $this->addDates();
+    //            $this->addFlags();
+    //            $this->addJson();
+    //        }
+    //
+    //        $this->handleCircletHasOne();
+    //        $this->handleCircletHasMany();
+    //        $this->handleHasManyThrough();
+    //        // dd($this);
+    //        // dump([
+    //        //    '__METHOD__' => __METHOD__,
+    //        //    '$this->hasManyThrough' => $this->hasManyThrough,
+    //        // ]);
+    //    }
 
     public function withRevisions(): void
     {
