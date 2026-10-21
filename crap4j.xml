@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2026-10-12 16:14:43</timestamp>
+  <timestamp>2026-10-21 20:47:00</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>227</methodCount>
+    <methodCount>228</methodCount>
     <crapMethodCount>17</crapMethodCount>
     <crapLoad>299</crapLoad>
-    <totalCrap>10428.58</totalCrap>
-    <crapMethodPercent>7.49</crapMethodPercent>
+    <totalCrap>10464.58</totalCrap>
+    <crapMethodPercent>7.46</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -1938,6 +1938,17 @@
     </method>
     <method>
       <package>Playground\Make\Model\Recipe\Concerns</package>
+      <className>Playground\Make\Model\Recipe\Concerns\Tags</className>
+      <methodName>handleTagged</methodName>
+      <methodSignature>handleTagged(): void</methodSignature>
+      <fullMethod>handleTagged(): void</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe\Concerns</package>
       <className>Playground\Make\Model\Recipe\Concerns\Ui</className>
       <methodName>ui</methodName>
       <methodSignature>ui(): array</methodSignature>
@@ -2008,8 +2019,8 @@
       <methodName>init</methodName>
       <methodSignature>init(): void</methodSignature>
       <fullMethod>init(): void</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
+      <crap>12</crap>
+      <complexity>3</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -2063,8 +2074,8 @@
       <methodName>init</methodName>
       <methodSignature>init(): void</methodSignature>
       <fullMethod>init(): void</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
+      <crap>12</crap>
+      <complexity>3</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -2129,8 +2140,8 @@
       <methodName>init</methodName>
       <methodSignature>init(): void</methodSignature>
       <fullMethod>init(): void</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
+      <crap>12</crap>
+      <complexity>3</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
