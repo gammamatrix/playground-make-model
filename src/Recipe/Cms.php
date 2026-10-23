@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Playground\Make\Model\Recipe;
 
+use Illuminate\Support\Arr;
+
 /**
  * \Playground\Make\Model\Recipe\Cms
  */
@@ -152,20 +154,21 @@ class Cms extends Playground
         /**
          * @var array<string, array<string, mixed>> $allIds
          */
-        $allIds = \Illuminate\Support\Arr::except($this->allIds, ['parent_id', 'matrix_id']);
+        $allIds = Arr::except($this->allIds, ['parent_id', 'matrix_id']);
 
         if ($this->type === 'playground-model-tagged') {
             $this->allIds = $allIds;
             unset($this->hasMany['revisions']);
             $this->handleTagged();
             $this->handleCircletHasOne();
+
             return;
         }
 
         /**
          * @var array<string, array<string, mixed>> $onlyIds
          */
-        $onlyIds = \Illuminate\Support\Arr::only($this->allIds, ['parent_id', 'matrix_id']);
+        $onlyIds = Arr::only($this->allIds, ['parent_id', 'matrix_id']);
 
         if ($this->name === 'Tag') {
             $this->allIds = $onlyIds;
@@ -174,6 +177,7 @@ class Cms extends Playground
             $this->circletHasMany = [];
             $this->hasManyThrough = [];
             $this->handleCircletHasOne();
+
             return;
         }
 

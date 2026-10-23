@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Playground\Make\Model\Recipe;
 
+use Illuminate\Support\Arr;
+
 /**
  * \Playground\Make\Model\Recipe\Lead
  */
@@ -585,7 +587,7 @@ class Lead extends Playground
         /**
          * @var array<string, array<string, mixed>> $allIds
          */
-        $allIds = \Illuminate\Support\Arr::except($this->allIds, ['parent_id', 'matrix_id']);
+        $allIds = Arr::except($this->allIds, ['parent_id', 'matrix_id']);
 
         if ($this->type === 'playground-model-tagged') {
             $this->circletHasOne['campaign']['comment'] = 'The tagged campaign.';
@@ -602,13 +604,14 @@ class Lead extends Playground
             $this->allIds = $allIds;
             $this->handleTagged();
             $this->handleCircletHasOne();
+
             return;
         }
 
         /**
          * @var array<string, array<string, mixed>> $onlyIds
          */
-        $onlyIds = \Illuminate\Support\Arr::only($this->allIds, ['parent_id', 'matrix_id']);
+        $onlyIds = Arr::only($this->allIds, ['parent_id', 'matrix_id']);
 
         if ($this->name === 'Tag') {
             $this->allIds = $onlyIds;
@@ -616,6 +619,7 @@ class Lead extends Playground
             $this->circletHasMany = [];
             $this->hasManyThrough = [];
             $this->handleCircletHasOne();
+
             return;
         }
 
