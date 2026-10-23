@@ -198,8 +198,6 @@ class Directory extends Playground
         $allIds = Arr::except($this->allIds, ['parent_id', 'matrix_id']);
 
         if ($this->type === 'playground-model-tagged') {
-            $this->circletHasOne['contact']['comment'] = 'The tagged contact.';
-            $this->circletHasOne['location']['comment'] = 'The tagged location.';
             $this->allIds = $allIds;
             unset($this->hasMany['revisions']);
             $this->handleTagged();
@@ -215,10 +213,10 @@ class Directory extends Playground
 
         if ($this->name === 'Tag') {
             $this->allIds = $onlyIds;
+            unset($this->hasMany['revisions']);
             $this->circletHasOne = [];
             $this->circletHasMany = [];
             $this->hasManyThrough = [];
-            unset($this->hasMany['revisions']);
             $this->handleCircletHasOne();
 
             return;
