@@ -123,23 +123,18 @@ class Directory extends Playground
         ],
     ];
 
-    /**
-     * @var array<string, array<string, mixed>>
-     */
     protected array $hasManyThrough = [
         'tags' => [
             'comment' => 'The tags of the %1$s.',
             'accessor' => 'tags',
             'related' => 'Tag',
-            'through' => 'Tagged',
             'firstKey' => 'task_id',
             'secondKey' => 'id',
             'localKey' => 'id',
             'secondLocalKey' => 'tag_id',
+            'through' => 'Tagged',
         ],
     ];
-
-    protected string $tableTags = 'directory_tags';
 
     public function addColumns(): void
     {
@@ -206,29 +201,43 @@ class Directory extends Playground
             $this->circletHasOne['contact']['comment'] = 'The tagged contact.';
             $this->circletHasOne['location']['comment'] = 'The tagged location.';
             $this->allIds = $allIds;
+            unset($this->hasMany['revisions']);
             $this->handleTagged();
             $this->handleCircletHasOne();
+
+            return;
         }
 
+        /**
+         * @var array<string, array<string, mixed>> $onlyIds
+         */
+        $onlyIds = Arr::only($this->allIds, ['parent_id', 'matrix_id']);
+
         if ($this->name === 'Tag') {
-            $this->allIds = $allIds;
+            $this->allIds = $onlyIds;
             $this->circletHasOne = [];
             $this->circletHasMany = [];
             $this->hasManyThrough = [];
-        } else {
-            $this->addColumns();
-            $this->addDates();
-            $this->addFlags();
-            $this->addJson();
-            $this->withRevisions();
+            unset($this->hasMany['revisions']);
+            $this->handleCircletHasOne();
+
+            return;
         }
+
+        $this->hasManyThrough['tags']['firstKey'] = $this->table_id;
+        $this->hasManyThrough['tags']['comment'] = sprintf('The tags of the %1$s.', $this->name_lower());
+
+        unset($this->allIds['tag_id']);
+        unset($this->allIds['tagged_id']);
+        unset($this->circletHasOne['tag']);
+        unset($this->circletHasMany['tags']);
+
+        $this->addColumns();
+        $this->addDates();
+        $this->addFlags();
+        $this->addJson();
         $this->handleHasOne();
-        $this->handleHasManyThrough();
-        // dd($this);
-        // dump([
-        //    '__METHOD__' => __METHOD__,
-        //    '$this->hasManyThrough' => $this->hasManyThrough,
-        // ]);
+        $this->withRevisions();
     }
 
     public function withRevisions(): void
@@ -246,6 +255,7 @@ class Directory extends Playground
             'Contact',
         ])) {
             unset($this->hasMany['revisions']);
+            unset($this->hasManyThrough['tags']);
         }
 
         if (in_array($this->name(), [
