@@ -58,6 +58,26 @@ class Cms extends Playground
             'nullable' => true,
             'type' => 'uuid',
         ],
+        'tag_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'cms_tags',
+            ],
+            'index' => true,
+            'nullable' => true,
+            'type' => 'uuid',
+        ],
+        'tagged_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'cms_tagged',
+            ],
+            'index' => true,
+            'nullable' => true,
+            'type' => 'uuid',
+        ],
     ];
 
     /**
@@ -109,15 +129,13 @@ class Cms extends Playground
             'comment' => 'The tags of the %1$s.',
             'accessor' => 'tags',
             'related' => 'Tag',
-            'through' => 'Tagged',
-            'firstKey' => 'task_id',
+            'firstKey' => '',
             'secondKey' => 'id',
             'localKey' => 'id',
             'secondLocalKey' => 'tag_id',
+            'through' => 'Tagged',
         ],
     ];
-
-    protected string $tableTags = 'cms_tags';
 
     public function addDates(): void
     {
@@ -131,43 +149,47 @@ class Cms extends Playground
 
     public function init(): void
     {
+        /**
+         * @var array<string, array<string, mixed>> $allIds
+         */
+        $allIds = \Illuminate\Support\Arr::except($this->allIds, ['parent_id', 'matrix_id']);
+
+        if ($this->type === 'playground-model-tagged') {
+            $this->allIds = $allIds;
+            unset($this->hasMany['revisions']);
+            $this->handleTagged();
+            $this->handleCircletHasOne();
+            return;
+        }
+
+        /**
+         * @var array<string, array<string, mixed>> $onlyIds
+         */
+        $onlyIds = \Illuminate\Support\Arr::only($this->allIds, ['parent_id', 'matrix_id']);
+
+        if ($this->name === 'Tag') {
+            $this->allIds = $onlyIds;
+            unset($this->hasMany['revisions']);
+            $this->circletHasOne = [];
+            $this->circletHasMany = [];
+            $this->hasManyThrough = [];
+            $this->handleCircletHasOne();
+            return;
+        }
+
+        $this->hasManyThrough['tags']['firstKey'] = $this->table_id;
+        $this->hasManyThrough['tags']['comment'] = sprintf('The tags of the %1$s.', $this->name_lower());
+
+        unset($this->allIds['tag_id']);
+        unset($this->allIds['tagged_id']);
+        unset($this->circletHasOne['tag']);
+        unset($this->circletHasMany['tags']);
+
         $this->addDates();
         $this->handleHasOne();
         $this->withRevisions();
         $this->withRouting();
     }
-
-    //    public function init(): void
-    //    {
-    //        if ($this->type === 'playground-model-tagged') {
-    //            $this->circletHasOne['page']['comment'] = 'The tagged page.';
-    //            $this->circletHasOne['snippet']['comment'] = 'The tagged snippet.';
-    //            $this->allIds = Arr::except($this->allIds, ['parent_id', 'matrix_id']);
-    //            $this->handleTagged();
-    //            $this->handleCircletHasOne();
-    //        }
-    //
-    //        if ($this->name === 'Tag') {
-    //            $this->allIds = Arr::only($this->allIds, ['parent_id', 'matrix_id']);
-    //            $this->circletHasOne = [];
-    //            $this->circletHasMany = [];
-    //            $this->hasManyThrough = [];
-    //        } else {
-    //            $this->addColumns();
-    //            $this->addDates();
-    //            $this->addFlags();
-    //            $this->addJson();
-    //        }
-    //
-    //        $this->handleCircletHasOne();
-    //        $this->handleCircletHasMany();
-    //        $this->handleHasManyThrough();
-    //        // dd($this);
-    //        // dump([
-    //        //    '__METHOD__' => __METHOD__,
-    //        //    '$this->hasManyThrough' => $this->hasManyThrough,
-    //        // ]);
-    //    }
 
     public function withRevisions(): void
     {
@@ -184,6 +206,7 @@ class Cms extends Playground
             'Snippet',
         ])) {
             unset($this->hasMany['revisions']);
+            unset($this->hasManyThrough['tags']);
         }
 
         if (in_array($this->name(), [
