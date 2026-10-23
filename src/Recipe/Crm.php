@@ -192,15 +192,13 @@ class Crm extends Playground
             'comment' => 'The tags of the %1$s.',
             'accessor' => 'tags',
             'related' => 'Tag',
-            'through' => 'Tagged',
-            'firstKey' => 'task_id',
+            'firstKey' => '',
             'secondKey' => 'id',
             'localKey' => 'id',
             'secondLocalKey' => 'tag_id',
+            'through' => 'Tagged',
         ],
     ];
-
-    protected string $tableTags = 'crm_tags';
 
     public function addColumns(): void
     {
@@ -279,27 +277,38 @@ class Crm extends Playground
             $this->allIds = $allIds;
             $this->handleTagged();
             $this->handleCircletHasOne();
+
+            return;
         }
 
+        /**
+         * @var array<string, array<string, mixed>> $onlyIds
+         */
+        $onlyIds = Arr::only($this->allIds, ['parent_id', 'matrix_id']);
+
         if ($this->name === 'Tag') {
-            $this->allIds = $allIds;
+            $this->allIds = $onlyIds;
             $this->circletHasOne = [];
             $this->circletHasMany = [];
             $this->hasManyThrough = [];
-        } else {
-            $this->addColumns();
-            $this->addDates();
-            $this->addFlags();
-            $this->addJson();
+            $this->handleCircletHasOne();
+
+            return;
         }
 
+        $this->hasManyThrough['tags']['firstKey'] = $this->table_id;
+        $this->hasManyThrough['tags']['comment'] = sprintf('The tags of the %1$s.', $this->name_lower());
+
+        unset($this->allIds['tag_id']);
+        unset($this->allIds['tagged_id']);
+        unset($this->circletHasOne['tag']);
+        unset($this->circletHasMany['tags']);
+
+        $this->addColumns();
+        $this->addDates();
+        $this->addFlags();
+        $this->addJson();
         $this->handleCircletHasOne();
         $this->handleCircletHasMany();
-        $this->handleHasManyThrough();
-        // dd($this);
-        // dump([
-        //    '__METHOD__' => __METHOD__,
-        //    '$this->hasManyThrough' => $this->hasManyThrough,
-        // ]);
     }
 }
