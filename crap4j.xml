@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2026-10-23 20:40:41</timestamp>
+  <timestamp>2026-10-28 19:28:45</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>228</methodCount>
-    <crapMethodCount>17</crapMethodCount>
-    <crapLoad>299</crapLoad>
-    <totalCrap>10474.58</totalCrap>
-    <crapMethodPercent>7.46</crapMethodPercent>
+    <methodCount>235</methodCount>
+    <crapMethodCount>20</crapMethodCount>
+    <crapLoad>334</crapLoad>
+    <totalCrap>10820.58</totalCrap>
+    <crapMethodPercent>8.51</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -2148,13 +2148,90 @@
     <method>
       <package>Playground\Make\Model\Recipe</package>
       <className>Playground\Make\Model\Recipe\Matrix</className>
+      <methodName>addIds</methodName>
+      <methodSignature>addIds(): void</methodSignature>
+      <fullMethod>addIds(): void</fullMethod>
+      <crap>42</crap>
+      <complexity>6</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Matrix</className>
+      <methodName>unsetCircletHasOneIds</methodName>
+      <methodSignature>unsetCircletHasOneIds(): void</methodSignature>
+      <fullMethod>unsetCircletHasOneIds(): void</fullMethod>
+      <crap>240</crap>
+      <complexity>15</complexity>
+      <coverage>0</coverage>
+      <crapLoad>15</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Matrix</className>
+      <methodName>unsetCircletHasManyIds</methodName>
+      <methodSignature>unsetCircletHasManyIds(): void</methodSignature>
+      <fullMethod>unsetCircletHasManyIds(): void</fullMethod>
+      <crap>240</crap>
+      <complexity>15</complexity>
+      <coverage>0</coverage>
+      <crapLoad>15</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Matrix</className>
+      <methodName>addColumns</methodName>
+      <methodSignature>addColumns(): void</methodSignature>
+      <fullMethod>addColumns(): void</fullMethod>
+      <crap>380</crap>
+      <complexity>19</complexity>
+      <coverage>0</coverage>
+      <crapLoad>19</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Matrix</className>
+      <methodName>addDates</methodName>
+      <methodSignature>addDates(): void</methodSignature>
+      <fullMethod>addDates(): void</fullMethod>
+      <crap>240</crap>
+      <complexity>15</complexity>
+      <coverage>0</coverage>
+      <crapLoad>15</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Matrix</className>
+      <methodName>addFlags</methodName>
+      <methodSignature>addFlags(): void</methodSignature>
+      <fullMethod>addFlags(): void</fullMethod>
+      <crap>20</crap>
+      <complexity>4</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Matrix</className>
+      <methodName>addJson</methodName>
+      <methodSignature>addJson(): void</methodSignature>
+      <fullMethod>addJson(): void</fullMethod>
+      <crap>42</crap>
+      <complexity>6</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Model\Recipe</package>
+      <className>Playground\Make\Model\Recipe\Matrix</className>
       <methodName>init</methodName>
       <methodSignature>init(): void</methodSignature>
       <fullMethod>init(): void</fullMethod>
-      <crap>870</crap>
-      <complexity>29</complexity>
+      <crap>12</crap>
+      <complexity>3</complexity>
       <coverage>0</coverage>
-      <crapLoad>30</crapLoad>
+      <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Model\Recipe</package>
