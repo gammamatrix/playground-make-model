@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Playground\Make\Model\Recipe;
 
-use Illuminate\Support\Str;
+use Illuminate\Support\Arr;
 
 /**
  * \Playground\Make\Model\Recipe\Matrix
@@ -18,10 +18,196 @@ class Matrix extends Playground
     /**
      * @var array<string, array<string, mixed>>
      */
+    protected array $allIds = [
+        'parent_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => null,
+            ],
+            'index' => true,
+            'nullable' => true,
+            'trait' => 'WithParent',
+            'type' => 'uuid',
+        ],
+        'matrix_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'matrix_matrices',
+            ],
+            'index' => true,
+            'nullable' => true,
+            'type' => 'uuid',
+        ],
+        'backlog_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'matrix_backlogs',
+            ],
+            'index' => true,
+            'nullable' => true,
+            'type' => 'uuid',
+        ],
+        'board_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'matrix_boards',
+            ],
+            'index' => true,
+            'nullable' => true,
+            'type' => 'uuid',
+        ],
+        'epic_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'matrix_epics',
+            ],
+            'index' => true,
+            'nullable' => true,
+            'type' => 'uuid',
+        ],
+        'flow_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'matrix_flows',
+            ],
+            'index' => true,
+            'nullable' => true,
+            'type' => 'uuid',
+        ],
+        'milestone_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'matrix_milestones',
+            ],
+            'index' => true,
+            'nullable' => true,
+            'type' => 'uuid',
+        ],
+        'note_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'matrix_notes',
+            ],
+            'index' => true,
+            'nullable' => true,
+            'type' => 'uuid',
+        ],
+        'project_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'matrix_projects',
+            ],
+            'index' => true,
+            'nullable' => true,
+            'type' => 'uuid',
+        ],
+        'release_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'matrix_releases',
+            ],
+            'index' => true,
+            'nullable' => true,
+            'type' => 'uuid',
+        ],
+        'roadmap_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'matrix_roadmaps',
+            ],
+            'index' => true,
+            'nullable' => true,
+            'type' => 'uuid',
+        ],
+        'source_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'matrix_sources',
+            ],
+            'index' => true,
+            'nullable' => true,
+            'type' => 'uuid',
+        ],
+        'sprint_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'matrix_sprints',
+            ],
+            'index' => true,
+            'nullable' => true,
+            'type' => 'uuid',
+        ],
+        'tag_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'matrix_tags',
+            ],
+            'index' => true,
+            'nullable' => true,
+            'type' => 'uuid',
+        ],
+        'team_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'matrix_teams',
+            ],
+            'index' => true,
+            'nullable' => true,
+            'type' => 'uuid',
+        ],
+        'ticket_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'matrix_tickets',
+            ],
+            'index' => true,
+            'nullable' => true,
+            'type' => 'uuid',
+        ],
+        'version_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'matrix_versions',
+            ],
+            'index' => true,
+            'nullable' => true,
+            'type' => 'uuid',
+        ],
+        'tagged_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'matrix_tagged',
+            ],
+            'index' => true,
+            'nullable' => true,
+            'type' => 'uuid',
+        ],
+    ];
+
+    /**
+     * @var array<string, array<string, mixed>>
+     */
     protected array $factoryStates = [
         'locked' => [
             'type' => 'flag',
-            // 'flag' => 'locked',
             'value' => true,
         ],
         'featured' => [
@@ -37,119 +223,7 @@ class Matrix extends Playground
     /**
      * @var array<string, array<string, mixed>>
      */
-    protected array $hasMany = [];
-
-    /**
-     * @var array<string, array<string, mixed>>
-     */
-    protected array $hasMany_all = [
-        'backlogs' => [
-            'comment' => 'The backlogs of the %1$s.',
-            'accessor' => 'backlogs',
-            'related' => 'Backlog',
-            'localKey' => 'id',
-        ],
-        'boards' => [
-            'comment' => 'The boards of the %1$s.',
-            'accessor' => 'boards',
-            'related' => 'Board',
-            'localKey' => 'id',
-        ],
-        'epics' => [
-            'comment' => 'The epics of the %1$s.',
-            'accessor' => 'epics',
-            'related' => 'Epic',
-            'localKey' => 'id',
-        ],
-        'flows' => [
-            'comment' => 'The flows of the %1$s.',
-            'accessor' => 'flows',
-            'related' => 'Flow',
-            'localKey' => 'id',
-        ],
-        // 'matrices' => [
-        //     'comment' => 'The matrices of the %1$s.',
-        //     'accessor' => 'matrices',
-        //     'related' => 'Matrix',
-        //     'localKey' => 'id',
-        // ],
-        'milestones' => [
-            'comment' => 'The milestones of the %1$s.',
-            'accessor' => 'milestones',
-            'related' => 'Milestone',
-            'localKey' => 'id',
-        ],
-        'notes' => [
-            'comment' => 'The notes of the %1$s.',
-            'accessor' => 'notes',
-            'related' => 'Note',
-            'localKey' => 'id',
-        ],
-        'projects' => [
-            'comment' => 'The projects of the %1$s.',
-            'accessor' => 'projects',
-            'related' => 'Project',
-            'localKey' => 'id',
-        ],
-        'releases' => [
-            'comment' => 'The releases of the %1$s.',
-            'accessor' => 'releases',
-            'related' => 'Release',
-            'localKey' => 'id',
-        ],
-        'roadmaps' => [
-            'comment' => 'The roadmaps of the %1$s.',
-            'accessor' => 'roadmaps',
-            'related' => 'Roadmap',
-            'localKey' => 'id',
-        ],
-        'sources' => [
-            'comment' => 'The sources of the %1$s.',
-            'accessor' => 'sources',
-            'related' => 'Source',
-            'localKey' => 'id',
-        ],
-        'sprints' => [
-            'comment' => 'The sprints of the %1$s.',
-            'accessor' => 'sprints',
-            'related' => 'Sprint',
-            'localKey' => 'id',
-        ],
-        'tags' => [
-            'comment' => 'The tags of the %1$s.',
-            'accessor' => 'tags',
-            'related' => 'Tag',
-            'localKey' => 'id',
-        ],
-        'teams' => [
-            'comment' => 'The teams of the %1$s.',
-            'accessor' => 'teams',
-            'related' => 'Team',
-            'localKey' => 'id',
-        ],
-        'tickets' => [
-            'comment' => 'The tickets of the %1$s.',
-            'accessor' => 'tickets',
-            'related' => 'Ticket',
-            'localKey' => 'id',
-        ],
-        'versions' => [
-            'comment' => 'The versions of the %1$s.',
-            'accessor' => 'versions',
-            'related' => 'Version',
-            'localKey' => 'id',
-        ],
-    ];
-
-    /**
-     * @var array<string, array<string, mixed>>
-     */
-    protected array $hasOne = [];
-
-    /**
-     * @var array<string, array<string, mixed>>
-     */
-    protected array $hasOne_all = [
+    protected array $circletHasOne = [
         'backlog' => [
             'comment' => 'The backlog of the %1$s.',
             'accessor' => 'backlog',
@@ -235,7 +309,7 @@ class Matrix extends Playground
             'localKey' => 'sprint_id',
         ],
         'tag' => [
-            'comment' => 'The tag of the %1$s.',
+            'comment' => 'The tag.',
             'accessor' => 'tag',
             'related' => 'Tag',
             'foreignKey' => 'id',
@@ -267,822 +341,944 @@ class Matrix extends Playground
     /**
      * @var array<string, array<string, mixed>>
      */
-    protected array $ids = [];
-
-    /**
-     * @var array<string, array<string, mixed>>
-     */
-    protected array $ids_all = [
-        'parent_id' => [
-            'type' => 'uuid',
-            'nullable' => true,
-            'index' => true,
-            'foreign' => [
-                'references' => 'id',
-                'on' => null,
-            ],
-            'trait' => 'WithParent',
+    protected array $circletHasMany = [
+        'backlogs' => [
+            'comment' => 'The backlogs of the %1$s.',
+            'accessor' => 'backlogs',
+            'related' => 'Backlog',
+            'foreignKey' => '',
+            'localKey' => 'id',
         ],
-        'backlog_id' => [
-            'type' => 'uuid',
-            'nullable' => true,
-            'index' => true,
-            'foreign' => [
-                'references' => 'id',
-                'on' => 'matrix_backlogs',
-            ],
+        'boards' => [
+            'comment' => 'The boards of the %1$s.',
+            'accessor' => 'boards',
+            'related' => 'Board',
+            'foreignKey' => '',
+            'localKey' => 'id',
         ],
-        'board_id' => [
-            'type' => 'uuid',
-            'nullable' => true,
-            'index' => true,
-            'foreign' => [
-                'references' => 'id',
-                'on' => 'matrix_boards',
-            ],
+        'epics' => [
+            'comment' => 'The epics of the %1$s.',
+            'accessor' => 'epics',
+            'related' => 'Epic',
+            'foreignKey' => '',
+            'localKey' => 'id',
         ],
-        'epic_id' => [
-            'type' => 'uuid',
-            'nullable' => true,
-            'index' => true,
-            'foreign' => [
-                'references' => 'id',
-                'on' => 'matrix_epics',
-            ],
+        'flows' => [
+            'comment' => 'The flows of the %1$s.',
+            'accessor' => 'flows',
+            'related' => 'Flow',
+            'foreignKey' => '',
+            'localKey' => 'id',
         ],
-        'flow_id' => [
-            'type' => 'uuid',
-            'nullable' => true,
-            'index' => true,
-            'foreign' => [
-                'references' => 'id',
-                'on' => 'matrix_flows',
-            ],
+        'matrices' => [
+            'comment' => 'The matrices of the %1$s.',
+            'accessor' => 'matrices',
+            'related' => 'Matrix',
+            'foreignKey' => '',
+            'localKey' => 'id',
         ],
-        'matrix_id' => [
-            'type' => 'uuid',
-            'nullable' => true,
-            'index' => true,
-            'foreign' => [
-                'references' => 'id',
-                'on' => 'matrix_matrices',
-            ],
-        ],
-        'milestone_id' => [
-            'type' => 'uuid',
-            'nullable' => true,
-            'index' => true,
-            'foreign' => [
-                'references' => 'id',
-                'on' => 'matrix_milestones',
-            ],
-        ],
-        'note_id' => [
-            'type' => 'uuid',
-            'nullable' => true,
-            'index' => true,
-            'foreign' => [
-                'references' => 'id',
-                'on' => 'matrix_notes',
-            ],
-        ],
-        'project_id' => [
-            'type' => 'uuid',
-            'nullable' => true,
-            'index' => true,
-            'foreign' => [
-                'references' => 'id',
-                'on' => 'matrix_projects',
-            ],
-        ],
-        'release_id' => [
-            'type' => 'uuid',
-            'nullable' => true,
-            'index' => true,
-            'foreign' => [
-                'references' => 'id',
-                'on' => 'matrix_releases',
-            ],
-        ],
-        'roadmap_id' => [
-            'type' => 'uuid',
-            'nullable' => true,
-            'index' => true,
-            'foreign' => [
-                'references' => 'id',
-                'on' => 'matrix_roadmaps',
-            ],
-        ],
-        'source_id' => [
-            'type' => 'uuid',
-            'nullable' => true,
-            'index' => true,
-            'foreign' => [
-                'references' => 'id',
-                'on' => 'matrix_sources',
-            ],
-        ],
-        'sprint_id' => [
-            'type' => 'uuid',
-            'nullable' => true,
-            'index' => true,
-            'foreign' => [
-                'references' => 'id',
-                'on' => 'matrix_sprints',
-            ],
-        ],
-        'tag_id' => [
-            'type' => 'uuid',
-            'nullable' => true,
-            'index' => true,
-            'foreign' => [
-                'references' => 'id',
-                'on' => 'matrix_tags',
-            ],
-        ],
-        'team_id' => [
-            'type' => 'uuid',
-            'nullable' => true,
-            'index' => true,
-            'foreign' => [
-                'references' => 'id',
-                'on' => 'matrix_teams',
-            ],
-        ],
-        'ticket_id' => [
-            'type' => 'uuid',
-            'nullable' => true,
-            'index' => true,
-            'foreign' => [
-                'references' => 'id',
-                'on' => 'matrix_tickets',
-            ],
-        ],
-        'version_id' => [
-            'type' => 'uuid',
-            'nullable' => true,
-            'index' => true,
-            'foreign' => [
-                'references' => 'id',
-                'on' => 'matrix_versions',
-            ],
-        ],
-    ];
-
-    /**
-     * @var array<string, array<string, mixed>>
-     */
-    protected array $json = [
-        'assets' => [
-            'default' => null,
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
-        ],
-        'backlog' => [
-            'default' => null,
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
-        ],
-        'board' => [
-            'default' => null,
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
-        ],
-        'flow' => [
-            'default' => null,
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
-        ],
-        'history' => [
-            'default' => null,
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
-        ],
-        'meta' => [
-            'default' => null,
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
+        'milestones' => [
+            'comment' => 'The milestones of the %1$s.',
+            'accessor' => 'milestones',
+            'related' => 'Milestone',
+            'foreignKey' => '',
+            'localKey' => 'id',
         ],
         'notes' => [
-            'default' => '[]',
-            'readOnly' => true,
-            'nullable' => true,
-            'type' => 'JSON_ARRAY',
-            'comment' => 'Array of note objects',
+            'comment' => 'The notes of the %1$s.',
+            'accessor' => 'notes',
+            'related' => 'Note',
+            'foreignKey' => '',
+            'localKey' => 'id',
         ],
-        'options' => [
-            'default' => null,
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
+        'projects' => [
+            'comment' => 'The projects of the %1$s.',
+            'accessor' => 'projects',
+            'related' => 'Project',
+            'foreignKey' => '',
+            'localKey' => 'id',
         ],
-        'roadmap' => [
-            'default' => null,
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
+        'releases' => [
+            'comment' => 'The releases of the %1$s.',
+            'accessor' => 'releases',
+            'related' => 'Release',
+            'foreignKey' => '',
+            'localKey' => 'id',
+        ],
+        'roadmaps' => [
+            'comment' => 'The roadmaps of the %1$s.',
+            'accessor' => 'roadmaps',
+            'related' => 'Roadmap',
+            'foreignKey' => '',
+            'localKey' => 'id',
         ],
         'sources' => [
-            'default' => null,
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
+            'comment' => 'The sources of the %1$s.',
+            'accessor' => 'sources',
+            'related' => 'Source',
+            'foreignKey' => '',
+            'localKey' => 'id',
+        ],
+        'sprints' => [
+            'comment' => 'The sprints of the %1$s.',
+            'accessor' => 'sprints',
+            'related' => 'Sprint',
+            'foreignKey' => '',
+            'localKey' => 'id',
+        ],
+        'tags' => [
+            'comment' => 'The tags of the %1$s.',
+            'accessor' => 'tags',
+            'related' => 'Tag',
+            'foreignKey' => '',
+            'localKey' => 'id',
+        ],
+        'teams' => [
+            'comment' => 'The teams of the %1$s.',
+            'accessor' => 'teams',
+            'related' => 'Team',
+            'foreignKey' => '',
+            'localKey' => 'id',
+        ],
+        'tickets' => [
+            'comment' => 'The tickets of the %1$s.',
+            'accessor' => 'tickets',
+            'related' => 'Ticket',
+            'foreignKey' => '',
+            'localKey' => 'id',
+        ],
+        'versions' => [
+            'comment' => 'The versions of the %1$s.',
+            'accessor' => 'versions',
+            'related' => 'Version',
+            'foreignKey' => '',
+            'localKey' => 'id',
         ],
     ];
 
-    public function init(): void
+    /**
+     * @var array<string, array<string, mixed>>
+     */
+    protected array $hasManyThrough = [
+        'tags' => [
+            'comment' => 'The tags of the %1$s.',
+            'accessor' => 'tags',
+            'related' => 'Tag',
+            'firstKey' => '',
+            'secondKey' => 'id',
+            'localKey' => 'id',
+            'secondLocalKey' => 'tag_id',
+            'through' => 'Tagged',
+        ],
+    ];
+
+    public function addIds(): void
     {
-        unset($this->hasOne_all['completedBy']);
-        unset($this->hasOne_all['fixedBy']);
-        unset($this->hasOne_all['reportedBy']);
-
-        $name_lower = Str::of($this->name())->kebab()->replace('-', ' ')->lower()->toString();
-        $has_many_accessor = Str::of($this->name())->plural()->camel()->toString();
-        $has_one_accessor = Str::of($this->name())->camel()->toString();
-        $table_id = Str::of($has_one_accessor)->finish('_id')->toString();
-
-        $this->flags['featured'] = [
-            'type' => 'boolean',
-            'default' => false,
-            'icon' => 'fa-solid fa-star text-warning',
-        ];
-        $this->flags['special'] = [
-            'type' => 'boolean',
-            'default' => false,
-            'icon' => 'fa-solid fa-star text-success',
-        ];
-
-        $withHasOne = true;
-        $withHasMany = true;
-        $withIds = true;
-
-        $hasOne_excludes = [
-            $has_one_accessor,
-        ];
-        $hasMany_excludes = [
-            $has_many_accessor,
-        ];
-        $flags_excludes = [];
-        $ids_excludes = [
-            $table_id,
-        ];
-        $json_excludes = [];
-
-        if (in_array($this->name(), [
-            'Matrix',
-        ])) {
-            $withHasOne = false;
-            $withHasMany = false;
-            $withIds = false;
-
-            $this->ids = [
-                'parent_id' => [
-                    'type' => 'uuid',
-                    'nullable' => true,
-                    'index' => true,
-                    'foreign' => [
-                        'references' => 'id',
-                        'on' => null,
-                    ],
-                    'trait' => 'WithParent',
-                ],
-            ];
-
-            $flags_excludes[] = 'duplicate';
-            $flags_excludes[] = 'fixed';
-            $flags_excludes[] = 'resolved';
-
-            $json_excludes[] = 'backlog';
-            $json_excludes[] = 'board';
-            $json_excludes[] = 'flow';
-            $json_excludes[] = 'history';
-            $json_excludes[] = 'roadmap';
-
-        } elseif (in_array($this->name(), [
-            'Board',
-            'Epic',
-            'Milestone',
-            'Release',
-            'Roadmap',
-            'Sprint',
-            'Team',
-        ])) {
-            $flags_excludes[] = 'duplicate';
-            $flags_excludes[] = 'fixed';
-            $flags_excludes[] = 'resolved';
-            $hasMany_excludes[] = 'flows';
-            $hasMany_excludes[] = 'notes';
-            $hasMany_excludes[] = 'sources';
-            $hasMany_excludes[] = 'tags';
-            $hasMany_excludes[] = 'versions';
-        } elseif (in_array($this->name(), [
-            'Flow',
-        ])) {
-            $flags_excludes[] = 'duplicate';
-            $flags_excludes[] = 'fixed';
-            $flags_excludes[] = 'resolved';
-            $hasMany_excludes[] = 'flows';
-            $hasMany_excludes[] = 'notes';
-            $hasMany_excludes[] = 'sources';
-            $hasMany_excludes[] = 'tags';
-            $hasMany_excludes[] = 'versions';
-            $ids_excludes[] = 'backlog_id';
-            $ids_excludes[] = 'board_id';
-            $ids_excludes[] = 'epic_id';
-            $ids_excludes[] = 'milestone_id';
-            $ids_excludes[] = 'project_id';
-            $ids_excludes[] = 'release_id';
-            $ids_excludes[] = 'roadmap_id';
-            $ids_excludes[] = 'source_id';
-            $ids_excludes[] = 'sprint_id';
-            $ids_excludes[] = 'ticket_id';
-            $ids_excludes[] = 'version_id';
-            $json_excludes[] = 'backlog';
-            $json_excludes[] = 'board';
-            $json_excludes[] = 'flow';
-            $json_excludes[] = 'history';
-            $json_excludes[] = 'roadmap';
-
-        } elseif (in_array($this->name(), [
-            'Note',
-        ])) {
-            $flags_excludes[] = 'duplicate';
-            $flags_excludes[] = 'fixed';
-            $flags_excludes[] = 'resolved';
-            $hasMany_excludes[] = 'flows';
-            $hasMany_excludes[] = 'notes';
-            $hasMany_excludes[] = 'sources';
-            $hasMany_excludes[] = 'tags';
-            $hasMany_excludes[] = 'versions';
-            // $ids_excludes[] = 'backlog_id';
-            $ids_excludes[] = 'board_id';
-            $ids_excludes[] = 'flow_id';
-            $ids_excludes[] = 'epic_id';
-            $ids_excludes[] = 'milestone_id';
-            $ids_excludes[] = 'project_id';
-            $ids_excludes[] = 'release_id';
-            $ids_excludes[] = 'roadmap_id';
-            $ids_excludes[] = 'source_id';
-            $ids_excludes[] = 'sprint_id';
-            $ids_excludes[] = 'team_id';
-            $ids_excludes[] = 'ticket_id';
-            $ids_excludes[] = 'version_id';
-            $json_excludes[] = 'backlog';
-            $json_excludes[] = 'board';
-            $json_excludes[] = 'flow';
-            $json_excludes[] = 'history';
-            $json_excludes[] = 'roadmap';
-
-            $this->dates = [];
-
-        } elseif (in_array($this->name(), [
-            'Source',
-        ])) {
-            $flags_excludes[] = 'duplicate';
-            $flags_excludes[] = 'fixed';
-            $flags_excludes[] = 'resolved';
-            $hasMany_excludes[] = 'flows';
-            $hasMany_excludes[] = 'notes';
-            $hasMany_excludes[] = 'sources';
-            $hasMany_excludes[] = 'tags';
-            $hasMany_excludes[] = 'versions';
-            // $ids_excludes[] = 'backlog_id';
-            $ids_excludes[] = 'board_id';
-            $ids_excludes[] = 'flow_id';
-            $ids_excludes[] = 'epic_id';
-            $ids_excludes[] = 'milestone_id';
-            $ids_excludes[] = 'project_id';
-            $ids_excludes[] = 'release_id';
-            $ids_excludes[] = 'roadmap_id';
-            $ids_excludes[] = 'source_id';
-            $ids_excludes[] = 'sprint_id';
-            $ids_excludes[] = 'ticket_id';
-            $ids_excludes[] = 'version_id';
-            $json_excludes[] = 'backlog';
-            $json_excludes[] = 'board';
-            $json_excludes[] = 'flow';
-            $json_excludes[] = 'history';
-            $json_excludes[] = 'roadmap';
-
-        } elseif (in_array($this->name(), [
-            'Tag',
-        ])) {
-            $flags_excludes[] = 'canceled';
-            $flags_excludes[] = 'closed';
-            $flags_excludes[] = 'completed';
-            $flags_excludes[] = 'duplicate';
-            $flags_excludes[] = 'fixed';
-            $flags_excludes[] = 'resolved';
-            $flags_excludes[] = 'pending';
-            $flags_excludes[] = 'planned';
-            $flags_excludes[] = 'prioritized';
-            $flags_excludes[] = 'problem';
-            $flags_excludes[] = 'published';
-            $flags_excludes[] = 'released';
-            $flags_excludes[] = 'suspended';
-            $hasMany_excludes[] = 'flows';
-            $hasMany_excludes[] = 'notes';
-            $hasMany_excludes[] = 'sources';
-            $hasMany_excludes[] = 'tags';
-            $hasMany_excludes[] = 'versions';
-            // $ids_excludes[] = 'backlog_id';
-            $ids_excludes[] = 'board_id';
-            $ids_excludes[] = 'flow_id';
-            $ids_excludes[] = 'epic_id';
-            $ids_excludes[] = 'milestone_id';
-            $ids_excludes[] = 'note_id';
-            $ids_excludes[] = 'project_id';
-            $ids_excludes[] = 'release_id';
-            $ids_excludes[] = 'roadmap_id';
-            $ids_excludes[] = 'source_id';
-            $ids_excludes[] = 'sprint_id';
-            $ids_excludes[] = 'team_id';
-            $ids_excludes[] = 'ticket_id';
-            $ids_excludes[] = 'version_id';
-            $json_excludes[] = 'backlog';
-            $json_excludes[] = 'board';
-            $json_excludes[] = 'flow';
-            $json_excludes[] = 'history';
-            $json_excludes[] = 'roadmap';
-
-            $this->dates = [];
-
-        } elseif (in_array($this->name(), [
-            'Version',
-        ])) {
-            $flags_excludes[] = 'duplicate';
-            $hasMany_excludes[] = 'flows';
-            $hasMany_excludes[] = 'notes';
-            $hasMany_excludes[] = 'sources';
-            $hasMany_excludes[] = 'tags';
-            $hasMany_excludes[] = 'versions';
-            // $ids_excludes[] = 'backlog_id';
-            $ids_excludes[] = 'board_id';
-            $ids_excludes[] = 'flow_id';
-            $ids_excludes[] = 'epic_id';
-            $ids_excludes[] = 'milestone_id';
-            $ids_excludes[] = 'note_id';
-            // $ids_excludes[] = 'project_id';
-            $ids_excludes[] = 'release_id';
-            $ids_excludes[] = 'roadmap_id';
-            $ids_excludes[] = 'source_id';
-            $ids_excludes[] = 'sprint_id';
-            // $ids_excludes[] = 'team_id';
-            // $ids_excludes[] = 'ticket_id';
-            $json_excludes[] = 'backlog';
-            $json_excludes[] = 'board';
-            $json_excludes[] = 'flow';
-            $json_excludes[] = 'history';
-            $json_excludes[] = 'roadmap';
-
-        } elseif (in_array($this->name(), [
-            'Project',
-        ])) {
-
-            $this->columns['key'] = [
-                'type' => 'string',
-                'size' => 32,
-                'nullable' => true,
-                'index' => true,
-            ];
-            $this->columns['code_name'] = [
-                'type' => 'string',
-                'size' => 128,
-                'nullable' => true,
-                'index' => true,
-            ];
-
-            $hasMany_excludes[] = 'flows';
-            $hasMany_excludes[] = 'notes';
-            $hasMany_excludes[] = 'sources';
-            $hasMany_excludes[] = 'tags';
-            $hasMany_excludes[] = 'versions';
-
-        } elseif (in_array($this->name(), [
+        if (in_array($this->name, [
             'Ticket',
         ])) {
-
-            $hasMany_excludes[] = 'flows';
-            $hasMany_excludes[] = 'notes';
-            $hasMany_excludes[] = 'sources';
-            $hasMany_excludes[] = 'tags';
-            $hasMany_excludes[] = 'versions';
-
-            $this->columns['handler'] = [
-                'type' => 'string',
-                'nullable' => true,
-            ];
-
-            $this->columns['key'] = [
-                'type' => 'string',
-                'size' => 32,
-                'nullable' => true,
-                'index' => true,
-            ];
-
-            $this->columns['code'] = [
-                'type' => 'bigInteger',
-                'nullable' => true,
-                'unsigned' => true,
-                'index' => true,
-            ];
-
-            $this->columns['key_code_hash'] = [
-                'type' => 'string',
-                'nullable' => true,
-            ];
-
-            $this->columns['priority'] = [
-                'type' => 'string',
-                'nullable' => true,
-            ];
-
-            $this->columns['severity'] = [
-                'type' => 'string',
-                'nullable' => true,
-            ];
-
-            $this->columns['resolution'] = [
-                'type' => 'string',
-                'nullable' => true,
-            ];
-
-            $this->columns['step'] = [
-                'type' => 'string',
-                'nullable' => true,
-            ];
-
-            $this->columns['state'] = [
-                'type' => 'string',
-                'nullable' => true,
-            ];
-
-            $this->columns['workflow_type'] = [
-                'type' => 'string',
-                'nullable' => true,
-            ];
-
-            $this->columns['points'] = [
-                'type' => 'bigInteger',
-                'unsigned' => true,
-                'default' => 0,
-            ];
-
-            $this->columns['actual'] = [
-                'type' => 'mediumText',
-                'nullable' => true,
-            ];
-
-            $this->columns['expected'] = [
-                'type' => 'mediumText',
-                'nullable' => true,
-            ];
-
-            $this->columns['story'] = [
-                'type' => 'mediumText',
-                'nullable' => true,
-            ];
-
-            $this->columns['steps'] = [
-                'type' => 'mediumText',
-                'nullable' => true,
-            ];
-
-            $this->columns['criteria'] = [
-                'type' => 'mediumText',
-                'nullable' => true,
-            ];
-
-            $this->columns['reproducibility'] = [
-                'type' => 'decimal',
-                'nullable' => true,
-                'precision' => 8,
-                'scale' => 2,
-            ];
-
-            $this->dates['fixed_at'] = [
-                'nullable' => true,
-                'index' => false,
-            ];
-
-            $this->ids = $this->ids_all;
-            foreach ($ids_excludes as $ids_exclude) {
-                unset($this->ids[$ids_exclude]);
-            }
-
-            $this->ids['completed_by_id'] = [
-                'type' => 'uuid',
-                'nullable' => true,
-                'index' => true,
+            $this->allIds['completed_by_id'] = [
+                'label' => 'Completed by',
+                'description' => '',
                 'foreign' => [
                     'references' => 'id',
                     'on' => 'users',
                 ],
+                'default' => null,
+                'index' => true,
+                'nullable' => true,
+                'type' => 'uuid',
             ];
 
-            $this->ids['duplicate_id'] = [
-                'type' => 'uuid',
-                'nullable' => true,
-                'index' => true,
+            $this->circletHasOne['completedBy'] = [
+                'comment' => 'The completed by user of the %1$s.',
+                'accessor' => 'completedBy',
+                'related' => '\Playground\Models\User',
+                'foreignKey' => 'id',
+                'localKey' => 'completed_by_id',
+            ];
+        }
+
+        if (in_array($this->name, [
+            'Ticket',
+        ])) {
+            $this->allIds['duplicate_id'] = [
+                'label' => 'Duplicate by',
+                'description' => '',
                 'foreign' => [
                     'references' => 'id',
                     'on' => 'matrix_tickets',
                 ],
-            ];
-
-            $this->ids['fixed_by_id'] = [
-                'type' => 'uuid',
-                'nullable' => true,
+                'default' => null,
                 'index' => true,
-                'foreign' => [
-                    'references' => 'id',
-                    'on' => 'users',
-                ],
-            ];
-
-            $this->ids['reported_by_id'] = [
-                'type' => 'uuid',
                 'nullable' => true,
-                'index' => true,
-                'foreign' => [
-                    'references' => 'id',
-                    'on' => 'users',
-                ],
-            ];
-
-            $this->ids['version_fixed_id'] = [
                 'type' => 'uuid',
-                'nullable' => true,
-                'index' => true,
-                'foreign' => [
-                    'references' => 'id',
-                    'on' => 'matrix_versions',
-                ],
             ];
 
-            $withIds = false;
-
-            $this->hasOne_all['completedBy'] = [
-                'comment' => 'The completed by user of the %1$s.',
-                'accessor' => 'completedBy',
-                'related' => '\Playground\Models\User',
-                // 'related' => 'User',
+            $this->circletHasOne['duplicateBy'] = [
+                'comment' => 'The duplicate of the %1$s.',
+                'accessor' => 'duplicateBy',
+                'related' => 'Ticket',
                 'foreignKey' => 'id',
-                'localKey' => 'completed_by_id',
+                'localKey' => 'duplicate_id',
+            ];
+        }
+
+        if (in_array($this->name, [
+            'Ticket',
+        ])) {
+            $this->allIds['fixed_by_id'] = [
+                'description' => '',
+                'foreign' => [
+                    'references' => 'id',
+                    'on' => 'users',
+                ],
+                'default' => null,
+                'index' => true,
+                'nullable' => true,
+                'type' => 'uuid',
             ];
 
-            $this->hasOne_all['fixedBy'] = [
+            $this->circletHasOne['fixedBy'] = [
                 'comment' => 'The fixed by user of the %1$s.',
                 'accessor' => 'fixedBy',
                 'related' => '\Playground\Models\User',
-                // 'related' => 'User',
                 'foreignKey' => 'id',
                 'localKey' => 'fixed_by_id',
             ];
+        }
 
-            $this->hasOne_all['reportedBy'] = [
+        if (in_array($this->name, [
+            'Ticket',
+        ])) {
+            $this->allIds['reported_by_id'] = [
+                'label' => 'Reported by',
+                'description' => '',
+                'foreign' => [
+                    'references' => 'id',
+                    'on' => 'users',
+                ],
+                'default' => null,
+                'index' => true,
+                'nullable' => true,
+                'type' => 'uuid',
+            ];
+
+            $this->circletHasOne['reportedBy'] = [
                 'comment' => 'The reported by user of the %1$s.',
                 'accessor' => 'reportedBy',
                 'related' => '\Playground\Models\User',
-                // 'related' => 'User',
                 'foreignKey' => 'id',
                 'localKey' => 'reported_by_id',
             ];
-
-        } else {
-            $ids_excludes[] = 'version_fixed_id';
-            $flags_excludes[] = 'duplicate';
-            $flags_excludes[] = 'fixed';
-            $flags_excludes[] = 'resolved';
         }
 
-        if (in_array($this->name(), [
-            'Backlog',
-        ])) {
-            $hasMany_excludes[] = 'flows';
-            $hasMany_excludes[] = 'notes';
-            $hasMany_excludes[] = 'sources';
-            $hasMany_excludes[] = 'tags';
-            $hasMany_excludes[] = 'versions';
-        }
-
-        if ($withIds) {
-            $this->ids = $this->ids_all;
-            foreach ($ids_excludes as $ids_exclude) {
-                unset($this->ids[$ids_exclude]);
-            }
-        }
-
-        // dump([
-        //     '__METHOD__' => __METHOD__,
-        //     // '$this->columns' => $this->columns,
-        //     // '$this->dates' => $this->dates,
-        //     // '$this->flags' => $this->flags,
-        //     '$this->hasOne' => $this->hasOne,
-        //     '$this->hasMany' => $this->hasMany,
-        //     '$this->ids' => $this->ids,
-        //     // '$this->json' => $this->json,
-        //     '$this->name()' => $this->name(),
-        //     '$ids_excludes' => $ids_excludes,
-        //     '$flags_excludes' => $flags_excludes,
-        //     '$json_excludes' => $json_excludes,
-        //     '$hasMany_excludes' => $hasMany_excludes,
-        //     '$hasOne_excludes' => $hasOne_excludes,
-        // ]);
-
-        if ($withHasOne) {
-            $this->hasOne = $this->hasOne_all;
-            foreach ($hasOne_excludes as $hasOne_exclude) {
-                unset($this->hasOne[$hasOne_exclude]);
-            }
-            foreach (array_keys($this->hasOne) as $accessor) {
-
-                if (empty($this->hasOne[$accessor]['localKey'])
-                    || in_array($this->hasOne[$accessor]['localKey'], $ids_excludes)
-                ) {
-                    // Remove
-                    unset($this->hasOne[$accessor]);
-                }
-
-                // dd([
-                //     '__METHOD__' => __METHOD__,
-                //     '$accessor' => $accessor,
-                //     '$this->hasOne[$accessor]' => $this->hasOne[$accessor] ?? null,
-                //     // '$this->columns' => $this->columns,
-                //     // '$this->dates' => $this->dates,
-                //     // '$this->flags' => $this->flags,
-                //     '$this->hasOne' => $this->hasOne,
-                //     // '$this->hasMany' => $this->hasMany,
-                //     '$this->ids' => $this->ids,
-                //     // '$this->json' => $this->json,
-                //     '$this->name()' => $this->name(),
-                //     '$ids_excludes' => $ids_excludes,
-                // ]);
-
-                if (! empty($this->hasOne[$accessor]['comment']) && is_string($this->hasOne[$accessor]['comment'])) {
-                    $this->hasOne[$accessor]['comment'] = sprintf(
-                        $this->hasOne[$accessor]['comment'],
-                        $name_lower
-                    );
-                }
-            }
-        }
-
-        if ($withHasMany) {
-            $this->hasMany = $this->hasMany_all;
-            foreach ($hasMany_excludes as $hasMany_exclude) {
-                unset($this->hasMany[$hasMany_exclude]);
-            }
-
-            foreach ($this->hasMany as $accessor => $meta) {
-                if (! empty($meta['comment']) && is_string($meta['comment'])) {
-                    $this->hasMany[$accessor]['comment'] = sprintf(
-                        $meta['comment'],
-                        $name_lower
-                    );
-                }
-                $this->hasMany[$accessor]['foreignKey'] = $table_id;
-            }
-        }
-
-        foreach ($flags_excludes as $flags_exclude) {
-            unset($this->flags[$flags_exclude]);
-        }
-
-        foreach ($json_excludes as $json_exclude) {
-            unset($this->json[$json_exclude]);
-        }
-
-        // backlog_id
-        if (! in_array($this->name(), [
-            'Board',
-            'Epic',
-            'Milestone',
-            'Project',
-            'Release',
-            'Roadmap',
-            'Sprint',
-            'Team',
+        if (in_array($this->name, [
             'Ticket',
         ])) {
-            unset($this->ids['backlog_id']);
-            unset($this->hasOne['backlog']);
+            $this->allIds['version_fixed_id'] = [
+                'label' => 'Version fixed',
+                'description' => '',
+                'foreign' => [
+                    'references' => 'id',
+                    'on' => 'users',
+                ],
+                'default' => null,
+                'index' => true,
+                'nullable' => true,
+                'type' => 'uuid',
+            ];
+
+            $this->circletHasOne['versionFixed'] = [
+                'comment' => 'The fixed by user of the %1$s',
+                'accessor' => 'versionFixed',
+                'related' => 'Version',
+                'foreignKey' => 'id',
+                'localKey' => 'version_fixed_id',
+            ];
+        }
+    }
+
+    public function unsetCircletHasOneIds(): void
+    {
+        if (in_array($this->name, [
+            'Flow', 'Matrix', 'Note', 'Source', 'Tag', 'Version', 'Tagged',
+        ])) {
+            unset($this->allIds['backlog_id']);
+            unset($this->circletHasOne['backlog']);
+        }
+
+        if (in_array($this->name, [
+            'Flow', 'Matrix', 'Note', 'Source', 'Tag', 'Version', 'Tagged',
+        ])) {
+            unset($this->allIds['board_id']);
+            unset($this->circletHasOne['board']);
+        }
+
+        if (in_array($this->name, [
+            'Epic', 'Flow', 'Matrix', 'Note', 'Source', 'Version',
+        ])) {
+            unset($this->allIds['epic_id']);
+            unset($this->circletHasOne['epic']);
+        }
+
+        if (in_array($this->name, [
+            'Matrix', 'Note', 'Source', 'Version',
+        ])) {
+            unset($this->allIds['flow_id']);
+            unset($this->circletHasOne['flow']);
+        }
+
+        if (in_array($this->name, [
+            'Flow', 'Matrix', 'Milestone', 'Note', 'Source', 'Version',
+        ])) {
+            unset($this->allIds['milestone_id']);
+            unset($this->circletHasOne['milestone']);
+        }
+
+        if (in_array($this->name, [
+            'Matrix', 'Version',
+        ])) {
+            unset($this->allIds['note_id']);
+            unset($this->circletHasOne['note']);
+        }
+
+        if (in_array($this->name, [
+            'Flow', 'Matrix', 'Note', 'Source',
+        ])) {
+            unset($this->allIds['project_id']);
+            unset($this->circletHasOne['project']);
+        }
+
+        if (in_array($this->name, [
+            'Flow', 'Matrix', 'Note', 'Release', 'Source', 'Version',
+        ])) {
+            unset($this->allIds['release_id']);
+            unset($this->circletHasOne['release']);
+        }
+
+        if (in_array($this->name, [
+            'Flow', 'Matrix', 'Note', 'Source', 'Version',
+        ])) {
+            unset($this->allIds['roadmap_id']);
+            unset($this->circletHasOne['roadmap']);
+        }
+
+        if (in_array($this->name, [
+            'Flow', 'Matrix', 'Note', 'Version',
+        ])) {
+            unset($this->allIds['source_id']);
+            unset($this->circletHasOne['source']);
+        }
+
+        if (in_array($this->name, [
+            'Flow', 'Matrix', 'Note', 'Source', 'Version',
+        ])) {
+            unset($this->allIds['sprint_id']);
+            unset($this->circletHasOne['sprint']);
+        }
+
+        if (in_array($this->name, [
+            'Matrix', 'Note',
+        ])) {
+            unset($this->allIds['team_id']);
+            unset($this->circletHasOne['team']);
+        }
+
+        if (in_array($this->name, [
+            'Flow', 'Matrix', 'Note', 'Source',
+        ])) {
+            unset($this->allIds['ticket_id']);
+            unset($this->circletHasOne['ticket']);
+        }
+
+        if (in_array($this->name, [
+            'Flow', 'Matrix', 'Note', 'Source',
+        ])) {
+            unset($this->allIds['version_id']);
+            unset($this->circletHasOne['version']);
+        }
+    }
+
+    public function unsetCircletHasManyIds(): void
+    {
+        if (in_array($this->name, [
+            'Backlog',
+        ])) {
+            unset($this->circletHasMany['flows']);
+            unset($this->circletHasMany['matrices']);
+            unset($this->circletHasMany['notes']);
+            unset($this->circletHasMany['sources']);
+            unset($this->circletHasMany['tags']);
+            unset($this->circletHasMany['versions']);
+            unset($this->circletHasMany['tagged']);
+        }
+
+        if (in_array($this->name, [
+            'Board',
+        ])) {
+            unset($this->circletHasMany['flows']);
+            unset($this->circletHasMany['matrices']);
+            unset($this->circletHasMany['notes']);
+            unset($this->circletHasMany['sources']);
+            unset($this->circletHasMany['tags']);
+            unset($this->circletHasMany['versions']);
+            unset($this->circletHasMany['tagged']);
+        }
+
+        if (in_array($this->name, [
+            'Epic',
+        ])) {
+            unset($this->circletHasMany['epics']);
+            unset($this->circletHasMany['flows']);
+            unset($this->circletHasMany['matrices']);
+            unset($this->circletHasMany['notes']);
+            unset($this->circletHasMany['sources']);
+            unset($this->circletHasMany['versions']);
+        }
+
+        if (in_array($this->name, [
+            'Flow',
+        ])) {
+            unset($this->circletHasMany['matrices']);
+            unset($this->circletHasMany['notes']);
+            unset($this->circletHasMany['sources']);
+            unset($this->circletHasMany['versions']);
+        }
+
+        if (in_array($this->name, [
+            'Milestone',
+        ])) {
+            unset($this->circletHasMany['flows']);
+            unset($this->circletHasMany['matrices']);
+            unset($this->circletHasMany['milestones']);
+            unset($this->circletHasMany['notes']);
+            unset($this->circletHasMany['sources']);
+            unset($this->circletHasMany['versions']);
+        }
+
+        if (in_array($this->name, [
+            'Note',
+        ])) {
+            unset($this->circletHasMany['matrices']);
+            unset($this->circletHasMany['versions']);
+        }
+
+        if (in_array($this->name, [
+            'Project',
+        ])) {
+            unset($this->circletHasMany['flows']);
+            unset($this->circletHasMany['matrices']);
+            unset($this->circletHasMany['notes']);
+            unset($this->circletHasMany['sources']);
+        }
+
+        if (in_array($this->name, [
+            'Release',
+        ])) {
+            unset($this->circletHasMany['flows']);
+            unset($this->circletHasMany['matrices']);
+            unset($this->circletHasMany['notes']);
+            unset($this->circletHasMany['releases']);
+            unset($this->circletHasMany['sources']);
+            unset($this->circletHasMany['versions']);
+        }
+
+        if (in_array($this->name, [
+            'Roadmap',
+        ])) {
+            unset($this->circletHasMany['flows']);
+            unset($this->circletHasMany['matrices']);
+            unset($this->circletHasMany['notes']);
+            unset($this->circletHasMany['sources']);
+            unset($this->circletHasMany['versions']);
+        }
+
+        if (in_array($this->name, [
+            'Source',
+        ])) {
+            unset($this->circletHasMany['flows']);
+            unset($this->circletHasMany['matrices']);
+            unset($this->circletHasMany['notes']);
+            unset($this->circletHasMany['versions']);
+        }
+
+        if (in_array($this->name, [
+            'Sprint',
+        ])) {
+            unset($this->circletHasMany['flows']);
+            unset($this->circletHasMany['matrices']);
+            unset($this->circletHasMany['notes']);
+            unset($this->circletHasMany['sources']);
+            unset($this->circletHasMany['versions']);
+        }
+
+        if (in_array($this->name, [
+            'Team',
+        ])) {
+            unset($this->circletHasMany['matrices']);
+            unset($this->circletHasMany['notes']);
+        }
+
+        if (in_array($this->name, [
+            'Ticket',
+        ])) {
+            unset($this->circletHasMany['flows']);
+            unset($this->circletHasMany['matrices']);
+            unset($this->circletHasMany['notes']);
+            unset($this->circletHasMany['sources']);
+        }
+
+        if (in_array($this->name, [
+            'Version',
+        ])) {
+            unset($this->circletHasMany['flows']);
+            unset($this->circletHasMany['matrices']);
+            unset($this->circletHasMany['notes']);
+            unset($this->circletHasMany['sources']);
+        }
+    }
+
+    public function addColumns(): void
+    {
+        if (in_array($this->name, [
+            'Ticket',
+        ])) {
+            $this->columns['handler'] = [
+                'label' => 'Handler',
+                'nullable' => true,
+                'type' => 'string',
+            ];
+        }
+
+        if (in_array($this->name, [
+            'Project', 'Ticket',
+        ])) {
+            $this->columns['key'] = [
+                'label' => 'Key',
+                'index' => true,
+                'nullable' => true,
+                'size' => 32,
+                'type' => 'string',
+            ];
+        }
+
+        if (in_array($this->name, [
+            'Ticket',
+        ])) {
+            $this->columns['code'] = [
+                'label' => 'Code',
+                'index' => true,
+                'nullable' => true,
+                'unsigned' => true,
+                'type' => 'bigInteger',
+            ];
+        }
+
+        if (in_array($this->name, [
+            'Ticket',
+        ])) {
+            $this->columns['key_code_hash'] = [
+                'label' => 'Key code hash',
+                'nullable' => true,
+                'type' => 'string',
+            ];
+        }
+
+        if (in_array($this->name, [
+            'Ticket',
+        ])) {
+            $this->columns['priority'] = [
+                'label' => 'Priority',
+                'nullable' => true,
+                'type' => 'string',
+            ];
+        }
+
+        if (in_array($this->name, [
+            'Ticket',
+        ])) {
+            $this->columns['severity'] = [
+                'label' => 'Severity',
+                'nullable' => true,
+                'type' => 'string',
+            ];
+        }
+
+        if (in_array($this->name, [
+            'Ticket',
+        ])) {
+            $this->columns['resolution'] = [
+                'label' => 'Resolution',
+                'nullable' => true,
+                'type' => 'string',
+            ];
+        }
+
+        if (in_array($this->name, [
+            'Ticket',
+        ])) {
+            $this->columns['step'] = [
+                'label' => 'Step',
+                'nullable' => true,
+                'type' => 'string',
+            ];
+        }
+
+        if (in_array($this->name, [
+            'Ticket',
+        ])) {
+            $this->columns['state'] = [
+                'label' => 'State',
+                'nullable' => true,
+                'type' => 'string',
+            ];
+        }
+
+        if (in_array($this->name, [
+            'Ticket',
+        ])) {
+            $this->columns['workflow_type'] = [
+                'label' => 'Workflow type',
+                'nullable' => true,
+                'type' => 'string',
+            ];
+        }
+
+        if (in_array($this->name, [
+            'Ticket',
+        ])) {
+            $this->columns['points'] = [
+                'default' => '0',
+                'label' => 'Points',
+                'type' => 'bigInteger',
+            ];
+        }
+
+        if (in_array($this->name, [
+            'Ticket',
+        ])) {
+            $this->columns['actual'] = [
+                'label' => 'Actual',
+                'nullable' => true,
+                'type' => 'mediumText',
+            ];
+        }
+
+        if (in_array($this->name, [
+            'Ticket',
+        ])) {
+            $this->columns['expected'] = [
+                'label' => 'Expected',
+                'nullable' => true,
+                'type' => 'mediumText',
+            ];
+        }
+
+        if (in_array($this->name, [
+            'Ticket',
+        ])) {
+            $this->columns['story'] = [
+                'label' => 'Story',
+                'nullable' => true,
+                'type' => 'mediumText',
+            ];
+        }
+
+        if (in_array($this->name, [
+            'Ticket',
+        ])) {
+            $this->columns['steps'] = [
+                'label' => 'Steps',
+                'nullable' => true,
+                'type' => 'mediumText',
+            ];
+        }
+
+        if (in_array($this->name, [
+            'Ticket',
+        ])) {
+            $this->columns['criteria'] = [
+                'label' => 'Criteria',
+                'nullable' => true,
+                'type' => 'mediumText',
+            ];
+        }
+
+        if (in_array($this->name, [
+            'Ticket',
+        ])) {
+            $this->columns['reproducibility'] = [
+                'label' => 'Reproducibility',
+                'precision' => 8,
+                'scale' => 2,
+                'nullable' => true,
+                'type' => 'decimal',
+            ];
+        }
+
+        if (in_array($this->name, [
+            'Project',
+        ])) {
+            $this->columns['code_name'] = [
+                'label' => 'Code name',
+                'index' => true,
+                'nullable' => true,
+                'size' => 128,
+                'type' => 'string',
+            ];
+        }
+    }
+
+    public function addDates(): void
+    {
+        if (in_array($this->name, [
+            'Note',
+        ])) {
+            unset($this->dates['canceled_at']);
+        }
+
+        if (in_array($this->name, [
+            'Note',
+        ])) {
+            unset($this->dates['closed_at']);
+        }
+
+        if (in_array($this->name, [
+            'Note',
+        ])) {
+            unset($this->dates['embargo_at']);
+        }
+
+        if (in_array($this->name, [
+            'Ticket',
+        ])) {
+            $this->dates['fixed_at'] = [
+                'label' => 'Fixed at',
+                'nullable' => true,
+            ];
+        }
+
+        if (in_array($this->name, [
+            'Note',
+        ])) {
+            unset($this->dates['planned_end_at']);
+        }
+
+        if (in_array($this->name, [
+            'Note',
+        ])) {
+            unset($this->dates['planned_start_at']);
+        }
+
+        if (in_array($this->name, [
+            'Note',
+        ])) {
+            unset($this->dates['postponed_at']);
+        }
+
+        if (in_array($this->name, [
+            'Note',
+        ])) {
+            unset($this->dates['published_at']);
+        }
+
+        if (in_array($this->name, [
+            'Backlog', 'Board', 'Epic', 'Flow', 'Matrix', 'Milestone', 'Note', 'Project', 'Release', 'Roadmap', 'Source', 'Sprint', 'Tag', 'Team', 'Version', 'Tagged',
+        ])) {
+            unset($this->dates['released_at']);
+        }
+
+        if (in_array($this->name, [
+            'Note',
+        ])) {
+            unset($this->dates['resolved_at']);
+        }
+
+        if (in_array($this->name, [
+            'Note',
+        ])) {
+            unset($this->dates['resumed_at']);
+        }
+
+        if (in_array($this->name, [
+            'Note',
+        ])) {
+            unset($this->dates['suspended_at']);
+        }
+
+        if (in_array($this->name, [
+            'Note',
+        ])) {
+            unset($this->dates['timer_end_at']);
+        }
+
+        if (in_array($this->name, [
+            'Note',
+        ])) {
+            unset($this->dates['timer_start_at']);
         }
 
         ksort($this->dates);
+    }
+
+    public function addFlags(): void
+    {
+        if (in_array($this->name, [
+            'Backlog', 'Board', 'Epic', 'Flow', 'Matrix', 'Milestone', 'Note', 'Release', 'Roadmap', 'Source', 'Sprint', 'Tag', 'Team', 'Version', 'Tagged',
+        ])) {
+            unset($this->flags['duplicate']);
+        }
+
+        if (in_array($this->name, [
+            'Backlog', 'Board', 'Epic', 'Flow', 'Matrix', 'Milestone', 'Note', 'Release', 'Roadmap', 'Source', 'Sprint', 'Tag', 'Team', 'Tagged',
+        ])) {
+            unset($this->flags['fixed']);
+        }
+
+        if (in_array($this->name, [
+            'Backlog', 'Board', 'Epic', 'Flow', 'Matrix', 'Milestone', 'Note', 'Release', 'Roadmap', 'Source', 'Sprint', 'Tag', 'Team', 'Tagged',
+        ])) {
+            unset($this->flags['resolved']);
+        }
+
+        $this->flags['featured'] = [
+            'icon' => 'fa-solid fa-star text-primary',
+            'default' => false,
+            'label' => 'Featured',
+            'type' => 'boolean',
+        ];
+
+        $this->flags['special'] = [
+            'icon' => 'fa-solid fa-star text-success',
+            'default' => false,
+            'label' => 'Special',
+            'type' => 'boolean',
+        ];
+
         ksort($this->flags);
-        // dump([
-        //     '__METHOD__' => __METHOD__,
-        //     '$this->columns' => $this->columns,
-        //     '$this->dates' => $this->dates,
-        //     '$this->flags' => $this->flags,
-        //     '$this->hasOne' => $this->hasOne,
-        //     '$this->hasMany' => $this->hasMany,
-        //     '$this->ids' => $this->ids,
-        //     // '$this->json' => $this->json,
-        //     '$this->name()' => $this->name(),
-        //     '$ids_excludes' => $ids_excludes,
-        //     '$flags_excludes' => $flags_excludes,
-        //     '$json_excludes' => $json_excludes,
-        //     '$hasMany_excludes' => $hasMany_excludes,
-        //     '$hasOne_excludes' => $hasOne_excludes,
-        // ]);
+    }
+
+    public function addJson(): void
+    {
+        if (! in_array($this->name, [
+            'Flow', 'Matrix', 'Note', 'Source', 'Tag', 'Version', 'Tagged',
+        ])) {
+            $this->json['backlog'] = [
+                'label' => 'Backlog',
+                'default' => null,
+                'nullable' => true,
+                'type' => 'JSON_OBJECT',
+            ];
+        }
+
+        if (! in_array($this->name, [
+            'Flow', 'Matrix', 'Note', 'Source', 'Tag', 'Version', 'Tagged',
+        ])) {
+            $this->json['board'] = [
+                'label' => 'Board',
+                'default' => null,
+                'nullable' => true,
+                'type' => 'JSON_OBJECT',
+            ];
+        }
+
+        if (! in_array($this->name, [
+            'Flow', 'Matrix', 'Note', 'Source', 'Tag', 'Version', 'Tagged',
+        ])) {
+            $this->json['flow'] = [
+                'label' => 'Flow',
+                'default' => null,
+                'nullable' => true,
+                'type' => 'JSON_OBJECT',
+            ];
+        }
+
+        if (! in_array($this->name, [
+            'Flow', 'Matrix', 'Note', 'Source', 'Tag', 'Version', 'Tagged',
+        ])) {
+            $this->json['history'] = [
+                'label' => 'History',
+                'default' => null,
+                'nullable' => true,
+                'type' => 'JSON_OBJECT',
+            ];
+        }
+
+        if (! in_array($this->name, [
+            'Flow', 'Matrix', 'Note', 'Roadmap', 'Source', 'Tag', 'Version', 'Tagged',
+        ])) {
+            $this->json['roadmap'] = [
+                'label' => 'Roadmap',
+                'default' => null,
+                'nullable' => true,
+                'type' => 'JSON_OBJECT',
+            ];
+        }
+    }
+
+    public function init(): void
+    {
+        /**
+         * @var array<string, array<string, mixed>> $allIds
+         */
+        $allIds = Arr::except($this->allIds, ['parent_id']);
+
+        if ($this->type === 'playground-model-tagged') {
+            $this->circletHasOne['backlog']['comment'] = 'The tagged backlog.';
+            $this->circletHasOne['board']['comment'] = 'The tagged board.';
+            $this->circletHasOne['epic']['comment'] = 'The tagged epic.';
+            $this->circletHasOne['flow']['comment'] = 'The tagged flow.';
+            $this->circletHasOne['matrix']['comment'] = 'The tagged matrix.';
+            $this->circletHasOne['milestone']['comment'] = 'The tagged milestone.';
+            $this->circletHasOne['note']['comment'] = 'The tagged note.';
+            $this->circletHasOne['project']['comment'] = 'The tagged project.';
+            $this->circletHasOne['release']['comment'] = 'The tagged release.';
+            $this->circletHasOne['roadmap']['comment'] = 'The tagged roadmap.';
+            $this->circletHasOne['source']['comment'] = 'The tagged source.';
+            $this->circletHasOne['sprint']['comment'] = 'The tagged sprint.';
+            $this->circletHasOne['tag']['comment'] = 'The tagged tag.';
+            $this->circletHasOne['team']['comment'] = 'The tagged team.';
+            $this->circletHasOne['ticket']['comment'] = 'The tagged ticket.';
+            $this->circletHasOne['version']['comment'] = 'The tagged version.';
+            $this->allIds = $allIds;
+            $this->handleTagged();
+            $this->handleCircletHasOne();
+
+            return;
+        }
+
+        /**
+         * @var array<string, array<string, mixed>> $onlyIds
+         */
+        $onlyIds = Arr::only($this->allIds, ['parent_id', 'matrix_id']);
+
+        if ($this->name === 'Tag') {
+            $this->allIds = $onlyIds;
+            $this->circletHasOne = [];
+            $this->circletHasMany = [];
+            $this->hasManyThrough = [];
+            $this->handleCircletHasOne();
+
+            return;
+        }
+
+        $this->hasManyThrough['tags']['firstKey'] = $this->table_id;
+        $this->hasManyThrough['tags']['comment'] = sprintf('The tags of the %1$s.', $this->name_lower());
+
+        unset($this->allIds['tag_id']);
+        unset($this->allIds['tagged_id']);
+        unset($this->circletHasOne['tag']);
+        unset($this->circletHasMany['tags']);
+
+        $this->addIds();
+        $this->unsetCircletHasOneIds();
+        $this->unsetCircletHasManyIds();
+        $this->addColumns();
+        $this->addDates();
+        $this->addFlags();
+        $this->addJson();
+        $this->handleCircletHasOne();
+        $this->handleCircletHasMany();
     }
 }

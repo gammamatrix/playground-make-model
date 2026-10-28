@@ -54,6 +54,15 @@ composer format
 composer test
 ```
 
+## Development
+
+```shell
+cd src/Recipe/
+mv Matrix.php Matrix.phps
+ln -snf ../../../playground-make-recipe/resources/recipes/Matrix.phps Matrix.php  
+```
+
+
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
